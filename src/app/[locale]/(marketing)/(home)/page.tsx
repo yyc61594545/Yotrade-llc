@@ -7,6 +7,7 @@ import HeroSection from '@/components/blocks/hero/hero';
 import IntegrationSection from '@/components/blocks/integration/integration';
 import Integration2Section from '@/components/blocks/integration/integration2';
 import LogoCloud from '@/components/blocks/logo-cloud/logo-cloud';
+import PaymentSection from '@/components/blocks/payment/payment';
 import PricingSection from '@/components/blocks/pricing/pricing';
 import StatsSection from '@/components/blocks/stats/stats';
 import TestimonialsSection from '@/components/blocks/testimonials/testimonials';
@@ -50,25 +51,28 @@ export default async function HomePage(props: HomePageProps) {
       <div className="flex flex-col">
         <HeroSection />
 
-        <LogoCloud />
+        {/* <LogoCloud /> */}
 
-        <StatsSection />
+        {/* Hidden sections */}
+        {/* <StatsSection /> */}
 
         <IntegrationSection />
 
-        <FeaturesSection />
+        <PaymentSection />
 
-        <Features2Section />
+        {/* <FeaturesSection /> */}
 
-        <Features3Section />
+        {/* <Features2Section /> */}
+
+        {/* <Features3Section /> */}
 
         <Integration2Section />
 
-        <PricingSection />
+        {/* <PricingSection /> */}
 
-        <FaqSection />
+        {/* <FaqSection /> */}
 
-        <CallToActionSection />
+        {/* <CallToActionSection /> */}
 
         <TestimonialsSection />
 

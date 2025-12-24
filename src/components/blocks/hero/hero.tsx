@@ -29,7 +29,7 @@ const transitionVariants = {
 
 export default function HeroSection() {
   const t = useTranslations('HomePage.hero');
-  const linkIntroduction = 'https://x.com/mksaascom';
+  const linkIntroduction = 'https://x.com/yotradellc';
   const linkPrimary = '/#pricing';
   const linkSecondary = 'https://demo.mksaas.com';
 
@@ -49,7 +49,7 @@ export default function HeroSection() {
         <section>
           <div className="relative pt-12">
             <div className="mx-auto max-w-7xl px-6">
-              <Ripple />
+              {/* <Ripple /> */}
 
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                 {/* introduction */}
@@ -127,7 +127,8 @@ export default function HeroSection() {
                       </LocaleLink>
                     </Button>
                   </div>
-                  <Button
+                  {/* Secondary button hidden */}
+                  {/* <Button
                     key={2}
                     asChild
                     size="lg"
@@ -137,13 +138,13 @@ export default function HeroSection() {
                     <LocaleLink href={linkSecondary}>
                       <span className="text-nowrap">{t('secondary')}</span>
                     </LocaleLink>
-                  </Button>
+                  </Button> */}
                 </AnimatedGroup>
               </div>
             </div>
 
-            {/* images */}
-            <AnimatedGroup
+            {/* images - hidden */}
+            {/* <AnimatedGroup
               variants={{
                 container: {
                   visible: {
@@ -178,7 +179,7 @@ export default function HeroSection() {
                   />
                 </div>
               </div>
-            </AnimatedGroup>
+            </AnimatedGroup> */}
           </div>
         </section>
       </main>

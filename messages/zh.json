@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "name": "MkSaaS Demo",
-    "title": "MkSaaS - 最好的 AI SaaS 模板",
-    "description": "MkSaaS 是构建 AI SaaS 的最佳模板，使用 MkSaaS 可以在几天内轻松构建您的 AI SaaS，简单且毫不费力。"
+    "name": "YoTrade",
+    "title": "YoTrade - 世界那么大 支付不该那么难",
+    "description": "YoTrade 提供代购、代买、代刷、代办等一站式服务，帮你绕过支付限制，畅享全球好物。"
   },
   "Common": {
     "premium": "付费文章",
@@ -144,10 +144,10 @@
   },
   "AboutPage": {
     "title": "关于我们",
-    "description": "MkSaaS 是一个使用最先进的技术栈构建的 AI SaaS 模板，它可以帮助你更快更好地构建你的 SaaS。如果你有任何问题，欢迎联系我。",
-    "authorName": "MkSaaS",
-    "authorBio": "最好的 AI SaaS 模板",
-    "introduction": "👋 你好，这里是 MkSaaS，一个使用最先进的技术栈构建的 AI SaaS 模板，它可以帮助你更快更好地构建你的 SaaS。如果你有任何问题，欢迎联系我。",
+    "description": "YoTrade 是一个提供全球代购、代买、代刷、代办服务的平台，帮助你绕过支付限制，畅享全球好物。如果你有任何问题，欢迎联系我们。",
+    "authorName": "YoTrade",
+    "authorBio": "世界那么大 支付不该那么难",
+    "introduction": "👋 你好，这里是 YoTrade，我们提供代购、代买、代刷、代办等一站式服务，帮你绕过支付限制，畅享全球好物。如果你有任何问题，欢迎联系我们。",
     "talkWithMe": "联系我",
     "followMe": "关注我"
   },
@@ -292,7 +292,7 @@
     "previousPage": "上一页",
     "nextPage": "下一页",
     "chooseLanguage": "选择语言",
-    "title": "MkSaaS文档",
+    "title": "YoTrade文档",
     "homepage": "首页"
   },
   "PremiumContent": {
@@ -445,7 +445,7 @@
       }
     },
     "footer": {
-      "tagline": "使用 MkSaaS 在几天内轻松构建您的 AI SaaS",
+      "tagline": "YoTrade 提供代购、代买、代刷、代办等一站式服务",
       "product": {
         "title": "产品",
         "items": {
@@ -734,7 +734,7 @@
   },
   "Mail": {
     "common": {
-      "team": "{name} 团队",
+      "team": "YoTrade 团队",
       "copyright": "©️ {year} 版权所有。"
     },
     "verifyEmail": {
@@ -761,55 +761,99 @@
     }
   },
   "HomePage": {
-    "title": "MkSaaS",
-    "description": "使用 MkSaaS 在几天内轻松构建您的 AI SaaS 产品",
+    "title": "YoTrade",
+    "description": "世界那么大 支付不该那么难",
     "hero": {
-      "title": "使用 MkSaaS 轻松构建您的 AI SaaS 产品",
-      "description": "MkSaaS 是构建 AI SaaS 的最佳模板，内置 AI、身份验证、全球支付、博客、文档、邮件订阅、SEO、多彩主题、丰富组件等。",
-      "introduction": "介绍 MkSaaS 模板",
-      "primary": "开始使用",
+      "title": "世界那么大 支付不该那么难",
+      "description": "YoTrade 提供代购、代买、代刷、代办等一站式服务，帮你绕过支付限制，畅享全球好物。",
+      "introduction": "介绍 YoTrade",
+      "primary": "立即订阅",
       "secondary": "查看演示"
     },
     "logocloud": {
       "title": "您最爱公司都是我们的合作伙伴"
     },
     "integration": {
-      "title": "集成",
-      "subtitle": "与您最喜欢的工具集成",
-      "description": "无缝连接流行的平台和服务，以增强您的工作流程。",
+      "title": "服务内容",
       "learnMore": "了解更多",
       "items": {
         "item-1": {
-          "title": "Google Gemini",
-          "description": "这里是Google Gemini的描述，详细介绍Google Gemini的功能和优势。"
+          "title": "代购",
+          "description": "帮您购买海外商品，从下单到收货全程跟踪，确保商品安全送达。"
         },
         "item-2": {
-          "title": "Replit",
-          "description": "这里是Replit的描述，详细介绍Replit的功能和优势。"
+          "title": "代买",
+          "description": "协助您在国外购物平台买到限定款、折扣品或需要特定账号的商品。"
         },
         "item-3": {
-          "title": "MagicUI",
-          "description": "这里是MagicUI的描述，详细介绍MagicUI的功能和优势。"
+          "title": "代刷",
+          "description": "没有国际信用卡的人或限定某国银行卡的网站，提供安全透明可靠的代刷服务。"
         },
         "item-4": {
-          "title": "VSCodium",
-          "description": "这里是VSCodium的描述，详细介绍VSCodium的功能和优势。"
-        },
-        "item-5": {
-          "title": "MediaWiki",
-          "description": "这里是MediaWiki的描述，详细介绍MediaWiki的功能和优势。"
-        },
-        "item-6": {
-          "title": "Google PaLM",
-          "description": "这里是Google PaLM的描述，详细介绍Google PaLM的功能和优势。"
+          "title": "代办",
+          "description": "协助办理海外业务，包括注册ITIN、美国公司、美国银行、收款等服务。"
         }
       }
     },
     "integration2": {
-      "title": "与您最喜欢的工具集成",
+      "title": "热门服务",
       "description": "无缝连接流行的平台和服务，以增强您的工作流程。",
-      "primaryButton": "开始使用",
-      "secondaryButton": "查看演示"
+      "items": {
+        "gemini": {
+          "title": "Google Gemini",
+          "description": "集成 Google Gemini AI 模型，提供智能对话和内容生成服务。"
+        },
+        "replit": {
+          "title": "Replit",
+          "description": "在线代码编辑和协作平台，快速开发和部署应用。"
+        },
+        "magicui": {
+          "title": "MagicUI",
+          "description": "现代化的 UI 组件库，快速构建美观的用户界面。"
+        },
+        "vscodium": {
+          "title": "VSCodium",
+          "description": "开源代码编辑器，提供强大的开发工具和扩展支持。"
+        },
+        "mediawiki": {
+          "title": "MediaWiki",
+          "description": "维基百科使用的开源 Wiki 引擎，构建知识库平台。"
+        },
+        "googlepalm": {
+          "title": "Google PaLM",
+          "description": "Google 的大语言模型 API，提供强大的 AI 能力。"
+        }
+      }
+    },
+    "payment": {
+      "title": "收款方式",
+      "description": "集成微信、支付宝、银联等主流收款渠道，提供快速资金结算与分账服务，支持多平台支付方式无缝对接，保障交易安全稳定",
+      "items": {
+        "wechat": {
+          "title": "WeChat Pay",
+          "description": "使用微信支付安全付款"
+        },
+        "alipay": {
+          "title": "Alipay",
+          "description": "使用支付宝安全付款"
+        },
+        "applepay": {
+          "title": "Apple Pay",
+          "description": "使用 Apple Pay 安全付款"
+        },
+        "googlepay": {
+          "title": "Google Pay",
+          "description": "使用 Google Pay 安全付款"
+        },
+        "creditcard": {
+          "title": "Credit Cards",
+          "description": "使用信用卡安全付款"
+        },
+        "banktransfer": {
+          "title": "Bank Transfer",
+          "description": "使用银行转账安全付款"
+        }
+      }
     },
     "features": {
       "title": "功能",
@@ -910,76 +954,76 @@
       "subtitle": "我们的客户对我们的评价",
       "items": {
         "item-1": {
-          "name": "Jonathan Yombo",
-          "role": "软件工程师",
+          "name": "小明同学",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/1.jpg",
-          "quote": "MkSaaS 非常出色且实用，无需费心，一个真正的金矿。"
+          "quote": "通过YoTrade代购了很多美国商品，省心省力，价格也公道。特别是他们的Amazon代购服务，从下单到收货都很顺利！"
         },
         "item-2": {
-          "name": "Yves Kalume",
-          "role": "Android GDE",
+          "name": "SkyWalker",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/6.jpg",
-          "quote": "没有网页设计经验，我只需几分钟就可以用 Tailwindcss 重新设计我的整个网站，感谢 MkSaaS。"
+          "quote": "我在YoTrade办理了ITIN和美国地址服务，整个流程非常专业，客服耐心解答所有问题。现在我可以轻松购买美国商品了。"
         },
         "item-3": {
-          "name": "Yucel Faruksahan",
-          "role": "Tailkits 创建者",
+          "name": "芳芳爱购物",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/7.jpg",
-          "quote": "MkSaaS 模板做得很好，这是我见过最好的 SaaS 模板，没有之一 :)"
+          "quote": "YoTrade的代刷服务太棒了！帮我解决了很多支付难题，现在订阅Netflix、Spotify都不是问题。强烈推荐！"
         },
         "item-4": {
-          "name": "Anonymous author",
-          "role": "产品经理",
+          "name": "David_Chen",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/8.jpg",
-          "quote": "我不熟悉 Tailwind，我想自己做一些页面，我在网上搜索了很多英雄页面和区块。然而，大多数都没有给我一个清晰的想法，或者需要一些 HTML/CSS 编码背景来从原始文件中做一些更改，或者太贵了。我下载了其中一个 MkSaaS 模板，它非常容易理解，你可以在开始时修改代码/区块以完美地适应你的页面目的。"
+          "quote": "在YoTrade办理美国信用卡，从申请到拿到卡只用了两周时间。客服很专业，帮我建立了良好的信用记录。对于需要美国支付渠道的人来说，这是最佳选择。"
         },
         "item-5": {
-          "name": "Shekinah Tshiokufila",
-          "role": "高级软件工程师",
+          "name": "海购达人",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/4.jpg",
-          "quote": "MkSaaS 正在重新定义网页设计标准，这些区块为那些喜欢美丽但可能缺乏时间实现它的人提供了简单且高效的方式。我只能推荐这个不可思议的奇迹。"
+          "quote": "YoTrade的代办服务非常靠谱，帮我处理了很多复杂的文件和手续。省去了我大量的时间和精力，价格也很合理。"
         },
         "item-6": {
-          "name": "Oketa Fred",
-          "role": "全栈开发工程师",
+          "name": "Liz_Zhao",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/2.jpg",
-          "quote": "我绝对喜欢 MkSaaS！这些组件区块设计精美且易于使用，使创建一个出色的网站变得轻而易举。"
+          "quote": "用YoTrade代购了Coach、Nike等品牌商品，质量有保障，价格比国内便宜很多。物流也很快，客服响应及时！"
         },
         "item-7": {
-          "name": "Zeki",
-          "role": "ChatExtend 创始人",
+          "name": "阳光男孩",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/5.jpg",
-          "quote": "使用 MkSaaS 就像解锁了一个秘密的设计超能力。它是简单性和多功能性的完美融合，使我们能够创建既令人惊叹又用户友好的界面。"
+          "quote": "YoTrade的美国地址服务帮了我大忙，很多美国网站不支持国际配送，现在通过他们的地址可以轻松下单。转运速度也很快。"
         },
         "item-8": {
-          "name": "Joseph Kitheka",
-          "role": "全栈开发工程师",
+          "name": "MinMin",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/9.jpg",
-          "quote": "MkSaaS 改变了我的网页开发方式。他们的 UI 组件、区块和模板极大地加速了我的工作流程。定制每个方面的灵活性使我能够创建独特的用户体验。MkSaaS 是现代网页开发的游戏规则改变者！"
+          "quote": "通过YoTrade办理了信用养成服务，他们很专业地帮我规划了信用建立的步骤。现在我的信用分数已经达到了700+，非常感谢！"
         },
         "item-9": {
-          "name": "Khatab Wedaa",
-          "role": "MerakiUI 创建者",
+          "name": "涛哥说",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/10.jpg",
-          "quote": "MkSaaS 是一个优雅、干净且响应式的 SaaS 模板，它非常有助于快速开始您的项目。"
+          "quote": "YoTrade的代买服务覆盖了Amazon、Walmart、Target等主流平台，价格透明，服务高效。我已经推荐给很多朋友了。"
         },
         "item-10": {
-          "name": "Rodrigo Aguilar",
-          "role": "TailwindAwesome 创建者",
+          "name": "Snow_Zheng",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/11.jpg",
-          "quote": "我爱 MkSaaS ❤️。这些组件区块结构良好，易于使用，设计精美。它使创建一个出色的网站变得非常容易。"
+          "quote": "在YoTrade办理ITIN非常顺利，他们的专业团队帮我准备了所有材料，整个过程很省心。现在可以享受各种美国服务了！"
         },
         "item-11": {
-          "name": "Eric Ampire",
-          "role": "Google 开发者专家",
+          "name": "雷哥在美国",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/12.jpg",
-          "quote": "MkSaaS 模板是任何想要创建一个美丽且功能齐全的网站但没有网页设计经验的人的完美解决方案。这些模板易于使用，可定制，并且响应迅速。我强烈推荐 MkSaaS 模板给任何想要创建网站的人。"
+          "quote": "YoTrade的代刷服务解决了我的大难题，很多国外订阅服务都需要美国支付方式，现在通过他们都可以轻松搞定。服务稳定可靠！"
         },
         "item-12": {
-          "name": "Roland Tubonge",
-          "role": "软件工程师",
+          "name": "Tintin_Lin",
+          "role": "",
           "image": "https://randomuser.me/api/portraits/men/13.jpg",
-          "quote": "MkSaaS 设计得如此出色，即使没有网页设计经验，您也可以创造奇迹。让自己被吸引！"
+          "quote": "YoTrade帮我办理了美国地址和信用卡申请，现在可以自由购买各种美国商品和服务。客服团队非常专业，整个体验非常好！"
         }
       }
     },
@@ -1000,8 +1044,8 @@
       }
     },
     "calltoaction": {
-      "title": "开始构建",
-      "description": "MkSaaS 可让您在几天内轻松构建您的 AI SaaS",
+      "title": "立即开始",
+      "description": "YoTrade 帮你绕过支付限制，畅享全球好物",
       "primaryButton": "开始使用",
       "secondaryButton": "查看演示"
     }

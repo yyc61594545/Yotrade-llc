@@ -20,11 +20,11 @@ export function useFooterLinks(): NestedMenuItem[] {
 
   return [
     {
-      title: t('product.title'),
+      title: t('company.title'),
       items: [
         {
-          title: t('product.items.features'),
-          href: Routes.Features,
+          title: t('company.items.about'),
+          href: Routes.About,
           external: false,
         },
         {
@@ -33,15 +33,10 @@ export function useFooterLinks(): NestedMenuItem[] {
           external: false,
         },
         {
-          title: t('product.items.faq'),
-          href: Routes.FAQ,
+          title: t('product.items.features'),
+          href: Routes.Features,
           external: false,
         },
-      ],
-    },
-    {
-      title: t('resources.title'),
-      items: [
         ...(websiteConfig.blog.enable
           ? [
               {
@@ -51,43 +46,19 @@ export function useFooterLinks(): NestedMenuItem[] {
               },
             ]
           : []),
-        ...(websiteConfig.docs.enable
-          ? [
-              {
-                title: t('resources.items.docs'),
-                href: Routes.Docs,
-                external: false,
-              },
-            ]
-          : []),
-        {
-          title: t('resources.items.changelog'),
-          href: Routes.Changelog,
-          external: false,
-        },
-        {
-          title: t('resources.items.roadmap'),
-          href: Routes.Roadmap,
-          external: true,
-        },
       ],
     },
     {
-      title: t('company.title'),
+      title: t('resources.title'),
       items: [
-        {
-          title: t('company.items.about'),
-          href: Routes.About,
-          external: false,
-        },
         {
           title: t('company.items.contact'),
           href: Routes.Contact,
           external: false,
         },
         {
-          title: t('company.items.waitlist'),
-          href: Routes.Waitlist,
+          title: t('product.items.faq'),
+          href: Routes.FAQ,
           external: false,
         },
       ],

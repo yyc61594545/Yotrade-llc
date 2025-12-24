@@ -1,35 +1,60 @@
-version: '3'
+version: '3.8'
+
 services:
   app:
-    image: node:14  # 使用 Node.js 官方镜像
-    container_name: yotrade-app
+    container_name: yotrade_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
     ports:
-      - "80:80"
-    volumes:
-      - ./app:/var/www/html  # 挂载本地应用代码
-    networks:
-      - yotrade-network
-  db:
-    image: postgres:latest
+      - "3000:3000"
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: yotrade
-    volumes:
-      - ./data:/var/lib/postgresql/data
+      - NODE_ENV=production
+    env_file:
+      - .env.production
     networks:
-      - yotrade-network
+      - yotrade_net
+
   nginx:
-    image: nginx:latest
-    container_name: yotrade-nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf  # 配置 Nginx
+    container_name: yotrade_nginx
+    image: nginx:alpine
+    restart: always
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     depends_on:
       - app
     networks:
-      - yotrade-network
+      - yotrade_net
+
+  # Database
+  db:
+    image: postgres:15-alpine
+    container_name: yotrade_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${Item_POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${Item_POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${Item_POSTGRES_DB:-yotrade}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - yotrade_net
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
 networks:
-  yotrade-network:
+  yotrade_net:
     driver: bridge
+
+volumes:
+  db_data:

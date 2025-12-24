@@ -21,17 +21,11 @@ export const websiteConfig: WebsiteConfig = {
   metadata: {
     images: {
       ogImage: '/og.png',
-      logoLight: '/logo.png',
-      logoDark: '/logo-dark.png',
+      logoLight: '/yotradellc.jpg',
+      logoDark: '/yotradellc.jpg',
     },
     social: {
-      github: 'https://github.com/MkSaaSHQ',
-      twitter: 'https://mksaas.link/twitter',
-      blueSky: 'https://mksaas.link/bsky',
-      discord: 'https://mksaas.link/discord',
-      mastodon: 'https://mksaas.link/mastodon',
-      linkedin: 'https://mksaas.link/linkedin',
-      youtube: 'https://mksaas.link/youtube',
+      twitter: 'https://x.com/yotradellc?s=21&t=rfkcqWTjR_4B-VbmCex3HQ',
     },
   },
   features: {
@@ -56,15 +50,15 @@ export const websiteConfig: WebsiteConfig = {
     enableCredentialLogin: true,
   },
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'zh',
     locales: {
-      en: {
-        flag: '🇺🇸',
-        name: 'English',
-      },
       zh: {
         flag: '🇨🇳',
         name: '中文',
+      },
+      en: {
+        flag: '🇺🇸',
+        name: 'English',
       },
     },
   },
@@ -78,8 +72,8 @@ export const websiteConfig: WebsiteConfig = {
   },
   mail: {
     provider: 'resend',
-    fromEmail: 'onboarding@resend.dev',
-    supportEmail: 'onboarding@resend.dev',
+    fromEmail: 'service@yotradellc.com',
+    supportEmail: 'service@yotradellc.com',
   },
   newsletter: {
     enable: true,

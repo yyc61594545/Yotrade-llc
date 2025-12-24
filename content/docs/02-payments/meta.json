@@ -1,0 +1,10 @@
+{
+  "title": "全球支付与收款",
+  "description": "全球支付工具配置指南",
+  "icon": "CreditCard",
+  "pages": [
+    "index",
+    "stripe",
+    "wise"
+  ]
+}

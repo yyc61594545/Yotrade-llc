@@ -27,74 +27,74 @@ export default function TestimonialsSection() {
   const testimonials: Testimonial[] = [
     {
       name: t('items.item-1.name'),
-      role: t('items.item-1.role'),
-      image: t('items.item-1.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/men/32.jpg',
       quote: t('items.item-1.quote'),
     },
     {
       name: t('items.item-2.name'),
-      role: t('items.item-2.role'),
-      image: t('items.item-2.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/women/44.jpg',
       quote: t('items.item-2.quote'),
     },
     {
       name: t('items.item-3.name'),
-      role: t('items.item-3.role'),
-      image: t('items.item-3.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/men/46.jpg',
       quote: t('items.item-3.quote'),
     },
     {
       name: t('items.item-4.name'),
-      role: t('items.item-4.role'),
-      image: t('items.item-4.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/women/68.jpg',
       quote: t('items.item-4.quote'),
     },
     {
       name: t('items.item-5.name'),
-      role: t('items.item-5.role'),
-      image: t('items.item-5.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/men/86.jpg',
       quote: t('items.item-5.quote'),
     },
     {
       name: t('items.item-6.name'),
-      role: t('items.item-6.role'),
-      image: t('items.item-6.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/women/21.jpg',
       quote: t('items.item-6.quote'),
     },
     {
       name: t('items.item-7.name'),
-      role: t('items.item-7.role'),
-      image: t('items.item-7.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/men/22.jpg',
       quote: t('items.item-7.quote'),
     },
     {
       name: t('items.item-8.name'),
-      role: t('items.item-8.role'),
-      image: t('items.item-8.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/women/65.jpg',
       quote: t('items.item-8.quote'),
     },
     {
       name: t('items.item-9.name'),
-      role: t('items.item-9.role'),
-      image: t('items.item-9.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/men/54.jpg',
       quote: t('items.item-9.quote'),
     },
     {
       name: t('items.item-10.name'),
-      role: t('items.item-10.role'),
-      image: t('items.item-10.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/women/90.jpg',
       quote: t('items.item-10.quote'),
     },
     {
       name: t('items.item-11.name'),
-      role: t('items.item-11.role'),
-      image: t('items.item-11.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/men/71.jpg',
       quote: t('items.item-11.quote'),
     },
     {
       name: t('items.item-12.name'),
-      role: t('items.item-12.role'),
-      image: t('items.item-12.image'),
+      role: '',
+      image: 'https://randomuser.me/api/portraits/women/32.jpg',
       quote: t('items.item-12.quote'),
     },
   ];
@@ -106,13 +106,12 @@ export default function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="px-4 py-16">
-      <div className="mx-auto max-w-6xl">
-        <HeaderSection
-          title={t('title')}
-          titleAs="h2"
-          subtitle={t('subtitle')}
-          subtitleAs="p"
-        />
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col items-center text-center mb-12">
+          <h2 className="text-balance text-3xl font-semibold md:text-4xl">
+            {t('title')}
+          </h2>
+        </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
           {testimonialChunks.map((chunk, chunkIndex) => (
@@ -136,10 +135,6 @@ export default function TestimonialsSection() {
 
                     <div>
                       <h3 className="font-medium">{name}</h3>
-
-                      <span className="text-muted-foreground block text-sm tracking-wide">
-                        {role}
-                      </span>
 
                       <blockquote className="mt-3">
                         <p className="text-gray-700 dark:text-gray-300">

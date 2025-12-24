@@ -1,0 +1,19 @@
+{
+  "title": "香港银行账户",
+  "description": "香港银行账户办理指南",
+  "icon": "Building2",
+  "pages": [
+    "index",
+    "---银行指南---",
+    "hsbc-guide",
+    "bochk-guide",
+    "za-bank-guide",
+    "ant-bank-guide",
+    "airstar-guide",
+    "icbc-asia-guide",
+    "scb-guide",
+    "ocbc-guide",
+    "---对比---",
+    "comparison"
+  ]
+}

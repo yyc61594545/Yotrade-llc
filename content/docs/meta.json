@@ -1,25 +1,10 @@
 {
-  "title": "Framework",
-  "description": "The docs framework",
-  "icon": "Building2",
+  "title": "YoTrade 文档",
+  "description": "香港银行卡与全球支付指南",
+  "icon": "BookOpen",
   "root": true,
   "pages": [
-    "---Introduction---",
-    "index",
-    "what-is-fumadocs",
-    "comparisons",
-    "---Setup---",
-    "manual-installation",
-    "static-export",
-    "---Writing---",
-    "markdown",
-    "internationalization",
-    "---UI---",
-    "customisation",
-    "theme",
-    "search",
-    "components",
-    "mdx",
-    "layouts"
+    "01-hk-bank-account",
+    "02-payments"
   ]
 }
