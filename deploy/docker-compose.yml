@@ -1,0 +1,35 @@
+version: '3'
+services:
+  app:
+    image: your-image-name
+    container_name: yotrade-app
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+    networks:
+      - yotrade-network
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: yotrade
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - yotrade-network
+  nginx:
+    image: nginx:latest
+    container_name: yotrade-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - yotrade-network
+networks:
+  yotrade-network:
+    driver: bridge
