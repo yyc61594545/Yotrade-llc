@@ -763,7 +763,7 @@
   "HomePage": {
     "title": "MkSaaS",
     "description": "Make AI SaaS in days, simply and effortlessly",
-    "": {
+    "hero": {
       "title": "Make AI SaaS in days, simply and effortlessly",
       "description": "The is a demo website built with MkSaaS, a Next.js SaaS boilerplate to help you build your AI SaaS faster and better.",
       "introduction": "Introducing MkSaaS Boilerplate",
