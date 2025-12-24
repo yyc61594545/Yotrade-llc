@@ -1004,6 +1004,35 @@
       "description": "MkSaaS lets you make AI SaaS in days, simply and effortlessly",
       "primaryButton": "Get Started",
       "secondaryButton": "See Demo"
+    },
+    "payment": {
+      "title": "Supported Payment Methods",
+      "items": {
+        "wechat": {
+          "title": "WeChat Pay",
+          "description": "Pay with WeChat"
+        },
+        "alipay": {
+          "title": "Alipay",
+          "description": "Pay with Alipay"
+        },
+        "applepay": {
+          "title": "Apple Pay",
+          "description": "Pay with Apple Pay"
+        },
+        "googlepay": {
+          "title": "Google Pay",
+          "description": "Pay with Google Pay"
+        },
+        "creditcard": {
+          "title": "Credit Card",
+          "description": "Pay with Credit Card"
+        },
+        "banktransfer": {
+          "title": "Bank Transfer",
+          "description": "Pay with Bank Transfer"
+        }
+      }
     }
   },
   "AITextPage": {
