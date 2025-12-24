@@ -19,6 +19,11 @@ jobs:
           echo "NEXT_PUBLIC_BASE_URL=https://www.yotradellc.com" > .env.production
           echo "DATABASE_URL=postgresql://postgres:password@db:5432/yotrade" >> .env.production
 
+      - name: Build Docker Image
+        run: |
+          docker build -t yotrade_app:latest .
+          docker save yotrade_app:latest | gzip > yotrade_app.tar.gz
+
       - name: Copy files to VPS via Rsync
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -26,7 +31,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH }}
           port: 27753
-          source: "."
+          source: ".,yotrade_app.tar.gz"
           target: "~/apps/yotrade"
           rm: false # Changed to false to be safer, but Rsync usually handles overwrites fine.
 
@@ -46,9 +51,15 @@ jobs:
               echo "DATABASE_URL=postgresql://postgres:password@db:5432/yotrade" >> .env.production
             fi
             
-            # Pull latest images if using prebuilt, otherwise build
+            # Load the pre-built image
+            if [ -f yotrade_app.tar.gz ]; then
+              gunzip -c yotrade_app.tar.gz | docker load
+              rm yotrade_app.tar.gz
+            fi
+
+            # Start services (no build)
             docker compose -f deploy/docker-compose.yml down
-            docker compose -f deploy/docker-compose.yml up -d --build
+            docker compose -f deploy/docker-compose.yml up -d
             
             # Prune unused images
             docker image prune -f

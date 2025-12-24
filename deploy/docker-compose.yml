@@ -3,9 +3,10 @@ version: '3.8'
 services:
   app:
     container_name: yotrade_app
-    build:
-      context: ..
-      dockerfile: Dockerfile
+    image: yotrade_app:latest
+    # build:
+    #   context: ..
+    #   dockerfile: Dockerfile
     restart: always
     ports:
       - "3000:3000"
