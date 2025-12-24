@@ -25,6 +25,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH }}
+          port: 27753
           source: "."
           target: "~/apps/yotrade"
           rm: false # Changed to false to be safer, but Rsync usually handles overwrites fine.
@@ -35,6 +36,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH }}
+          port: 27753
           script: |
             cd ~/apps/yotrade
             # Check if .env.production exists
