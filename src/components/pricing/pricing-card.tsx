@@ -106,137 +106,128 @@ export function PricingCard({
   // check if plan has a trial period, period is greater than 0
   const hasTrialPeriod = price?.trialPeriodDays && price.trialPeriodDays > 0;
 
+  // Determine styles based on plan ID
+  const isManual = plan.id === 'manual';
+  const isAdvanced = plan.id === 'advanced'; // Now "Personal Agency" ($299)
+  const isAgency = plan.id === 'agency'; // Now "Full Agency" ($699)
+
+  let cardStyles = 'flex flex-col h-full rounded-2xl border-2 transition-all duration-200 bg-white dark:bg-card';
+  let badgeText = '';
+  let badgeStyles = '';
+  // Colors for text/icons/buttons
+  let themeColorText = 'text-primary';
+  let themeColorBorder = 'border-border';
+  let themeColorButton = 'bg-primary hover:bg-primary/90 text-primary-foreground'; // Default
+  let shadowClass = '';
+
+  if (isManual) {
+    // Orange Theme
+    cardStyles += ' border-orange-500 shadow-xl shadow-orange-100/50 dark:shadow-orange-900/20';
+    badgeText = t('manualBadge');
+    badgeStyles = 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400';
+    themeColorText = 'text-orange-500';
+    themeColorBorder = 'border-orange-500';
+    themeColorButton = 'bg-orange-500 hover:bg-orange-600 text-white border-orange-500';
+
+  } else if (isAdvanced) {
+    // Green Theme
+    cardStyles += ' border-emerald-500 shadow-xl shadow-emerald-100/50 dark:shadow-emerald-900/20';
+    badgeText = t('advancedBadge');
+    badgeStyles = 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400';
+    themeColorText = 'text-emerald-500';
+    themeColorBorder = 'border-emerald-500';
+    themeColorButton = 'bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-500';
+
+  } else if (isAgency) {
+    // Blue Theme
+    cardStyles += ' border-blue-500 shadow-xl shadow-blue-100/50 dark:shadow-blue-900/20';
+    badgeText = t('agencyBadge');
+    badgeStyles = 'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400';
+    themeColorText = 'text-blue-600'; // Match border roughly
+    themeColorBorder = 'border-blue-500';
+    themeColorButton = 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600';
+  } else {
+    // Fallback
+    cardStyles += ' border-border shadow-sm';
+  }
+
   return (
-    <Card
-      className={cn(
-        'flex flex-col h-full',
-        plan.popular && 'relative',
-        isCurrentPlan &&
-          'border-blue-500 shadow-lg shadow-blue-100 dark:shadow-blue-900/20',
-        className
-      )}
-    >
-      {/* show popular badge if plan is recommended */}
-      {plan.popular && (
-        <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2">
-          <Badge
-            variant="default"
-            className="bg-primary text-primary-foreground"
-          >
-            {t('popular')}
-          </Badge>
+    <Card className={cn(cardStyles, className)}>
+      <CardHeader className="pb-6">
+        <div className="flex items-center gap-3 mb-4">
+           {/* Title matches border color */}
+           <h3 className={cn("text-xl font-bold", themeColorText)}>{plan.name}</h3>
+           {(isManual || isAdvanced || isAgency) && (
+              <Badge variant="secondary" className={cn("rounded-md px-2 py-0.5 text-xs font-normal", badgeStyles)}>
+                {badgeText}
+              </Badge>
+           )}
         </div>
-      )}
 
-      {/* show current plan badge if plan is current plan */}
-      {isCurrentPlan && (
-        <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2">
-          <Badge
-            variant="default"
-            className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 border-blue-200 dark:border-blue-800"
-          >
-            {t('currentPlan')}
-          </Badge>
-        </div>
-      )}
-
-      <CardHeader>
-        <CardTitle>
-          <h3 className="font-medium">{plan.name}</h3>
-        </CardTitle>
-
-        {/* show price and price label */}
-        <div className="flex items-baseline gap-2">
-          <span className="my-4 block text-4xl font-semibold">
-            {formattedPrice}
+        {/* Price display */}
+        <div className="flex items-baseline gap-1 mt-2">
+          <span className={cn("text-5xl font-bold tracking-tight", themeColorText)}>
+            ${isPaidPlan ? (price!.amount / 100) : 0}
           </span>
-          {priceLabel && <span className="text-2xl">{priceLabel}</span>}
         </div>
 
-        <CardDescription>
-          <p className="text-sm">{plan.description}</p>
+        <CardDescription className="mt-4 text-sm text-muted-foreground min-h-[40px]">
+          {plan.description}
         </CardDescription>
 
-        {/* show action buttons based on plans */}
-        {plan.isFree ? (
-          mounted && currentUser ? (
-            <Button variant="outline" className="mt-4 w-full disabled">
-              {t('getStartedForFree')}
-            </Button>
+        {/* Action Button */}
+        <div className="mt-6">
+          {currentUser ? (
+             <CheckoutButton
+                userId={currentUser.id}
+                planId={plan.id}
+                priceId={price?.priceId || ''}
+                className={cn(
+                  "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
+                  themeColorButton
+                )}
+             >
+               {t('getStartedFreeTrial')}
+             </CheckoutButton>
           ) : (
-            <LoginWrapper mode="modal" asChild callbackUrl={currentPath}>
-              <Button variant="outline" className="mt-4 w-full cursor-pointer">
-                {t('getStartedForFree')}
-              </Button>
+            <LoginWrapper mode="modal">
+               <Button
+                 className={cn(
+                   "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
+                   themeColorButton
+                 )}
+               >
+                 {t('getStartedFreeTrial')}
+               </Button>
             </LoginWrapper>
-          )
-        ) : isCurrentPlan ? (
-          <Button
-            disabled
-            className="mt-4 w-full bg-blue-100 dark:bg-blue-800
-          text-blue-700 dark:text-blue-100 hover:bg-blue-100 dark:hover:bg-blue-800 border border-blue-200 dark:border-blue-700"
-          >
-            {t('yourCurrentPlan')}
-          </Button>
-        ) : isPaidPlan ? (
-          mounted && currentUser ? (
-            <CheckoutButton
-              userId={currentUser.id}
-              planId={plan.id}
-              priceId={price.priceId}
-              metadata={metadata}
-              className="mt-4 w-full cursor-pointer"
-            >
-              {plan.isLifetime ? t('getLifetimeAccess') : t('getStarted')}
-            </CheckoutButton>
-          ) : (
-            <LoginWrapper mode="modal" asChild callbackUrl={currentPath}>
-              <Button variant="default" className="mt-4 w-full cursor-pointer">
-                {t('getStarted')}
-              </Button>
-            </LoginWrapper>
-          )
-        ) : (
-          <Button disabled className="mt-4 w-full">
-            {t('notAvailable')}
-          </Button>
-        )}
+          )}
+        </div>
       </CardHeader>
 
-      <CardContent className="space-y-4">
-        <hr className="border-dashed" />
+      <CardContent className="space-y-6 pt-0">
+        {/* Divider */}
+        <div className={cn("border-t border-dashed my-2", isManual || isAdvanced || isAgency ? themeColorBorder : "border-gray-200")} style={{ opacity: 0.3 }} />
 
-        {/* show trial period if it exists */}
-        {hasTrialPeriod && (
-          <div className="my-4">
-            <span
-              className="inline-block px-2.5 py-1.5 text-xs font-medium rounded-md
-            bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800 shadow-sm"
-            >
-              {t('daysTrial', { days: price.trialPeriodDays as number })}
-            </span>
-          </div>
-        )}
+        {/* Features list */}
+        <ul className="space-y-4">
+          {plan.features?.map((featureRaw, i) => {
+            // Split feature string by '||'
+            const [mainText, subText] = featureRaw.split('||');
 
-        {/* show features of this plan */}
-        <ul className="list-outside space-y-4 text-sm">
-          {plan.features?.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <CheckCircleIcon className="size-4 text-green-500 dark:text-green-400" />
-              <span>{feature}</span>
-            </li>
-          ))}
+            return (
+              <li key={i} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <CheckCircleIcon className={cn("size-5 shrink-0 mt-0.5", themeColorText)} />
+                <div className="flex flex-col">
+                  <span className="leading-tight font-medium">{mainText}</span>
+                  {subText && (
+                    <span className="text-xs text-muted-foreground mt-0.5">{subText}</span>
+                  )}
+                </div>
+              </li>
+            );
+          })}
         </ul>
 
-        {/* show limits of this plan */}
-        <ul className="list-outside space-y-4 text-sm">
-          {plan.limits?.map((limit, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <XCircleIcon className="size-4 text-gray-500 dark:text-gray-400" />
-              <span>{limit}</span>
-            </li>
-          ))}
-        </ul>
       </CardContent>
     </Card>
   );

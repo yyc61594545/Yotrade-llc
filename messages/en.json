@@ -62,7 +62,10 @@
       "getLifetimeAccess": "Get Lifetime Access",
       "getStarted": "Get Started",
       "notAvailable": "Not Available",
-      "daysTrial": "{days}-day free trial"
+      "daysTrial": "{days}-day free trial",
+      "manualBadge": "Self Service",
+      "agencyBadge": "Full Agency",
+      "getStartedFreeTrial": "Start Free Trial"
     },
     "CheckoutButton": {
       "loading": "Loading...",
@@ -70,48 +73,47 @@
     }
   },
   "PricePlans": {
-    "free": {
-      "name": "Free",
-      "description": "Basic features for personal use",
+    "manual": {
+      "name": "Manual Version ($59)",
+      "description": "For users who want to do it themselves",
       "features": {
-        "feature-1": "Up to 3 projects",
-        "feature-2": "1 GB storage",
-        "feature-3": "Basic analytics",
-        "feature-4": "Community support"
+        "feature-1": "Complete global payment guide",
+        "feature-2": "ITIN application guide",
+        "feature-3": "Bank account application guide",
+        "feature-4": "Company registration guide",
+        "feature-5": "Stripe solution",
+        "feature-6": "Crypto solution",
+        "feature-7": "Risk control"
       },
-      "limits": {
-        "limit-1": "Custom domains",
-        "limit-2": "Custom branding",
-        "limit-3": "Lifetime updates"
-      }
+      "limits": {}
     },
-    "pro": {
-      "name": "Pro",
-      "description": "Advanced features for professionals",
+    "advanced": {
+      "name": "Personal Agency ($299)",
+      "description": "Worry-free personal assistance",
       "features": {
-        "feature-1": "Unlimited projects",
-        "feature-2": "10 GB storage",
-        "feature-3": "Advanced analytics",
-        "feature-4": "Priority support",
-        "feature-5": "Custom domains"
+        "feature-1": "Includes Manual Version content",
+        "feature-2": "ITIN agency service",
+        "feature-3": "Bank account 1-on-1 guidance",
+        "feature-4": "Material review",
+        "feature-5": "Exclusive community access"
       },
-      "limits": {
-        "limit-1": "Custom branding",
-        "limit-2": "Lifetime updates"
-      }
+      "limits": {}
     },
-    "lifetime": {
-      "name": "Lifetime",
-      "description": "Premium features with one-time payment",
+    "agency": {
+      "name": "Full Agency Service ($699)",
+      "description": "One-stop turnkey service",
       "features": {
-        "feature-1": "All Pro features",
-        "feature-2": "100 GB storage",
-        "feature-3": "Dedicated support",
-        "feature-4": "Enterprise-grade security",
-        "feature-5": "Advanced integrations",
-        "feature-6": "Custom branding",
-        "feature-7": "Lifetime updates"
-      }
+        "feature-1": "Includes Manual Version content",
+        "feature-2": "Includes Personal Agency content",
+        "feature-3": "Company registration agency||Professional team handles everything",
+        "feature-4": "Stripe account setup||Assisted configuration",
+        "feature-5": "Annual bookkeeping||Professional accountant service",
+        "feature-6": "Compliance guarantee||Legal consultation",
+        "feature-7": "US SIM card||Local number provided",
+        "feature-8": "US agent address||Commercial mailing address",
+        "feature-9": "US corporate bank account||Assisted opening"
+      },
+      "limits": {}
     }
   },
   "CreditPackages": {

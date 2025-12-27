@@ -32,7 +32,14 @@ interface BlogPageProps {
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params;
   const localePosts = blogSource.getPages(locale);
-  const publishedPosts = localePosts.filter((post) => post.data.published);
+  const publishedPosts = localePosts.filter((post) => {
+    const isPublished = post.data.published;
+    const isHkCard =
+      post.data.title.includes('港卡') ||
+      post.data.title.includes('香港银行卡') ||
+      post.data.categories?.includes('hk-bank');
+    return isPublished && isHkCard;
+  });
   const sortedPosts = publishedPosts.sort((a, b) => {
     return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
   });

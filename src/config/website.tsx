@@ -11,11 +11,11 @@ export const websiteConfig: WebsiteConfig = {
   ui: {
     theme: {
       defaultTheme: 'default',
-      enableSwitch: true,
+      enableSwitch: false,
     },
     mode: {
-      defaultMode: 'dark',
-      enableSwitch: true,
+      defaultMode: 'light', // User asked to hide dark mode, so force light mode? Or just disable switch? Assuming force light if they want to hide option.
+      enableSwitch: false,
     },
   },
   metadata: {
@@ -56,10 +56,6 @@ export const websiteConfig: WebsiteConfig = {
         flag: '🇨🇳',
         name: '中文',
       },
-      en: {
-        flag: '🇺🇸',
-        name: 'English',
-      },
     },
   },
   blog: {
@@ -89,60 +85,60 @@ export const websiteConfig: WebsiteConfig = {
   },
   price: {
     plans: {
-      free: {
-        id: 'free',
-        prices: [],
-        isFree: true,
-        isLifetime: false,
-        credits: {
-          enable: true,
-          amount: 50,
-          expireDays: 30,
-        },
-      },
-      pro: {
-        id: 'pro',
-        prices: [
-          {
-            type: PaymentTypes.SUBSCRIPTION,
-            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_MONTHLY!,
-            amount: 990,
-            currency: 'USD',
-            interval: PlanIntervals.MONTH,
-          },
-          {
-            type: PaymentTypes.SUBSCRIPTION,
-            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_YEARLY!,
-            amount: 9900,
-            currency: 'USD',
-            interval: PlanIntervals.YEAR,
-          },
-        ],
-        isFree: false,
-        isLifetime: false,
-        popular: true,
-        credits: {
-          enable: true,
-          amount: 1000,
-          expireDays: 30,
-        },
-      },
-      lifetime: {
-        id: 'lifetime',
+      manual: {
+        id: 'manual',
         prices: [
           {
             type: PaymentTypes.ONE_TIME,
-            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_LIFETIME!,
-            amount: 19900,
+            priceId: 'price_1SieRxRwixPtbtKMpzgN5CT3',
+            amount: 5900,
             currency: 'USD',
-            allowPromotionCode: true,
           },
         ],
         isFree: false,
-        isLifetime: true,
+        isLifetime: false,
+        popular: false,
         credits: {
-          enable: true,
-          amount: 1000,
+          enable: false,
+          amount: 0,
+          expireDays: 30,
+        },
+      },
+      advanced: {
+        id: 'advanced',
+        prices: [
+          {
+            type: PaymentTypes.ONE_TIME,
+            priceId: 'price_1SieUNRwixPtbtKMjSopPxAq',
+            amount: 29900,
+            currency: 'USD',
+          },
+        ],
+        isFree: false,
+        isLifetime: false,
+        popular: true, // Personal Agency seems to be the "middle" one, often popular
+        credits: {
+          enable: false,
+          amount: 0,
+          expireDays: 30,
+        },
+      },
+      agency: {
+        id: 'agency',
+        prices: [
+          {
+            type: PaymentTypes.ONE_TIME,
+            priceId: 'price_1SieVmRwixPtbtKM8yNCWa4E',
+            amount: 69900,
+            currency: 'USD',
+          },
+        ],
+        isFree: false,
+        isLifetime: false,
+        popular: false,
+        credits: {
+          enable: false,
+          amount: 0,
           expireDays: 30,
         },
       },

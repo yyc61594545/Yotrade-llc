@@ -60,9 +60,12 @@
       "yourCurrentPlan": "您的当前方案",
       "getStartedForFree": "开始免费使用",
       "getLifetimeAccess": "开启终身会员",
-      "getStarted": "开始免费试用",
+      "getStarted": "立即购买",
       "notAvailable": "不可用",
-      "daysTrial": "{days} 天试用期"
+      "manualBadge": "自助操作",
+      "advancedBadge": "个人代办",
+      "agencyBadge": "全能代办",
+      "getStartedFreeTrial": "立即购买"
     },
     "CheckoutButton": {
       "loading": "加载中...",
@@ -70,48 +73,47 @@
     }
   },
   "PricePlans": {
-    "free": {
-      "name": "免费版",
-      "description": "适用于个人使用的基本功能",
+    "manual": {
+      "name": "手册版（$59）",
+      "description": "适合想要自己动手，需要教程指南的用户",
       "features": {
-        "feature-1": "最多3个项目",
-        "feature-2": "1GB存储空间",
-        "feature-3": "基础分析功能",
-        "feature-4": "社区支持"
+        "feature-1": "完整的全球收款解决方案指南",
+        "feature-2": "个人美国ITIN申请指南",
+        "feature-3": "个人美国银行账户与信用卡申请指南",
+        "feature-4": "美国公司注册及水星银行开户详解",
+        "feature-5": "完全合规的零手续费Stripe方案",
+        "feature-6": "USDT等加密货币收款方案",
+        "feature-7": "风险控制和合规管理方案"
       },
-      "limits": {
-        "limit-1": "不支持自定义域名",
-        "limit-2": "不支持自定义品牌",
-        "limit-3": "不支持终身更新"
-      }
+      "limits": {}
     },
-    "pro": {
-      "name": "专业版",
-      "description": "专业人士的高级功能",
+    "advanced": {
+      "name": "个人代理服务（$299）",
+      "description": "省心省力，专人协助",
       "features": {
-        "feature-1": "无限项目",
-        "feature-2": "10GB存储空间",
-        "feature-3": "高级分析功能",
-        "feature-4": "优先支持",
-        "feature-5": "自定义域名"
+        "feature-1": "赠手册全部内容",
+        "feature-2": "个人ITIN代办||帮你最快速度拿到积累美国信用的入场券",
+        "feature-3": "一对一指导||指导办理美国银行账户与信用卡，解答疑难问题",
+        "feature-4": "材料审核||专业审核注册材料，最大程度通过",
+        "feature-5": "加入专属社群||获得最新美卡羊毛资讯，让你一次回本"
       },
-      "limits": {
-        "limit-1": "不支持自定义品牌",
-        "limit-2": "不支持终身更新"
-      }
+      "limits": {}
     },
-    "lifetime": {
-      "name": "终身版",
-      "description": "一次性付款获得所有高级功能",
+    "agency": {
+      "name": "全能代理服务（$699）",
+      "description": "一站式全包服务，企业级解决方案",
       "features": {
-        "feature-1": "所有专业版功能",
-        "feature-2": "100GB存储空间",
-        "feature-3": "专属支持",
-        "feature-4": "企业级安全",
-        "feature-5": "高级集成",
-        "feature-6": "自定义品牌",
-        "feature-7": "终身更新"
-      }
+        "feature-1": "赠手册全部内容",
+        "feature-2": "涵盖个人代理服务",
+        "feature-3": "全程公司注册代理||专业团队处理全部注册流程",
+        "feature-4": "Stripe账户开通||专人协助配置与测试",
+        "feature-5": "年度记账报税||专业会计师服务",
+        "feature-6": "合规保障||提供全方位法律合规咨询",
+        "feature-7": "美国手机电话卡||提供美国本地电话号码",
+        "feature-8": "美国代理地址||提供美国商业邮寄地址",
+        "feature-9": "美国银行公户||协助开通企业银行账户"
+      },
+      "limits": {}
     }
   },
   "CreditPackages": {
@@ -928,24 +930,24 @@
       "subtitle": "如果您有任何问题，请随时联系我们",
       "items": {
         "item-1": {
-          "question": "你们提供免费试用吗？",
-          "answer": "是的，我们提供7天的免费试用。"
+          "question": "手册包含哪些具体内容？",
+          "answer": "完整指南包含个人收款方案，美国公司注册流程、水星银行开户攻略、Stripe配置教程、加密货币收款方案、税务申报风险合规指南等6大核心模块，图文详解。"
         },
         "item-2": {
-          "question": "如何取消我的订阅？",
-          "answer": "您可以通过访问账单页面取消您的订阅。"
+          "question": "手册会提供哪些支付方式的攻略？",
+          "answer": "通过该手册，你将可以通过信用卡（Visa/Mastercard/Amex）、支付宝、微信支付以及USDT（TRC20/ERC20）加密货币支付进行收款。"
         },
         "item-3": {
-          "question": "我可以更改我的计划吗？",
-          "answer": "是的，您可以随时通过访问账单页面更改您的计划。"
+          "question": "提供哪些资料审核服务？",
+          "answer": "手册咨询服务提供开户所需资料的提前审核和指导服务，帮助您准备完善的申请材料，确保申请流程顺利，避免被拒绝的风险，缩短开户时间。"
         },
         "item-4": {
-          "question": "你们的退款政策是什么？",
-          "answer": "是的，我们提供30天的退款保证。"
+          "question": "注册美国公司需要多少费用？最低1000人民币起",
+          "answer": "手册提供了两个方案，方案1注册美国公司的低至300美元。每年还需要大约300美元的维护成本，包括各项年度申报和合规费用。但是可以获得一个零手续费的 Stripe 账户，方案2 154 美元起，每年维护费用 60 美元"
         },
         "item-5": {
-          "question": "找不到您想问的问题？",
-          "answer": "请联系我们的客户支持团队，邮箱地址：support@mksaas.com"
+          "question": "一对一咨询如何联系？",
+          "answer": "加作者微信/Whatsapp联系。加入专属社群后，保姆式提供申报提醒和合规指导等服务。"
         }
       }
     },

@@ -22,54 +22,55 @@ export function usePricePlans(): Record<string, PricePlan> {
   const plans: Record<string, PricePlan> = {};
 
   // Add translated content to each plan
-  if (priceConfig.plans.free) {
-    plans.free = {
-      ...priceConfig.plans.free,
-      name: t('free.name'),
-      description: t('free.description'),
+  if (priceConfig.plans.manual) {
+    plans.manual = {
+      ...priceConfig.plans.manual,
+      name: t('manual.name'),
+      description: t('manual.description'),
       features: [
-        t('free.features.feature-1'),
-        t('free.features.feature-2'),
-        t('free.features.feature-3'),
-        t('free.features.feature-4'),
+        t('manual.features.feature-1'),
+        t('manual.features.feature-2'),
+        t('manual.features.feature-3'),
+        t('manual.features.feature-4'),
+        t('manual.features.feature-5'),
+        t('manual.features.feature-6'),
+        t('manual.features.feature-7'),
       ],
-      limits: [
-        t('free.limits.limit-1'),
-        t('free.limits.limit-2'),
-        t('free.limits.limit-3'),
-      ],
+      limits: [],
     };
   }
 
-  if (priceConfig.plans.pro) {
-    plans.pro = {
-      ...priceConfig.plans.pro,
-      name: t('pro.name'),
-      description: t('pro.description'),
+  if (priceConfig.plans.advanced) {
+    plans.advanced = {
+      ...priceConfig.plans.advanced,
+      name: t('advanced.name'),
+      description: t('advanced.description'),
       features: [
-        t('pro.features.feature-1'),
-        t('pro.features.feature-2'),
-        t('pro.features.feature-3'),
-        t('pro.features.feature-4'),
-        t('pro.features.feature-5'),
+        t('advanced.features.feature-1'),
+        t('advanced.features.feature-2'),
+        t('advanced.features.feature-3'),
+        t('advanced.features.feature-4'),
+        t('advanced.features.feature-5'),
       ],
-      limits: [t('pro.limits.limit-1'), t('pro.limits.limit-2')],
+      limits: [],
     };
   }
 
-  if (priceConfig.plans.lifetime) {
-    plans.lifetime = {
-      ...priceConfig.plans.lifetime,
-      name: t('lifetime.name'),
-      description: t('lifetime.description'),
+  if (priceConfig.plans.agency) {
+    plans.agency = {
+      ...priceConfig.plans.agency,
+      name: t('agency.name'),
+      description: t('agency.description'),
       features: [
-        t('lifetime.features.feature-1'),
-        t('lifetime.features.feature-2'),
-        t('lifetime.features.feature-3'),
-        t('lifetime.features.feature-4'),
-        t('lifetime.features.feature-5'),
-        t('lifetime.features.feature-6'),
-        t('lifetime.features.feature-7'),
+        t('agency.features.feature-1'),
+        t('agency.features.feature-2'),
+        t('agency.features.feature-3'),
+        t('agency.features.feature-4'),
+        t('agency.features.feature-5'),
+        t('agency.features.feature-6'),
+        t('agency.features.feature-7'),
+        t('agency.features.feature-8'),
+        t('agency.features.feature-9'),
       ],
       limits: [],
     };

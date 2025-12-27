@@ -99,7 +99,8 @@ export default function HeroSection() {
                 </TextEffect>
 
                 {/* action buttons */}
-                <AnimatedGroup
+                {/* action buttons */}
+                {/* <AnimatedGroup
                   variants={{
                     container: {
                       visible: {
@@ -126,7 +127,7 @@ export default function HeroSection() {
                         <span className="text-nowrap">{t('primary')}</span>
                       </LocaleLink>
                     </Button>
-                  </div>
+                  </div> */}
                   {/* Secondary button hidden */}
                   {/* <Button
                     key={2}
@@ -139,7 +140,7 @@ export default function HeroSection() {
                       <span className="text-nowrap">{t('secondary')}</span>
                     </LocaleLink>
                   </Button> */}
-                </AnimatedGroup>
+                {/* </AnimatedGroup> */}
               </div>
             </div>
 
