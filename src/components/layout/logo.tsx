@@ -21,8 +21,8 @@ export function Logo({ className }: { className?: string }) {
   }
 
   const logoSrc = resolvedTheme === 'dark'
-    ? websiteConfig.metadata.images.logoDark
-    : websiteConfig.metadata.images.logoLight;
+    ? websiteConfig.metadata?.images?.logoDark || '/yotradellc.jpg'
+    : websiteConfig.metadata?.images?.logoLight || '/yotradellc.jpg';
 
   return (
     <Image
