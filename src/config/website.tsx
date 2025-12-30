@@ -90,7 +90,7 @@ export const websiteConfig: WebsiteConfig = {
         prices: [
           {
             type: PaymentTypes.ONE_TIME,
-            priceId: 'price_1SieRxRwixPtbtKMpzgN5CT3',
+            priceId: 'price_1Sk2RaRwixPtbtKMHuSgLAQL',
             amount: 5900,
             currency: 'USD',
           },
@@ -109,7 +109,7 @@ export const websiteConfig: WebsiteConfig = {
         prices: [
           {
             type: PaymentTypes.ONE_TIME,
-            priceId: 'price_1SieUNRwixPtbtKMjSopPxAq',
+            priceId: 'price_1Sk2SLRwixPtbtKMWWeMoOPR',
             amount: 29900,
             currency: 'USD',
           },
@@ -128,7 +128,7 @@ export const websiteConfig: WebsiteConfig = {
         prices: [
           {
             type: PaymentTypes.ONE_TIME,
-            priceId: 'price_1SieVmRwixPtbtKM8yNCWa4E',
+            priceId: 'price_1Sk2T0RwixPtbtKMolyFNy98',
             amount: 69900,
             currency: 'USD',
           },
