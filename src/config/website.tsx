@@ -96,7 +96,7 @@ export const websiteConfig: WebsiteConfig = {
           },
         ],
         isFree: false,
-        isLifetime: false,
+        isLifetime: true,
         popular: false,
         credits: {
           enable: false,
@@ -115,7 +115,7 @@ export const websiteConfig: WebsiteConfig = {
           },
         ],
         isFree: false,
-        isLifetime: false,
+        isLifetime: true,
         popular: true, // Personal Agency seems to be the "middle" one, often popular
         credits: {
           enable: false,
@@ -134,7 +134,7 @@ export const websiteConfig: WebsiteConfig = {
           },
         ],
         isFree: false,
-        isLifetime: false,
+        isLifetime: true,
         popular: false,
         credits: {
           enable: false,

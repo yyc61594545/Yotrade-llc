@@ -70,34 +70,40 @@ export function PremiumGuard({
     if (!currentUser) {
       return (
         <div className={className}>
-          <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
-            {/* Show partial content before protection */}
-            {children}
-          </div>
+          <div className="relative">
+            <div className="relative max-h-[300px] overflow-hidden select-none">
+              <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
+                {/* Show partial content before protection */}
+                {children}
+              </div>
+              {/* Fade Out Gradient */}
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+            </div>
 
-          {/* Enhanced login prompt for server-side blocked content */}
-          <div className="mt-8">
-            <div className="w-full p-12 rounded-lg bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20">
-              <div className="flex flex-col items-center justify-center gap-6 text-center">
-                <div className="p-4 rounded-full bg-primary/10">
-                  <LockIcon className="size-8 text-primary" />
+            {/* Enhanced login prompt for server-side blocked content */}
+            <div className="-mt-8 relative z-20 px-4">
+              <div className="w-full p-12 rounded-lg bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20 shadow-lg backdrop-blur-sm">
+                <div className="flex flex-col items-center justify-center gap-6 text-center">
+                  <div className="p-4 rounded-full bg-primary/10">
+                    <LockIcon className="size-8 text-primary" />
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">
+                      {t('loginRequired')}
+                    </h3>
+                    <p className="text-muted-foreground max-w-md">
+                      {t('loginDescription')}
+                    </p>
+                  </div>
+
+                  <LoginWrapper mode="modal" asChild callbackUrl={pathname}>
+                    <Button size="lg" className="min-w-[160px] cursor-pointer">
+                      <LockIcon className="mr-2 size-4" />
+                      {t('signIn')}
+                    </Button>
+                  </LoginWrapper>
                 </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold">
-                    {t('loginRequired')}
-                  </h3>
-                  <p className="text-muted-foreground max-w-md">
-                    {t('loginDescription')}
-                  </p>
-                </div>
-
-                <LoginWrapper mode="modal" asChild callbackUrl={pathname}>
-                  <Button size="lg" className="min-w-[160px] cursor-pointer">
-                    <LockIcon className="mr-2 size-4" />
-                    {t('signIn')}
-                  </Button>
-                </LoginWrapper>
               </div>
             </div>
           </div>
@@ -110,31 +116,37 @@ export function PremiumGuard({
   if (!currentUser) {
     return (
       <div className={className}>
-        <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
-          {children}
-        </div>
+        <div className="relative">
+          <div className="relative max-h-[300px] overflow-hidden select-none">
+            <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
+              {children}
+            </div>
+            {/* Fade Out Gradient */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+          </div>
 
-        {/* Enhanced login prompt */}
-        <div className="mt-8">
-          <div className="w-full p-12 rounded-lg bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20">
-            <div className="flex flex-col items-center justify-center gap-6 text-center">
-              <div className="p-4 rounded-full bg-primary/10">
-                <LockIcon className="size-8 text-primary" />
+          {/* Enhanced login prompt */}
+          <div className="-mt-8 relative z-20 px-4">
+            <div className="w-full p-12 rounded-lg bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20 shadow-lg backdrop-blur-sm">
+              <div className="flex flex-col items-center justify-center gap-6 text-center">
+                <div className="p-4 rounded-full bg-primary/10">
+                  <LockIcon className="size-8 text-primary" />
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">{t('loginRequired')}</h3>
+                  <p className="text-muted-foreground max-w-md">
+                    {t('loginDescription')}
+                  </p>
+                </div>
+
+                <LoginWrapper mode="modal" asChild callbackUrl={pathname}>
+                  <Button size="lg" className="min-w-[160px] cursor-pointer">
+                    <LockIcon className="mr-2 size-4" />
+                    {t('signIn')}
+                  </Button>
+                </LoginWrapper>
               </div>
-
-              <div className="space-y-2">
-                <h3 className="text-xl font-semibold">{t('loginRequired')}</h3>
-                <p className="text-muted-foreground max-w-md">
-                  {t('loginDescription')}
-                </p>
-              </div>
-
-              <LoginWrapper mode="modal" asChild callbackUrl={pathname}>
-                <Button size="lg" className="min-w-[160px] cursor-pointer">
-                  <LockIcon className="mr-2 size-4" />
-                  {t('signIn')}
-                </Button>
-              </LoginWrapper>
             </div>
           </div>
         </div>
@@ -163,54 +175,60 @@ export function PremiumGuard({
   if (!hasPremiumAccess) {
     return (
       <div className={className}>
-        <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
-          {children}
-        </div>
+        <div className="relative">
+          <div className="relative max-h-[300px] overflow-hidden select-none">
+            <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
+              {children}
+            </div>
+            {/* Fade Out Gradient */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+          </div>
 
-        {/* Inline subscription banner for logged-in non-members */}
-        <div className="mt-8">
-          <Card className="bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20">
-            <CardContent className="p-12 text-center">
-              <div className="flex justify-center mb-6">
-                <div className="p-4 rounded-full bg-primary/10">
-                  <CrownIcon className="size-8 text-primary" />
+          {/* Inline subscription banner for logged-in non-members */}
+          <div className="-mt-8 relative z-20 px-4">
+            <Card className="bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20 shadow-lg backdrop-blur-sm">
+              <CardContent className="p-12 text-center">
+                <div className="flex justify-center mb-6">
+                  <div className="p-4 rounded-full bg-primary/10">
+                    <CrownIcon className="size-8 text-primary" />
+                  </div>
                 </div>
-              </div>
 
-              <h3 className="text-xl font-semibold mb-2">{t('title')}</h3>
+                <h3 className="text-xl font-semibold mb-2">{t('title')}</h3>
 
-              <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                {t('description')}
-              </p>
+                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                  {t('description')}
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                <Button asChild size="lg" className="min-w-[160px]">
-                  <LocaleLink
-                    href="/pricing"
-                    className="text-white no-underline hover:text-white/90"
-                  >
-                    {t('upgradeCta')}
-                    <ArrowRightIcon className="ml-2 size-4" />
-                  </LocaleLink>
-                </Button>
-              </div>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <Button asChild size="lg" className="min-w-[160px]">
+                    <LocaleLink
+                      href="/pricing"
+                      className="text-white no-underline hover:text-white/90"
+                    >
+                      {t('upgradeCta')}
+                      <ArrowRightIcon className="ml-2 size-4" />
+                    </LocaleLink>
+                  </Button>
+                </div>
 
-              <div className="mt-8 flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-2">
-                  <CheckCircleIcon className="size-4 text-primary" />
-                  {t('benefit1')}
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircleIcon className="size-4 text-primary" />
-                  {t('benefit2')}
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircleIcon className="size-4 text-primary" />
-                  {t('benefit3')}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="mt-8 flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-2">
+                    <CheckCircleIcon className="size-4 text-primary" />
+                    {t('benefit1')}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <CheckCircleIcon className="size-4 text-primary" />
+                    {t('benefit2')}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <CheckCircleIcon className="size-4 text-primary" />
+                    {t('benefit3')}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     );
