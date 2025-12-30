@@ -14,7 +14,9 @@ import {
   findPlanByPriceId,
   findPriceInPlan,
 } from '@/lib/price-plan';
+import { sendManualEmail } from '@/mail/send-manual';
 import { sendNotification } from '@/notification/notification';
+
 import { desc, eq } from 'drizzle-orm';
 import { Stripe } from 'stripe';
 import {
@@ -779,6 +781,22 @@ export class StripeProvider implements PaymentProvider {
       // Send notification
       const amount = session.amount_total ? session.amount_total / 100 : 0;
       await sendNotification(session.id, customerId, userId, amount);
+
+      // Send manual email with PDF attachment
+      // We use customer_details from the session as it contains the email used during checkout
+      const customerEmail = session.customer_details?.email;
+      const customerName = session.customer_details?.name || 'Customer';
+
+      if (customerEmail) {
+        console.log(`Sending manual PDF to ${customerEmail}`);
+        // We don't await this to avoid blocking the webhook response too long,
+        // or we catch errors to ensure 200 OK is still returned to Stripe
+        sendManualEmail(customerEmail, customerName).catch(err =>
+          console.error('Failed to send manual email:', err)
+        );
+      } else {
+        console.warn('No customer email found in session, cannot send manual PDF');
+      }
     } catch (error) {
       console.error('onOnetimePayment error for session: ' + session.id, error);
       throw error;

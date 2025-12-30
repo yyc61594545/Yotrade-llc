@@ -97,12 +97,12 @@ export function PremiumGuard({
                     </p>
                   </div>
 
-                  <LoginWrapper mode="modal" asChild callbackUrl={pathname}>
+                  <LocaleLink href="/pricing" className="no-underline">
                     <Button size="lg" className="min-w-[160px] cursor-pointer">
-                      <LockIcon className="mr-2 size-4" />
-                      {t('signIn')}
+                      <CrownIcon className="mr-2 size-4" />
+                      {t('upgradeCta')}
                     </Button>
-                  </LoginWrapper>
+                  </LocaleLink>
                 </div>
               </div>
             </div>
@@ -140,12 +140,12 @@ export function PremiumGuard({
                   </p>
                 </div>
 
-                <LoginWrapper mode="modal" asChild callbackUrl={pathname}>
+                <LocaleLink href="/pricing" className="no-underline">
                   <Button size="lg" className="min-w-[160px] cursor-pointer">
-                    <LockIcon className="mr-2 size-4" />
-                    {t('signIn')}
+                    <CrownIcon className="mr-2 size-4" />
+                    {t('upgradeCta')}
                   </Button>
-                </LoginWrapper>
+                </LocaleLink>
               </div>
             </div>
           </div>
@@ -158,15 +158,25 @@ export function PremiumGuard({
   if (isLoadingPayment) {
     return (
       <div className={className}>
-        <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
-          {children}
-        </div>
-        {isLoadingPayment && (
-          <div className="mt-8 flex items-center justify-center text-primary font-semibold">
-            <Loader2Icon className="size-5 animate-spin mr-2" />
-            <span>{t('checkingAccess')}</span>
+        <div className="relative">
+          <div className="relative max-h-[300px] overflow-hidden select-none">
+            <div className="prose prose-neutral dark:prose-invert prose-img:rounded-lg max-w-none">
+              {children}
+            </div>
+            {/* Fade Out Gradient */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
           </div>
-        )}
+
+          {/* Loading state banner */}
+          <div className="-mt-8 relative z-20 px-4">
+            <Card className="bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 border border-primary/20 shadow-lg backdrop-blur-sm">
+              <CardContent className="p-12 text-center flex flex-col items-center justify-center gap-4">
+                <Loader2Icon className="size-8 animate-spin text-primary" />
+                <p className="text-muted-foreground font-medium">{t('checkingAccess')}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     );
   }

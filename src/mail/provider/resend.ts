@@ -109,6 +109,7 @@ export class ResendProvider implements MailProvider {
         subject,
         html,
         text,
+        attachments: params.attachments,
       });
 
       if (error) {

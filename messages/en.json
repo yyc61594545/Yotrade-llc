@@ -306,8 +306,8 @@
     "benefit2": "Exclusive content",
     "benefit3": "Cancel anytime",
     "signIn": "Sign In",
-    "loginRequired": "Sign in to continue reading",
-    "loginDescription": "This is premium content. Sign in to your account to access the full content.",
+    "loginRequired": "Buy now to continue reading",
+    "loginDescription": "This is premium content. Please purchase a plan to access the full content.",
     "checkingAccess": "Checking access...",
     "loadingContent": "Loading full content..."
   },

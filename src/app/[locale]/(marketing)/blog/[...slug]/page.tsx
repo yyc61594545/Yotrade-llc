@@ -89,6 +89,7 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
 
   const { date, title, description, image, author, categories, premium } =
     post.data;
+
   const publishDate = formatDate(new Date(date));
 
   const blogAuthor = authorSource.getPage([author], locale);

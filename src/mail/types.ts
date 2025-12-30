@@ -66,6 +66,12 @@ export interface SendRawEmailParams {
   html: string;
   text?: string;
   locale?: Locale;
+  attachments?: {
+    filename?: string;
+    content?: string | Buffer;
+    path?: string;
+    contentType?: string;
+  }[];
 }
 
 /**
