@@ -54,7 +54,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
           email,
           ...(this.audienceId ? { audienceId: this.audienceId } : {}),
           unsubscribed: false,
-        });
+        } as any);
 
         if (createResult.error) {
           console.error('Error creating contact', createResult.error);
@@ -69,7 +69,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
         email,
         ...(this.audienceId ? { audienceId: this.audienceId } : {}),
         unsubscribed: false,
-      });
+      } as any);
 
       if (updateResult.error) {
         console.error('Error updating contact', updateResult.error);
@@ -96,7 +96,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
         email,
         ...(this.audienceId ? { audienceId: this.audienceId } : {}),
         unsubscribed: true,
-      });
+      } as any);
 
       // console.log('Unsubscribe result:', result);
       if (result.error) {
