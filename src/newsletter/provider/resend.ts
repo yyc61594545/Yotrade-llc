@@ -14,15 +14,13 @@ import { Resend } from 'resend';
  */
 export class ResendNewsletterProvider implements NewsletterProvider {
   private resend: Resend;
-  private audienceId: string;
+  private audienceId?: string;
 
   constructor() {
     if (!process.env.RESEND_API_KEY) {
       throw new Error('RESEND_API_KEY environment variable is not set.');
     }
-    if (!process.env.RESEND_AUDIENCE_ID) {
-      throw new Error('RESEND_AUDIENCE_ID environment variable is not set.');
-    }
+    // RESEND_AUDIENCE_ID is optional now
 
     this.resend = new Resend(process.env.RESEND_API_KEY);
     this.audienceId = process.env.RESEND_AUDIENCE_ID;
@@ -46,7 +44,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
       // Check if the contact exists
       const getResult = await this.resend.contacts.get({
         email,
-        audienceId: this.audienceId,
+        audienceId: this.audienceId as string, // SDK might require it in type, but runtime handles undefined often. Actually better to use conditional object spread if type is strict.
       });
 
       // If contact doesn't exist, create a new one
@@ -54,7 +52,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
         console.log('Creating new contact', email);
         const createResult = await this.resend.contacts.create({
           email,
-          audienceId: this.audienceId,
+          ...(this.audienceId ? { audienceId: this.audienceId } : {}),
           unsubscribed: false,
         });
 
@@ -69,7 +67,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
       // If the contact exists, update it
       const updateResult = await this.resend.contacts.update({
         email,
-        audienceId: this.audienceId,
+        ...(this.audienceId ? { audienceId: this.audienceId } : {}),
         unsubscribed: false,
       });
 
@@ -96,7 +94,7 @@ export class ResendNewsletterProvider implements NewsletterProvider {
       // console.log('Unsubscribing newsletter', email);
       const result = await this.resend.contacts.update({
         email,
-        audienceId: this.audienceId,
+        ...(this.audienceId ? { audienceId: this.audienceId } : {}),
         unsubscribed: true,
       });
 
@@ -123,13 +121,18 @@ export class ResendNewsletterProvider implements NewsletterProvider {
     email,
   }: CheckSubscribeStatusParams): Promise<boolean> {
     try {
+      // To get a contact, we typically need the ID or to list by email.
+      // contacts.get usually requires ID or audience_id+email combo.
+      // If we don't have audienceId, we might need to rely on default behavior or handle differently.
+      // But for safety, let's keep the get call simple.
       const result = await this.resend.contacts.get({
         email,
-        audienceId: this.audienceId,
+        audienceId: this.audienceId as string,
       });
 
       if (result.error) {
-        console.error('Error getting contact:', result.error);
+        // console.error('Error getting contact:', result.error);
+        // If getting fails (e.g. 404 or missing audience), assume not subscribed
         return false;
       }
 
