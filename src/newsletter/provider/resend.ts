@@ -43,12 +43,18 @@ export class ResendNewsletterProvider implements NewsletterProvider {
     }
 
     try {
-      const { data } = await this.resend.audiences.list();
+      const response = await this.resend.audiences.list();
+      console.log('Resend list audiences response:', JSON.stringify(response, null, 2));
+      const { data } = response;
+
       // Resend SDK returns { data: { data: Audience[] } } structure sometimes or just { data: Audience[] } depending on version.
       // Based on error "Property 'length' does not exist on type 'ListAudiencesResponseSuccess'", 'data' is the success object which contains the array in a property 'data'.
       if (data && data.data && data.data.length > 0) {
         this.audienceId = data.data[0].id;
+        console.log('Using auto-detected Audience ID:', this.audienceId);
         return this.audienceId;
+      } else {
+        console.warn('No audiences found in Resend response.');
       }
     } catch (error) {
       console.error('Failed to list audiences', error);
