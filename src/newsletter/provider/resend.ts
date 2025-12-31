@@ -27,6 +27,14 @@ export class ResendNewsletterProvider implements NewsletterProvider {
   }
 
   /**
+   * Get the provider name
+   * @returns Provider name
+   */
+  public getProviderName(): string {
+    return 'Resend';
+  }
+
+  /**
    * Get the audience ID, either from env or by fetching from Resend
    */
   private async getAudienceId(): Promise<string> {
@@ -36,8 +44,10 @@ export class ResendNewsletterProvider implements NewsletterProvider {
 
     try {
       const { data } = await this.resend.audiences.list();
-      if (data && data.length > 0) {
-        this.audienceId = data[0].id;
+      // Resend SDK returns { data: { data: Audience[] } } structure sometimes or just { data: Audience[] } depending on version.
+      // Based on error "Property 'length' does not exist on type 'ListAudiencesResponseSuccess'", 'data' is the success object which contains the array in a property 'data'.
+      if (data && data.data && data.data.length > 0) {
+        this.audienceId = data.data[0].id;
         return this.audienceId;
       }
     } catch (error) {
