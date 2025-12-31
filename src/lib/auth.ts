@@ -169,21 +169,16 @@ async function onCreateUser(user: User) {
     websiteConfig.newsletter.enable &&
     websiteConfig.newsletter.autoSubscribeAfterSignUp
   ) {
-    // Delay newsletter subscription by 2 seconds to avoid rate limiting
-    // This ensures the email verification email is sent first
-    // Using 2 seconds instead of 1 to provide extra buffer for network delays
-    setTimeout(async () => {
-      try {
-        const subscribed = await subscribe(user.email);
-        if (!subscribed) {
-          console.error(`Failed to subscribe user ${user.email} to newsletter`);
-        } else {
-          console.log(`User ${user.email} subscribed to newsletter`);
-        }
-      } catch (error) {
-        console.error('Newsletter subscription error:', error);
+    try {
+      const subscribed = await subscribe(user.email);
+      if (!subscribed) {
+        console.error(`Failed to subscribe user ${user.email} to newsletter`);
+      } else {
+        console.log(`User ${user.email} subscribed to newsletter`);
       }
-    }, 2000);
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+    }
   }
 
   // Add register gift credits to the user if enabled in website config
