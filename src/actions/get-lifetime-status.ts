@@ -61,14 +61,30 @@ export const getLifetimeStatusAction = userActionClient
         );
 
       // Check if any payment has a lifetime plan
-      const hasLifetimePayment = result.some((paymentRecord) => {
-        const plan = findPlanByPriceId(paymentRecord.priceId);
-        return plan && lifetimePlanIds.includes(plan.id);
-      });
+      const ownedLifetimePlans = result
+        .map((paymentRecord) => {
+          const plan = findPlanByPriceId(paymentRecord.priceId);
+          if (plan && lifetimePlanIds.includes(plan.id)) {
+            // Find the price object to get the amount
+            const price = plan.prices.find((p) => p.priceId === paymentRecord.priceId);
+            return {
+              plan,
+              amount: price?.amount || 0,
+            };
+          }
+          return null;
+        })
+        .filter((item): item is { plan: any; amount: number } => item !== null);
+
+      // Sort by amount descending to find the highest value plan
+      ownedLifetimePlans.sort((a, b) => b.amount - a.amount);
+
+      const highestValuePlan = ownedLifetimePlans[0]?.plan;
 
       return {
         success: true,
-        isLifetimeMember: hasLifetimePayment,
+        isLifetimeMember: ownedLifetimePlans.length > 0,
+        lifetimePlanId: highestValuePlan?.id,
       };
     } catch (error) {
       console.error('get user lifetime status error:', error);

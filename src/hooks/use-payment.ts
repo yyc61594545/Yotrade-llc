@@ -37,7 +37,10 @@ export function useActiveSubscription(userId: string | undefined) {
 export function useLifetimeStatus(userId: string | undefined) {
   return useQuery({
     queryKey: paymentKeys.lifetime(userId || ''),
-    queryFn: async (): Promise<boolean> => {
+    queryFn: async (): Promise<{
+      isLifetimeMember: boolean;
+      lifetimePlanId?: string;
+    }> => {
       if (!userId) {
         throw new Error('User ID is required');
       }
@@ -47,7 +50,10 @@ export function useLifetimeStatus(userId: string | undefined) {
           result?.data?.error || 'Failed to fetch lifetime status'
         );
       }
-      return result.data.isLifetimeMember || false;
+      return {
+        isLifetimeMember: result.data.isLifetimeMember || false,
+        lifetimePlanId: result.data.lifetimePlanId,
+      };
     },
     enabled: !!userId,
   });
@@ -61,10 +67,13 @@ export function useCurrentPlan(userId: string | undefined) {
     error: subscriptionError,
   } = useActiveSubscription(userId);
   const {
-    data: isLifetimeMember,
+    data: lifetimeStatus,
     isLoading: isLoadingLifetime,
     error: lifetimeError,
   } = useLifetimeStatus(userId);
+
+  const isLifetimeMember = lifetimeStatus?.isLifetimeMember || false;
+  const lifetimePlanId = lifetimeStatus?.lifetimePlanId;
 
   return useQuery({
     queryKey: paymentKeys.currentPlan(userId || ''),
@@ -74,12 +83,23 @@ export function useCurrentPlan(userId: string | undefined) {
     }> => {
       const plans: PricePlan[] = getAllPricePlans();
       const freePlan = plans.find((plan) => plan.isFree);
-      const lifetimePlan = plans.find((plan) => plan.isLifetime);
 
-      // If lifetime member, return lifetime plan
+      // If lifetime member, return the specific lifetime plan or any lifetime plan
       if (isLifetimeMember) {
+        let plan: PricePlan | undefined;
+
+        // Try to find the specific lifetime plan user has purchased (highest value)
+        if (lifetimePlanId) {
+          plan = plans.find(p => p.id === lifetimePlanId);
+        }
+
+        // Fallback to any lifetime plan if specific one not found or not returned
+        if (!plan) {
+           plan = plans.find((plan) => plan.isLifetime);
+        }
+
         return {
-          currentPlan: lifetimePlan || null,
+          currentPlan: plan || null,
           subscription: null,
         };
       }
