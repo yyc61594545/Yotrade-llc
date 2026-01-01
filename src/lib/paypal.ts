@@ -30,11 +30,5 @@ export const getPayPalClient = () => {
       oAuthClientSecret: clientSecret,
     },
     timeout: 0,
-    environment: environment,
-    logging: {
-      client: {
-        level: LogLevel.Info,
-      },
-    },
   });
 };
