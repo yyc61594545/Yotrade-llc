@@ -1,4 +1,4 @@
-import { Client, Environment, LogLevel } from "@paypal/paypal-server-sdk";
+import { Client, Environment } from "@paypal/paypal-server-sdk";
 
 /**
  * PayPal API Client
@@ -17,9 +17,6 @@ export const getPayPalClient = () => {
 
   // Determine environment
   // Default to Sandbox unless explicitly set to production
-  // Note: user provided keys might be sandbox or live, the SDK needs explicit Environment enum
-  // Assuming configured keys match the intended environment.
-  // For safety in this setup, I'll check NODE_ENV or a specific PAYPAL_ENV
   const environment = process.env.NODE_ENV === 'production'
     ? Environment.Production
     : Environment.Sandbox;
@@ -30,5 +27,6 @@ export const getPayPalClient = () => {
       oAuthClientSecret: clientSecret,
     },
     timeout: 0,
+    environment: environment,
   });
 };
