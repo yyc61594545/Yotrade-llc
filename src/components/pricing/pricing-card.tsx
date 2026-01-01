@@ -26,6 +26,7 @@ import { useTranslations } from 'next-intl';
 import { LoginWrapper } from '../auth/login-wrapper';
 import { Badge } from '../ui/badge';
 import { CheckoutButton } from './create-checkout-button';
+import { PayPalCheckoutButton } from './paypal-button';
 
 interface PricingCardProps {
   plan: PricePlan;
@@ -176,19 +177,39 @@ export function PricingCard({
         </CardDescription>
 
         {/* Action Button */}
-        <div className="mt-6">
+        <div className="mt-6 flex flex-col gap-3">
           {currentUser ? (
-             <CheckoutButton
-                userId={currentUser.id}
-                planId={plan.id}
-                priceId={price?.priceId || ''}
-                className={cn(
-                  "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
-                  themeColorButton
-                )}
-             >
-               {t('getStartedFreeTrial')}
-             </CheckoutButton>
+             <>
+               <CheckoutButton
+                  userId={currentUser.id}
+                  planId={plan.id}
+                  priceId={price?.priceId || ''}
+                  className={cn(
+                    "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
+                    themeColorButton
+                  )}
+               >
+                 {t('getStartedFreeTrial')}
+               </CheckoutButton>
+
+               {/* PayPal Button for One-Time Payments */}
+               {isPaidPlan && (plan.prices.some(p => p.type === PaymentTypes.ONE_TIME)) && (
+                   <div className="w-full">
+                      <div className="relative flex items-center py-2">
+                        <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                        <span className="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase">{t('orPayWith') || 'Or pay with'}</span>
+                        <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                      </div>
+                      <PayPalCheckoutButton
+                        userId={currentUser.id}
+                        planId={plan.id}
+                        priceId={price?.priceId || ''}
+                        amount={price?.amount ? price.amount / 100 : 0}
+                        currency={price?.currency || 'USD'}
+                      />
+                   </div>
+               )}
+             </>
           ) : (
             <LoginWrapper mode="modal">
                <Button

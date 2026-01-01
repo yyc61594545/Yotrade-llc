@@ -65,7 +65,8 @@
       "manualBadge": "自助操作",
       "advancedBadge": "个人代办",
       "agencyBadge": "全能代办",
-      "getStartedFreeTrial": "立即购买"
+      "getStartedFreeTrial": "立即购买",
+      "orPayWith": "或者使用"
     },
     "CheckoutButton": {
       "loading": "加载中...",
