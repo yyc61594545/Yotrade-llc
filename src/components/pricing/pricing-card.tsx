@@ -108,6 +108,9 @@ export function PricingCard({
   const hasTrialPeriod = price?.trialPeriodDays && price.trialPeriodDays > 0;
 
   // Determine styles based on plan ID
+  const isManual = plan.id === 'manual';
+  const isAdvanced = plan.id === 'advanced'; // Now "Personal Agency" ($299)
+  const isAgency = plan.id === 'agency'; // Now "Full Agency" ($699)
   const isSiteBuilding = plan.id === 'site_building'; // Now "Site Building Agent Service" ($1999)
 
   let cardStyles = 'flex flex-col h-full rounded-2xl border-2 transition-all duration-200 bg-white dark:bg-card';
