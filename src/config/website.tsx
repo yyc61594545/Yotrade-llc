@@ -142,6 +142,25 @@ export const websiteConfig: WebsiteConfig = {
           expireDays: 30,
         },
       },
+      site_building: {
+        id: 'site_building',
+        prices: [
+          {
+            type: PaymentTypes.ONE_TIME,
+            priceId: 'price_site_building_placeholder',
+            amount: 199900,
+            currency: 'USD',
+          },
+        ],
+        isFree: false,
+        isLifetime: true,
+        popular: false,
+        credits: {
+          enable: false,
+          amount: 0,
+          expireDays: 30,
+        },
+      },
     },
   },
   credits: {

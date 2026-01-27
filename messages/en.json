@@ -116,6 +116,18 @@
         "feature-9": "US corporate bank account||Assisted opening"
       },
       "limits": {}
+    },
+    "site_building": {
+      "name": "Site Building Agent Service ($1999)",
+      "description": "From site building to operation, a one-stop e-commerce solution",
+      "features": {
+        "feature-1": "Includes all Full Agency Service benefits",
+        "feature-2": "High-conversion independent site setup (inc. domain/server config)",
+        "feature-3": "Assistance with Amazon/Shopify platform settlement",
+        "feature-4": "Brand copywriting and content optimization",
+        "feature-5": "Payment gateway and logistics system integration support"
+      },
+      "limits": {}
     }
   },
   "CreditPackages": {

@@ -76,5 +76,21 @@ export function usePricePlans(): Record<string, PricePlan> {
     };
   }
 
+  if (priceConfig.plans.site_building) {
+    plans.site_building = {
+      ...priceConfig.plans.site_building,
+      name: t('site_building.name'),
+      description: t('site_building.description'),
+      features: [
+        t('site_building.features.feature-1'),
+        t('site_building.features.feature-2'),
+        t('site_building.features.feature-3'),
+        t('site_building.features.feature-4'),
+        t('site_building.features.feature-5'),
+      ],
+      limits: [],
+    };
+  }
+
   return plans;
 }

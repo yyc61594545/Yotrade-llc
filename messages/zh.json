@@ -115,6 +115,18 @@
         "feature-9": "美国银行公户||协助开通企业银行账户"
       },
       "limits": {}
+    },
+    "site_building": {
+      "name": "建站代理服务 ($1999)",
+      "description": "从建站到运营，一站式电商解决方案",
+      "features": {
+        "feature-1": "涵盖全能代理服务所有权益",
+        "feature-2": "高转化率独立站搭建 (含域名/服务器配置)",
+        "feature-3": "亚马逊/Shopify等主流电商平台入驻协助",
+        "feature-4": "品牌文案与内容优化",
+        "feature-5": "支付网关与物流系统对接支持"
+      },
+      "limits": {}
     }
   },
   "CreditPackages": {
