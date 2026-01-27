@@ -148,7 +148,7 @@ export const websiteConfig: WebsiteConfig = {
           {
             type: PaymentTypes.ONE_TIME,
             priceId: 'price_site_building_placeholder',
-            amount: 199900,
+            amount: 159900,
             currency: 'USD',
           },
         ],
