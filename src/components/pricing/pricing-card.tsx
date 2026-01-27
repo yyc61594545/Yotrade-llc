@@ -152,7 +152,7 @@ export function PricingCard({
   } else if (isSiteBuilding) {
     // Purple Theme
     cardStyles += ' border-purple-500 shadow-xl shadow-purple-100/50 dark:shadow-purple-900/20';
-    badgeText = ''; // No badge for now, or maybe "Full Service"? User provided screenshot shows no badge
+    badgeText = t('siteBuildingBadge');
     badgeStyles = 'bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400';
     themeColorText = 'text-purple-600';
     themeColorBorder = 'border-purple-500';
@@ -169,7 +169,7 @@ export function PricingCard({
         <div className="flex items-center gap-3 mb-4">
           {/* Title matches border color */}
           <h3 className={cn("text-xl font-bold", themeColorText)}>{plan.name}</h3>
-          {(isManual || isAdvanced || isAgency) && (
+          {(isManual || isAdvanced || isAgency || isSiteBuilding) && (
             <Badge variant="secondary" className={cn("rounded-md px-2 py-0.5 text-xs font-normal", badgeStyles)}>
               {badgeText}
             </Badge>
@@ -238,7 +238,7 @@ export function PricingCard({
 
       <CardContent className="space-y-6 pt-0">
         {/* Divider */}
-        <div className={cn("border-t border-dashed my-2", isManual || isAdvanced || isAgency ? themeColorBorder : "border-gray-200")} style={{ opacity: 0.3 }} />
+        <div className={cn("border-t border-dashed my-2", isManual || isAdvanced || isAgency || isSiteBuilding ? themeColorBorder : "border-gray-200")} style={{ opacity: 0.3 }} />
 
         {/* Features list */}
         <ul className="space-y-4">
