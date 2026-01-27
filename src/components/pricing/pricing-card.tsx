@@ -108,9 +108,7 @@ export function PricingCard({
   const hasTrialPeriod = price?.trialPeriodDays && price.trialPeriodDays > 0;
 
   // Determine styles based on plan ID
-  const isManual = plan.id === 'manual';
-  const isAdvanced = plan.id === 'advanced'; // Now "Personal Agency" ($299)
-  const isAgency = plan.id === 'agency'; // Now "Full Agency" ($699)
+  const isSiteBuilding = plan.id === 'site_building'; // Now "Site Building Agent Service" ($1999)
 
   let cardStyles = 'flex flex-col h-full rounded-2xl border-2 transition-all duration-200 bg-white dark:bg-card';
   let badgeText = '';
@@ -147,6 +145,16 @@ export function PricingCard({
     themeColorText = 'text-blue-600'; // Match border roughly
     themeColorBorder = 'border-blue-500';
     themeColorButton = 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600';
+
+  } else if (isSiteBuilding) {
+    // Purple Theme
+    cardStyles += ' border-purple-500 shadow-xl shadow-purple-100/50 dark:shadow-purple-900/20';
+    badgeText = ''; // No badge for now, or maybe "Full Service"? User provided screenshot shows no badge
+    badgeStyles = 'bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400';
+    themeColorText = 'text-purple-600';
+    themeColorBorder = 'border-purple-500';
+    themeColorButton = 'bg-purple-600 hover:bg-purple-700 text-white border-purple-600';
+
   } else {
     // Fallback
     cardStyles += ' border-border shadow-sm';
@@ -156,13 +164,13 @@ export function PricingCard({
     <Card className={cn(cardStyles, className)}>
       <CardHeader className="pb-6">
         <div className="flex items-center gap-3 mb-4">
-           {/* Title matches border color */}
-           <h3 className={cn("text-xl font-bold", themeColorText)}>{plan.name}</h3>
-           {(isManual || isAdvanced || isAgency) && (
-              <Badge variant="secondary" className={cn("rounded-md px-2 py-0.5 text-xs font-normal", badgeStyles)}>
-                {badgeText}
-              </Badge>
-           )}
+          {/* Title matches border color */}
+          <h3 className={cn("text-xl font-bold", themeColorText)}>{plan.name}</h3>
+          {(isManual || isAdvanced || isAgency) && (
+            <Badge variant="secondary" className={cn("rounded-md px-2 py-0.5 text-xs font-normal", badgeStyles)}>
+              {badgeText}
+            </Badge>
+          )}
         </div>
 
         {/* Price display */}
@@ -172,54 +180,54 @@ export function PricingCard({
           </span>
         </div>
 
-        <CardDescription className="mt-4 text-sm text-muted-foreground min-h-[40px]">
+        <CardDescription className="mt-4 text-sm text-muted-foreground min-h-[48px]">
           {plan.description}
         </CardDescription>
 
         {/* Action Button */}
         <div className="mt-6 flex flex-col gap-3">
           {currentUser ? (
-             <>
-               <CheckoutButton
-                  userId={currentUser.id}
-                  planId={plan.id}
-                  priceId={price?.priceId || ''}
-                  className={cn(
-                    "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
-                    themeColorButton
-                  )}
-               >
-                 {t('getStartedFreeTrial')}
-               </CheckoutButton>
+            <>
+              <CheckoutButton
+                userId={currentUser.id}
+                planId={plan.id}
+                priceId={price?.priceId || ''}
+                className={cn(
+                  "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
+                  themeColorButton
+                )}
+              >
+                {t('getStartedFreeTrial')}
+              </CheckoutButton>
 
-               {/* PayPal Button for One-Time Payments */}
-               {isPaidPlan && (plan.prices.some(p => p.type === PaymentTypes.ONE_TIME)) && (
-                   <div className="w-full">
-                      <div className="relative flex items-center py-2">
-                        <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
-                        <span className="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase">{t('orPayWith') || 'Or pay with'}</span>
-                        <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
-                      </div>
-                      <PayPalCheckoutButton
-                        userId={currentUser.id}
-                        planId={plan.id}
-                        priceId={price?.priceId || ''}
-                        amount={price?.amount ? price.amount / 100 : 0}
-                        currency={price?.currency || 'USD'}
-                      />
-                   </div>
-               )}
-             </>
+              {/* PayPal Button for One-Time Payments */}
+              {isPaidPlan && (plan.prices.some(p => p.type === PaymentTypes.ONE_TIME)) && (
+                <div className="w-full">
+                  <div className="relative flex items-center py-2">
+                    <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                    <span className="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase">{t('orPayWith') || 'Or pay with'}</span>
+                    <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                  </div>
+                  <PayPalCheckoutButton
+                    userId={currentUser.id}
+                    planId={plan.id}
+                    priceId={price?.priceId || ''}
+                    amount={price?.amount ? price.amount / 100 : 0}
+                    currency={price?.currency || 'USD'}
+                  />
+                </div>
+              )}
+            </>
           ) : (
             <LoginWrapper mode="modal">
-               <Button
-                 className={cn(
-                   "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
-                   themeColorButton
-                 )}
-               >
-                 {t('getStartedFreeTrial')}
-               </Button>
+              <Button
+                className={cn(
+                  "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
+                  themeColorButton
+                )}
+              >
+                {t('getStartedFreeTrial')}
+              </Button>
             </LoginWrapper>
           )}
         </div>
