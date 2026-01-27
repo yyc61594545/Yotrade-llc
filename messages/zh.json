@@ -75,7 +75,7 @@
   },
   "PricePlans": {
     "manual": {
-      "name": "手册版（$59）",
+      "name": "手册版",
       "description": "适合想要自己动手，需要教程指南的用户",
       "features": {
         "feature-1": "完整的全球收款解决方案指南",
@@ -89,7 +89,7 @@
       "limits": {}
     },
     "advanced": {
-      "name": "个人代理服务（$299）",
+      "name": "个人代理服务",
       "description": "省心省力，专人协助",
       "features": {
         "feature-1": "赠手册全部内容",
@@ -101,7 +101,7 @@
       "limits": {}
     },
     "agency": {
-      "name": "全能代理服务（$699）",
+      "name": "全能代理服务",
       "description": "一站式全包服务，企业级解决方案",
       "features": {
         "feature-1": "赠手册全部内容",
@@ -117,7 +117,7 @@
       "limits": {}
     },
     "site_building": {
-      "name": "建站代理服务 ($1999)",
+      "name": "建站代理服务",
       "description": "从建站到运营，一站式电商解决方案",
       "features": {
         "feature-1": "涵盖全能代理服务所有权益",

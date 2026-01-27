@@ -76,7 +76,7 @@
   },
   "PricePlans": {
     "manual": {
-      "name": "Manual Version ($59)",
+      "name": "Manual Version",
       "description": "For users who want to do it themselves",
       "features": {
         "feature-1": "Complete global payment guide",
@@ -90,7 +90,7 @@
       "limits": {}
     },
     "advanced": {
-      "name": "Personal Agency ($299)",
+      "name": "Personal Agency",
       "description": "Worry-free personal assistance",
       "features": {
         "feature-1": "Includes Manual Version content",
@@ -102,7 +102,7 @@
       "limits": {}
     },
     "agency": {
-      "name": "Full Agency Service ($699)",
+      "name": "Full Agency Service",
       "description": "One-stop turnkey service",
       "features": {
         "feature-1": "Includes Manual Version content",
@@ -118,7 +118,7 @@
       "limits": {}
     },
     "site_building": {
-      "name": "Site Building Agent Service ($1999)",
+      "name": "Site Building Agent Service",
       "description": "From site building to operation, a one-stop e-commerce solution",
       "features": {
         "feature-1": "Includes all Full Agency Service benefits",
