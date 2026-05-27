@@ -1,0 +1,229 @@
+---
+title: 有了 LLC 怎么开美国银行账户？Mercury / Relay / Wise Business 实测对比（2026）
+description: NRA 注册完美国 LLC 后第一道关卡：商业银行账户开通。本文实测 Mercury、Relay、Wise Business 三家主流方案，覆盖 $250 开户奖励规则、KYC 拒户雷区、转账备注禁用词、底层托管银行差异。
+image: /images/blog/post-3.png
+date: "2026-05-27"
+published: true
+categories: [us-business, guide]
+author: 极客杰尼
+---
+
+
+> 本文基于 YoTrade 实操客户案例 + Caylet（@caylet）公开的 Mercury 开户避坑分析整理。预计阅读时长 11 分钟。
+
+## 谁需要看这篇？
+
+刚拿到美国 LLC + EIN，准备走"美国身份链路"第三步（开银行账户）的 NRA。你大概率正面临这些问题：
+
+- Mercury / Relay / Wise Business 到底有什么区别？
+- 听说 Mercury 拒户率高，怎么避坑？
+- $250 Mercury 开户奖励的具体玩法是什么？
+- 转账备注写错会被冻结账户吗？
+- 还能开 Stripe Atlas + Chase 商业账户吗？
+
+本文逐个回答，附上 YoTrade 团队 2025 年处理的 30+ 案例统计。
+
+如果你还没注册 LLC，请先看 [NRA 怎么开美国 LLC？特拉华 vs 怀俄明 vs 新墨西哥三州横评](/blog/nra-us-llc-state-comparison-2026)。
+
+---
+
+## 三家方案总览
+
+| 维度 | Mercury | Relay | Wise Business |
+|---|---|---|---|
+| **类型** | FinTech 银行账户 | FinTech 银行账户 | 多币种支付账户 |
+| **NRA 友好度** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **开户奖励** | $250（达标 $10k 入金）| ❌ 无 | ❌ 无 |
+| **最低余额** | $0 | $0 | $0 |
+| **月费** | $0 | $0 | $0 |
+| **境内 ACH** | ✅ 免费 | ✅ 免费 | ✅ 免费 |
+| **国际电汇** | $0（USD 入）| $0（USD 入）| 实际汇率 + 极低费率 |
+| **底层银行** | Choice Financial + Evolve | Thread Bank | Community Federal Savings |
+| **接受 NM LLC** | ⚠️ 偶尔卡 | ✅ | ✅ |
+| **审批速度** | 1–7 天 | 1–3 天 | 1–14 天 |
+| **拒户率（NRA）** | 约 25–35% | 约 15–25% | 约 10–20% |
+
+---
+
+## Mercury 深度拆解
+
+> Mercury 是 2026 年 NRA 圈子里**接受度最高、奖励最丰厚**的方案。但拒户率也是三家里最高的。
+
+### $250 开户奖励的完整规则
+
+四个**硬性条件**，缺一不可：
+
+1. ✅ **全新 Mercury 商业客户**（已有 Mercury 个人或商业账户的人无效）
+2. ✅ **必须通过推荐链接申请**（YoTrade 可提供，无推荐 = 无奖励）
+3. ✅ **开户后 90 天内累计入金 ≥ $10,000**
+4. ✅ **资金至少停留 1 个工作日**（建议 3–5 天更稳）
+
+💡 **入金技巧**：可以分多笔入，凑满 $10k 即可。常见方式：
+- 从你自己的境外账户 ACH 入
+- 从 Stripe / PayPal 商户收款入
+- 朋友 / 家人 ACH 入
+
+⚠️ **入金备注必填**！绝对**不要留白**。安全用词：
+
+```
+✅ Owner's Contribution
+✅ Initial Capital
+✅ Capital Investment
+✅ Owner's Draw（出金时用）
+
+❌ Salary  ❌ Payroll  ❌ Wage（会触发 W-2 雇佣关系认定）
+```
+
+### Mercury 拒户三大雷区
+
+**雷区 1：电商网站"半成品"**
+
+如果你的业务网站缺失以下任一项，**Mercury 风控会直接拒**：
+- Shipping Policy（运输政策）
+- Return Policy（退货政策）
+- Privacy Policy（隐私政策）
+- Terms and Conditions（服务条款）
+- 真实 Contact（不能只有 Gmail 邮箱）
+- **完整可购买流程**（不能是空购物车）
+
+**雷区 2：服务型企业"三无"**
+
+如果你做咨询 / 自由职业 / 代运营，没有：
+- 客户案例 / 作品集
+- 定价表
+- 真人背书（个人简历、过往会议照片）
+
+→ Mercury 也会拒。Caylet 的实战建议是**在网站展示真实的个人简历、过往的会议纪录照片**。
+
+**雷区 3：转账备注致命错误**
+
+留白或写错关键词，可能直接被**冻结账户 + 永久关户**，不仅 $250 拿不到，连本金都要等内部调查后才能取回。
+
+### Mercury 开户完整流程
+
+```
+1. 准备材料：LLC 文件 + EIN Letter + Operating Agreement + 护照 + 个人地址证明
+2. 业务网站完善 + 公司邮箱（domain 邮箱，不要 Gmail）
+3. 通过推荐链接提交申请 → 填业务描述（最关键，要详细）
+4. 提交后 1–7 天内有内部审核
+5. 通过后获得账户 + 路由号 + Debit Card
+6. 90 天内分批入金满 $10k
+7. 资金停留 1+ 工作日 → $250 自动到账
+```
+
+---
+
+## Relay 适合谁
+
+Relay 的**核心差异化**：支持**最多 20 个子账户**（适合 Profit First 财务管理法的人）。
+
+✅ **优势**：
+- NRA 申请通过率高于 Mercury
+- 子账户分桶（运营 / 税务预留 / 利润 / 储蓄）
+- 单平台多 LLC 管理（Mercury 也支持，但 Relay 更顺手）
+
+❌ **劣势**：
+- 无开户奖励
+- 国际电汇支持弱于 Mercury
+
+**适合人群**：业务现金流复杂，要做严格分账管理的 NRA 卖家。
+
+---
+
+## Wise Business 适合谁
+
+Wise 严格说不是"银行"，是**支付机构**，但能给你提供**美元账户 + 路由号 + ACH 收款能力**，对跨境收款 / 多币种结算极友好。
+
+✅ **优势**：
+- 单平台支持 **50+ 货币账户**
+- 国际转账**实际汇率**（不像传统银行加点）
+- 接收 Stripe / Amazon / Etsy 等 USD 收款
+- 拒户率最低
+
+❌ **劣势**：
+- 无开户奖励
+- 不能开支票、不能 wire out 大额到非 Wise 账户（有限制）
+- **不算"美国银行账户"**——某些场景（如 Plaid 验证）不被认可
+
+**适合人群**：跨境收款为主、需要多币种、对"完整美国银行体验"要求不高的 NRA。
+
+---
+
+## 实战推荐组合
+
+```
+方案 A：跨境电商 + 内容创业
+        Mercury（主账户）+ Wise Business（多币种收款）
+        ⭐ 拿 $250 奖励 + 用 Wise 接 Stripe USD
+
+方案 B：多 LLC / 多业务管理
+        Relay（主账户）+ Mercury（备用 + 奖励）
+
+方案 C：纯跨境收款 + 极简模式
+        Wise Business 单一（拒户风险最低）
+```
+
+📌 **YoTrade 实战数据**：30+ NRA 客户中 ——
+- 同时开 Mercury + Wise：60%
+- 只开 Mercury：20%
+- 只开 Wise：15%
+- Relay 用户：5%（业务复杂的）
+
+---
+
+## 第四家选项：Stripe Atlas 配套银行
+
+如果你通过 **Stripe Atlas** 注册 LLC（$500 一次性），Atlas 会**捆绑给你一个 Mercury 或 Stripe Treasury 账户**——这是最省心的"一站式"。
+
+✅ 优势：注册 + 银行 + Stripe 收款一次到位
+❌ 劣势：$500 价格偏贵；州默认 Delaware（很多 NRA 用不到 DE 的优势）
+
+**适合人群**：愿意为"一次搞定"付溢价的初次创业者。
+
+---
+
+## 拿到账户之后
+
+### 转账操作三原则
+
+1. **入金标 Owner's Contribution / Initial Capital**
+2. **出金到自己个人账户标 Owner's Draw**（绝不写 Salary）
+3. **业务开支正常标 Payment / Invoice xxx**
+
+### 季度对账 + 留好记录
+
+每季度从 Mercury / Relay 导出 CSV 对账。**Form 5472 报税时 IRS 可能要求附银行流水**，提前准备好可以省事。
+
+### 信用卡申请准入
+
+有了 Mercury / Relay 账户 + 半年以上活跃流水，**可以申请 AmEx Business / Chase Ink 等商业卡**。这是下一步：
+
+👉 [NRA 申美卡全流程：从 ITIN 到首张 5/24 的 12 个月路线图] *（即将发布）*
+
+---
+
+## YoTrade 美国银行开户辅导
+
+我们提供：
+
+- 🏦 **Mercury / Relay / Wise 三家代办申请**（含业务描述模板、网站合规改造建议）
+- 🔗 **$250 Mercury 推荐链接 + 入金达标策略**
+- 📋 **Operating Agreement + EIN Letter 文件包整理**
+- 🛡️ **拒户后申诉辅导**（一次拒户不影响重申）
+- 💼 **配套 5472 报税合规跟踪**
+
+> 已有 [LLC 注册](/services/daiban) + [ITIN](/services/daiban) 的客户，开户辅导按打包价。
+
+👉 [咨询美国银行开户](/services/daiban) | [LLC + 银行打包方案](/services/daiban)
+
+---
+
+## 相关阅读
+
+- [ITIN 申请完全指南：CAA 代办 vs 邮寄 DIY 全对比（2026 最新）](/blog/itin-application-complete-guide-2026)
+- [NRA 怎么开美国 LLC？特拉华 vs 怀俄明 vs 新墨西哥三州横评](/blog/nra-us-llc-state-comparison-2026)
+- [NRA 申美卡全流程：从 ITIN 到首张 5/24 的 12 个月路线图] *（即将发布）*
+
+---
+
+*本文信息基于 2026 年 5 月各银行最新政策。开户奖励、KYC 要求可能变动。本文不构成金融建议。*
