@@ -70,11 +70,12 @@ description: 1-2 句话总结，含 SEO 关键词，控制 80-160 字
 image: /images/blog/{slug}-cover.png
 date: "YYYY-MM-DD"
 published: true
-premium: true
 categories: [primary-category, guide]
 author: 极客杰尼
 ---
 ```
+
+⚠️ **绝对不要加 `premium: true`**。博客的作用是 SEO 引流获客（搜索用户进来看全文 → 转化为代办/代刷客户），不是卖文章会员。加 premium 会触发付费墙，挡住搜索流量，与引流目标直接冲突。
 
 `primary-category` 取值：
 - ITIN / LLC / 银行 / 美卡 → `us-business`
