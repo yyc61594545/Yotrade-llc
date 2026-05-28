@@ -16,7 +16,7 @@ import {
   blogSource,
   categorySource,
 } from '@/lib/source';
-import { getUrlWithLocale } from '@/lib/urls/urls';
+import { getBaseUrl, getImageUrl, getUrlWithLocale } from '@/lib/urls/urls';
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import { CalendarIcon, FileTextIcon } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -112,8 +112,45 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
   // get related posts
   const relatedPosts = await getRelatedPosts(post);
 
+  // JSON-LD structured data (schema.org BlogPosting) for rich results / SEO
+  const postUrl = getUrlWithLocale(`/blog/${slug.join('/')}`, locale);
+  const publishedIso = new Date(date).toISOString();
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    image: image ? getImageUrl(image).toString() : undefined,
+    datePublished: publishedIso,
+    dateModified: publishedIso,
+    inLanguage: locale,
+    author: {
+      '@type': 'Person',
+      name: blogAuthor?.data.name ?? author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'YoTrade',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${getBaseUrl()}/yotradellc.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+  };
+
   return (
     <div className="flex flex-col gap-8">
+      {/* JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requires raw script injection
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* content section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* left column (blog post content) */}
