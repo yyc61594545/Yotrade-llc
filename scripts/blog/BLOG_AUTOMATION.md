@@ -16,9 +16,10 @@
 | 文章命名 | `{english-slug}.zh.mdx`（locale = zh） |
 | 封面目录 | `public/images/blog/` |
 | 封面命名 | `{english-slug}-cover.png` |
-| 分类目录 | `content/category/`（现有：`us-business`、`hk-bank`、`company`、`product`、`news`、`payments`、`guide`） |
-| 作者目录 | `content/author/`（现有：`fox`、`mkdirs`、`mksaas`、`jikejieni`） |
+| 分类目录 | `content/category/`（现有：`us-business`、`hk-bank`、`company`、`payments`、`guide`） |
+| 作者目录 | `content/author/`（现有：`mksaas`、`jikejieni`、`hezhiyan7`） |
 | 部署平台 | Vercel（push 到 main 自动部署） |
+| 服务页路由 | `/services/{daiban,daishua,daigou,daimai}` — 真实存在的转化页，CTA 放心引用，不会 404 |
 
 ## 2. 选题策略
 
@@ -119,7 +120,13 @@ author: 极客杰尼
 - 🎯 [服务点 1]
 - 🎯 [服务点 2]
 
-👉 [咨询 XXX 服务](/services/{daiban|daishua|daigou|daimai}) | [查看打包方案](/services/daiban)
+👉 [咨询 XXX 服务](/services/daiban) | [浏览代办方案](/services/daiban)
+
+⚠️ **CTA 路由对照表（这 4 个都是真实存在的页面，会自动 404 检测）**：
+- 美国身份代办（ITIN/LLC/银行/Stripe/美卡/报税）→ `/services/daiban`
+- AI 订阅 / 海外 SaaS 代刷 → `/services/daishua`
+- 海外商品代购 → `/services/daigou`
+- 海外限定款代买 → `/services/daimai`
 
 ---
 
