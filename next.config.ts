@@ -11,8 +11,13 @@ import createNextIntlPlugin from 'next-intl/plugin';
  * localePrefix: 'as-needed' — the default zh locale serves URLs both
  * with and without the /zh prefix, and Google may have indexed either.
  */
-const RENAMED_STRIPE_GUIDE_OLD = '/blog/香港银行卡开通 Stripe 完整指南zh';
-const RENAMED_STRIPE_GUIDE_NEW = '/blog/香港银行卡开通 Stripe 完整指南';
+// Sources must use percent-encoded paths so path-to-regexp matches the
+// encoded URL the server actually receives. Bare Unicode + spaces never
+// compile into a usable rule (silent miss; the test request 404s).
+const RENAMED_STRIPE_GUIDE_OLD =
+  '/blog/%E9%A6%99%E6%B8%AF%E9%93%B6%E8%A1%8C%E5%8D%A1%E5%BC%80%E9%80%9A%20Stripe%20%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97zh';
+const RENAMED_STRIPE_GUIDE_NEW =
+  '/blog/%E9%A6%99%E6%B8%AF%E9%93%B6%E8%A1%8C%E5%8D%A1%E5%BC%80%E9%80%9A%20Stripe%20%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97';
 
 const DELETED_DEMO_SLUGS = [
   'comparisons',
