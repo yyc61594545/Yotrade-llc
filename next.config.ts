@@ -3,6 +3,79 @@ import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
 /**
+ * 301 redirects for URLs that were deleted or renamed during cleanup, so
+ * Google's discovered-URL set stops showing 404s and any inbound links
+ * land somewhere useful instead of dying.
+ *
+ * Each entry has two variants because the site uses next-intl with
+ * localePrefix: 'as-needed' — the default zh locale serves URLs both
+ * with and without the /zh prefix, and Google may have indexed either.
+ */
+const RENAMED_STRIPE_GUIDE_OLD = '/blog/香港银行卡开通 Stripe 完整指南zh';
+const RENAMED_STRIPE_GUIDE_NEW = '/blog/香港银行卡开通 Stripe 完整指南';
+
+const DELETED_DEMO_SLUGS = [
+  'comparisons',
+  'fumadocs',
+  'internationalization',
+  'manual-installation',
+  'markdown',
+  'premium',
+  'search',
+  'theme',
+];
+
+const DELETED_CATEGORY_SLUGS = ['news', 'product'];
+
+function buildRedirects() {
+  const out: { source: string; destination: string; permanent: boolean }[] =
+    [];
+
+  // 1) Renamed real article: redirect old (broken-locale-suffix) slug to
+  //    the corrected one so its index/backlink equity is preserved.
+  out.push({
+    source: RENAMED_STRIPE_GUIDE_OLD,
+    destination: RENAMED_STRIPE_GUIDE_NEW,
+    permanent: true,
+  });
+  out.push({
+    source: `/zh${RENAMED_STRIPE_GUIDE_OLD}`,
+    destination: RENAMED_STRIPE_GUIDE_NEW,
+    permanent: true,
+  });
+
+  // 2) Deleted mksaas template demo posts → blog index.
+  for (const slug of DELETED_DEMO_SLUGS) {
+    out.push({
+      source: `/blog/${slug}`,
+      destination: '/blog',
+      permanent: true,
+    });
+    out.push({
+      source: `/zh/blog/${slug}`,
+      destination: '/blog',
+      permanent: true,
+    });
+  }
+
+  // 3) Deleted orphan categories → blog index.
+  for (const cat of DELETED_CATEGORY_SLUGS) {
+    out.push({
+      source: `/blog/category/${cat}`,
+      destination: '/blog',
+      permanent: true,
+    });
+    out.push({
+      source: `/zh/blog/category/${cat}`,
+      destination: '/blog',
+      permanent: true,
+    });
+  }
+
+  return out;
+}
+
+/**
  * https://nextjs.org/docs/app/api-reference/config/next-config-js
  */
 const nextConfig: NextConfig = {
@@ -11,6 +84,10 @@ const nextConfig: NextConfig = {
 
   /* config options here */
   devIndicators: false,
+
+  async redirects() {
+    return buildRedirects();
+  },
 
   // https://nextjs.org/docs/architecture/nextjs-compiler#remove-console
   // Remove all console.* calls in production only
