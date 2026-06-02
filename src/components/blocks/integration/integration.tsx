@@ -22,28 +22,28 @@ export default function IntegrationSection() {
       title: t('items.item-1.title'),
       description: t('items.item-1.description'),
       logo: '/services/daigou.png',
-      link: '/services/daigou',
+      link: '/services/daigou?utm_source=home&utm_medium=card&utm_campaign=integration',
     },
     {
       id: 'daimai',
       title: t('items.item-2.title'),
       description: t('items.item-2.description'),
       logo: '/services/daimai.png',
-      link: '/services/daimai',
+      link: '/services/daimai?utm_source=home&utm_medium=card&utm_campaign=integration',
     },
     {
       id: 'daishua',
       title: t('items.item-3.title'),
       description: t('items.item-3.description'),
       logo: '/services/daishua.png',
-      link: '/services/daishua',
+      link: '/services/daishua?utm_source=home&utm_medium=card&utm_campaign=integration',
     },
     {
       id: 'daiban',
       title: t('items.item-4.title'),
       description: t('items.item-4.description'),
       logo: '/services/daiban.png',
-      link: '/services/daiban',
+      link: '/services/daiban?utm_source=home&utm_medium=card&utm_campaign=integration',
     },
   ];
 

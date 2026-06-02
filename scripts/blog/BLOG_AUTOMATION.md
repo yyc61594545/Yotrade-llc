@@ -120,7 +120,9 @@ author: 极客杰尼
 - 🎯 [服务点 1]
 - 🎯 [服务点 2]
 
-👉 [咨询 XXX 服务](/services/daiban) | [浏览代办方案](/services/daiban)
+👉 [咨询 XXX 服务](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign={此文章 slug}) | [浏览代办方案](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign={此文章 slug})
+
+⚠️ **所有 `/services/*` CTA 必须带 UTM**——格式 `?utm_source=blog&utm_medium=cta&utm_campaign={slug}`，其中 `{slug}` = 此文章的英文 slug（即文件名去 `.zh.mdx`）。这是 Vercel Analytics 归因唯一识别哪篇博客带量的方式，**漏加等于这篇文章在数据里"匿名"**。
 
 ⚠️ **CTA 路由对照表（这 4 个都是真实存在的页面，会自动 404 检测）**：
 - 美国身份代办（ITIN/LLC/银行/Stripe/美卡/报税）→ `/services/daiban`
