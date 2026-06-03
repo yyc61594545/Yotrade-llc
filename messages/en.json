@@ -1139,30 +1139,16 @@
   },
   "WechatContact": {
     "badge": "Preferred cross-border channel",
-    "heading": "Scan to add WeChat — plan within 30 min",
-    "description": "Cross-border deals close on WeChat. Skip email and forms — add me directly.",
-    "qrAlt": "YoTrade WeChat QR — Easloyip",
-    "qrBadge": "Real person, 30-min reply",
-    "copyButton": "Copy WeChat ID",
-    "copied": "Copied Easloyip",
-    "perksTitle": "What you get on WeChat",
-    "trust": {
-      "trustFree": "Consultation is free",
-      "trustFast": "30-min response",
-      "trustNoPush": "No hard sell if we're not a fit"
-    },
+    "heading": "Scan to chat — plan within 30 min",
+    "perksTitle": "What you get on chat",
     "perks": {
       "fast": {
         "title": "Plan + quote within 30 min",
         "desc": "Manage / buy / pay quotes on demand."
       },
-      "cheapest": {
+      "path": {
         "title": "Cheapest path, 1-on-1",
-        "desc": "Even if it means we recommend the self-serve manual."
-      },
-      "structure": {
-        "title": "Free structure review",
-        "desc": "We help you pick between self-serve / managed / buy-on-behalf."
+        "desc": "Even if it means recommending the self-serve manual."
       },
       "community": {
         "title": "Client-only group chat",
@@ -1172,11 +1158,6 @@
         "title": "Free consultation",
         "desc": "No pressure to buy, no lock-in."
       }
-    },
-    "whatsappLabel": "WhatsApp",
-    "telegramLabel": "Telegram",
-    "whatsappQrAlt": "YoTrade WhatsApp QR — overseas consultation",
-    "telegramQrAlt": "YoTrade Telegram QR — overseas consultation",
-    "overseasNote": "Overseas — scan instead"
+    }
   }
 }

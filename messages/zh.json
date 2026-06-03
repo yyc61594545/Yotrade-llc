@@ -1153,30 +1153,16 @@
   },
   "WechatContact": {
     "badge": "跨境业务首选沟通渠道",
-    "heading": "扫码加微信，30 分钟内出方案",
-    "description": "中国跨境业务最终都靠微信成交。直接加我，免邮件、免表单、不绕弯。",
-    "qrAlt": "YoTrade 微信二维码 Easloyip",
-    "qrBadge": "真人 30 分钟内回",
-    "copyButton": "复制微信号",
-    "copied": "已复制 Easloyip",
-    "perksTitle": "加我微信你能得到什么",
-    "trust": {
-      "trustFree": "咨询完全免费",
-      "trustFast": "30 分钟反馈",
-      "trustNoPush": "不合适不强推"
-    },
+    "heading": "扫码加我，30 分钟内出方案",
+    "perksTitle": "加我你能得到什么",
     "perks": {
       "fast": {
         "title": "30 分钟内反馈方案 + 报价",
         "desc": "代办 / 代购 / 代付按需估价。"
       },
-      "cheapest": {
-        "title": "一对一咨询最省钱路径",
-        "desc": "哪怕推荐你买手册版自助。"
-      },
-      "structure": {
-        "title": "免费业务结构梳理",
-        "desc": "适合自助/代办/代购代付，帮你选。"
+      "path": {
+        "title": "一对一最省钱路径梳理",
+        "desc": "适合自助/代办/代付帮你选，哪怕推荐手册版。"
       },
       "community": {
         "title": "已成单客户专属社群",
@@ -1186,11 +1172,6 @@
         "title": "咨询完全免费",
         "desc": "不合适不强推，不绑架。"
       }
-    },
-    "whatsappLabel": "WhatsApp",
-    "telegramLabel": "Telegram",
-    "whatsappQrAlt": "YoTrade WhatsApp 二维码 — 扫码加海外咨询",
-    "telegramQrAlt": "YoTrade Telegram 二维码 — 扫码加海外咨询",
-    "overseasNote": "海外用户也可扫码"
+    }
   }
 }
