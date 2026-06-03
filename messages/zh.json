@@ -67,7 +67,8 @@
       "agencyBadge": "全能代办",
       "siteBuildingBadge": "业务代办",
       "getStartedFreeTrial": "立即购买",
-      "orPayWith": "或者使用"
+      "orPayWith": "或者使用",
+      "popularBadge": "最受欢迎"
     },
     "CheckoutButton": {
       "loading": "加载中...",
