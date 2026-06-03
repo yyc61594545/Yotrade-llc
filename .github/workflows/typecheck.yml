@@ -64,5 +64,19 @@ jobs:
           # IS needed because it generates content collection types — let it run.
           HUSKY: '0'
 
+      - name: Generate next-env.d.ts
+        # Next.js auto-generates this file on `next dev` / `next build`, but
+        # we are skipping both in CI. The file is gitignored, so we recreate
+        # it inline. next/image-types/global provides *.png / *.jpg / *.svg
+        # / etc StaticImageData module declarations that asset imports rely on.
+        run: |
+          cat > next-env.d.ts <<'EOF'
+          /// <reference types="next" />
+          /// <reference types="next/image-types/global" />
+
+          // NOTE: This file should not be edited
+          // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
+          EOF
+
       - name: Run TypeScript compiler (--noEmit)
         run: pnpm typecheck
