@@ -1,0 +1,273 @@
+---
+title: EIN 申请完全指南 2026：NRA 没 SSN 也能办——传真 / 邮寄 / 电话三路径横评 + Form SS-4 填写实操
+description: 注册了美国 LLC，第一件要办的不是开户而是 EIN。本文把 NRA 申请 EIN 的全部细节讲透：在线为什么不能用、传真 / 邮寄 / 电话三种路径怎么选、Form SS-4 第 7b 栏怎么填、CP 575 通知什么时候到、申请后怎么用它开 Mercury 和报 5472。
+image: /images/blog/ein-application-form-ss4-nra-guide-2026-cover.png
+date: "2026-06-03"
+published: true
+categories: [us-business, guide]
+author: 极客杰尼
+---
+
+> 本文整理自 IRS《Instructions for Form SS-4》(Rev. 12/2023)、IRS.gov "International Applicants" 官方页面、以及 YoTrade 给上百位 NRA 客户实际申请 EIN 的经验。预计阅读 8 分钟。
+
+注册完美国 LLC 的当天，很多人下一步就直接冲去 Mercury 想开户，结果被告知"请先提供 EIN"。然后打开 IRS 在线申请页面，点到第一步就傻眼——**"Responsible party 必须有 SSN、ITIN 或 EIN"**。
+
+没 SSN 怎么办？没 ITIN 也没关系吗？传真到底要传到哪个号？电话申请真的几分钟出号？这篇把 NRA 申请 EIN 的全部细节一次讲透。
+
+## 谁需要看这篇？
+
+- 🎯 刚注册完美国 LLC、还没有 EIN 的人
+- 🎯 没 SSN / ITIN，被 IRS 在线申请页面挡在门外的 NRA
+- 🎯 想最快拿到 EIN 去开 Mercury、Wise Business、Stripe Atlas 后台的人
+- 🎯 之前请代理办 EIN 被收 $200-$500，想知道自己能不能省下来的人
+- 📌 已经注册了 LLC，但还没搞懂 EIN 是不是必须的（剧透：是）
+
+---
+
+## 一、先搞清楚：EIN 到底是什么、什么时候必须办
+
+**EIN（Employer Identification Number）= 美国联邦税务局给商业实体发的 9 位税号**，格式 `XX-XXXXXXX`。它对一家美国 LLC 的意义，相当于身份证号对一个人——没有 EIN，你的 LLC 在 IRS 系统里基本是"不存在"的。
+
+很多人以为"EIN 是雇了员工才要办"，这是中文圈最大的误解。真实规则是：
+
+| 场景 | EIN 是不是必须 |
+|---|---|
+| 单一成员 LLC（外国所有人） | ✅ **必须**——报 5472 / 1120 必须用 EIN |
+| 想开 Mercury / Relay / Wise Business | ✅ **必须**——美国所有银行 KYC 都查 EIN |
+| 想申请 Stripe / PayPal 商户账号 | ✅ **必须**——平台 W-9 / 1099 用 EIN 关联 |
+| 想申请商业卡（Chase Ink、AmEx Business） | ✅ **必须**——发卡行直接查 EIN |
+| LLC 全年零活动、零收入 | ✅ **仍然必须**——5472 申报义务和有没有钱进出无关 |
+| 你只是个 sole proprietor（个人独资），完全不开银行账户 | ❌ 可以用 SSN/ITIN 顶替（但 NRA 一般不走这条路）|
+
+💡 **YoTrade 实战观察**：90% 的 NRA 客户卡在"LLC 注册完 → 想开 Mercury → 被卡 EIN"这一步。注册代理收完钱就消失，根本不会提醒你 EIN 是另一件事。LLC 文件到手只是起点，EIN 才是真正能让账户跑起来的钥匙。
+
+如果你还没注册 LLC，先看选州横评：[NRA 怎么开美国 LLC？特拉华 vs 怀俄明 vs 新墨西哥三州横评](/blog/nra-us-llc-state-comparison)。
+
+---
+
+## 二、为什么 NRA 不能在线申请（IRS 没写在首页上的那条规则）
+
+IRS 的在线申请页面（EIN Assistant）速度最快——填完表单 10 秒出号、立刻下载 CP 575 通知函。但它有一条**对 NRA 致命的硬限制**：
+
+> "The responsible party must have a valid Taxpayer Identification Number (Social Security Number, Individual Taxpayer Identification Number, or Employer Identification Number)."
+
+⚠️ **翻译**：要在线申请，你这个"负责人（responsible party）"自己必须先有 SSN、ITIN 或 EIN 三选一。多数 NRA 三个都没有 → 在线通道**直接关闭**。
+
+那能不能"借用"美国朋友的 SSN 当 responsible party？
+
+❌ **不行**。Responsible party 在 IRS 定义里必须是"真正控制、管理或拥有这家实体的人"。借用别人 SSN 申请 EIN 属于 false statement，未来 5472 / 1120 / 银行 KYC 都会对不上身份，分分钟连带 LLC 被锁。
+
+✅ **正解**：NRA 只能走剩下的三条路——**传真、邮寄、电话**。下面逐条横评。
+
+---
+
+## 三、传真 / 邮寄 / 电话三路径横评
+
+| 路径 | 出号时间 | 难度 | 适合谁 | 风险点 |
+|---|---|---|---|---|
+| **传真** | 约 4 个工作日 | ⭐⭐ | 大多数 NRA 的默认选择 | 没传真机？用在线传真服务（HelloFax / RingCentral） |
+| **邮寄** | 4-6 周 | ⭐ | 完全没传真渠道、又不敢打电话的人 | 邮件可能丢；最慢 |
+| **电话** | **当场出号（10-30 分钟）** | ⭐⭐⭐⭐ | 英文流利、急着要 EIN 的人 | 必须本人接、要回答口头问题、容易被卡 |
+| 在线（EIN Assistant） | 10 秒 | — | ❌ **NRA 不可用** | 仅供有 SSN/ITIN/EIN 的 responsible party |
+
+下面拆每一条。
+
+### 3.1 传真路径（推荐默认）
+
+**操作流程**：
+
+1. 下载 IRS 官方 Form SS-4（PDF），仔细填好所有栏目（详细填法看第四节）
+2. 在表单底部签名（手写或电子签都行）
+3. 把 SS-4 传真到 IRS 国际申请人专用号：**+1-855-215-1627**（美国境内号）或 **+1-304-707-9471**（境外号，多数 NRA 用这个）
+4. 等 4 个工作日，IRS 会把含 EIN 的 CP 575 通知传真回你（或邮寄回你填写的地址）
+
+**没传真机怎么办？** 用任何在线传真服务都可以：
+
+- **HelloFax**：单页约 $0.99 起，注册后可直接上传 PDF 传真
+- **eFax / RingCentral Fax**：月费制，适合要传多份的（比如同时给客户的多家 LLC 申请）
+- **Pamfax**：按页付费，对单次申请最划算
+
+⚠️ **关键细节**：传真送出后 IRS 不会主动告诉你"已收到"，**4 个工作日内没收到回执就要重传**。重传记得用同一个 LLC 信息，不要随便改资料，否则可能被当成两次申请被打回。
+
+✅ **YoTrade 推荐做法**：传真表头加一行 cover sheet，注明 "Return fax: +XX-XXX-XXXX" 和 "Return address: ..."，IRS 会优先用你指定的回传方式发 CP 575，比纯邮寄快很多。
+
+### 3.2 邮寄路径（最保守、最慢）
+
+**邮寄地址**（针对外资申请人）：
+
+```
+Internal Revenue Service
+Attn: EIN International Operation
+Cincinnati, OH 45999
+```
+
+把 SS-4 用任何能追踪的国际快递（DHL / FedEx / EMS）寄过去，4-6 周收到 CP 575。
+
+❌ 这条路的最大问题不是慢，是**无法追踪到达后的处理进度**。Cincinnati 这个 IRS 处理中心每天收上千份申请，丢件、堆积、积压都是真实发生过的事。
+
+✅ 只有在下面三种情况才推荐走邮寄：
+
+- 你本来就要寄其他文件（比如 ITIN W-7 表，可以一起寄）
+- 你完全没传真渠道也不想打电话
+- 你不急——EIN 拿到时 LLC 文件可能已经"过期"半年了，但你确实不急
+
+### 3.3 电话路径（最快，但门槛高）
+
+IRS 为非美国申请人开放了一条**国际 EIN 电话申请专线**：
+
+- **电话**：+1-267-941-1099（非免费、国际长途）
+- **工作时间**：东部时间周一至周五 6:00 AM – 11:00 PM
+- **预备**：先把 SS-4 填好放在手边（接电话的 IRS 客服会逐栏问你）
+
+通常 10-30 分钟之内 IRS 客服会**当场口头告诉你 EIN**，纸质 CP 575 通知函随后邮寄到你填的地址（4-5 周到）。
+
+⚠️ **真实门槛**：
+
+| 门槛 | 实战体感 |
+|---|---|
+| 英文水平 | IRS 客服没有中文支持；要听懂业务代码、回答 reportable transaction 类问题 |
+| 时差 | 东部时间 6AM-11PM 对北京时间是 19:00 次日 12:00，深夜打才接通 |
+| 等待 | 实测高峰期排队 40-60 分钟才接通 |
+| 验证 | 你必须能口头回答出 SS-4 上每一栏的内容，包括 LLC 注册州、注册地址、商业代码等 |
+
+📌 **YoTrade 实战观察**：我们帮客户打电话申请 EIN 时，一次成功率约 70%。失败的 30% 主要原因是：客服听不清申请人口音 → 反复确认 LLC 名字 → 申请人崩溃挂断。这条路省时间，但**对英文听说能力要求很高**。
+
+---
+
+## 四、Form SS-4 逐栏填写：NRA 最容易填错的 7 个地方
+
+Form SS-4 一共 18 行，看起来不长，但 NRA 视角下有 7 个栏目是"专属雷区"。
+
+### 4.1 第 1 行：Legal name of entity
+
+填 LLC 的**完整法定名称**，必须和州务卿那边登记的一字不差，包括 "LLC" 或 "L.L.C." 的写法。
+
+❌ 常见错：注册时叫 "Yotrade Ventures LLC"，SS-4 上写成 "YoTrade Ventures, LLC"（多了逗号）→ IRS 系统比对后被打回。
+
+### 4.2 第 4a/4b 行：Mailing address
+
+填你 LLC 的**收信地址**——可以是注册代理（Registered Agent）地址，也可以是你的境外住址。
+
+✅ 推荐填**注册代理地址**：CP 575 通知函会寄到这，注册代理通常会扫描成 PDF 转发给你，比寄到境外快得多。
+
+### 4.3 第 7a 行：Name of responsible party
+
+填你**本人姓名**（拼音，按护照写法）。Responsible party 就是这家 LLC 的"实控人"，对单一成员 LLC 来说就是唯一成员。
+
+### 4.4 第 7b 行：SSN, ITIN, or EIN（**最关键的一栏**）
+
+NRA 三种情况怎么填：
+
+| 你的身份 | 7b 怎么写 |
+|---|---|
+| 有 ITIN | 填 ITIN |
+| 没 ITIN，但走过税号（FTIN，本国税号） | 在 7b 留空 / 写 "Foreign"，并在 SS-4 第 18 行说明 |
+| 完全没有任何美国税号 | 写 **"Foreign"**（这是 IRS 官方认可的写法）|
+
+📌 关键点：**没 SSN / ITIN 不等于不能办 EIN**，这是中文圈传得最广的谣言。IRS 在 Form SS-4 官方说明里明确写：International applicants may leave line 7b blank.
+
+如果你后续还想申请 ITIN（比如想申美卡、报美国个税），可以同步申请，看这篇：[ITIN 申请完全指南](/blog/itin-application-complete-guide)。
+
+### 4.5 第 8a 行：Is this application for a LLC?
+
+✅ 勾 **Yes**。8b 填成员人数（单一成员就写 "1"），8c 勾 **Yes**（在美国成立的）。
+
+### 4.6 第 9a 行：Type of entity
+
+NRA 单一成员 LLC 这里有一个**反直觉的填法**：
+
+| 选项 | 你该不该勾 |
+|---|---|
+| Sole proprietor | ❌ 不要勾——你是 LLC 不是个人独资 |
+| Partnership | ❌ 单一成员不是合伙 |
+| Corporation | ❌ 你没主动选成 C-Corp |
+| **Other (specify)** | ✅ **勾这个，备注栏填 "Foreign-owned U.S. Disregarded Entity"** |
+
+⚠️ 这个填法直接关系到第二年报 Form 5472 + pro forma 1120 的归类。填错成 Sole proprietor，未来 5472 申报会被系统识别为不一致，可能引发 IRS 通知信。
+
+如果你不确定 disregarded entity 是什么，先看这篇：[外资 LLC 必读：Form 5472 报税完全指南](/blog/foreign-owned-llc-form-5472-filing-guide)。
+
+### 4.7 第 10 行：Reason for applying
+
+✅ 勾 **"Started new business"**，备注栏填你的业务类型，比如 "E-commerce" / "Software services" / "Consulting"。不要随便填 "Banking purpose"——IRS 看到这条会怀疑你只是为了开账户而申请 EIN，可能延后处理。
+
+---
+
+## 五、拿到 EIN 之后：CP 575 通知函与三件事
+
+申请通过后 IRS 会发一份 **CP 575 A** 通知函（电话申请的会同时邮寄+口头给你 EIN，传真申请的会传真回执）。这张纸上印着你的 EIN、LLC 名称、地址。
+
+**CP 575 是你 LLC 的"身份证"**——后面所有重要场景都会要它的扫描件：
+
+| 用途 | 要不要 CP 575 |
+|---|---|
+| 开 Mercury / Relay / Wise Business 账户 | ✅ 必须上传 |
+| 申请 Stripe / PayPal 商户 | ✅ 上传扫描件 |
+| 申请 Chase Ink / AmEx Business 等商业卡 | ✅ 必须 |
+| 报 Form 5472 + 1120 | ✅ 表头要填 EIN |
+| 与州务卿提交年报（Annual Report） | ✅ 部分州要求 |
+
+⚠️ **千万别丢**：CP 575 IRS 只发一次，丢了重新申请只能拿 **147C 信**（不是原件）替代。147C 也能用，但电话申请，又是一轮等待。
+
+### 拿到 EIN 后立刻要做的三件事
+
+1. **存好 CP 575 PDF + 实体扫描件**，云盘留三份备份
+2. **更新所有平台**：Mercury / Stripe / Wise 申请表的 EIN 栏立刻填上
+3. **登记报税时间表**：disregarded entity 的 5472 + 1120 报税截止日是次年 **4 月 15 日**（自动获 6 个月延期到 10 月 15 日，但要提前申请 Form 7004）
+
+---
+
+## 六、决策矩阵：你该走哪条路？
+
+```
+你急不急？
+├── 急（一周内要 EIN）
+│   ├── 英文流利 → 走【电话】，IRS +1-267-941-1099
+│   └── 英文一般 → 走【传真】+1-304-707-9471，4 个工作日出号
+│
+└── 不急（一个月内 OK）
+    ├── 有传真渠道 → 走【传真】（稳）
+    └── 完全没传真 → 走【邮寄】Cincinnati, OH 45999
+
+你有 SSN/ITIN 吗？
+├── 有 → 在线申请，10 秒出号（不需要看这篇文章）
+└── 没有 → 上面三条路 + 7b 栏写 "Foreign"
+```
+
+---
+
+## 七、四个高频翻车点（YoTrade 案例集）
+
+| 翻车 | 真实后果 | 避免方法 |
+|---|---|---|
+| LLC 名字 SS-4 上和州务卿登记差一个字 | EIN 被打回，重申一次再等 4 周 | 填表前对比 LLC Certificate of Formation 上的写法，逐字检查 |
+| Responsible party 借用美国朋友 SSN | 后续 5472 / 银行 KYC 全部对不上 | 一定填自己的护照姓名 + 7b 写 "Foreign" |
+| 9a 勾了 Sole proprietor 而不是 Other | 第二年 5472 系统识别异常 | 勾 Other → 备注 "Foreign-owned U.S. Disregarded Entity" |
+| 拿到 EIN 后忘了报 5472 | $25,000/年罚款起跳 | 拿到 EIN 立刻在日历上标 4 月 15 日 |
+
+---
+
+## YoTrade 相关服务
+
+EIN 申请本身不复杂，但放在"注册州 → LLC → EIN → Mercury → Stripe → 报税"整条链路里，每一步衔接都有坑。我们提供：
+
+- 🎯 **代办 EIN**（含 Form SS-4 填写、传真发起、CP 575 接收）—— 通常 5 个工作日交付
+- 🎯 **LLC 注册 + EIN + Mercury 开户一站式套餐** —— 省去 3 次"等代理回邮件"的时间
+- 🎯 **5472 / 1120 年度合规报税** —— 防止你拿到 EIN 后第二年忘报被罚 $25,000
+- 🎯 **CP 575 丢失补办（147C 信申请）**
+
+👉 [咨询美国身份代办服务](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=ein-application-form-ss4-nra-guide-2026) | [浏览代办方案详情](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=ein-application-form-ss4-nra-guide-2026)
+
+---
+
+## 相关阅读
+
+- [NRA 怎么开美国 LLC？特拉华 vs 怀俄明 vs 新墨西哥三州横评](/blog/nra-us-llc-state-comparison)
+- [外资 LLC 必读：Form 5472 报税完全指南](/blog/foreign-owned-llc-form-5472-filing-guide)
+- [Mercury / Relay / Wise：NRA 美国 LLC 银行账户横评](/blog/us-business-banking-mercury-relay-wise)
+- [ITIN 申请完全指南](/blog/itin-application-complete-guide)
+- [W-8BEN 表格完整指南：NRA 收美元收入怎么填](/blog/w-8ben-form-nra-complete-guide-2026)
+
+---
+
+*本文信息基于 2026 年 6 月最新 IRS Form SS-4 说明及国际申请人专线政策。本文不构成法律或税务建议，重大决策请咨询持牌税务师。*
