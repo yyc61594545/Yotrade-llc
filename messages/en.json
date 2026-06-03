@@ -68,7 +68,8 @@
       "agencyBadge": "Full Agency",
       "siteBuildingBadge": "Business Agent",
       "getStartedFreeTrial": "Start Free Trial",
-      "orPayWith": "Or pay with"
+      "orPayWith": "Or pay with",
+      "popularBadge": "Most Popular"
     },
     "CheckoutButton": {
       "loading": "Loading...",

@@ -21,7 +21,7 @@ import {
   type Price,
   type PricePlan,
 } from '@/payment/types';
-import { CheckCircleIcon, XCircleIcon } from 'lucide-react';
+import { CheckCircleIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { LoginWrapper } from '../auth/login-wrapper';
 import { Badge } from '../ui/badge';
@@ -30,31 +30,21 @@ import { PayPalCheckoutButton } from './paypal-button';
 
 interface PricingCardProps {
   plan: PricePlan;
-  interval?: PlanInterval; // 'month' or 'year'
-  paymentType?: PaymentType; // 'subscription' or 'one_time'
+  interval?: PlanInterval;
+  paymentType?: PaymentType;
   metadata?: Record<string, string>;
   className?: string;
   isCurrentPlan?: boolean;
 }
 
-/**
- * Get the appropriate price object for the selected interval and payment type
- * @param plan The price plan
- * @param interval The selected interval (month or year)
- * @param paymentType The payment type (SUBSCRIPTION or one_time)
- * @returns The price object or undefined if not found
- */
 function getPriceForPlan(
   plan: PricePlan,
   interval?: PlanInterval,
   paymentType?: PaymentType
 ): Price | undefined {
   if (plan.isFree) {
-    // Free plan has no price
     return undefined;
   }
-
-  // non-free plans must have a price
   return plan.prices.find((price) => {
     if (paymentType === PaymentTypes.ONE_TIME) {
       return price.type === PaymentTypes.ONE_TIME;
@@ -68,7 +58,11 @@ function getPriceForPlan(
 /**
  * Pricing Card Component
  *
- * Displays a single pricing plan with features and action button
+ * 视觉系统（Pass 3）：去掉橙/绿/蓝/紫四色彩虹，统一为
+ *   · popular === true  → 墨夜深色推荐档（agency $699）
+ *   · manual            → 最安静（soft 灰底）
+ *   · advanced          → 标准白底（品牌蓝点缀）
+ *   · site_building     → 旗舰白底（顶部蓝紫渐变条 + ✦ 角标）
  */
 export function PricingCard({
   plan,
@@ -83,15 +77,12 @@ export function PricingCard({
   const currentUser = useCurrentUser();
   const currentPath = useLocalePathname();
   const mounted = useMounted();
-  // console.log('pricing card, currentPath', currentPath);
 
-  // generate formatted price and price label
   let formattedPrice = '';
   let priceLabel = '';
   if (plan.isFree) {
     formattedPrice = t('freePrice');
   } else if (price && price.amount > 0) {
-    // price is available
     formattedPrice = formatPrice(price.amount, price.currency);
     if (interval === PlanIntervals.MONTH) {
       priceLabel = t('perMonth');
@@ -102,92 +93,105 @@ export function PricingCard({
     formattedPrice = t('notAvailable');
   }
 
-  // check if plan is not free and has a price
   const isPaidPlan = !plan.isFree && !!price;
-  // check if plan has a trial period, period is greater than 0
   const hasTrialPeriod = price?.trialPeriodDays && price.trialPeriodDays > 0;
 
-  // Determine styles based on plan ID
+  // ---- tier 判定（popular 优先） ----
+  const isPopular = plan.popular === true;
   const isManual = plan.id === 'manual';
-  const isAdvanced = plan.id === 'advanced'; // Now "Personal Agency" ($299)
-  const isAgency = plan.id === 'agency'; // Now "Full Agency" ($699)
-  const isSiteBuilding = plan.id === 'site_building'; // Now "Site Building Agent Service" ($1999)
+  const isAdvanced = plan.id === 'advanced';
+  const isSiteBuilding = plan.id === 'site_building';
 
-  let cardStyles = 'flex flex-col h-full rounded-2xl border-2 transition-all duration-200 bg-white dark:bg-card';
-  let badgeText = '';
-  let badgeStyles = '';
-  // Colors for text/icons/buttons
-  let themeColorText = 'text-primary';
-  let themeColorBorder = 'border-border';
-  let themeColorButton = 'bg-primary hover:bg-primary/90 text-primary-foreground'; // Default
-  let shadowClass = '';
+  // ---- 样式 token ----
+  let cardStyles =
+    'relative flex flex-col h-full rounded-2xl border transition-all duration-200';
+  let titleClass = 'text-foreground';
+  let priceClass = 'text-foreground';
+  let priceSizeClass = 'text-5xl';
+  let descClass = 'text-muted-foreground';
+  let checkClass = 'text-brand-600';
+  let dividerClass = 'border-border-soft';
+  let featureTextClass = '';
+  let subTextClass = 'text-muted-foreground';
+  let buttonClass = 'bg-brand-600 hover:bg-brand-700 text-white';
+  let smallBadgeText = '';
+  let smallBadgeClass = 'bg-muted text-muted-foreground';
 
-  if (isManual) {
-    // Orange Theme
-    cardStyles += ' border-orange-500 shadow-xl shadow-orange-100/50 dark:shadow-orange-900/20';
-    badgeText = t('manualBadge');
-    badgeStyles = 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400';
-    themeColorText = 'text-orange-500';
-    themeColorBorder = 'border-orange-500';
-    themeColorButton = 'bg-orange-500 hover:bg-orange-600 text-white border-orange-500';
-
-  } else if (isAdvanced) {
-    // Green Theme
-    cardStyles += ' border-emerald-500 shadow-xl shadow-emerald-100/50 dark:shadow-emerald-900/20';
-    badgeText = t('advancedBadge');
-    badgeStyles = 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400';
-    themeColorText = 'text-emerald-500';
-    themeColorBorder = 'border-emerald-500';
-    themeColorButton = 'bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-500';
-
-  } else if (isAgency) {
-    // Blue Theme
-    cardStyles += ' border-blue-500 shadow-xl shadow-blue-100/50 dark:shadow-blue-900/20';
-    badgeText = t('agencyBadge');
-    badgeStyles = 'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400';
-    themeColorText = 'text-blue-600'; // Match border roughly
-    themeColorBorder = 'border-blue-500';
-    themeColorButton = 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600';
-
+  if (isPopular) {
+    cardStyles +=
+      ' z-10 border-ink-700 bg-gradient-to-b from-ink-800 to-ink-900 text-white shadow-2xl shadow-ink-900/40 lg:-translate-y-2 lg:scale-[1.03]';
+    titleClass = 'text-white';
+    priceClass = 'text-brand-200';
+    priceSizeClass = 'text-6xl';
+    descClass = 'text-white/60';
+    checkClass = 'text-wx-500';
+    dividerClass = 'border-white/15';
+    featureTextClass = 'text-white';
+    subTextClass = 'text-white/55';
+    buttonClass =
+      'bg-wx-500 hover:bg-wx-600 active:bg-wx-700 text-white shadow-[0_12px_28px_-8px_rgba(16,194,91,0.6)]';
+  } else if (isManual) {
+    cardStyles += ' border-border-soft bg-bg-soft shadow-sm';
+    checkClass = 'text-muted-foreground';
+    buttonClass =
+      'border border-input bg-white text-foreground hover:bg-muted shadow-none';
+    smallBadgeText = t('manualBadge');
   } else if (isSiteBuilding) {
-    // Purple Theme
-    cardStyles += ' border-purple-500 shadow-xl shadow-purple-100/50 dark:shadow-purple-900/20';
-    badgeText = t('siteBuildingBadge');
-    badgeStyles = 'bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400';
-    themeColorText = 'text-purple-600';
-    themeColorBorder = 'border-purple-500';
-    themeColorButton = 'bg-purple-600 hover:bg-purple-700 text-white border-purple-600';
-
+    cardStyles += ' border-brand-100 bg-white shadow-md';
+    smallBadgeText = t('siteBuildingBadge');
+    smallBadgeClass = 'bg-brand-50 text-brand-700';
+  } else if (isAdvanced) {
+    cardStyles += ' border-border-soft bg-white shadow-sm';
+    smallBadgeText = t('advancedBadge');
   } else {
-    // Fallback
-    cardStyles += ' border-border shadow-sm';
+    cardStyles += ' border-border-soft bg-white shadow-sm';
   }
 
   return (
     <Card className={cn(cardStyles, className)}>
+      {/* 旗舰：顶部蓝紫渐变条 */}
+      {isSiteBuilding && (
+        <div
+          aria-hidden
+          className="from-brand-600 absolute inset-x-0 top-0 h-1.5 rounded-t-2xl bg-gradient-to-r to-[#6d4dff]"
+        />
+      )}
+
+      {/* 推荐档：绿色浮动徽章 */}
+      {isPopular && (
+        <div className="pricing-popular-float pricing-badge-glow bg-wx-500 absolute -top-3 left-1/2 whitespace-nowrap rounded-full px-4 py-1 text-xs font-bold text-white">
+          {t('popularBadge')}
+        </div>
+      )}
+
       <CardHeader className="pb-6">
-        <div className="flex items-center gap-3 mb-4">
-          {/* Title matches border color */}
-          <h3 className={cn("text-xl font-bold", themeColorText)}>{plan.name}</h3>
-          {(isManual || isAdvanced || isAgency || isSiteBuilding) && (
-            <Badge variant="secondary" className={cn("rounded-md px-2 py-0.5 text-xs font-normal", badgeStyles)}>
-              {badgeText}
+        <div className="mb-4 flex items-center gap-3">
+          <h3 className={cn('text-xl font-bold', titleClass)}>{plan.name}</h3>
+          {!isPopular && smallBadgeText && (
+            <Badge
+              variant="secondary"
+              className={cn(
+                'rounded-md px-2 py-0.5 text-xs font-normal',
+                smallBadgeClass
+              )}
+            >
+              {isSiteBuilding ? `✦ ${smallBadgeText}` : smallBadgeText}
             </Badge>
           )}
         </div>
 
-        {/* Price display */}
-        <div className="flex items-baseline gap-1 mt-2">
-          <span className={cn("text-5xl font-bold tracking-tight", themeColorText)}>
-            ${isPaidPlan ? (price!.amount / 100) : 0}
+        <div className="mt-2 flex items-baseline gap-1">
+          <span
+            className={cn('font-bold tracking-tight', priceSizeClass, priceClass)}
+          >
+            ${isPaidPlan ? price!.amount / 100 : 0}
           </span>
         </div>
 
-        <CardDescription className="mt-4 text-sm text-muted-foreground min-h-[48px]">
+        <CardDescription className={cn('mt-4 min-h-[48px] text-sm', descClass)}>
           {plan.description}
         </CardDescription>
 
-        {/* Action Button */}
         <div className="mt-6 flex flex-col gap-3">
           {currentUser ? (
             <>
@@ -196,37 +200,54 @@ export function PricingCard({
                 planId={plan.id}
                 priceId={price?.priceId || ''}
                 className={cn(
-                  "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
-                  themeColorButton
+                  'h-12 w-full rounded-lg text-base font-medium shadow-sm transition-colors',
+                  buttonClass
                 )}
               >
                 {t('getStartedFreeTrial')}
               </CheckoutButton>
 
-              {/* PayPal Button for One-Time Payments */}
-              {isPaidPlan && (plan.prices.some(p => p.type === PaymentTypes.ONE_TIME)) && (
-                <div className="w-full">
-                  <div className="relative flex items-center py-2">
-                    <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
-                    <span className="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase">{t('orPayWith') || 'Or pay with'}</span>
-                    <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+              {isPaidPlan &&
+                plan.prices.some((p) => p.type === PaymentTypes.ONE_TIME) && (
+                  <div className="w-full">
+                    <div className="relative flex items-center py-2">
+                      <div
+                        className={cn(
+                          'flex-grow border-t',
+                          isPopular ? 'border-white/15' : 'border-border-soft'
+                        )}
+                      />
+                      <span
+                        className={cn(
+                          'mx-4 flex-shrink-0 text-xs uppercase',
+                          isPopular ? 'text-white/40' : 'text-muted-foreground'
+                        )}
+                      >
+                        {t('orPayWith') || 'Or pay with'}
+                      </span>
+                      <div
+                        className={cn(
+                          'flex-grow border-t',
+                          isPopular ? 'border-white/15' : 'border-border-soft'
+                        )}
+                      />
+                    </div>
+                    <PayPalCheckoutButton
+                      userId={currentUser.id}
+                      planId={plan.id}
+                      priceId={price?.priceId || ''}
+                      amount={price?.amount ? price.amount / 100 : 0}
+                      currency={price?.currency || 'USD'}
+                    />
                   </div>
-                  <PayPalCheckoutButton
-                    userId={currentUser.id}
-                    planId={plan.id}
-                    priceId={price?.priceId || ''}
-                    amount={price?.amount ? price.amount / 100 : 0}
-                    currency={price?.currency || 'USD'}
-                  />
-                </div>
-              )}
+                )}
             </>
           ) : (
             <LoginWrapper mode="modal">
               <Button
                 className={cn(
-                  "w-full text-base font-medium h-12 rounded-lg transition-colors shadow-sm",
-                  themeColorButton
+                  'h-12 w-full rounded-lg text-base font-medium shadow-sm transition-colors',
+                  buttonClass
                 )}
               >
                 {t('getStartedFreeTrial')}
@@ -237,29 +258,31 @@ export function PricingCard({
       </CardHeader>
 
       <CardContent className="space-y-6 pt-0">
-        {/* Divider */}
-        <div className={cn("border-t border-dashed my-2", isManual || isAdvanced || isAgency || isSiteBuilding ? themeColorBorder : "border-gray-200")} style={{ opacity: 0.3 }} />
+        <div className={cn('my-2 border-t border-dashed', dividerClass)} />
 
-        {/* Features list */}
         <ul className="space-y-4">
           {plan.features?.map((featureRaw, i) => {
-            // Split feature string by '||'
             const [mainText, subText] = featureRaw.split('||');
-
             return (
-              <li key={i} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                <CheckCircleIcon className={cn("size-5 shrink-0 mt-0.5", themeColorText)} />
+              <li
+                key={i}
+                className={cn('flex items-start gap-3 text-sm', featureTextClass)}
+              >
+                <CheckCircleIcon
+                  className={cn('mt-0.5 size-5 shrink-0', checkClass)}
+                />
                 <div className="flex flex-col">
-                  <span className="leading-tight font-medium">{mainText}</span>
+                  <span className="font-medium leading-tight">{mainText}</span>
                   {subText && (
-                    <span className="text-xs text-muted-foreground mt-0.5">{subText}</span>
+                    <span className={cn('mt-0.5 text-xs', subTextClass)}>
+                      {subText}
+                    </span>
                   )}
                 </div>
               </li>
             );
           })}
         </ul>
-
       </CardContent>
     </Card>
   );

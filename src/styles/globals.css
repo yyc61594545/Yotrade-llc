@@ -513,7 +513,24 @@ div[class*="border-t"][class*="bg-fd-secondary"]:not(:has(*)):not(
   50%      { box-shadow: 0 16px 44px -8px  rgba(16,194,91,0.8), 0 0 0 7px rgba(16,194,91,0.22); }
 }
 
+/* ============================================================
+   /pricing 升级 Pass 3 (Claude Design) — 墨夜深色推荐档
+   ============================================================ */
+
+/* ---- 推荐档绿色徽章：浮动 + 光晕 ---- */
+.pricing-popular-float {
+  transform: translate(-50%, 0);          /* 居中基准；reduced-motion 时也保持居中 */
+  animation: pricingPopularFloat 2.8s ease-in-out infinite;
+}
+@keyframes pricingPopularFloat {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, -4px); }
+}
+.pricing-badge-glow {
+  box-shadow: 0 10px 24px -6px rgba(16, 194, 91, 0.65);
+}
+
 /* ---- 减少动效：全部静止 ---- */
 @media (prefers-reduced-motion: reduce) {
-  .wx-qr-glow, .wx-qr-float, .cta-breath { animation: none; }
+  .wx-qr-glow, .wx-qr-float, .cta-breath, .pricing-popular-float { animation: none; }
 }
