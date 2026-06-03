@@ -1190,6 +1190,7 @@
     "whatsappLabel": "WhatsApp",
     "telegramLabel": "Telegram",
     "whatsappQrAlt": "YoTrade WhatsApp 二维码 — 扫码加海外咨询",
-    "telegramQrAlt": "YoTrade Telegram 二维码 — 扫码加海外咨询"
+    "telegramQrAlt": "YoTrade Telegram 二维码 — 扫码加海外咨询",
+    "overseasNote": "海外用户也可扫码"
   }
 }

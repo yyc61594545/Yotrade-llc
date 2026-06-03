@@ -188,62 +188,27 @@ export function WechatContact({
       />
 
       <div className="relative grid items-center gap-9 sm:grid-cols-[auto_1fr]">
-        {/* LEFT COLUMN: WeChat QR + secondary WA/TG QR */}
-        <div className="mx-auto flex flex-col items-center gap-5">
-          {/* Main WeChat QR with halo + float + 真人 30 badge */}
-          <div className="relative size-[212px] shrink-0">
-            <div className="wx-qr-glow" aria-hidden />
-            <div className="wx-qr-float relative size-[212px] rounded-2xl bg-white p-3.5 shadow-[0_14px_30px_-10px_rgba(7,161,82,0.35)]">
-              <div className="relative size-full overflow-hidden rounded-lg">
-                <Image
-                  src={WECHAT_QR_SRC}
-                  alt={QR_ALT}
-                  fill
-                  className="object-cover"
-                  sizes="212px"
-                  priority
-                />
-              </div>
-            </div>
-            <div className="text-wx-700 absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-xs font-bold shadow-sm">
-              <Check className="size-3" /> {t('qrBadge')}
+        {/* LEFT COLUMN: WeChat QR only — visual center */}
+        <div className="relative mx-auto size-[212px] shrink-0">
+          <div className="wx-qr-glow" aria-hidden />
+          <div className="wx-qr-float relative size-[212px] rounded-2xl bg-white p-3.5 shadow-[0_14px_30px_-10px_rgba(7,161,82,0.35)]">
+            <div className="relative size-full overflow-hidden rounded-lg">
+              <Image
+                src={WECHAT_QR_SRC}
+                alt={QR_ALT}
+                fill
+                className="object-cover"
+                sizes="212px"
+                priority
+              />
             </div>
           </div>
-
-          {/* Secondary: WhatsApp + Telegram QR (80×80, with small labels) */}
-          <div className="mt-3 flex items-start gap-4">
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="border-border-soft relative size-20 overflow-hidden rounded-lg border bg-white p-1">
-                <Image
-                  src={WHATSAPP_QR_SRC}
-                  alt={t('whatsappQrAlt')}
-                  fill
-                  className="object-contain p-1"
-                  sizes="80px"
-                />
-              </div>
-              <span className="text-muted-foreground text-[11px] font-medium">
-                {t('whatsappLabel')}
-              </span>
-            </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="border-border-soft relative size-20 overflow-hidden rounded-lg border bg-white p-1">
-                <Image
-                  src={TELEGRAM_QR_SRC}
-                  alt={t('telegramQrAlt')}
-                  fill
-                  className="object-contain p-1"
-                  sizes="80px"
-                />
-              </div>
-              <span className="text-muted-foreground text-[11px] font-medium">
-                {t('telegramLabel')}
-              </span>
-            </div>
+          <div className="text-wx-700 absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-xs font-bold shadow-sm">
+            <Check className="size-3" /> {t('qrBadge')}
           </div>
         </div>
 
-        {/* RIGHT COLUMN: 文案 only (no chip, no copy, no trust badges) */}
+        {/* RIGHT COLUMN: 文案 + overseas QR row, height-anchored to main QR */}
         <div className="text-center sm:text-left">
           <span className="text-wx-700 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold">
             <QrCode className="size-3.5" /> {t('badge')}
@@ -254,6 +219,47 @@ export function WechatContact({
           <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm sm:mx-0 sm:text-base">
             {subtitle ?? t('description')}
           </p>
+
+          {/* Separator label */}
+          <div className="mt-6 flex items-center gap-3 sm:gap-3.5">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-emerald-200 to-emerald-200" />
+            <span className="text-muted-foreground whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em]">
+              {t('overseasNote')}
+            </span>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-emerald-200 to-emerald-200" />
+          </div>
+
+          {/* Secondary WhatsApp + Telegram QR row */}
+          <div className="mt-4 flex items-start justify-center gap-4 sm:justify-start">
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="border-border-soft relative size-[88px] overflow-hidden rounded-lg border bg-white p-1 transition-transform hover:-translate-y-0.5 hover:shadow-sm">
+                <Image
+                  src={WHATSAPP_QR_SRC}
+                  alt={t('whatsappQrAlt')}
+                  fill
+                  className="object-contain p-1"
+                  sizes="88px"
+                />
+              </div>
+              <span className="text-muted-foreground text-[11px] font-medium">
+                {t('whatsappLabel')}
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="border-border-soft relative size-[88px] overflow-hidden rounded-lg border bg-white p-1 transition-transform hover:-translate-y-0.5 hover:shadow-sm">
+                <Image
+                  src={TELEGRAM_QR_SRC}
+                  alt={t('telegramQrAlt')}
+                  fill
+                  className="object-contain p-1"
+                  sizes="88px"
+                />
+              </div>
+              <span className="text-muted-foreground text-[11px] font-medium">
+                {t('telegramLabel')}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
