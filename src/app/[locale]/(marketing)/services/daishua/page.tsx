@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Container from '@/components/layout/container';
+import { WechatContact } from '@/components/wechat/wechat-contact';
 import { LocaleLink } from '@/i18n/navigation';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl, getUrlWithLocale } from '@/lib/urls/urls';
@@ -223,6 +224,20 @@ export default async function DaishuaPage({
             </div>
           ))}
         </div>
+      </section>
+
+      {/* WeChat — primary conversion */}
+      <section className="max-w-5xl mx-auto w-full">
+        <WechatContact
+          variant="compact"
+          title="发产品名,10 分钟内报价"
+          subtitle="ChatGPT / Claude / Cursor / Midjourney 一对一代刷,自有美卡链路"
+          perks={[
+            '10 分钟内市场价反馈',
+            '账号 100% 你自己邮箱注册,密码你掌握',
+            '被强制下车免费补刷,周期内不收差价',
+          ]}
+        />
       </section>
 
       {/* FAQs */}

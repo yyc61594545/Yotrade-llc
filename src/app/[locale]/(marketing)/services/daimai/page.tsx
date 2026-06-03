@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import Container from '@/components/layout/container';
+import { WechatContact } from '@/components/wechat/wechat-contact';
 import { LocaleLink } from '@/i18n/navigation';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl, getUrlWithLocale } from '@/lib/urls/urls';
@@ -141,6 +142,20 @@ export default async function DaimaiPage({
             </div>
           ))}
         </div>
+      </section>
+
+      {/* WeChat — primary conversion */}
+      <section className="max-w-5xl mx-auto w-full">
+        <WechatContact
+          variant="compact"
+          title="开售前预约,成功率翻倍"
+          subtitle="球鞋抽签 / 演唱会票 / 区域限购 — 真实海外身份 + 预热账号"
+          perks={[
+            '按品类如实告知预期成功率,不画饼',
+            '没抢到全额退服务费(扣极少"已尝试成本")',
+            '抢购付款用我们自有美卡,你只付人民币',
+          ]}
+        />
       </section>
 
       <section className="max-w-3xl mx-auto w-full">

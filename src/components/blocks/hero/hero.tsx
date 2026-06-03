@@ -29,9 +29,9 @@ const transitionVariants = {
 
 export default function HeroSection() {
   const t = useTranslations('HomePage.hero');
-  const linkIntroduction = 'https://x.com/yotradellc';
-  const linkPrimary = '/#pricing';
-  const linkSecondary = 'https://demo.mksaas.com';
+  const linkIntroduction = '/contact';
+  const linkPrimary = '/contact';
+  const linkSecondary = '/services/daiban';
 
   return (
     <>

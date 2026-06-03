@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import Container from '@/components/layout/container';
+import { WechatContact } from '@/components/wechat/wechat-contact';
 import { LocaleLink } from '@/i18n/navigation';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl, getUrlWithLocale } from '@/lib/urls/urls';
@@ -135,6 +136,20 @@ export default async function DaigouPage({
             </div>
           ))}
         </div>
+      </section>
+
+      {/* WeChat — primary conversion */}
+      <section className="max-w-5xl mx-auto w-full">
+        <WechatContact
+          variant="compact"
+          title="发商品链接,30 分钟出到手价"
+          subtitle="美亚 / 日亚 / 欧美平台代购,商品价 + 服务费 + 关税预估一次报全"
+          perks={[
+            '30 分钟内反馈到手总价,后续不加价',
+            '美国仓收货实拍验货,问题即时跟商家退换',
+            '关税多退少补,差价超 5% 我们承担',
+          ]}
+        />
       </section>
 
       <section className="max-w-3xl mx-auto w-full">
