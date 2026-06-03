@@ -404,3 +404,83 @@ div[class*="border-t"][class*="bg-fd-secondary"]:not(:has(*)):not(
 [class*="fd-secondary"]:empty:not([data-banner-content]) {
   display: none !important;
 }
+
+/* ============================================================
+   YoTrade 视觉升级 · globals.css 追加段 (Claude Design v1)
+   ============================================================ */
+
+/* ---------- 1. 颜色 token（追加进 @theme inline 内, Tailwind v4 多 @theme 合并） ---------- */
+@theme inline {
+  /* 品牌蓝 6 档 */
+  --color-brand-50:  #eef4ff;
+  --color-brand-100: #dbe6fe;
+  --color-brand-500: #3b6ff6;
+  --color-brand-600: #2563eb; /* == --primary */
+  --color-brand-700: #1d4ed8;
+  --color-brand-900: #16308a;
+
+  /* 墨夜 —— Hero / 定价导轨 / Footer */
+  --color-ink-900: #0a0e1a;
+  --color-ink-800: #11162a;
+  --color-ink-700: #1b2238;
+
+  /* 微信绿 —— 仅转化按钮（含 active 用的 700） */
+  --color-wx-500: #10c25b;
+  --color-wx-600: #07a152;
+  --color-wx-700: #0a8a48;
+
+  /* 中性补充 */
+  --color-bg-soft:     #f6f7f9;
+  --color-border-soft: #e7e9ee;
+}
+
+/* ---------- 2. primary 绿 → 品牌蓝；accent 同步改蓝浅调 ---------- */
+:root {
+  --primary: oklch(0.546 0.227 262.6);       /* #2563EB */
+  --primary-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.967 0.013 256);          /* ≈ brand-50, 消除全站泛绿 */
+  --accent-foreground: oklch(0.30 0.10 262); /* 深蓝文字 */
+}
+
+/* ---------- 3. Hero 极光（纯 CSS, 无粒子库） ---------- */
+.hero-aurora-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  will-change: transform;
+  animation: auroraDrift 18s ease-in-out infinite;
+}
+.hero-orb-blue {
+  width: 460px; height: 460px; top: -180px; left: -90px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.85), transparent 70%);
+}
+.hero-orb-violet {
+  width: 380px; height: 380px; top: -120px; right: 40px;
+  background: radial-gradient(circle, rgba(109, 77, 255, 0.80), transparent 70%);
+  animation-delay: -6s;
+}
+.hero-orb-green {
+  width: 300px; height: 300px; bottom: -170px; right: -30px;
+  opacity: 0.7;
+  background: radial-gradient(circle, rgba(16, 194, 91, 0.55), transparent 70%);
+  animation-delay: -11s;
+}
+.hero-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask: radial-gradient(120% 80% at 50% 0%, #000, transparent 75%);
+          mask: radial-gradient(120% 80% at 50% 0%, #000, transparent 75%);
+}
+@keyframes auroraDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(40px, 28px) scale(1.1); }
+  66%      { transform: translate(-26px, 14px) scale(0.94); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora-orb { animation: none; }
+}
+@media (max-width: 640px) {
+  .hero-orb-blue   { width: 300px; height: 300px; top: -120px; left: -80px; }
+  .hero-orb-violet { width: 260px; height: 260px; }
+  .hero-orb-green  { width: 220px; height: 220px; }
+}

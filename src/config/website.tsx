@@ -116,7 +116,7 @@ export const websiteConfig: WebsiteConfig = {
         ],
         isFree: false,
         isLifetime: true,
-        popular: true, // Personal Agency seems to be the "middle" one, often popular
+        popular: false, // moved popular badge to agency per visual hierarchy decision
         credits: {
           enable: false,
           amount: 0,
@@ -135,7 +135,7 @@ export const websiteConfig: WebsiteConfig = {
         ],
         isFree: false,
         isLifetime: true,
-        popular: false,
+        popular: true,
         credits: {
           enable: false,
           amount: 0,
