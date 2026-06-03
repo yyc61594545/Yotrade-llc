@@ -192,6 +192,25 @@
       "emailValidation": "Please enter a valid email address",
       "messageMinLength": "Message must be at least 10 characters",
       "messageMaxLength": "Message must not exceed 500 characters"
+    },
+    "otherChannels": "Other channels",
+    "formSectionLabel": "Form (slow response — WeChat preferred)",
+    "channels": {
+      "email": {
+        "title": "Email",
+        "value": "service@yotradellc.com",
+        "note": "Good for invoices / contracts / formal threads"
+      },
+      "twitter": {
+        "title": "X (Twitter)",
+        "value": "@yotradellc",
+        "note": "Latest case studies & policy updates"
+      },
+      "form": {
+        "title": "Contact form",
+        "value": "Fill in the form below",
+        "note": "Best when you have attachments or long context"
+      }
     }
   },
   "WaitlistPage": {
@@ -1116,5 +1135,42 @@
   "AIAudioPage": {
     "title": "AI Audio",
     "description": "MkSaaS lets you make AI SaaS in days, simply and effortlessly"
+  },
+  "WechatContact": {
+    "badge": "Preferred cross-border channel",
+    "heading": "Scan to add WeChat — plan within 30 min",
+    "description": "Cross-border deals close on WeChat. Skip email and forms — add me directly.",
+    "qrAlt": "YoTrade WeChat QR — Easloyip",
+    "qrBadge": "Real person, 30-min reply",
+    "copyButton": "Copy WeChat ID",
+    "copied": "Copied Easloyip",
+    "perksTitle": "What you get on WeChat",
+    "trust": {
+      "trustFree": "Consultation is free",
+      "trustFast": "30-min response",
+      "trustNoPush": "No hard sell if we're not a fit"
+    },
+    "perks": {
+      "fast": {
+        "title": "Plan + quote within 30 min",
+        "desc": "Manage / buy / pay quotes on demand."
+      },
+      "cheapest": {
+        "title": "Cheapest path, 1-on-1",
+        "desc": "Even if it means we recommend the self-serve manual."
+      },
+      "structure": {
+        "title": "Free structure review",
+        "desc": "We help you pick between self-serve / managed / buy-on-behalf."
+      },
+      "community": {
+        "title": "Client-only group chat",
+        "desc": "Card hacks + 5472 renewal reminders, ongoing."
+      },
+      "free": {
+        "title": "Free consultation",
+        "desc": "No pressure to buy, no lock-in."
+      }
+    }
   }
 }
