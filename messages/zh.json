@@ -1186,6 +1186,10 @@
         "title": "咨询完全免费",
         "desc": "不合适不强推，不绑架。"
       }
-    }
+    },
+    "whatsappLabel": "WhatsApp",
+    "telegramLabel": "Telegram",
+    "whatsappQrAlt": "YoTrade WhatsApp 二维码 — 扫码加海外咨询",
+    "telegramQrAlt": "YoTrade Telegram 二维码 — 扫码加海外咨询"
   }
 }
