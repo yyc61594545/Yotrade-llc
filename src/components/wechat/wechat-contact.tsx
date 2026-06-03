@@ -6,14 +6,9 @@ import { cn } from '@/lib/utils';
 import {
   Check,
   CheckCircle2,
-  Clock,
-  Compass,
   Copy,
-  Layers,
   MessageCircle,
   QrCode,
-  ShieldCheck,
-  Users,
 } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -28,10 +23,16 @@ import { toast } from 'sonner';
  * Why a shared component: every cross-border conversion ends in WeChat.
  * If the ID lives in one place, swapping it (or the QR) on rebrand is
  * one edit, not eight.
+ *
+ * Pass 2.5 — primary variant simplified to triple-channel (WeChat main +
+ * WhatsApp/Telegram secondary QR), no Easloyip text, no copy button,
+ * no trust badges, no perk cards. inline + compact variants unchanged.
  */
 
 const WECHAT_ID = 'Easloyip';
-const QR_SRC = '/images/wechat-qr.jpg';
+const WECHAT_QR_SRC = '/images/wechat-qr.jpg';
+const WHATSAPP_QR_SRC = '/images/whatsapp-qr.png';
+const TELEGRAM_QR_SRC = '/images/telegram-qr.png';
 const QR_ALT = '加微信 Easloyip — YoTrade 跨境支付/代办/代购/代付一站式服务';
 
 const DEFAULT_PERKS_COMPACT = [
@@ -40,20 +41,9 @@ const DEFAULT_PERKS_COMPACT = [
   '咨询免费不强推',
 ];
 
-// primary 图标卡片化锚点（i18n key + 图标）
-const PRIMARY_PERKS = [
-  { icon: Clock, key: 'fast' },
-  { icon: Compass, key: 'cheapest' },
-  { icon: Layers, key: 'structure' },
-  { icon: Users, key: 'community' },
-  { icon: ShieldCheck, key: 'free' },
-] as const;
-
-const TRUST_BADGES = ['trustFree', 'trustFast', 'trustNoPush'] as const;
-
 interface WechatContactProps {
   /**
-   * primary: full hero on /contact — giant QR + ID + perks card grid
+   * primary: full hero on /contact — WeChat QR + 文案 + WhatsApp/Telegram secondary QR
    * compact: card module for service pages — medium QR + 3 perks
    * inline: footer-style row — tiny QR + ID + copy
    */
@@ -62,7 +52,7 @@ interface WechatContactProps {
   title?: string;
   /** Override the supporting line. Default depends on variant. */
   subtitle?: string;
-  /** Override the bullet list (primary / compact only). */
+  /** Override the bullet list (compact only). */
   perks?: string[];
   className?: string;
 }
@@ -96,7 +86,7 @@ export function WechatContact({
       <div className={cn('flex items-center gap-3', className)}>
         <div className="relative size-12 shrink-0 rounded-md overflow-hidden border bg-white">
           <Image
-            src={QR_SRC}
+            src={WECHAT_QR_SRC}
             alt={QR_ALT}
             fill
             className="object-cover"
@@ -136,7 +126,7 @@ export function WechatContact({
         <div className="grid gap-6 md:grid-cols-[auto_1fr] md:gap-8 items-center">
           <div className="mx-auto md:mx-0 relative size-44 md:size-48 rounded-lg overflow-hidden border-2 border-primary/20 bg-white shadow-sm">
             <Image
-              src={QR_SRC}
+              src={WECHAT_QR_SRC}
               alt={QR_ALT}
               fill
               className="object-cover"
@@ -180,8 +170,10 @@ export function WechatContact({
     );
   }
 
-  // --- PRIMARY (/contact hero) — 升级布局 v2 (Claude Design) ---
-  const customPerks = perks;
+  // --- PRIMARY (/contact hero) — Pass 2.5 极简化 ---
+  // 删:Easloyip 文本 / 复制按钮 / 3 trust badges / 5 perk icon cards
+  // 留:大 WeChat QR + 真人 30 badge + 右列文案
+  // 加:WhatsApp + Telegram 80×80 QR 在主 QR 下方,带小标签
 
   return (
     <div
@@ -196,27 +188,62 @@ export function WechatContact({
       />
 
       <div className="relative grid items-center gap-9 sm:grid-cols-[auto_1fr]">
-        {/* QR：光环 + 浮动 */}
-        <div className="relative mx-auto size-[212px] shrink-0">
-          <div className="wx-qr-glow" aria-hidden />
-          <div className="wx-qr-float relative size-[212px] rounded-2xl bg-white p-3.5 shadow-[0_14px_30px_-10px_rgba(7,161,82,0.35)]">
-            <div className="relative size-full overflow-hidden rounded-lg">
-              <Image
-                src={QR_SRC}
-                alt={QR_ALT}
-                fill
-                className="object-cover"
-                sizes="212px"
-                priority
-              />
+        {/* LEFT COLUMN: WeChat QR + secondary WA/TG QR */}
+        <div className="mx-auto flex flex-col items-center gap-5">
+          {/* Main WeChat QR with halo + float + 真人 30 badge */}
+          <div className="relative size-[212px] shrink-0">
+            <div className="wx-qr-glow" aria-hidden />
+            <div className="wx-qr-float relative size-[212px] rounded-2xl bg-white p-3.5 shadow-[0_14px_30px_-10px_rgba(7,161,82,0.35)]">
+              <div className="relative size-full overflow-hidden rounded-lg">
+                <Image
+                  src={WECHAT_QR_SRC}
+                  alt={QR_ALT}
+                  fill
+                  className="object-cover"
+                  sizes="212px"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="text-wx-700 absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-xs font-bold shadow-sm">
+              <Check className="size-3" /> {t('qrBadge')}
             </div>
           </div>
-          <div className="text-wx-700 absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-xs font-bold shadow-sm">
-            <Check className="size-3" /> {t('qrBadge')}
+
+          {/* Secondary: WhatsApp + Telegram QR (80×80, with small labels) */}
+          <div className="mt-3 flex items-start gap-4">
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="border-border-soft relative size-20 overflow-hidden rounded-lg border bg-white p-1">
+                <Image
+                  src={WHATSAPP_QR_SRC}
+                  alt={t('whatsappQrAlt')}
+                  fill
+                  className="object-contain p-1"
+                  sizes="80px"
+                />
+              </div>
+              <span className="text-muted-foreground text-[11px] font-medium">
+                {t('whatsappLabel')}
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="border-border-soft relative size-20 overflow-hidden rounded-lg border bg-white p-1">
+                <Image
+                  src={TELEGRAM_QR_SRC}
+                  alt={t('telegramQrAlt')}
+                  fill
+                  className="object-contain p-1"
+                  sizes="80px"
+                />
+              </div>
+              <span className="text-muted-foreground text-[11px] font-medium">
+                {t('telegramLabel')}
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* 文案 */}
+        {/* RIGHT COLUMN: 文案 only (no chip, no copy, no trust badges) */}
         <div className="text-center sm:text-left">
           <span className="text-wx-700 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold">
             <QrCode className="size-3.5" /> {t('badge')}
@@ -227,79 +254,7 @@ export function WechatContact({
           <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm sm:mx-0 sm:text-base">
             {subtitle ?? t('description')}
           </p>
-
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5 sm:justify-start">
-            <span className="text-wx-700 rounded-xl border-[1.5px] border-dashed border-emerald-400/70 bg-white px-4 py-2.5 font-mono text-lg font-extrabold tracking-wide">
-              {WECHAT_ID}
-            </span>
-            <Button
-              onClick={copy}
-              variant="outline"
-              className={cn(
-                'h-[46px] gap-1.5 rounded-xl text-sm font-bold',
-                copied && 'border-wx-500 text-wx-700 bg-emerald-50'
-              )}
-            >
-              {copied ? (
-                <CheckCircle2 className="size-4" />
-              ) : (
-                <Copy className="size-4" />
-              )}
-              {copied ? t('copied') : t('copyButton')}
-            </Button>
-          </div>
-
-          <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
-            {TRUST_BADGES.map((k) => (
-              <span
-                key={k}
-                className="text-muted-foreground border-border-soft inline-flex items-center gap-1.5 rounded-full border bg-white px-3 py-1.5 text-xs font-semibold"
-              >
-                <ShieldCheck className="text-wx-600 size-3.5" />
-                {t(`trust.${k}`)}
-              </span>
-            ))}
-          </div>
         </div>
-      </div>
-
-      <div className="relative mt-8">
-        <div className="mb-3.5 flex items-center gap-2.5">
-          <h3 className="text-base font-extrabold">{t('perksTitle')}</h3>
-          <span className="h-px flex-1 bg-gradient-to-r from-emerald-200 to-transparent" />
-        </div>
-
-        {customPerks ? (
-          <ul className="grid gap-2.5 sm:grid-cols-2">
-            {customPerks.map((p) => (
-              <li key={p} className="flex items-start gap-2.5">
-                <CheckCircle2 className="text-wx-600 mt-0.5 size-5 shrink-0" />
-                <span className="text-sm">{p}</span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {PRIMARY_PERKS.map(({ icon: Icon, key }) => (
-              <div
-                key={key}
-                className="border-border-soft group flex gap-3 rounded-xl border bg-white p-4 transition-all hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-sm"
-              >
-                <div className="text-wx-700 grid size-10 shrink-0 place-items-center rounded-xl bg-emerald-50">
-                  <Icon className="size-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-extrabold">
-                    {t(`perks.${key}.title`)}
-                  </h4>
-                  <p className="text-muted-foreground mt-0.5 text-xs leading-relaxed">
-                    {t(`perks.${key}.desc`)}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );

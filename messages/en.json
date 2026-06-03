@@ -1172,6 +1172,10 @@
         "title": "Free consultation",
         "desc": "No pressure to buy, no lock-in."
       }
-    }
+    },
+    "whatsappLabel": "WhatsApp",
+    "telegramLabel": "Telegram",
+    "whatsappQrAlt": "YoTrade WhatsApp QR — overseas consultation",
+    "telegramQrAlt": "YoTrade Telegram QR — overseas consultation"
   }
 }
