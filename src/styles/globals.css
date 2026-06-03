@@ -484,3 +484,36 @@ div[class*="border-t"][class*="bg-fd-secondary"]:not(:has(*)):not(
   .hero-orb-violet { width: 260px; height: 260px; }
   .hero-orb-green  { width: 220px; height: 220px; }
 }
+
+/* ============================================================
+   /contact 升级 v1 (Claude Design)
+   ============================================================ */
+
+/* ---- QR 光环（旋转）+ 浮动 ---- */
+.wx-qr-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 22px;
+  background: conic-gradient(from 0deg, #10c25b, #3b6ff6, #10c25b);
+  filter: blur(14px);
+  opacity: 0.5;
+  animation: wxGlowSpin 8s linear infinite;
+}
+.wx-qr-float { animation: wxFloat 4.5s ease-in-out infinite; }
+@keyframes wxGlowSpin { to { transform: rotate(360deg); } }
+@keyframes wxFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* ---- Hero 主 CTA idle 呼吸（class="cta-breath"） ---- */
+.cta-breath { animation: ctaBreath 3.6s ease-in-out infinite; }
+@keyframes ctaBreath {
+  0%, 100% { box-shadow: 0 16px 40px -10px rgba(16,194,91,0.6), 0 0 0 4px rgba(16,194,91,0.14); }
+  50%      { box-shadow: 0 16px 44px -8px  rgba(16,194,91,0.8), 0 0 0 7px rgba(16,194,91,0.22); }
+}
+
+/* ---- 减少动效：全部静止 ---- */
+@media (prefers-reduced-motion: reduce) {
+  .wx-qr-glow, .wx-qr-float, .cta-breath { animation: none; }
+}

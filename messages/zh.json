@@ -175,7 +175,7 @@
   "ContactPage": {
     "title": "联系我们",
     "description": "我们帮助您找到合适的计划",
-    "subtitle": "我们帮助您找到合适的计划",
+    "subtitle": "代办 · 代购 · 代付 · 代刷 — 直接加我微信最快，30 分钟内反馈方案与报价。",
     "form": {
       "title": "联系我们",
       "description": "如果您有任何问题或反馈，请随时联系我们的团队",
@@ -191,6 +191,25 @@
       "emailValidation": "请输入有效的邮箱地址",
       "messageMinLength": "消息必须至少包含 10 个字符",
       "messageMaxLength": "消息必须不超过 500 个字符"
+    },
+    "otherChannels": "其他联系方式",
+    "formSectionLabel": "表单留言（慢响应，优先加微信）",
+    "channels": {
+      "email": {
+        "title": "邮箱",
+        "value": "service@yotradellc.com",
+        "note": "适合发票/合同等正式沟通"
+      },
+      "twitter": {
+        "title": "X (Twitter)",
+        "value": "@yotradellc",
+        "note": "看最新案例/政策动态"
+      },
+      "form": {
+        "title": "表单留言",
+        "value": "下方表单填写",
+        "note": "适合资料较多/需要附件"
+      }
     }
   },
   "WaitlistPage": {
@@ -1130,5 +1149,42 @@
   "AIAudioPage": {
     "title": "AI 音频",
     "description": "MkSaaS 让您在几天内轻松构建您的 AI SaaS，简单且毫不费力"
+  },
+  "WechatContact": {
+    "badge": "跨境业务首选沟通渠道",
+    "heading": "扫码加微信，30 分钟内出方案",
+    "description": "中国跨境业务最终都靠微信成交。直接加我，免邮件、免表单、不绕弯。",
+    "qrAlt": "YoTrade 微信二维码 Easloyip",
+    "qrBadge": "真人 30 分钟内回",
+    "copyButton": "复制微信号",
+    "copied": "已复制 Easloyip",
+    "perksTitle": "加我微信你能得到什么",
+    "trust": {
+      "trustFree": "咨询完全免费",
+      "trustFast": "30 分钟反馈",
+      "trustNoPush": "不合适不强推"
+    },
+    "perks": {
+      "fast": {
+        "title": "30 分钟内反馈方案 + 报价",
+        "desc": "代办 / 代购 / 代付按需估价。"
+      },
+      "cheapest": {
+        "title": "一对一咨询最省钱路径",
+        "desc": "哪怕推荐你买手册版自助。"
+      },
+      "structure": {
+        "title": "免费业务结构梳理",
+        "desc": "适合自助/代办/代购代付，帮你选。"
+      },
+      "community": {
+        "title": "已成单客户专属社群",
+        "desc": "薅卡情报 + 5472 续费提醒长期推送。"
+      },
+      "free": {
+        "title": "咨询完全免费",
+        "desc": "不合适不强推，不绑架。"
+      }
+    }
   }
 }
