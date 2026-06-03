@@ -86,7 +86,7 @@ export function ContactFormCard() {
   };
 
   return (
-    <Card className="mx-auto max-w-lg overflow-hidden pt-6 pb-0">
+    <Card className="border-border-soft hover:border-brand-500 mx-auto max-w-lg rounded-xl border bg-white shadow-sm transition-all hover:shadow-md">
       <CardHeader>
         <CardTitle className="text-lg font-semibold">{t('title')}</CardTitle>
         <CardDescription>{t('description')}</CardDescription>
@@ -138,11 +138,11 @@ export function ContactFormCard() {
 
             <FormError message={error} />
           </CardContent>
-          <CardFooter className="mt-6 px-6 py-4 flex justify-between items-center bg-muted rounded-none">
+          <CardFooter className="px-6 pb-6 pt-2">
             <Button
               type="submit"
               disabled={isPending}
-              className="cursor-pointer"
+              className="bg-brand-600 hover:bg-brand-700 cursor-pointer text-white"
             >
               {isPending ? t('submitting') : t('submit')}
             </Button>
