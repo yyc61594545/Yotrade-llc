@@ -1176,6 +1176,7 @@
     "whatsappLabel": "WhatsApp",
     "telegramLabel": "Telegram",
     "whatsappQrAlt": "YoTrade WhatsApp QR — overseas consultation",
-    "telegramQrAlt": "YoTrade Telegram QR — overseas consultation"
+    "telegramQrAlt": "YoTrade Telegram QR — overseas consultation",
+    "overseasNote": "Overseas — scan instead"
   }
 }
