@@ -4,6 +4,7 @@ import Container from '@/components/layout/container';
 import { Logo } from '@/components/layout/logo';
 import { ModeSwitcherHorizontal } from '@/components/layout/mode-switcher-horizontal';
 import BuiltWithButton from '@/components/shared/built-with-button';
+import { WechatContact } from '@/components/wechat/wechat-contact';
 import { useFooterLinks } from '@/config/footer-config';
 import { useSocialLinks } from '@/config/social-config';
 import { LocaleLink } from '@/i18n/navigation';
@@ -34,6 +35,11 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
               <p className="text-muted-foreground text-base py-2 md:pr-12">
                 {t('Marketing.footer.tagline')}
               </p>
+
+              {/* WeChat — primary conversion channel */}
+              <div className="py-2">
+                <WechatContact variant="inline" />
+              </div>
 
               {/* social links */}
               <div className="flex items-center gap-4 py-2">

@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/card';
 import Container from '@/components/layout/container';
 import { PricingTable } from '@/components/pricing/pricing-table';
+import { WechatContact } from '@/components/wechat/wechat-contact';
 import { LocaleLink } from '@/i18n/navigation';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl, getUrlWithLocale } from '@/lib/urls/urls';
@@ -258,6 +259,15 @@ export default async function DaibanPage({
           从自助手册到全能代理 + 建站，按预算和需求选档
         </p>
         <PricingTable />
+      </section>
+
+      {/* WeChat — primary conversion */}
+      <section className="max-w-5xl mx-auto w-full">
+        <WechatContact
+          variant="compact"
+          title="ITIN / LLC / 银行 / Stripe 咨询,30 分钟出方案"
+          subtitle="先听你业务,再告诉你最省钱的代办档位 — 哪怕推荐手册版自助"
+        />
       </section>
 
       {/* FAQs */}
