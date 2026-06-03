@@ -1,0 +1,68 @@
+name: Typecheck
+
+# Catch TypeScript errors at the PR stage instead of in Vercel build.
+# This is what should have caught PR #23's missing en.json i18n keys.
+#
+# Runs on PRs to main (and direct pushes to main as a backstop).
+# Fast (~2-4 min): pnpm install --frozen-lockfile + tsc --noEmit.
+# No DB, no env vars, no Docker — just the type graph.
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      # Skip when PR only touches blog content / images — typecheck is irrelevant
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.js'
+      - '**/*.jsx'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+      - 'messages/**'
+      - 'src/i18n/**'
+      - '.github/workflows/typecheck.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.ts'
+      - '**/*.tsx'
+      - 'messages/**'
+      - 'src/i18n/**'
+
+# Cancel in-progress runs on the same PR when a new commit lands.
+concurrency:
+  group: typecheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        env:
+          # Skip optional native postinstall scripts we don't need for typecheck
+          # (sharp / libpq / esbuild platform binaries). fumadocs-mdx postinstall
+          # IS needed because it generates content collection types — let it run.
+          HUSKY: '0'
+
+      - name: Run TypeScript compiler (--noEmit)
+        run: pnpm typecheck
