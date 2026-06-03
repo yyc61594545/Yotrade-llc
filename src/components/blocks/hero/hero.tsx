@@ -95,10 +95,10 @@ export default function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-wx-500 hover:bg-wx-600 active:bg-wx-700 h-12 w-full rounded-xl px-7 text-base font-bold text-white shadow-[0_10px_24px_-8px_rgba(16,194,91,0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_32px_-10px_rgba(16,194,91,0.7)] active:translate-y-0 active:scale-[0.985] sm:w-auto"
+                className="bg-wx-500 hover:bg-wx-600 active:bg-wx-700 ring-wx-500/20 cta-breath h-14 w-full rounded-2xl px-8 text-lg font-bold text-white ring-4 shadow-[0_16px_40px_-10px_rgba(16,194,91,0.7)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_-10px_rgba(16,194,91,0.8)] active:translate-y-0 active:scale-[0.985] sm:w-auto"
               >
                 <LocaleLink href={linkPrimary}>
-                  <MessageCircle className="size-5" />
+                  <MessageCircle className="size-6" />
                   {t('primary')}
                 </LocaleLink>
               </Button>
@@ -106,11 +106,11 @@ export default function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-12 w-full rounded-xl border-white/20 bg-white/5 px-7 text-base text-white backdrop-blur transition-colors hover:bg-white/10 hover:text-white sm:w-auto"
+                className="h-14 w-full rounded-2xl border-white/20 bg-white/5 px-8 text-lg text-white backdrop-blur transition-colors hover:bg-white/10 hover:text-white sm:w-auto"
               >
                 <LocaleLink href={linkSecondary}>
                   {t('secondary')}
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-5" />
                 </LocaleLink>
               </Button>
             </AnimatedGroup>

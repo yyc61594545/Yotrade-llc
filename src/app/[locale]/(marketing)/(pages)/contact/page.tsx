@@ -17,7 +17,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return constructMetadata({
-    title: '联系 YoTrade · 加微信 Easloyip · 跨境代办/代购/代付 | ' + t('title'),
+    title:
+      '联系 YoTrade · 加微信 Easloyip · 跨境代办/代购/代付 | ' + t('title'),
     description:
       '加微信 Easloyip 直接咨询。代办(ITIN/LLC/银行/美卡)、代购(美亚/球鞋/欧美商品)、代付(ChatGPT/Claude/Cursor/Apple ID)一站式服务,30 分钟内反馈报价。',
     canonicalUrl: getUrlWithLocale('/contact', locale),
@@ -25,79 +26,98 @@ export async function generateMetadata({
 }
 
 export default async function ContactPage() {
+  const t = await getTranslations('ContactPage');
+
+  const channels = [
+    {
+      icon: Mail,
+      title: t('channels.email.title'),
+      value: t('channels.email.value'),
+      note: t('channels.email.note'),
+      href: 'mailto:service@yotradellc.com',
+    },
+    {
+      icon: Twitter,
+      title: t('channels.twitter.title'),
+      value: t('channels.twitter.value'),
+      note: t('channels.twitter.note'),
+      href: 'https://x.com/yotradellc',
+    },
+    {
+      icon: MessageSquare,
+      title: t('channels.form.title'),
+      value: t('channels.form.value'),
+      note: t('channels.form.note'),
+      href: undefined,
+    },
+  ];
+
+  // Note: pt-24 from Claude Design's draft removed — current navbar is sticky
+  // (src/components/layout/navbar.tsx), not fixed, so no top padding needed.
   return (
-    <Container className="py-12 md:py-16 px-4">
-      <div className="mx-auto max-w-5xl space-y-12 pb-16">
-        {/* Header */}
+    <Container className="px-4 py-12 md:py-16">
+      <div className="mx-auto max-w-5xl space-y-14 pb-16">
+        {/* 标题 */}
         <div className="space-y-3 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-            联系我们
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+            {t('title')}
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            代办 · 代购 · 代付 · 代刷 — 直接加我微信最快,30 分钟内反馈方案与报价。
+          <p className="text-muted-foreground mx-auto max-w-2xl text-base md:text-lg">
+            {t('subtitle')}
           </p>
         </div>
 
-        {/* WeChat hero — the primary funnel */}
+        {/* 微信主卡（primary variant 已升级布局） */}
         <WechatContact variant="primary" />
 
-        {/* Secondary channels */}
+        {/* 其他联系方式（次级图标卡片） */}
         <div className="space-y-4">
-          <div className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            其他联系方式
+          <div className="text-muted-foreground text-center text-xs font-semibold uppercase tracking-[0.12em]">
+            {t('otherChannels')}
           </div>
           <div className="grid gap-4 md:grid-cols-3">
-            <a
-              href="mailto:service@yotradellc.com"
-              className="flex items-start gap-3 rounded-lg border p-5 hover:bg-accent transition-colors"
-            >
-              <Mail className="size-5 text-primary shrink-0 mt-0.5" />
-              <div>
-                <div className="font-medium">邮箱</div>
-                <div className="text-sm text-muted-foreground break-all">
-                  service@yotradellc.com
+            {channels.map(({ icon: Icon, title, value, note, href }) => {
+              const inner = (
+                <>
+                  <div className="bg-bg-soft text-brand-600 grid size-9 shrink-0 place-items-center rounded-[10px]">
+                    <Icon className="size-[18px]" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">{title}</div>
+                    <div className="text-muted-foreground text-sm break-all">
+                      {value}
+                    </div>
+                    <div className="text-muted-foreground/80 mt-1 text-xs">
+                      {note}
+                    </div>
+                  </div>
+                </>
+              );
+              const cls =
+                'border-border-soft hover:border-brand-500 flex items-start gap-3 rounded-xl border p-5 transition-all hover:-translate-y-0.5 hover:shadow-sm';
+              return href ? (
+                <a
+                  key={title}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                  className={cls}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={title} className={`${cls} bg-muted/30`}>
+                  {inner}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  适合发票/合同等正式沟通
-                </div>
-              </div>
-            </a>
-
-            <a
-              href="https://x.com/yotradellc"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-start gap-3 rounded-lg border p-5 hover:bg-accent transition-colors"
-            >
-              <Twitter className="size-5 text-primary shrink-0 mt-0.5" />
-              <div>
-                <div className="font-medium">X (Twitter)</div>
-                <div className="text-sm text-muted-foreground">@yotradellc</div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  看最新案例/政策动态
-                </div>
-              </div>
-            </a>
-
-            <div className="flex items-start gap-3 rounded-lg border p-5 bg-muted/30">
-              <MessageSquare className="size-5 text-primary shrink-0 mt-0.5" />
-              <div>
-                <div className="font-medium">表单留言</div>
-                <div className="text-sm text-muted-foreground">
-                  下方表单填写
-                </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  适合资料较多/需要附件
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Form (fallback channel) */}
+        {/* 表单留言（慢响应，优先加微信） */}
         <div className="space-y-3">
-          <div className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            表单留言(慢响应,优先加微信)
+          <div className="text-muted-foreground text-center text-xs font-semibold uppercase tracking-[0.12em]">
+            {t('formSectionLabel')}
           </div>
           <ContactFormCard />
         </div>
