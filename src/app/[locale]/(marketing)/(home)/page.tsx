@@ -9,6 +9,7 @@ import Integration2Section from '@/components/blocks/integration/integration2';
 import LogoCloud from '@/components/blocks/logo-cloud/logo-cloud';
 import PaymentSection from '@/components/blocks/payment/payment';
 import PricingSection from '@/components/blocks/pricing/pricing';
+import ServicesHero from '@/components/blocks/services-hero/services-hero';
 import StatsSection from '@/components/blocks/stats/stats';
 import TestimonialsSection from '@/components/blocks/testimonials/testimonials';
 import TrustSection from '@/components/blocks/trust/trust-section';
@@ -56,6 +57,9 @@ export default async function HomePage(props: HomePageProps) {
 
         {/* Hidden sections */}
         {/* <StatsSection /> */}
+
+        {/* Pass 5 Block 2 — ServicesHero (主业三件套 + 代办进阶横幅) */}
+        <ServicesHero />
 
         <IntegrationSection />
 
