@@ -11,6 +11,7 @@ import PaymentSection from '@/components/blocks/payment/payment';
 import PricingSection from '@/components/blocks/pricing/pricing';
 import StatsSection from '@/components/blocks/stats/stats';
 import TestimonialsSection from '@/components/blocks/testimonials/testimonials';
+import TrustSection from '@/components/blocks/trust/trust-section';
 import CrispChat from '@/components/layout/crisp-chat';
 import { NewsletterCard } from '@/components/newsletter/newsletter-card';
 import { constructMetadata } from '@/lib/metadata';
@@ -57,6 +58,9 @@ export default async function HomePage(props: HomePageProps) {
         {/* <StatsSection /> */}
 
         <IntegrationSection />
+
+        {/* Pass 5 Block 1 — TrustSection (P0 信任区) */}
+        <TrustSection />
 
         <PaymentSection />
 

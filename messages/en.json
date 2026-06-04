@@ -1070,6 +1070,72 @@
           "description": "Pay with Bank Transfer"
         }
       }
+    },
+    "trust": {
+      "eyebrow": "Beyond the marketplace — trust we earn ourselves",
+      "title": "Why strangers pay upfront with confidence",
+      "subtitle": "Verified marketplace reputation, full traceability, and full refunds before shipment.",
+      "stats": {
+        "l6": {
+          "value": "L6",
+          "unit": "",
+          "label": "Marketplace tier",
+          "meta": "Buyer & seller credit: Excellent"
+        },
+        "rate": {
+          "value": "100",
+          "unit": "%",
+          "label": "Positive rate · 0 negatives",
+          "meta": "Every order done right"
+        },
+        "reviews": {
+          "value": "598",
+          "unit": "",
+          "label": "Buyer reviews",
+          "meta": "318 marked positive · 377 from buyers"
+        },
+        "coverage": {
+          "value": "14",
+          "unit": "+",
+          "label": "Provinces + 4 overseas",
+          "meta": "Canada / HK / Korea / Djibouti"
+        }
+      },
+      "guarantee": {
+        "title": "Order protection — safe to pay first",
+        "payshua": {
+          "label": "Top-up / Sub: ",
+          "text": "Full refund if not delivered or order cancelled."
+        },
+        "gou": {
+          "label": "Proxy buying: ",
+          "text": "Live order status + full tracking + full refund on rejection/loss.",
+          "note": "⚠ wording TBC"
+        },
+        "presale": {
+          "label": "Pre-sale: ",
+          "text": "No pushy upsell on WeChat — we tell you straight."
+        }
+      },
+      "steps": {
+        "title": "How to order — 3 steps",
+        "ask": {
+          "title": "Tell us on WeChat",
+          "text": "Send the sub/item/link — a real person replies within 30 min."
+        },
+        "quote": {
+          "title": "Quote + payment",
+          "text": "Transparent pricing via Alipay/WeChat/USDT, terms upfront."
+        },
+        "deliver": {
+          "title": "Activate / ship + track",
+          "text": "Instant activation, full tracking, refunds per protection."
+        }
+      },
+      "coverage": {
+        "title": "Customers across 14+ provinces + 4 overseas regions",
+        "text": "From tier-1 cities to overseas Chinese communities."
+      }
     }
   },
   "AITextPage": {
