@@ -1248,6 +1248,11 @@
         "meitun": "美囤妈妈",
         "traderjoes": "Trader Joe's"
       }
+    },
+    "wechatBand": {
+      "eyebrow": "真人 30 分钟内回",
+      "title": "有想要的，直接微信问我",
+      "subtitle": "明码报价、不强推。先聊清楚，再决定。"
     }
   },
   "AITextPage": {
