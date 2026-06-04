@@ -1,5 +1,7 @@
 # MkSaaS
 
+[![Typecheck](https://github.com/yyc61594545/Yotrade-llc/actions/workflows/typecheck.yml/badge.svg)](https://github.com/yyc61594545/Yotrade-llc/actions/workflows/typecheck.yml)
+
 Make AI SaaS in a weekend.
 
 The complete Next.js boilerplate for building profitable SaaS, with auth, payments, i18n, newsletter, dashboard, blog, docs, blocks, themes, SEO and more.
