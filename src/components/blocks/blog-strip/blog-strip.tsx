@@ -52,7 +52,9 @@ export default async function BlogStrip() {
   const t = await getTranslations('HomePage.blog');
   const locale = await getLocale();
 
-  const pages = (blogSource.getPages(locale) as AnyPage[]) ?? [];
+  // Fumadocs Page<DocOut<ZodObject<...>>>[] has zero overlap with our minimal
+  // AnyPage shape, so TS requires a double-cast via unknown.
+  const pages = (blogSource.getPages(locale) as unknown as AnyPage[]) ?? [];
   const latest = pages
     .map(getMeta)
     .filter((p) => p.title)
