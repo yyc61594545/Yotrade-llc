@@ -862,33 +862,14 @@
       }
     },
     "payment": {
-      "title": "收款方式",
-      "description": "集成微信、支付宝、银联等主流收款渠道，提供快速资金结算与分账服务，支持多平台支付方式无缝对接，保障交易安全稳定",
+      "title": "支持安全支付方式",
       "items": {
-        "wechat": {
-          "title": "WeChat Pay",
-          "description": "使用微信支付安全付款"
-        },
-        "alipay": {
-          "title": "Alipay",
-          "description": "使用支付宝安全付款"
-        },
-        "applepay": {
-          "title": "Apple Pay",
-          "description": "使用 Apple Pay 安全付款"
-        },
-        "googlepay": {
-          "title": "Google Pay",
-          "description": "使用 Google Pay 安全付款"
-        },
-        "creditcard": {
-          "title": "Credit Cards",
-          "description": "使用信用卡安全付款"
-        },
-        "banktransfer": {
-          "title": "Bank Transfer",
-          "description": "使用银行转账安全付款"
-        }
+        "alipay": "支付宝",
+        "wechat": "微信支付",
+        "usdt": "USDT",
+        "applepay": "Apple Pay",
+        "googlepay": "Google Pay",
+        "creditcard": "信用卡"
       }
     },
     "features": {
@@ -1161,17 +1142,17 @@
         "daifu": {
           "title": "代付 · 海外订阅",
           "desc": "ChatGPT / Claude / Cursor / Suno / Netflix / Spotify / Apple ID，海外卡支付，即时开通。",
-          "highlight": "不共享号池 · 自有美卡链路 · 7×24 售后"
+          "highlight": "不共享号池 · 即时开通 · 7×24 售后"
         },
         "daigou": {
           "title": "代购 · 全球好物",
           "desc": "美亚 / 日亚 / 欧美商品 / 限量球鞋，代付代收转运到手，运输全程可追。",
-          "highlight": "商品价 + 服务费 · 全程可追"
+          "highlight": "代付代收转运 · 运输全程可追"
         },
         "daishua": {
           "title": "代刷 · 会员充值",
           "desc": "海外会员、订阅续费、平台充值，被砍单全额退款，稳定到账。",
-          "highlight": "被砍单全额退款 · 即时到账"
+          "highlight": "稳定到账 · 被砍单全额退款"
         },
         "daimai": {
           "title": "代买 · 限量好物",
@@ -1183,7 +1164,7 @@
         "title": "代办 · 美国金融基建",
         "badge": "进阶高客单",
         "desc": "ITIN + 美国 LLC + 银行开户 + Stripe + 美卡 全链路 —— 想长期做跨境生意？一站搞定身份与收款。",
-        "price": "$59 – $1599",
+        "price": "按需报价",
         "cta": "了解代办"
       }
     }

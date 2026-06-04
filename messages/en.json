@@ -1043,32 +1043,14 @@
       "secondaryButton": "See Demo"
     },
     "payment": {
-      "title": "Supported Payment Methods",
+      "title": "Secure payment methods",
       "items": {
-        "wechat": {
-          "title": "WeChat Pay",
-          "description": "Pay with WeChat"
-        },
-        "alipay": {
-          "title": "Alipay",
-          "description": "Pay with Alipay"
-        },
-        "applepay": {
-          "title": "Apple Pay",
-          "description": "Pay with Apple Pay"
-        },
-        "googlepay": {
-          "title": "Google Pay",
-          "description": "Pay with Google Pay"
-        },
-        "creditcard": {
-          "title": "Credit Card",
-          "description": "Pay with Credit Card"
-        },
-        "banktransfer": {
-          "title": "Bank Transfer",
-          "description": "Pay with Bank Transfer"
-        }
+        "alipay": "Alipay",
+        "wechat": "WeChat Pay",
+        "usdt": "USDT",
+        "applepay": "Apple Pay",
+        "googlepay": "Google Pay",
+        "creditcard": "Credit Card"
       }
     },
     "trust": {
@@ -1147,17 +1129,17 @@
         "daifu": {
           "title": "Subscriptions",
           "desc": "ChatGPT / Claude / Cursor / Suno / Netflix / Spotify / Apple ID — paid with overseas cards, instant activation.",
-          "highlight": "Dedicated accounts · own US card stack · 24/7 support"
+          "highlight": "Dedicated accounts · instant activation · 24/7 support"
         },
         "daigou": {
           "title": "Proxy buying",
           "desc": "US/JP Amazon, Western goods, limited sneakers — bought, received and forwarded to you, fully tracked.",
-          "highlight": "Item price + service fee · fully tracked"
+          "highlight": "Buy + receive + forward · fully tracked"
         },
         "daishua": {
           "title": "Membership recharge",
           "desc": "Overseas memberships, renewals and platform top-ups — full refund if cancelled, reliable delivery.",
-          "highlight": "Full refund if cancelled · instant delivery"
+          "highlight": "Reliable delivery · full refund if cancelled"
         },
         "daimai": {
           "title": "Limited drops",
@@ -1169,7 +1151,7 @@
         "title": "US financial setup",
         "badge": "Advanced",
         "desc": "ITIN + US LLC + bank + Stripe + US cards — the full stack for serious cross-border sellers.",
-        "price": "$59 – $1599",
+        "price": "On request",
         "cta": "Explore"
       }
     }
