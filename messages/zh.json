@@ -806,61 +806,6 @@
       "primary": "立即咨询",
       "secondary": "查看代办方案"
     },
-    "logocloud": {
-      "title": "您最爱公司都是我们的合作伙伴"
-    },
-    "integration": {
-      "title": "服务内容",
-      "learnMore": "了解更多",
-      "items": {
-        "item-1": {
-          "title": "代购",
-          "description": "帮您购买海外商品，从下单到收货全程跟踪，确保商品安全送达。"
-        },
-        "item-2": {
-          "title": "代买",
-          "description": "协助您在国外购物平台买到限定款、折扣品或需要特定账号的商品。"
-        },
-        "item-3": {
-          "title": "代刷",
-          "description": "没有国际信用卡的人或限定某国银行卡的网站，提供安全透明可靠的代刷服务。"
-        },
-        "item-4": {
-          "title": "代办",
-          "description": "协助办理海外业务，包括注册ITIN、美国公司、美国银行、收款等服务。"
-        }
-      }
-    },
-    "integration2": {
-      "title": "热门服务",
-      "description": "无缝连接流行的平台和服务，以增强您的工作流程。",
-      "items": {
-        "gemini": {
-          "title": "Google Gemini",
-          "description": "集成 Google Gemini AI 模型，提供智能对话和内容生成服务。"
-        },
-        "replit": {
-          "title": "Replit",
-          "description": "在线代码编辑和协作平台，快速开发和部署应用。"
-        },
-        "magicui": {
-          "title": "MagicUI",
-          "description": "现代化的 UI 组件库，快速构建美观的用户界面。"
-        },
-        "vscodium": {
-          "title": "VSCodium",
-          "description": "开源代码编辑器，提供强大的开发工具和扩展支持。"
-        },
-        "mediawiki": {
-          "title": "MediaWiki",
-          "description": "维基百科使用的开源 Wiki 引擎，构建知识库平台。"
-        },
-        "googlepalm": {
-          "title": "Google PaLM",
-          "description": "Google 的大语言模型 API，提供强大的 AI 能力。"
-        }
-      }
-    },
     "payment": {
       "title": "支持安全支付方式",
       "items": {
@@ -871,74 +816,6 @@
         "googlepay": "Google Pay",
         "creditcard": "信用卡"
       }
-    },
-    "features": {
-      "title": "功能",
-      "subtitle": "您的 SaaS 产品功能",
-      "description": "请在这里介绍您的 SaaS 产品的特色功能的信息",
-      "items": {
-        "item-1": {
-          "title": "产品特色功能一",
-          "description": "请在这里详细描述您的产品特色功能一，尽可能详细，使其更吸引用户，提高落地页的转化率"
-        },
-        "item-2": {
-          "title": "产品特色功能二",
-          "description": "请在这里详细描述您的产品特色功能二，尽可能详细，使其更吸引用户，提高落地页的转化率"
-        },
-        "item-3": {
-          "title": "产品特色功能三",
-          "description": "请在这里详细描述您的产品特色功能三，尽可能详细，使其更吸引用户，提高落地页的转化率"
-        },
-        "item-4": {
-          "title": "产品特色功能四",
-          "description": "请在这里详细描述您的产品特色功能四，尽可能详细，使其更吸引用户，提高落地页的转化率"
-        }
-      }
-    },
-    "features2": {
-      "title": "功能2",
-      "subtitle": "您的 SaaS 产品功能",
-      "description": "请在这里介绍您的 SaaS 产品的特色功能的信息",
-      "feature-1": "特色功能特点一",
-      "feature-2": "特色功能特点二",
-      "feature-3": "特色功能特点三",
-      "feature-4": "特色功能特点四"
-    },
-    "features3": {
-      "title": "功能3",
-      "subtitle": "您的 SaaS 产品功能",
-      "description": "请在这里介绍您的 SaaS 产品的特色功能的信息",
-      "items": {
-        "item-1": {
-          "title": "产品特色功能一",
-          "description": "请在这里详细描述您的产品特色功能一，尽可能详细，使其更吸引用户"
-        },
-        "item-2": {
-          "title": "产品特色功能二",
-          "description": "请在这里详细描述您的产品特色功能二，尽可能详细，使其更吸引用户"
-        },
-        "item-3": {
-          "title": "产品特色功能三",
-          "description": "请在这里详细描述您的产品特色功能三，尽可能详细，使其更吸引用户"
-        },
-        "item-4": {
-          "title": "产品特色功能四",
-          "description": "请在这里详细描述您的产品特色功能四，尽可能详细，使其更吸引用户"
-        },
-        "item-5": {
-          "title": "产品特色功能五",
-          "description": "请在这里详细描述您的产品特色功能五，尽可能详细，使其更吸引用户"
-        },
-        "item-6": {
-          "title": "产品特色功能六",
-          "description": "请在这里详细描述您的产品特色功能六，尽可能详细，使其更吸引用户"
-        }
-      }
-    },
-    "pricing": {
-      "title": "价格",
-      "subtitle": "价格",
-      "description": "选择最适合您的付费计划"
     },
     "faqs": {
       "title": "常见问题",
@@ -1003,28 +880,6 @@
           "quote": "问了一堆问题也没嫌烦，最后还劝我别买贵的方案。"
         }
       }
-    },
-    "stats": {
-      "title": "统计",
-      "subtitle": "MkSaaS 相关的数字",
-      "description": "MkSaaS 可让您在几天内轻松构建您的 AI SaaS",
-      "items": {
-        "item-1": {
-          "title": "GitHub 上的星星"
-        },
-        "item-2": {
-          "title": "使用 MkSaaS 的活跃用户"
-        },
-        "item-3": {
-          "title": "使用 MkSaaS 启动的应用"
-        }
-      }
-    },
-    "calltoaction": {
-      "title": "立即开始",
-      "description": "YoTrade 帮你绕过支付限制，畅享全球好物",
-      "primaryButton": "开始使用",
-      "secondaryButton": "查看演示"
     },
     "trust": {
       "eyebrow": "离开闲鱼 · 信任自己扛",
