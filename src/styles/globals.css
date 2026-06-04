@@ -411,10 +411,11 @@ div[class*="border-t"][class*="bg-fd-secondary"]:not(:has(*)):not(
 
 /* ---------- 1. 颜色 token（追加进 @theme inline 内, Tailwind v4 多 @theme 合并） ---------- */
 @theme inline {
-  /* 品牌蓝 7 档 (Pass 5 加 brand-200 给 timeline 渐变用) */
+  /* 品牌蓝 8 档 (Block 4 加 brand-300 给 daifu 「更多」格 hover 边框用) */
   --color-brand-50:  #eef4ff;
   --color-brand-100: #dbe6fe;
   --color-brand-200: #bdd0fd;
+  --color-brand-300: #93b3fc;
   --color-brand-500: #3b6ff6;
   --color-brand-600: #2563eb; /* == --primary */
   --color-brand-700: #1d4ed8;

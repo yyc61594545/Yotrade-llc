@@ -1154,6 +1154,78 @@
         "price": "On request",
         "cta": "Explore"
       }
+    },
+    "daifu": {
+      "eyebrow": "Popular subscriptions · instant setup",
+      "title": "Overseas subscriptions, without your own card",
+      "subtitle": "From AI tools to media — paid with overseas cards, dedicated accounts, 24/7 support. Quote via WeChat.",
+      "cta": "Get a quote on WeChat",
+      "ctaSub": "Quote via WeChat, reply within 30 min",
+      "products": {
+        "chatgpt": {
+          "tiers": [
+            "Plus",
+            "Pro",
+            "Team"
+          ],
+          "sub": "GPT-5 / advanced voice / web, dedicated account."
+        },
+        "claude": {
+          "tiers": [
+            "Pro",
+            "Max"
+          ],
+          "sub": "Longer context / priority limits, reliable."
+        },
+        "cursor": {
+          "tiers": [
+            "Pro",
+            "Business"
+          ],
+          "sub": "AI coding / unlimited completions, team plans."
+        },
+        "midjourney": {
+          "tiers": [
+            "Basic",
+            "Standard",
+            "Pro"
+          ],
+          "sub": "AI art / fast mode / stealth."
+        },
+        "suno": {
+          "tiers": [
+            "Pro",
+            "Premier"
+          ],
+          "sub": "AI music generation / commercial use."
+        },
+        "netflix": {
+          "tiers": [
+            "Premium 4K",
+            "Standard"
+          ],
+          "sub": "4K Ultra HD / multi-screen, stable."
+        },
+        "spotify": {
+          "tiers": [
+            "Individual",
+            "Family"
+          ],
+          "sub": "Ad-free / offline, long-term renewal."
+        },
+        "appleid": {
+          "tiers": [
+            "US",
+            "Other"
+          ],
+          "sub": "Overseas account / app & subscription downloads."
+        }
+      },
+      "more": {
+        "title": "More SaaS subscriptions",
+        "sub": "Not listed? Ask on WeChat",
+        "cta": "View all subscriptions"
+      }
     }
   },
   "AITextPage": {
