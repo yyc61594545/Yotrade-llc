@@ -1,21 +1,3 @@
-import CallToActionSection from '@/components/blocks/calltoaction/calltoaction';
-import FaqSection from '@/components/blocks/faqs/faqs';
-import FeaturesSection from '@/components/blocks/features/features';
-import Features2Section from '@/components/blocks/features/features2';
-import Features3Section from '@/components/blocks/features/features3';
-import HeroSection from '@/components/blocks/hero/hero';
-import IntegrationSection from '@/components/blocks/integration/integration';
-import Integration2Section from '@/components/blocks/integration/integration2';
-import LogoCloud from '@/components/blocks/logo-cloud/logo-cloud';
-import PaymentSection from '@/components/blocks/payment/payment';
-import DaifuShowcase from '@/components/blocks/daifu-showcase/daifu-showcase';
-import PricingSection from '@/components/blocks/pricing/pricing';
-import ServicesHero from '@/components/blocks/services-hero/services-hero';
-import BlogStrip from '@/components/blocks/blog-strip/blog-strip';
-import StatsSection from '@/components/blocks/stats/stats';
-import TestimonialsSection from '@/components/blocks/testimonials/testimonials';
-import TrustSection from '@/components/blocks/trust/trust-section';
-import WechatBand from '@/components/blocks/wechat-band/wechat-band';
 import CrispChat from '@/components/layout/crisp-chat';
 import { constructMetadata } from '@/lib/metadata';
 import { getUrlWithLocale } from '@/lib/urls/urls';
@@ -23,9 +5,17 @@ import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
-/**
- * https://next-intl.dev/docs/environments/actions-metadata-route-handlers#metadata-api
- */
+// ── Pass 5 首页 blocks（按确认节奏排列）──────────────────────────────
+import HeroSection from '@/components/blocks/hero/hero';                       // 墨夜
+import ServicesHero from '@/components/blocks/services-hero/services-hero';    // 白
+import TrustSection from '@/components/blocks/trust/trust-section';            // 浅灰
+import DaifuShowcase from '@/components/blocks/daifu-showcase/daifu-showcase'; // 白
+import LogoCloud from '@/components/blocks/logo-cloud/logo-cloud';             // 浅灰
+import PaymentSection from '@/components/blocks/payment/payment';              // 白
+import WechatBand from '@/components/blocks/wechat-band/wechat-band';          // 墨夜
+import BlogStrip from '@/components/blocks/blog-strip/blog-strip';             // 白
+import TestimonialsSection from '@/components/blocks/testimonials/testimonials'; // 浅灰
+
 export async function generateMetadata({
   params,
 }: {
@@ -45,59 +35,29 @@ interface HomePageProps {
   params: Promise<{ locale: Locale }>;
 }
 
-export default async function HomePage(props: HomePageProps) {
-  const params = await props.params;
-  const { locale } = params;
-  const t = await getTranslations('HomePage');
-
+export default async function HomePage(_props: HomePageProps) {
   return (
-    <>
-      <div className="flex flex-col">
-        <HeroSection />
+    <div className="flex flex-col">
+      {/* 1 · 墨夜 */}
+      <HeroSection />
+      {/* 2 · 白 — 主业三件套 + 代办横幅 */}
+      <ServicesHero />
+      {/* 3 · 浅灰 — P0 信任区 */}
+      <TrustSection />
+      {/* 4 · 白 — 代付商品橱窗 */}
+      <DaifuShowcase />
+      {/* 5 · 浅灰 — 代购品牌带 */}
+      <LogoCloud />
+      {/* 6 · 白 — 安全支付信任条 */}
+      <PaymentSection />
+      {/* 7 · 墨夜 — 微信转化带（替换 NewsletterCard） */}
+      <WechatBand />
+      {/* 8 · 白 — 最新 3 篇真实博客 */}
+      <BlogStrip />
+      {/* 9 · 浅灰 — 闲鱼真实评价精选 */}
+      <TestimonialsSection />
 
-        {/* Hidden sections */}
-        {/* <StatsSection /> */}
-
-        {/* Pass 5 Block 2 — ServicesHero (主业三件套 + 代办进阶横幅) */}
-        <ServicesHero />
-
-        {/* <IntegrationSection /> — legacy mksaas 4-card row (h2 "服务内容") that duplicated ServicesHero. Hidden in Pass 5; Block 8 re-shuffle will remove import entirely. */}
-
-        {/* Pass 5 Block 1 — TrustSection (P0 信任区) */}
-        <TrustSection />
-
-        {/* Pass 5 Block 4 — DaifuShowcase (代付商品橱窗) */}
-        <DaifuShowcase />
-
-        {/* Pass 5 Block 5 — LogoCloud (代购品牌带 marquee) */}
-        <LogoCloud />
-
-        <PaymentSection />
-
-        {/* <FeaturesSection /> */}
-
-        {/* <Features2Section /> */}
-
-        {/* <Features3Section /> */}
-
-        {/* <Integration2Section /> — legacy mksaas (h2 "热门服务") that duplicated LogoCloud brand row. Hidden in Pass 5; Block 8 re-shuffle will remove import entirely. */}
-
-        {/* <PricingSection /> */}
-
-        {/* <FaqSection /> */}
-
-        {/* <CallToActionSection /> */}
-
-        {/* Pass 5 Block 7 — BlogStrip (真实 Fumadocs 最新 3 篇) */}
-        <BlogStrip />
-
-        <TestimonialsSection />
-
-        {/* Pass 5 Block 6 — WechatBand (墨夜微信转化带,replace NewsletterCard) */}
-        <WechatBand />
-
-        <CrispChat />
-      </div>
-    </>
+      <CrispChat />
+    </div>
   );
 }

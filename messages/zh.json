@@ -967,80 +967,40 @@
       }
     },
     "testimonials": {
-      "title": "客户评价",
-      "subtitle": "我们的客户对我们的评价",
+      "eyebrow": "买家怎么说",
+      "title": "598 条好评里，挑几条给你看",
+      "subtitle": "真实闲鱼买家评价截选。地点与业务都对得上号。",
+      "badge": "闲鱼真实评价",
       "items": {
-        "item-1": {
-          "name": "小明同学",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/1.jpg",
-          "quote": "通过YoTrade代购了很多美国商品，省心省力，价格也公道。特别是他们的Amazon代购服务，从下单到收货都很顺利！"
+        "r1": {
+          "name": "陈**",
+          "meta": "广东 · 代付 · 回头客",
+          "quote": "先付款本来有点慌，结果 20 分钟开通 ChatGPT，出问题秒回。下次还找他。"
         },
-        "item-2": {
-          "name": "SkyWalker",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/6.jpg",
-          "quote": "我在YoTrade办理了ITIN和美国地址服务，整个流程非常专业，客服耐心解答所有问题。现在我可以轻松购买美国商品了。"
+        "r2": {
+          "name": "L***",
+          "meta": "浙江 · 代购",
+          "quote": "日亚的限定款帮我抢到了，全程发物流截图，很靠谱。"
         },
-        "item-3": {
-          "name": "芳芳爱购物",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/7.jpg",
-          "quote": "YoTrade的代刷服务太棒了！帮我解决了很多支付难题，现在订阅Netflix、Spotify都不是问题。强烈推荐！"
+        "r3": {
+          "name": "W**",
+          "meta": "加拿大 · 代付",
+          "quote": "人在加拿大，Spotify 家庭组帮我搞定，比自己折腾省心。"
         },
-        "item-4": {
-          "name": "David_Chen",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/8.jpg",
-          "quote": "在YoTrade办理美国信用卡，从申请到拿到卡只用了两周时间。客服很专业，帮我建立了良好的信用记录。对于需要美国支付渠道的人来说，这是最佳选择。"
+        "r4": {
+          "name": "张**",
+          "meta": "北京 · 代付",
+          "quote": "Cursor Pro 续了一年，价格透明，没有乱加价。"
         },
-        "item-5": {
-          "name": "海购达人",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/4.jpg",
-          "quote": "YoTrade的代办服务非常靠谱，帮我处理了很多复杂的文件和手续。省去了我大量的时间和精力，价格也很合理。"
+        "r5": {
+          "name": "K**",
+          "meta": "香港 · 代买",
+          "quote": "球鞋抽签中了帮我代付代收转运，鞋盒完好。"
         },
-        "item-6": {
-          "name": "Liz_Zhao",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/2.jpg",
-          "quote": "用YoTrade代购了Coach、Nike等品牌商品，质量有保障，价格比国内便宜很多。物流也很快，客服响应及时！"
-        },
-        "item-7": {
-          "name": "阳光男孩",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/5.jpg",
-          "quote": "YoTrade的美国地址服务帮了我大忙，很多美国网站不支持国际配送，现在通过他们的地址可以轻松下单。转运速度也很快。"
-        },
-        "item-8": {
-          "name": "MinMin",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/9.jpg",
-          "quote": "通过YoTrade办理了信用养成服务，他们很专业地帮我规划了信用建立的步骤。现在我的信用分数已经达到了700+，非常感谢！"
-        },
-        "item-9": {
-          "name": "涛哥说",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/10.jpg",
-          "quote": "YoTrade的代买服务覆盖了Amazon、Walmart、Target等主流平台，价格透明，服务高效。我已经推荐给很多朋友了。"
-        },
-        "item-10": {
-          "name": "Snow_Zheng",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/11.jpg",
-          "quote": "在YoTrade办理ITIN非常顺利，他们的专业团队帮我准备了所有材料，整个过程很省心。现在可以享受各种美国服务了！"
-        },
-        "item-11": {
-          "name": "雷哥在美国",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/12.jpg",
-          "quote": "YoTrade的代刷服务解决了我的大难题，很多国外订阅服务都需要美国支付方式，现在通过他们都可以轻松搞定。服务稳定可靠！"
-        },
-        "item-12": {
-          "name": "Tintin_Lin",
-          "role": "",
-          "image": "https://randomuser.me/api/portraits/men/13.jpg",
-          "quote": "YoTrade帮我办理了美国地址和信用卡申请，现在可以自由购买各种美国商品和服务。客服团队非常专业，整个体验非常好！"
+        "r6": {
+          "name": "赵**",
+          "meta": "江苏 · 售前咨询",
+          "quote": "问了一堆问题也没嫌烦，最后还劝我别买贵的方案。"
         }
       }
     },
