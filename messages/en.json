@@ -1109,8 +1109,7 @@
         },
         "gou": {
           "label": "Proxy buying: ",
-          "text": "Live order status + full tracking + full refund on rejection/loss.",
-          "note": "⚠ wording TBC"
+          "text": "Live order status + full tracking + full refund on rejection/loss."
         },
         "presale": {
           "label": "Pre-sale: ",
