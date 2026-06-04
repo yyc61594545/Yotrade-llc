@@ -8,6 +8,7 @@ import IntegrationSection from '@/components/blocks/integration/integration';
 import Integration2Section from '@/components/blocks/integration/integration2';
 import LogoCloud from '@/components/blocks/logo-cloud/logo-cloud';
 import PaymentSection from '@/components/blocks/payment/payment';
+import DaifuShowcase from '@/components/blocks/daifu-showcase/daifu-showcase';
 import PricingSection from '@/components/blocks/pricing/pricing';
 import ServicesHero from '@/components/blocks/services-hero/services-hero';
 import StatsSection from '@/components/blocks/stats/stats';
@@ -65,6 +66,9 @@ export default async function HomePage(props: HomePageProps) {
 
         {/* Pass 5 Block 1 — TrustSection (P0 信任区) */}
         <TrustSection />
+
+        {/* Pass 5 Block 4 — DaifuShowcase (代付商品橱窗) */}
+        <DaifuShowcase />
 
         <PaymentSection />
 

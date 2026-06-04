@@ -1167,6 +1167,78 @@
         "price": "按需报价",
         "cta": "了解代办"
       }
+    },
+    "daifu": {
+      "eyebrow": "热门代付 · 即时开通",
+      "title": "海外订阅，不用自己的卡也能开",
+      "subtitle": "AI 工具到影音会员，海外卡支付、不共享号池、7×24 售后。微信沟通报价。",
+      "cta": "微信咨询报价",
+      "ctaSub": "微信沟通报价，30 分钟内反馈",
+      "products": {
+        "chatgpt": {
+          "tiers": [
+            "Plus",
+            "Pro",
+            "Team"
+          ],
+          "sub": "GPT-5 / 高级语音 / 联网，独享账号不共享。"
+        },
+        "claude": {
+          "tiers": [
+            "Pro",
+            "Max"
+          ],
+          "sub": "更长上下文 / 优先额度，稳定可用。"
+        },
+        "cursor": {
+          "tiers": [
+            "Pro",
+            "Business"
+          ],
+          "sub": "AI 编程 / 无限补全，团队可批量。"
+        },
+        "midjourney": {
+          "tiers": [
+            "Basic",
+            "Standard",
+            "Pro"
+          ],
+          "sub": "AI 绘画 / 快速模式 / 隐身出图。"
+        },
+        "suno": {
+          "tiers": [
+            "Pro",
+            "Premier"
+          ],
+          "sub": "AI 音乐生成 / 商用授权。"
+        },
+        "netflix": {
+          "tiers": [
+            "高级 4K",
+            "标准"
+          ],
+          "sub": "4K 超清 / 多屏，稳定不掉车。"
+        },
+        "spotify": {
+          "tiers": [
+            "个人",
+            "家庭"
+          ],
+          "sub": "无广告 / 离线下载，长期续费。"
+        },
+        "appleid": {
+          "tiers": [
+            "美区",
+            "其他区"
+          ],
+          "sub": "海外区账号 / App 与订阅下载。"
+        }
+      },
+      "more": {
+        "title": "更多 SaaS 订阅",
+        "sub": "没找到？微信问我",
+        "cta": "查看全部代付"
+      }
     }
   },
   "AITextPage": {
