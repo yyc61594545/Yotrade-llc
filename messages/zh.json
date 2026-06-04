@@ -1134,25 +1134,20 @@
     "servicesHero": {
       "eyebrow": "三大主业 · 走量首选",
       "title": "闲鱼能做的，这里更省心更安全",
-      "subtitle": "代付海外订阅、代购全球好物、代刷会员充值 —— 全程可追、未发货全额退，先付也敢付。",
+      "subtitle": "代付海外订阅与会员充值、代购全球好物、代买限量好物 —— 全程可追、未发货全额退,先付也敢付。",
       "hot": "★ 最热门",
       "cta": "微信咨询报价",
       "detail": "查看详情",
       "items": {
         "daifu": {
-          "title": "代付 · 海外订阅",
-          "desc": "ChatGPT / Claude / Cursor / Suno / Netflix / Spotify / Apple ID，海外卡支付，即时开通。",
-          "highlight": "不共享号池 · 即时开通 · 7×24 售后"
+          "title": "代付 · 海外订阅 + 会员充值",
+          "desc": "ChatGPT / Claude / Cursor / Netflix / Spotify / Apple ID / Steam — 海外卡支付,即时开通或充值。",
+          "highlight": "不共享号池 · 即时到账 · 被砍单全退"
         },
         "daigou": {
           "title": "代购 · 全球好物",
           "desc": "美亚 / 日亚 / 欧美商品 / 限量球鞋，代付代收转运到手，运输全程可追。",
           "highlight": "代付代收转运 · 运输全程可追"
-        },
-        "daishua": {
-          "title": "代刷 · 会员充值",
-          "desc": "海外会员、订阅续费、平台充值，被砍单全额退款，稳定到账。",
-          "highlight": "稳定到账 · 被砍单全额退款"
         },
         "daimai": {
           "title": "代买 · 限量好物",

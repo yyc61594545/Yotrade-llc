@@ -1121,25 +1121,20 @@
     "servicesHero": {
       "eyebrow": "Three core services",
       "title": "What the marketplace did — done safer here",
-      "subtitle": "Subscription top-ups, global proxy buying, membership recharge — fully tracked, full refund before delivery.",
+      "subtitle": "Overseas subscriptions + recharges, global proxy buying, limited drops — fully tracked, full refund before delivery.",
       "hot": "★ Most popular",
       "cta": "Get a quote on WeChat",
       "detail": "View details",
       "items": {
         "daifu": {
-          "title": "Subscriptions",
-          "desc": "ChatGPT / Claude / Cursor / Suno / Netflix / Spotify / Apple ID — paid with overseas cards, instant activation.",
-          "highlight": "Dedicated accounts · instant activation · 24/7 support"
+          "title": "Subscriptions + recharges",
+          "desc": "ChatGPT / Claude / Cursor / Netflix / Spotify / Apple ID / Steam — overseas card payment, instant activation or top-up.",
+          "highlight": "Dedicated accounts · instant delivery · full refund if cancelled"
         },
         "daigou": {
           "title": "Proxy buying",
           "desc": "US/JP Amazon, Western goods, limited sneakers — bought, received and forwarded to you, fully tracked.",
           "highlight": "Buy + receive + forward · fully tracked"
-        },
-        "daishua": {
-          "title": "Membership recharge",
-          "desc": "Overseas memberships, renewals and platform top-ups — full refund if cancelled, reliable delivery.",
-          "highlight": "Reliable delivery · full refund if cancelled"
         },
         "daimai": {
           "title": "Limited drops",
