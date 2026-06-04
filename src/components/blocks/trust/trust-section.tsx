@@ -85,11 +85,6 @@ export default function TrustSection() {
                   <span>
                     <b className="font-bold">{t(`guarantee.${k}.label`)}</b>
                     {t(`guarantee.${k}.text`)}
-                    {k === 'gou' && (
-                      <span className="ml-1.5 inline-block whitespace-nowrap rounded border border-amber-200 bg-amber-50 px-1.5 py-px text-[11px] text-amber-700">
-                        {t('guarantee.gou.note')}
-                      </span>
-                    )}
                   </span>
                 </div>
               ))}
