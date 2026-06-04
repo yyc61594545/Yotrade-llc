@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Banknote,
   CreditCard,
+  Gem,
   Landmark,
   MessageCircle,
   RefreshCw,
@@ -20,14 +21,16 @@ import { useTranslations } from 'next-intl';
  *
  * 路由映射（业务实际架构）：
  *   代付 → /services/daifu  （海外订阅:ChatGPT/Claude/Cursor 等）
- *   代购 → /services/daigou （全球海淘:美亚/日亚/限量球鞋）
+ *   代购 → /services/daigou （全球海淘:美亚/日亚）
  *   代刷 → /services/daishua（会员充值:Netflix/Spotify/Steam/Apple ID 等）
+ *   代买 → /services/daimai （限量好物:球鞋/演唱会票/区域限购）
  */
 
 const MAIN_SERVICES = [
   { slug: 'daifu',   icon: CreditCard,  dark: true,  hot: true,  detailHref: '/services/daifu' },
   { slug: 'daigou',  icon: ShoppingBag, dark: false, hot: false, detailHref: '/services/daigou' },
   { slug: 'daishua', icon: RefreshCw,   dark: false, hot: false, detailHref: '/services/daishua' },
+  { slug: 'daimai',  icon: Gem,         dark: false, hot: false, detailHref: '/services/daimai' },
 ] as const;
 
 const CONTACT_HREF = (campaign: string) =>
@@ -56,8 +59,8 @@ export default function ServicesHero() {
           </p>
         </div>
 
-        {/* 主业三件套 */}
-        <div className="grid gap-5 lg:grid-cols-3">
+        {/* 主业四件套 */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {MAIN_SERVICES.map(({ slug, icon: Icon, dark, hot, detailHref }) => (
             <div
               key={slug}
