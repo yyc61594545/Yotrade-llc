@@ -11,26 +11,16 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      # Skip when PR only touches blog content / images — typecheck is irrelevant
-      - '**/*.ts'
-      - '**/*.tsx'
-      - '**/*.js'
-      - '**/*.jsx'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'tsconfig.json'
-      - 'messages/**'
-      - 'src/i18n/**'
-      - '.github/workflows/typecheck.yml'
   push:
     branches:
       - main
-    paths:
-      - '**/*.ts'
-      - '**/*.tsx'
-      - 'messages/**'
-      - 'src/i18n/**'
+
+# Note: previous version had a paths: filter that excluded README / MDX /
+# config-only PRs, but the GitHub Ruleset (17230291) requires the typecheck
+# context to pass before merge — if the workflow doesn't trigger, the check
+# never exists, the rule never resolves, and the PR is BLOCKED forever.
+# (Hit this with PR #33 which only touched README.md.)
+# Cost of running on every PR: 2-4 min CI time. Worth it to never get stuck.
 
 # Cancel in-progress runs on the same PR when a new commit lands.
 concurrency:
