@@ -18,16 +18,16 @@ import { useTranslations } from 'next-intl';
  * CTA 全走微信成交：3 卡 → /contact 带 utm；代办 → /services/daiban。
  * Server Component。复用 token，无新 keyframe。
  *
- * 路由映射（user 可后续调整 MAIN_SERVICES.detailHref）：
- *   代付 → /services/daishua（实际 daishua 服务页内容 = AI 订阅代付）
- *   代购 → /services/daigou
- *   代刷 → /services/daimai（按语义就近映射，user 拍板可调整）
+ * 路由映射（业务实际架构）：
+ *   代付 → /services/daifu  （海外订阅:ChatGPT/Claude/Cursor 等）
+ *   代购 → /services/daigou （全球海淘:美亚/日亚/限量球鞋）
+ *   代刷 → /services/daishua（会员充值:Netflix/Spotify/Steam/Apple ID 等）
  */
 
 const MAIN_SERVICES = [
-  { slug: 'daifu',   icon: CreditCard,  dark: true,  hot: true,  detailHref: '/services/daishua' },
+  { slug: 'daifu',   icon: CreditCard,  dark: true,  hot: true,  detailHref: '/services/daifu' },
   { slug: 'daigou',  icon: ShoppingBag, dark: false, hot: false, detailHref: '/services/daigou' },
-  { slug: 'daishua', icon: RefreshCw,   dark: false, hot: false, detailHref: '/services/daimai' },
+  { slug: 'daishua', icon: RefreshCw,   dark: false, hot: false, detailHref: '/services/daishua' },
 ] as const;
 
 const CONTACT_HREF = (campaign: string) =>

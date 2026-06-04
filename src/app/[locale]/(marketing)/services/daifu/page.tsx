@@ -13,15 +13,15 @@ import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl, getUrlWithLocale } from '@/lib/urls/urls';
 import {
   ArrowRight,
+  Bot,
+  Brain,
   CheckCircle2,
-  Film,
-  Gamepad2,
+  Code2,
   MessageCircle,
+  Music,
+  Palette,
   ShieldCheck,
-  Smartphone,
   Sparkles,
-  Wallet,
-  Zap,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -33,84 +33,84 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   return constructMetadata({
-    title: '会员充值 / 平台代刷 | Netflix / Spotify / Steam / Apple ID | YoTrade',
+    title: 'AI 订阅代付 / 海外 SaaS | ChatGPT / Claude / Cursor | YoTrade',
     description:
-      'Netflix、Spotify、Steam 余额、PSN 点卡、Apple ID 余额、YouTube Premium 等海外会员/平台充值代刷。被砍单全额退款,稳定到账,微信报价 10 分钟内出价。',
-    canonicalUrl: getUrlWithLocale('/services/daishua', locale),
+      '没美卡也能用 ChatGPT Plus / Claude Pro+Max / Cursor / Midjourney / Suno。专属账号、自有美卡链路、不与他人共享号池,稳定不封号。一对一代付,7×24 售后。',
+    canonicalUrl: getUrlWithLocale('/services/daifu', locale),
   });
 }
 
 const CATEGORIES = [
   {
-    icon: Film,
-    title: '流媒体会员',
-    items: ['Netflix Premium 切区', 'Spotify Premium 切区', 'YouTube Premium 海外区', 'Disney+ / HBO Max'],
+    icon: Brain,
+    title: 'AI 大模型订阅',
+    items: ['ChatGPT Plus / Pro / Team', 'Claude Pro / Max 5x / Max 20x', 'Google Gemini Advanced', 'Perplexity Pro'],
   },
   {
-    icon: Gamepad2,
-    title: '游戏点卡 / 平台余额',
-    items: ['Steam 余额(美区 / 港区 / 阿区)', 'PSN 点卡(美区 / 日区)', 'Switch eShop 余额', 'Xbox Live / Game Pass'],
+    icon: Code2,
+    title: 'AI 编程工具',
+    items: ['Cursor Pro / Business', 'GitHub Copilot Pro / Business', 'Windsurf Pro', 'JetBrains AI Pro'],
   },
   {
-    icon: Wallet,
-    title: '账户余额充值',
-    items: ['Apple ID 余额(美/港/日/欧)', 'Google Play 余额', 'Amazon Gift Card', 'iTunes 礼品卡'],
+    icon: Palette,
+    title: '创作 / 设计工具',
+    items: ['Midjourney Basic / Standard / Pro', 'Runway Standard / Pro', 'Adobe Creative Cloud', 'Figma Professional'],
   },
   {
-    icon: Smartphone,
-    title: '其他海外平台',
-    items: ['Telegram Premium', 'Twitter Blue', 'Discord Nitro', 'Patreon / Boosty 订阅'],
+    icon: Music,
+    title: '音视频订阅',
+    items: ['Suno Pro / Premier', 'ElevenLabs', 'YouTube Premium', 'Netflix / Spotify 切区'],
   },
 ];
 
 const PROCESS = [
-  { step: '01', title: '发产品 + 档位', desc: '微信发清楚产品 + 充值金额(如"Steam 美区 $20""Netflix Premium 1 个月"),我们 10 分钟内回报价。' },
-  { step: '02', title: '确认后付款', desc: '人民币付款(支付宝/微信/USDT),价格透明无加价玩法,小额可走 USDT 即时锁价。' },
-  { step: '03', title: '即时充值上车', desc: '我们用自有海外身份链路完成充值,大部分品类 5–30 分钟到账,礼品卡即时发码。' },
-  { step: '04', title: '被砍单全额退', desc: '极少数被风控/砍单,全额退款不打折;周期会员被强制下线,补刷一次为止。' },
+  { step: '01', title: '免费咨询报价', desc: '微信发产品名称 + 套餐档位,我们 10 分钟内回报市场价(通常加价 15–30%)。' },
+  { step: '02', title: '你创建账号', desc: '所有订阅注册在你自己邮箱下,密码你自己掌握。我们只用代付链路完成支付。' },
+  { step: '03', title: '远程代付上车', desc: '通过自有美卡 + 美国地址 + 干净 IP 配置完成订阅,通常 5–30 分钟到账。' },
+  { step: '04', title: '7×24 售后保障', desc: '订阅周期内被风控 / 强制下车,免费补付;价格调整不收差价。' },
 ];
 
 const FAQS = [
   {
-    q: '充值的账户是我自己的吗?会不会被风控?',
-    a: '账号 100% 是你自己的(你的 Apple ID / Steam 账户 / Netflix 邮箱)。我们用自有海外身份完成充值/续费,你的账号身份链路不变。流媒体会员可能因为长期跨区被平台风控,这跟号池代刷不一样 — 我们提前会告知风险等级。',
+    q: '账号是我自己的吗?会不会被风控封号?',
+    a: '账号 100% 在你自己邮箱下注册、密码你自己控制。我们用自有美卡 + 干净美国 IP 完成支付,不共享号池,这是和"号池代付"最大的区别。正常使用基本不会触发风控;万一被强制下车,周期内免费补付。',
   },
   {
-    q: 'Netflix / Spotify 切区会被检测吗?',
-    a: '会有概率,看你是否经常切区使用。一次性切完不动通常 OK;频繁切就容易触发"区域可疑"。我们建议绑定后稳定一个区使用,降低触发概率。被砍单全额退款。',
+    q: '为什么不直接买代付站的便宜账号?',
+    a: '便宜账号通常是号池模式:一张卡刷上百个账户、共享登录信息。OpenAI / Anthropic / Cursor 都在批量识别号池并集中封号。我们这种"一对一代付"贵 20–50%,但你的账号档案是干净的。',
   },
   {
-    q: 'Steam 美区充值,我自己的账号是国区,能用吗?',
-    a: '不能直接充。Steam 钱包绑区,国区账号只能充国区。如果你想买美区游戏,要么注册美区账号(我们能帮),要么买美区礼品卡赠送给美区账号。',
+    q: '需要把密码或登录方式发给你们吗?',
+    a: '只需要远程代付阶段(几分钟)的临时访问。我们通常只需要你的邮箱接收验证码,不索取你的主密码。如果服务需要长期账号绑定(如 ChatGPT Team 邀请),会用最小权限方式处理。',
   },
   {
-    q: 'Apple ID 余额充错区怎么办?',
-    a: '苹果余额跟 Apple ID 绑定区域,充值前必须告诉我们你的 Apple ID 所在区。充错区无法转移,我们这边充值前会再次确认,但责任分担需要先沟通清楚。',
+    q: 'Claude Pro / Max 国内能用代付上吗?',
+    a: '可以。Anthropic 不开放中国大陆和香港订阅,但用我们的美国身份链路可以稳定开通。Max 5x / 20x 也都可以。这是国内用户用上 Claude 最稳的两条路之一(另一条是自己建美国身份链路,见博客 ITIN 指南)。',
   },
   {
     q: '能不能开发票?',
     a: '人民币付款支持开"咨询服务费"普通发票。具体抬头和税点联系客服。',
   },
   {
-    q: '海外礼品卡是即时发码吗?会不会失效?',
-    a: '即时发码、即时验码。Steam / Apple / Amazon / iTunes 礼品卡都是真实美卡渠道购入,正常使用 12 个月内有效。出问题 24 小时内反馈无条件退款。',
+    q: '我自己有美卡,但想省事让你们代付,可以吗?',
+    a: '可以。"协助代付"模式只收少量服务费,不加价,你的卡你的账。适合不想自己搞 IP / 地址但有美卡的用户。',
   },
 ];
 
-export default async function DaishuaPage({
+export default async function DaifuPage({
   params,
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
-  const pageUrl = getUrlWithLocale('/services/daishua', locale);
+  const pageUrl = getUrlWithLocale('/services/daifu', locale);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: '会员充值 / 平台余额代刷',
-    serviceType: 'Cross-border platform top-up service',
+    name: 'AI 订阅 / 海外 SaaS 一对一代付',
+    serviceType: 'Cross-border subscription payment service',
     provider: { '@type': 'Organization', name: 'YoTrade', url: getBaseUrl() },
-    description: 'Netflix / Spotify / Steam / Apple ID 等海外平台会员充值与代刷,被砍单全额退款。',
+    description: 'ChatGPT/Claude/Cursor 等海外订阅代付,自有美卡链路、不与他人共享号池。',
     url: pageUrl,
   };
 
@@ -124,19 +124,19 @@ export default async function DaishuaPage({
       {/* Hero */}
       <section className="text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 text-sm rounded-full border px-4 py-1.5 mb-6">
-          <Zap className="size-3.5" />
-          <span>核心服务 · 会员充值 / 平台代刷</span>
+          <Bot className="size-3.5" />
+          <span>核心服务 · AI / SaaS 订阅</span>
         </div>
         <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
-          会员充值代刷
+          海外订阅代付
         </h1>
         <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed">
-          没海外卡也能充{' '}
+          没美卡也能稳定用{' '}
           <span className="font-semibold text-foreground">
-            Netflix / Spotify / Steam / Apple ID / PSN
+            ChatGPT Plus / Claude Pro+Max / Cursor / Midjourney
           </span>
-          。即时到账、{' '}
-          <span className="font-semibold text-foreground">被砍单全额退款</span>。
+          。专属账号、自有美卡链路、{' '}
+          <span className="font-semibold text-foreground">不共享号池</span>。
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild size="lg">
@@ -154,7 +154,7 @@ export default async function DaishuaPage({
 
       {/* Categories */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-3">能充什么</h2>
+        <h2 className="text-3xl font-bold text-center mb-3">能代付什么</h2>
         <p className="text-center text-muted-foreground mb-10">
           下列只是常见品类,有需求直接微信问,基本都能上
         </p>
@@ -187,25 +187,25 @@ export default async function DaishuaPage({
         <div className="rounded-2xl border bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 p-8 lg:p-12">
           <ShieldCheck className="size-10 text-primary mb-4" />
           <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-            为什么找我们靠谱
+            为什么贵一点也值
           </h2>
           <div className="grid sm:grid-cols-3 gap-6 text-sm">
             <div>
-              <div className="font-semibold mb-1">✅ 真实海外渠道</div>
+              <div className="font-semibold mb-1">✅ 一对一专属</div>
               <p className="text-muted-foreground leading-relaxed">
-                自有美/港/日/欧多区身份链路,礼品卡都是正规零售购入,不是黑卡来源。
+                你的账号、你的邮箱、你的密码;我们只走代付链路,绝不与他人共享。
               </p>
             </div>
             <div>
-              <div className="font-semibold mb-1">✅ 即时锁价 + 即时充值</div>
+              <div className="font-semibold mb-1">✅ 自有美卡 + 干净 IP</div>
               <p className="text-muted-foreground leading-relaxed">
-                小额报价后立即锁汇率,你付款后 5–30 分钟到账,礼品卡即时发码。
+                来自真实美国身份链路的付款渠道,不是临时虚拟卡,稳定不会被风控批量关。
               </p>
             </div>
             <div>
-              <div className="font-semibold mb-1">✅ 砍单全退 + 24h 售后</div>
+              <div className="font-semibold mb-1">✅ 周期内补付保障</div>
               <p className="text-muted-foreground leading-relaxed">
-                被砍单 / 风控 / 充错全额退款不打折;礼品卡 24 小时验码,无效退款。
+                万一被强制下车,免费补付;价格调整不收差价;售后随时微信。
               </p>
             </div>
           </div>
@@ -230,8 +230,8 @@ export default async function DaishuaPage({
       <section className="max-w-5xl mx-auto w-full">
         <WechatContact
           variant="compact"
-          title="发产品 + 金额,10 分钟内出价"
-          subtitle="Netflix / Spotify / Steam / Apple ID / PSN 一站充值,即时锁汇率"
+          title="发产品名,10 分钟内报价"
+          subtitle="ChatGPT / Claude / Cursor / Midjourney 一对一代付,自有美卡链路"
         />
       </section>
 
@@ -253,9 +253,9 @@ export default async function DaishuaPage({
       {/* Final CTA */}
       <section className="text-center max-w-3xl mx-auto rounded-2xl border bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 p-10 lg:p-16">
         <Sparkles className="size-10 text-primary mx-auto mb-4" />
-        <h2 className="text-2xl lg:text-3xl font-bold mb-4">先发产品 + 金额,10 分钟内出价</h2>
+        <h2 className="text-2xl lg:text-3xl font-bold mb-4">先发产品名,10 分钟内报价</h2>
         <p className="text-muted-foreground mb-8 leading-relaxed">
-          咨询免费、不强推。即时锁汇率、被砍单全额退款。
+          咨询免费、不强推。账号在你手上、密码你自己掌握,稳定不掉线。
         </p>
         <Button asChild size="lg">
           <LocaleLink href="/contact">
