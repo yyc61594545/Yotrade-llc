@@ -1239,6 +1239,20 @@
         "sub": "没找到？微信问我",
         "cta": "查看全部代付"
       }
+    },
+    "brands": {
+      "eyebrow": "代购覆盖",
+      "title": "这些平台与品牌，都能帮你买",
+      "items": {
+        "amazon": "美亚 / 日亚",
+        "nike": "Nike",
+        "uniqlo": "优衣库",
+        "adidas": "Adidas",
+        "coach": "蔻驰 COACH",
+        "toysrus": "玩具反斗城",
+        "meitun": "美囤妈妈",
+        "traderjoes": "Trader Joe's"
+      }
     }
   },
   "AITextPage": {

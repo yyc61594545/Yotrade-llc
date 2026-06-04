@@ -54,8 +54,6 @@ export default async function HomePage(props: HomePageProps) {
       <div className="flex flex-col">
         <HeroSection />
 
-        {/* <LogoCloud /> */}
-
         {/* Hidden sections */}
         {/* <StatsSection /> */}
 
@@ -69,6 +67,9 @@ export default async function HomePage(props: HomePageProps) {
 
         {/* Pass 5 Block 4 — DaifuShowcase (代付商品橱窗) */}
         <DaifuShowcase />
+
+        {/* Pass 5 Block 5 — LogoCloud (代购品牌带 marquee) */}
+        <LogoCloud />
 
         <PaymentSection />
 

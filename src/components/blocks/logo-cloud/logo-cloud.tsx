@@ -1,91 +1,64 @@
 import { useTranslations } from 'next-intl';
 
-export default function LogoCloudSection() {
-  const t = useTranslations('HomePage.logocloud');
+/**
+ * LogoCloud — 代购品牌带（Pass 5 · Block 5）
+ * LogoCloud → 单行无缝自动滚动 marquee。浅灰底。
+ * 灰度 logo 占位 hover 上色；reduced-motion → paused（见 globals）。
+ * Server Component。data-driven：加品牌只动 BRANDS。
+ * ⚠ logo 现用单色字符占位；接真实 svg/png 时把 <span class=mark> 换 <Image>，
+ *   保留外层 grayscale group-hover/chip:grayscale-0。
+ */
+
+const BRANDS = [
+  { key: 'amazon',     mark: 'a',  color: '#ff9900' },
+  { key: 'nike',       mark: '✔',  color: '#0b1020' },
+  { key: 'uniqlo',     mark: 'UQ', color: '#e60012' },
+  { key: 'adidas',     mark: '▲',  color: '#0b1020' },
+  { key: 'coach',      mark: 'C',  color: '#5b3a29' },
+  { key: 'toysrus',    mark: 'R',  color: '#00a651' },
+  { key: 'meitun',     mark: '囤', color: '#ff6f91' },
+  { key: 'traderjoes', mark: 'TJ', color: '#d0021b' },
+] as const;
+
+function BrandChip({ mark, color, label }: { mark: string; color: string; label: string }) {
+  return (
+    <div className="border-border-soft group/chip flex h-[72px] min-w-[170px] items-center justify-center gap-2.5 rounded-xl border bg-white px-6 shadow-sm">
+      <span
+        className="grid size-8 place-items-center rounded-lg text-sm font-extrabold text-white grayscale transition-all duration-200 group-hover/chip:grayscale-0"
+        style={{ backgroundColor: color }}
+      >
+        {mark}
+      </span>
+      <span className="text-muted-foreground group-hover/chip:text-foreground text-base font-extrabold transition-colors">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+export default function LogoCloud() {
+  const t = useTranslations('HomePage.brands');
 
   return (
-    <section id="logo-cloud" className="bg-muted/50 px-4 py-16">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-center text-xl font-medium">{t('title')}</h2>
+    <section id="brands" className="bg-bg-soft px-4 py-14 md:py-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center">
+          <span className="text-brand-600 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em]">
+            <span className="bg-brand-500 h-px w-5" />
+            {t('eyebrow')}
+          </span>
+          <h2 className="mt-4 text-balance text-2xl font-extrabold tracking-tight md:text-3xl">
+            {t('title')}
+          </h2>
+        </div>
 
-        <div className="mx-auto mt-20 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12">
-          <img
-            className="h-5 w-fit dark:invert"
-            src="/svg/nvidia.svg"
-            alt="Nvidia Logo"
-            height="20"
-            width="auto"
-          />
-          <img
-            className="h-4 w-fit dark:invert"
-            src="/svg/column.svg"
-            alt="Column Logo"
-            height="16"
-            width="auto"
-          />
-          <img
-            className="h-4 w-fit dark:invert"
-            src="/svg/github.svg"
-            alt="GitHub Logo"
-            height="16"
-            width="auto"
-          />
-          <img
-            className="h-5 w-fit dark:invert"
-            src="/svg/nike.svg"
-            alt="Nike Logo"
-            height="20"
-            width="auto"
-          />
-          <img
-            className="h-4 w-fit dark:invert"
-            src="/svg/laravel.svg"
-            alt="Laravel Logo"
-            height="16"
-            width="auto"
-          />
-          <img
-            className="h-7 w-fit dark:invert"
-            src="/svg/lilly.svg"
-            alt="Lilly Logo"
-            height="28"
-            width="auto"
-          />
-          <img
-            className="h-5 w-fit dark:invert"
-            src="/svg/lemonsqueezy.svg"
-            alt="Lemon Squeezy Logo"
-            height="20"
-            width="auto"
-          />
-          <img
-            className="h-6 w-fit dark:invert"
-            src="/svg/openai.svg"
-            alt="OpenAI Logo"
-            height="24"
-            width="auto"
-          />
-          <img
-            className="h-4 w-fit dark:invert"
-            src="/svg/tailwindcss.svg"
-            alt="Tailwind CSS Logo"
-            height="16"
-            width="auto"
-          />
-          <img
-            className="h-5 w-fit dark:invert"
-            src="/svg/vercel.svg"
-            alt="Vercel Logo"
-            height="20"
-            width="auto"
-          />
-          <img
-            className="h-5 w-fit dark:invert"
-            src="/svg/zapier.svg"
-            alt="Zapier Logo"
-            height="20"
-            width="auto"
-          />
+        {/* 两份 BRANDS 拼接，平移 -50% 无缝循环 */}
+        <div className="marquee-mask overflow-hidden">
+          <div className="marquee-track flex w-max gap-4">
+            {[...BRANDS, ...BRANDS].map((b, i) => (
+              <BrandChip key={`${b.key}-${i}`} mark={b.mark} color={b.color} label={t(`items.${b.key}`)} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
