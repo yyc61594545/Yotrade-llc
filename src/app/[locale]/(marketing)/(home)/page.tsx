@@ -60,7 +60,7 @@ export default async function HomePage(props: HomePageProps) {
         {/* Pass 5 Block 2 — ServicesHero (主业三件套 + 代办进阶横幅) */}
         <ServicesHero />
 
-        <IntegrationSection />
+        {/* <IntegrationSection /> — legacy mksaas 4-card row (h2 "服务内容") that duplicated ServicesHero. Hidden in Pass 5; Block 8 re-shuffle will remove import entirely. */}
 
         {/* Pass 5 Block 1 — TrustSection (P0 信任区) */}
         <TrustSection />
@@ -79,7 +79,7 @@ export default async function HomePage(props: HomePageProps) {
 
         {/* <Features3Section /> */}
 
-        <Integration2Section />
+        {/* <Integration2Section /> — legacy mksaas (h2 "热门服务") that duplicated LogoCloud brand row. Hidden in Pass 5; Block 8 re-shuffle will remove import entirely. */}
 
         {/* <PricingSection /> */}
 
