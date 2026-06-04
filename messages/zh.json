@@ -1253,6 +1253,13 @@
       "eyebrow": "真人 30 分钟内回",
       "title": "有想要的，直接微信问我",
       "subtitle": "明码报价、不强推。先聊清楚，再决定。"
+    },
+    "blog": {
+      "eyebrow": "攻略 · 经验",
+      "title": "搜进来的，先看这几篇",
+      "subtitle": "ITIN、美国 LLC、银行 + Stripe、代付攻略 —— 持续更新的实操干货。",
+      "ctaDetail": "阅读全文",
+      "ctaAll": "查看全部博客"
     }
   },
   "AITextPage": {

@@ -1240,6 +1240,13 @@
       "eyebrow": "A real person replies within 30 min",
       "title": "Want something? Just ask on WeChat",
       "subtitle": "Transparent quotes, no pushy upsell. Talk first, decide later."
+    },
+    "blog": {
+      "eyebrow": "Guides · Know-how",
+      "title": "Searched your way here? Start with these",
+      "subtitle": "ITIN, US LLC, banking + Stripe, subscription guides — practical, updated often.",
+      "ctaDetail": "Read more",
+      "ctaAll": "View all posts"
     }
   },
   "AITextPage": {

@@ -11,6 +11,7 @@ import PaymentSection from '@/components/blocks/payment/payment';
 import DaifuShowcase from '@/components/blocks/daifu-showcase/daifu-showcase';
 import PricingSection from '@/components/blocks/pricing/pricing';
 import ServicesHero from '@/components/blocks/services-hero/services-hero';
+import BlogStrip from '@/components/blocks/blog-strip/blog-strip';
 import StatsSection from '@/components/blocks/stats/stats';
 import TestimonialsSection from '@/components/blocks/testimonials/testimonials';
 import TrustSection from '@/components/blocks/trust/trust-section';
@@ -86,6 +87,9 @@ export default async function HomePage(props: HomePageProps) {
         {/* <FaqSection /> */}
 
         {/* <CallToActionSection /> */}
+
+        {/* Pass 5 Block 7 — BlogStrip (真实 Fumadocs 最新 3 篇) */}
+        <BlogStrip />
 
         <TestimonialsSection />
 
