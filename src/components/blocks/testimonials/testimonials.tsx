@@ -1,152 +1,90 @@
-import { HeaderSection } from '@/components/layout/header-section';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { Star } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-type Testimonial = {
-  name: string;
-  role: string;
-  image: string;
-  quote: string;
-};
+/**
+ * TestimonialsSection — 闲鱼真实评价精选（Pass 5 · Block 8 收尾）
+ * 取代 mksaas 默认 12 条假评价。6 条 masonry，第 1 条墨夜精选大字。
+ * 浅灰底。Server Component。
+ * ⚠ 评价正文现为示意占位 —— 上线请用闲鱼真实评价截选替换 i18n。
+ */
 
-const chunkArray = (
-  array: Testimonial[],
-  chunkSize: number
-): Testimonial[][] => {
-  const result: Testimonial[][] = [];
-  for (let i = 0; i < array.length; i += chunkSize) {
-    result.push(array.slice(i, i + chunkSize));
-  }
-  return result;
-};
+const TESTIMONIAL_KEYS = ['r1', 'r2', 'r3', 'r4', 'r5', 'r6'] as const;
 
 export default function TestimonialsSection() {
   const t = useTranslations('HomePage.testimonials');
 
-  const testimonials: Testimonial[] = [
-    {
-      name: t('items.item-1.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/men/32.jpg',
-      quote: t('items.item-1.quote'),
-    },
-    {
-      name: t('items.item-2.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg',
-      quote: t('items.item-2.quote'),
-    },
-    {
-      name: t('items.item-3.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/men/46.jpg',
-      quote: t('items.item-3.quote'),
-    },
-    {
-      name: t('items.item-4.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/women/68.jpg',
-      quote: t('items.item-4.quote'),
-    },
-    {
-      name: t('items.item-5.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/men/86.jpg',
-      quote: t('items.item-5.quote'),
-    },
-    {
-      name: t('items.item-6.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/women/21.jpg',
-      quote: t('items.item-6.quote'),
-    },
-    {
-      name: t('items.item-7.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/men/22.jpg',
-      quote: t('items.item-7.quote'),
-    },
-    {
-      name: t('items.item-8.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/women/65.jpg',
-      quote: t('items.item-8.quote'),
-    },
-    {
-      name: t('items.item-9.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/men/54.jpg',
-      quote: t('items.item-9.quote'),
-    },
-    {
-      name: t('items.item-10.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/women/90.jpg',
-      quote: t('items.item-10.quote'),
-    },
-    {
-      name: t('items.item-11.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/men/71.jpg',
-      quote: t('items.item-11.quote'),
-    },
-    {
-      name: t('items.item-12.name'),
-      role: '',
-      image: 'https://randomuser.me/api/portraits/women/32.jpg',
-      quote: t('items.item-12.quote'),
-    },
-  ];
-
-  const testimonialChunks = chunkArray(
-    testimonials,
-    Math.ceil(testimonials.length / 3)
-  );
-
   return (
-    <section id="testimonials" className="px-4 py-16">
+    <section id="testimonials" className="bg-bg-soft px-4 py-20 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="text-balance text-3xl font-semibold md:text-4xl">
+        <div className="mb-11 flex flex-col items-center text-center">
+          <span className="text-brand-600 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em]">
+            <span className="bg-brand-500 h-px w-5" />
+            {t('eyebrow')}
+          </span>
+          <h2 className="mt-4 text-balance text-3xl font-extrabold tracking-tight md:text-4xl">
             {t('title')}
           </h2>
+          <p className="text-muted-foreground mt-3 max-w-2xl text-balance md:text-lg">
+            {t('subtitle')}
+          </p>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
-          {testimonialChunks.map((chunk, chunkIndex) => (
-            <div key={chunkIndex} className="space-y-3">
-              {chunk.map(({ name, role, quote, image }, index) => (
-                <Card
-                  key={index}
-                  className="shadow-none bg-transparent hover:bg-accent dark:hover:bg-card"
+        <div className="gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+          {TESTIMONIAL_KEYS.map((k, i) => {
+            const featured = i === 0;
+            const name = t(`items.${k}.name`);
+            const initial = name.trim().charAt(0);
+            return (
+              <figure
+                key={k}
+                className={cn(
+                  'break-inside-avoid rounded-2xl border p-6 shadow-sm',
+                  featured
+                    ? 'border-ink-700 from-ink-800 to-ink-900 bg-gradient-to-br text-white'
+                    : 'border-border-soft bg-white'
+                )}
+              >
+                <div className="mb-3 flex gap-0.5 text-amber-400">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} className="size-4 fill-current" />
+                  ))}
+                </div>
+
+                <blockquote
+                  className={cn(
+                    featured ? 'text-lg font-bold leading-relaxed' : 'text-sm leading-relaxed'
+                  )}
                 >
-                  <CardContent className="grid grid-cols-[auto_1fr] gap-3 pt-4">
-                    <Avatar className="size-9 border-2 border-gray-200">
-                      <AvatarImage
-                        alt={name}
-                        src={image}
-                        loading="lazy"
-                        width="120"
-                        height="120"
-                      />
-                      <AvatarFallback />
-                    </Avatar>
+                  “{t(`items.${k}.quote`)}”
+                </blockquote>
 
-                    <div>
-                      <h3 className="font-medium">{name}</h3>
-
-                      <blockquote className="mt-3">
-                        <p className="text-gray-700 dark:text-gray-300">
-                          {quote}
-                        </p>
-                      </blockquote>
+                <figcaption className="mt-4 flex items-center gap-3">
+                  <span
+                    className={cn(
+                      'grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold',
+                      featured
+                        ? 'bg-white/10 text-white'
+                        : 'bg-bg-soft text-muted-foreground border-border-soft border'
+                    )}
+                  >
+                    {initial}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="text-sm font-bold">{name}</div>
+                    <div className={cn('text-xs', featured ? 'text-white/55' : 'text-muted-foreground')}>
+                      {t(`items.${k}.meta`)}
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ))}
+                  </div>
+                  {!featured && (
+                    <span className="text-wx-700 ml-auto shrink-0 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-bold">
+                      {t('badge')}
+                    </span>
+                  )}
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </div>
     </section>
