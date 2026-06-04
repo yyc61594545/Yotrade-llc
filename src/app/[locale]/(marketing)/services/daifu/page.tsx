@@ -17,11 +17,13 @@ import {
   Brain,
   CheckCircle2,
   Code2,
+  Film,
+  Gamepad2,
   MessageCircle,
-  Music,
   Palette,
   ShieldCheck,
   Sparkles,
+  Wallet,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -33,9 +35,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   return constructMetadata({
-    title: 'AI 订阅代付 / 海外 SaaS | ChatGPT / Claude / Cursor | YoTrade',
+    title: '海外订阅 + 会员充值代付 | ChatGPT / Claude / Netflix / Steam / Apple ID | YoTrade',
     description:
-      '没美卡也能用 ChatGPT Plus / Claude Pro+Max / Cursor / Midjourney / Suno。专属账号、自有美卡链路、不与他人共享号池,稳定不封号。一对一代付,7×24 售后。',
+      '海外订阅 + 会员充值一站搞定:ChatGPT / Claude / Cursor 一对一代付,Netflix / Spotify / Steam 余额 / Apple ID 充值即时到账。自有美卡链路、不共享号池、被砍单全额退款。',
     canonicalUrl: getUrlWithLocale('/services/daifu', locale),
   });
 }
@@ -57,9 +59,19 @@ const CATEGORIES = [
     items: ['Midjourney Basic / Standard / Pro', 'Runway Standard / Pro', 'Adobe Creative Cloud', 'Figma Professional'],
   },
   {
-    icon: Music,
-    title: '音视频订阅',
-    items: ['Suno Pro / Premier', 'ElevenLabs', 'YouTube Premium', 'Netflix / Spotify 切区'],
+    icon: Film,
+    title: '流媒体会员',
+    items: ['Netflix Premium 4K / 切区', 'Spotify 个人 / 家庭', 'YouTube Premium 海外区', 'Disney+ / HBO Max'],
+  },
+  {
+    icon: Gamepad2,
+    title: '游戏点卡 / 平台余额',
+    items: ['Steam 余额(美区 / 港区 / 阿区)', 'PSN 点卡(美区 / 日区)', 'Switch eShop 余额', 'Xbox Live / Game Pass'],
+  },
+  {
+    icon: Wallet,
+    title: '账户余额充值',
+    items: ['Apple ID 余额(美/港/日/欧)', 'Google Play 余额', 'Amazon Gift Card', 'iTunes 礼品卡'],
   },
 ];
 
@@ -125,18 +137,18 @@ export default async function DaifuPage({
       <section className="text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 text-sm rounded-full border px-4 py-1.5 mb-6">
           <Bot className="size-3.5" />
-          <span>核心服务 · AI / SaaS 订阅</span>
+          <span>核心服务 · 海外订阅 + 会员充值</span>
         </div>
         <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
-          海外订阅代付
+          海外订阅 + 会员充值
         </h1>
         <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed">
           没美卡也能稳定用{' '}
           <span className="font-semibold text-foreground">
-            ChatGPT Plus / Claude Pro+Max / Cursor / Midjourney
+            ChatGPT / Claude / Cursor / Midjourney / Netflix / Steam / Apple ID
           </span>
-          。专属账号、自有美卡链路、{' '}
-          <span className="font-semibold text-foreground">不共享号池</span>。
+          。一对一代付、自有美卡链路、{' '}
+          <span className="font-semibold text-foreground">不共享号池 + 被砍单全退</span>。
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild size="lg">
@@ -154,11 +166,11 @@ export default async function DaifuPage({
 
       {/* Categories */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-3">能代付什么</h2>
+        <h2 className="text-3xl font-bold text-center mb-3">能代付 / 充值什么</h2>
         <p className="text-center text-muted-foreground mb-10">
           下列只是常见品类,有需求直接微信问,基本都能上
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {CATEGORIES.map((c) => (
             <Card key={c.title} className="bg-muted/20">
               <CardHeader>
@@ -230,8 +242,8 @@ export default async function DaifuPage({
       <section className="max-w-5xl mx-auto w-full">
         <WechatContact
           variant="compact"
-          title="发产品名,10 分钟内报价"
-          subtitle="ChatGPT / Claude / Cursor / Midjourney 一对一代付,自有美卡链路"
+          title="发产品名 / 金额,10 分钟内报价"
+          subtitle="ChatGPT / Claude / Cursor / Netflix / Steam / Apple ID 全品类代付 + 充值"
         />
       </section>
 

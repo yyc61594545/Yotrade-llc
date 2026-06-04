@@ -77,6 +77,24 @@ function buildRedirects() {
     });
   }
 
+  // 4) Pass 5 follow-up: daishua merged into daifu (代付 = 订阅 + 充值,
+  //    服务边界合并到一个入口)。所有 daishua 路径 → daifu。
+  out.push({
+    source: '/services/daishua',
+    destination: '/services/daifu',
+    permanent: true,
+  });
+  out.push({
+    source: '/zh/services/daishua',
+    destination: '/services/daifu',
+    permanent: true,
+  });
+  out.push({
+    source: '/en/services/daishua',
+    destination: '/en/services/daifu',
+    permanent: true,
+  });
+
   return out;
 }
 
