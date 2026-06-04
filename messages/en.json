@@ -1235,6 +1235,11 @@
         "meitun": "Meitun Mama",
         "traderjoes": "Trader Joe's"
       }
+    },
+    "wechatBand": {
+      "eyebrow": "A real person replies within 30 min",
+      "title": "Want something? Just ask on WeChat",
+      "subtitle": "Transparent quotes, no pushy upsell. Talk first, decide later."
     }
   },
   "AITextPage": {
