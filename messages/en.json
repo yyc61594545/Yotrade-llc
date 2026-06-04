@@ -1226,6 +1226,20 @@
         "sub": "Not listed? Ask on WeChat",
         "cta": "View all subscriptions"
       }
+    },
+    "brands": {
+      "eyebrow": "Proxy buying covers",
+      "title": "Platforms and brands we buy for you",
+      "items": {
+        "amazon": "Amazon US / JP",
+        "nike": "Nike",
+        "uniqlo": "Uniqlo",
+        "adidas": "Adidas",
+        "coach": "Coach",
+        "toysrus": "Toys\"R\"Us",
+        "meitun": "Meitun Mama",
+        "traderjoes": "Trader Joe's"
+      }
     }
   },
   "AITextPage": {

@@ -532,7 +532,27 @@ div[class*="border-t"][class*="bg-fd-secondary"]:not(:has(*)):not(
   box-shadow: 0 10px 24px -6px rgba(16, 194, 91, 0.65);
 }
 
+/* ============================================================
+   /home Pass 5 Block 5 — 代购品牌带 marquee
+   ============================================================ */
+
+.marquee-track {
+  animation: brandMarquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused; /* 悬停暂停，方便看清/点击 */
+}
+@keyframes brandMarquee {
+  to { transform: translateX(-50%); } /* 两份拼接 → -50% 即一整组，无缝 */
+}
+
+/* 两端淡出遮罩（webkit + standard prefix） */
+.marquee-mask {
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
 /* ---- 减少动效：全部静止 ---- */
 @media (prefers-reduced-motion: reduce) {
-  .wx-qr-glow, .wx-qr-float, .cta-breath, .pricing-popular-float { animation: none; }
+  .wx-qr-glow, .wx-qr-float, .cta-breath, .pricing-popular-float, .marquee-track { animation: none; }
 }
