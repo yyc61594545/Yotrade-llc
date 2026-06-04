@@ -1135,6 +1135,38 @@
         "title": "Customers across 14+ provinces + 4 overseas regions",
         "text": "From tier-1 cities to overseas Chinese communities."
       }
+    },
+    "servicesHero": {
+      "eyebrow": "Three core services",
+      "title": "What the marketplace did — done safer here",
+      "subtitle": "Subscription top-ups, global proxy buying, membership recharge — fully tracked, full refund before delivery.",
+      "hot": "★ Most popular",
+      "cta": "Get a quote on WeChat",
+      "detail": "View details",
+      "items": {
+        "daifu": {
+          "title": "Subscriptions",
+          "desc": "ChatGPT / Claude / Cursor / Suno / Netflix / Spotify / Apple ID — paid with overseas cards, instant activation.",
+          "highlight": "Dedicated accounts · own US card stack · 24/7 support"
+        },
+        "daigou": {
+          "title": "Proxy buying",
+          "desc": "US/JP Amazon, Western goods, limited sneakers — bought, received and forwarded to you, fully tracked.",
+          "highlight": "Item price + service fee · fully tracked"
+        },
+        "daishua": {
+          "title": "Membership recharge",
+          "desc": "Overseas memberships, renewals and platform top-ups — full refund if cancelled, reliable delivery.",
+          "highlight": "Full refund if cancelled · instant delivery"
+        }
+      },
+      "daiban": {
+        "title": "US financial setup",
+        "badge": "Advanced",
+        "desc": "ITIN + US LLC + bank + Stripe + US cards — the full stack for serious cross-border sellers.",
+        "price": "$59 – $1599",
+        "cta": "Explore"
+      }
     }
   },
   "AITextPage": {
