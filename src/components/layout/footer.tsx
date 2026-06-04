@@ -31,8 +31,8 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
                 </span>
               </div>
 
-              {/* tagline */}
-              <p className="text-muted-foreground text-base py-2 md:pr-12">
+              {/* tagline — width capped to align with the three-QR row below */}
+              <p className="text-muted-foreground text-base max-w-[15rem] py-2">
                 {t('Marketing.footer.tagline')}
               </p>
 
