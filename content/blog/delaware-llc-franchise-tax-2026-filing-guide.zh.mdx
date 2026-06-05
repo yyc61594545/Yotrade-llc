@@ -1,0 +1,284 @@
+---
+title: Delaware LLC Franchise Tax 实操指南 2026：错过 6/1 截止后的补救流程
+description: Delaware LLC 每年 $300 Franchise Tax 必须 6/1 前缴清。错过会触发 $200 固定罚款 + 1.5%/月利息，更严重的是拿不到 Certificate of Good Standing，Stripe、Mercury、Chase 都会因此暂停或拒绝服务。本文从 NRA 视角拆解在线申报 7 步流程与补救路径。
+image: /images/blog/delaware-llc-franchise-tax-2026-filing-guide-cover.png
+date: "2026-06-05"
+published: true
+categories: [us-business, guide]
+author: 极客杰尼
+---
+
+> 本文整理自 YoTrade 实操经验 + Delaware Division of Corporations 官方说明 + Harvard Business Services / Acuity 等代理与会计机构 2026 年最新公告。预计阅读时长 12 分钟。
+
+## 谁需要看这篇？
+
+- ✅ 名下持有 Delaware LLC、还没缴 2025 财年（2026/6/1 截止）Franchise Tax 的 NRA
+- ✅ 通过 Stripe Atlas 注册的 DE LLC 用户（Stripe Atlas 默认是 Delaware 公司，不是注册代理代缴的）
+- ✅ 2026/6/1 当天没操作、现在才意识到"我是不是漏了什么"的人
+- ✅ 注册代理（Registered Agent）合同已经到期、但邮件提醒被你拉黑或漏看
+- ✅ 准备明年从 Stripe Atlas / 自注册 Delaware LLC 起步、想提前算清持有成本的人
+
+---
+
+## 一、先搞清楚：Franchise Tax ≠ 联邦税 ≠ 年报
+
+很多 NRA 第一次办 Delaware LLC 时，会把这三件事混为一谈，结果年底一起爆炸。本节先把概念厘清。
+
+| 项目 | 谁收 | 金额 | 截止日 | 漏交后果 |
+|---|---|---|---|---|
+| **Franchise Tax** | Delaware 州 | $300（LLC 固定） | 每年 6/1 | $200 罚款 + 1.5%/月利息 + 失去 Good Standing |
+| **Annual Report** | Delaware 州 | LLC **不需要**单独提交 | — | — |
+| **Form 1120 + 5472** | IRS（联邦） | 报表本身 $0，但漏交 $25,000 起 | 公司年度结束后 4/15 | 单一外国成员 LLC 罚款极重 |
+| **Registered Agent 续费** | 注册代理公司 | $50–$200/年 | 合同周年 | 失去合法代理 → DE 把公司转入 Void 状态 |
+
+⚠️ **最常见的误解**：很多人以为"我用 Stripe Atlas 一站式办的，Stripe 会帮我交"。**不会**。Stripe Atlas 只代缴**第一年**的 Franchise Tax（作为打包服务），从**第二年开始**全部需要你自己登录 Delaware 官网缴。
+
+💡 **YoTrade 实战观察**：2025 年我们处理过 11 例"Stripe Atlas 第二年漏交 Franchise Tax"，其中 8 例是因为 Atlas 的提醒邮件进了 NRA 邮箱的"促销"分类；剩下 3 例是因为客户换了邮箱、Stripe 联系不上。教训：**第二年的 6/1 必须自己设日历**，别指望任何人提醒你。
+
+---
+
+## 二、关键数据：Delaware LLC Franchise Tax 2026
+
+### 2.1 三个硬数字
+
+| 维度 | 数值 | 备注 |
+|---|---|---|
+| **年度税额** | $300 | LLC / LP / GP 全部一律 $300，**与营业额、利润无关**；C-Corp 不同（按 Authorized Shares 或 APV 算） |
+| **截止日** | 每年 **6 月 1 日** | 2026 年的 6/1 是周一；落在周末会顺延到下一个工作日 |
+| **晚交罚款** | **$200** 固定罚 + **1.5%/月** 利息 | 利息按"未缴税额 + 罚款"复算，时间越久滚得越快 |
+
+### 2.2 适用对象
+
+| 你的实体 | 适用规则 |
+|---|---|
+| Delaware LLC（含 Single-Member）| 一律 $300/年 |
+| Delaware LP / GP | 一律 $300/年 |
+| Delaware C-Corporation | **完全不同**——按 Authorized Shares Method 或 Assumed Par Value Method 计算，常见区间 $400–$200,000+ |
+| Series LLC 子系列 | 主 LLC 一笔 $300，但每个 Protected Series 单独再收 $75 |
+
+⚠️ **本文只覆盖 LLC**。如果你的 Delaware 实体是 C-Corp（很多融资项目会用），算法完全不同，不要套用本文金额。
+
+### 2.3 跟 Wyoming / New Mexico 对比
+
+| 州 | 年度州费用 | 截止日 | 漏交触发 |
+|---|---|---|---|
+| Delaware | $300 | 6/1 | $200 罚款 + 1.5%/月 + 失 Good Standing |
+| Wyoming | $60（年报）| 注册月的月底 | $50 罚款 + 60 天后自动 Dissolved |
+| New Mexico | $0 | 无 | 无 |
+
+📌 **结论**：纯成本看 NM 最便宜，WY 次之，DE 最贵。但 DE 的"贵"换的是融资友好度——这正是 Stripe Atlas 默认 DE 的原因。详细对比看 [NRA 美国 LLC 注册州横评](/blog/nra-us-llc-state-comparison)。
+
+---
+
+## 三、在线申报 7 步流程（NRA 不需要 SSN）
+
+Delaware Division of Corporations 提供官方在线缴费门户：`https://corp.delaware.gov/paytaxes/`。NRA 也可以直接付，不需要 SSN，不需要 ITIN，**只需要 Business Entity File Number + 一张能跑 USD 的卡**。
+
+### Step 1：找到你的 7 位 Business Entity File Number
+
+这是 Delaware 州内的公司编号，**不是 EIN**。两种途径：
+
+- 📌 注册时收到的 Certificate of Formation 右上角
+- 📌 在 `https://icis.corp.delaware.gov/` 用公司名搜索（免费、公开数据库）
+
+### Step 2：登录在线缴费门户
+
+进入 `corp.delaware.gov/paytaxes/`，选 **"File Annual Report and Pay Annual Tax"**，输入 7 位 File Number → Continue。
+
+### Step 3：核对实体信息
+
+页面会显示：
+- 公司名（核对是否拼写一致）
+- 注册日期
+- 所欠税额（应该显示 `Tax Due: $300.00`，如果是过期未缴，会额外显示罚款 + 累积利息）
+- 注册代理信息
+
+⚠️ **如果显示金额不是 $300**：要么你的实体类型不是 LLC（可能是 C-Corp，金额会大得多），要么有历史欠税。**先停下**，看清楚再付。
+
+### Step 4：填 Authorized Person 信息
+
+需要填一个 Authorized Person 的姓名 + 地址 + 邮编。**NRA 可以填自己的境外地址**，DE 不验证你是不是美国居民。
+
+### Step 5：选付款方式
+
+| 方式 | 适用 | 注意 |
+|---|---|---|
+| Credit / Debit Card | ≤ $5,000 的小额 | 加收 2.5% 左右的处理费 |
+| ACH Debit | > $5,000 强制使用 | 需要美国本地银行账户，Mercury / Relay / Wise USD 都可以 |
+| Wire | 大额对公转账 | 普通 LLC 不需要 |
+
+📌 NRA 实操：**用 Mercury 的 routing/account 走 ACH Debit 最省成本**（无处理费），失败率最低。Mercury 开户流程详见 [Mercury / Relay / Wise 美国对公账户横评](/blog/us-business-banking-mercury-relay-wise)。
+
+### Step 6：提交后保存确认
+
+提交后页面会给一个 **Filing Confirmation Number**。⚠️ **务必截图保存**，这是你 2026 财年合规的唯一书面证据。Delaware 不会单独寄收据。
+
+### Step 7：核对 Good Standing 状态
+
+提交后 24-48 小时内，回到 `https://icis.corp.delaware.gov/` 搜公司名，状态应该从 `Tax Due` 变成 `Good Standing`。如果一周后还没变，邮件 `dosdoc_request@delaware.gov` 提交 Filing Confirmation Number 催办。
+
+---
+
+## 四、错过 6/1 之后会发生什么？
+
+很多人觉得"晚几天 $200 罚款而已"，但真正麻烦的是后续连锁反应。
+
+### 4.1 罚款 + 利息计算示例
+
+假设你 2026/6/1 没交、拖到 2026/12/1 才补：
+
+```
+原税额：        $300.00
+固定罚款：      $200.00
+利息（6 个月 × 1.5%）：
+  6/1–7/1：   $500 × 1.5% = $7.50
+  累计到 12/1：~$46（复算）
+─────────────────────
+总应缴：        约 $546
+```
+
+⚠️ 如果拖**整整一年**，会滚到 ~$590。如果拖 **3 年**（很常见的"忘了到底有这家公司"案例），会到 ~$900+。
+
+### 4.2 失去 Good Standing 的连锁反应
+
+这才是真正致命的。失去 Good Standing 后，**你不会马上发现**，但下次需要 Certificate of Good Standing（CGS）时，整个商业流程会卡住：
+
+| 触发场景 | 后果 |
+|---|---|
+| Stripe 账户被风控审查 | Stripe 会要求提交 CGS，拿不到 → 账户保持 hold |
+| Mercury / Chase 年度 KYC | 要求 CGS，提交不了 → 账户冻结直到合规 |
+| 申请 Amazon / TikTok Shop 卖家账户 | 平台审核要看 CGS，没 GS → 直接拒 |
+| 客户合同续约（B2B SaaS） | 大客户法务会要 CGS → 续约谈判停摆 |
+| 准备出售 / 转让公司 | 收购方法律尽调第一关 → 直接 Deal break |
+
+💡 **YoTrade 案例**：一个客户 2024 年漏交，2025 年 Stripe 突然要 CGS 验证，公司账户 6 万美金被 hold 了 23 天，直到我们帮他补缴 + 拿 CGS。这 23 天的现金流断档差点搞垮他的 SaaS 业务。
+
+### 4.3 极端情况：被 DE 拉入 Void 状态
+
+如果连续多年不交，Delaware 会把公司状态从 `Forfeited`（暂时失权）推进到 `Void`（实际作废）。Void 之后：
+
+- ❌ 公司法律上不能签合同
+- ❌ 法院诉讼资格丧失（被告打你，你不能反诉）
+- ❌ 想恢复要走 **Revival** 流程，补缴所有历史欠税 + 罚款 + Revival Fee（额外 $169）
+
+---
+
+## 五、错过 6/1 的补救流程（72 小时内 / 1 个月内 / 1 年以上）
+
+### 5.1 错过 1–7 天
+
+最简单。直接走第三节的 7 步流程，门户会自动算上 $200 罚款 + 当月 1.5%。**不需要单独申请豁免**。
+
+✅ **推荐做法**：今天 6/5，今天就交，多付 $200 但避免 1.5% 复利启动。
+
+### 5.2 错过 1 个月以上但同一财年内
+
+| 行动 | 说明 |
+|---|---|
+| 立刻在线缴 | 同 7 步流程，金额会动态加上利息 |
+| 缴完后申请 CGS | 用 `https://icis.corp.delaware.gov/Ecorp/GetGsCertificate.aspx`，$50/份；电子版 24 小时内出 |
+| **保存 CGS** | 这是你跟 Stripe / Mercury 解释"我现在合规了"的硬证据 |
+
+### 5.3 跨年度未缴（1 年以上）
+
+✅ **不要自己 DIY**——这一档涉及 Forfeited → Revival 流程，错一步公司可能直接被 Void。建议走专业服务：
+
+- 🎯 我们的 [美国身份与公司代办服务](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=delaware-llc-franchise-tax-2026-filing-guide) 包含 Revival 申请、历史税补缴、CGS 出具
+- 🎯 也可以走 Harvard Business Services 等 DE 本地代理，价格 $200–$400 不等
+
+### 5.4 不打算继续用这家 LLC 怎么办？
+
+直接走 **Cancellation of Certificate of Formation**：
+
+1. 补缴当年截止前的 Franchise Tax + 罚款
+2. 提交 Certificate of Cancellation（$200 申请费）
+3. 关掉 EIN（IRS 写信通知，不收费）
+
+❌ **千万不要"放着不管"**。Delaware 不会自动关掉你的公司，只会让欠税滚雪球——而你的 EIN 还绑在你的护照号上，2 年后你重新办 LLC 时会被 IRS 拉出旧记录。
+
+---
+
+## 六、把 6/1 写进你的日历：长期合规清单
+
+如果你打算长期持有 Delaware LLC，把下面这份清单贴在 Notion 或日历提醒里：
+
+| 时点 | 任务 | 工具 |
+|---|---|---|
+| 每年 4 月 | 设 6/1 提醒（提前 60 天）| Google Calendar / Notion |
+| 每年 5/15 前 | 登录 corp.delaware.gov 缴 $300 Franchise Tax | Mercury / Relay 走 ACH |
+| 每年 4/15 前 | 提交 Form 5472 + Form 1120（NRA 单一成员 LLC）| 详见 [外资 LLC Form 5472 报税指南](/blog/foreign-owned-llc-form-5472-filing-guide) |
+| 每年注册周年 | 续费 Registered Agent | 注册代理直接发 invoice |
+| 全年 | 保留 Mercury 流水 + 协议作为 5472 申报凭据 | Mercury 导 CSV |
+
+📌 **关键洞察**：DE LLC 最大的隐性成本不是 $300/年，而是"忘记 6/1 后产生的连锁损失"。一次 Stripe hold 23 天的现金流断档，远比 30 年的 Franchise Tax 总和还贵。
+
+---
+
+## YoTrade 相关服务
+
+如果你属于以下任一情况，强烈建议把这次的补救交给我们：
+
+- 🎯 **6/1 漏了、想最快路径恢复 Good Standing**——我们 24 小时内完成补缴 + CGS 出证
+- 🎯 **Stripe Atlas 第二年起的全套合规**——Franchise Tax + Form 5472 + Registered Agent 续费打包
+- 🎯 **公司不想要了想干净注销**——避免 EIN 长期挂在你护照号上的尾巴
+- 🎯 **跨年欠税 + Forfeited 状态修复**——含 Revival 申请、历史税重算
+
+👉 [立即咨询 Delaware LLC 合规代办](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=delaware-llc-franchise-tax-2026-filing-guide) | [查看完整美国代办方案](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=delaware-llc-franchise-tax-2026-filing-guide)
+
+---
+
+## 七、Stripe Atlas 用户专属：第二年的 5 个坑
+
+Stripe Atlas 这几年在 NRA 圈子里渗透率很高（一站式 LLC + EIN + Mercury，~$500），但**第二年起的合规完全由你自己负责**，下面是我们见过最多的坑：
+
+### 坑 1：邮件提醒错过
+
+Stripe 的 Franchise Tax 提醒邮件标题是英文 `Reminder: Your annual Delaware franchise tax is due soon`，Gmail 默认把它分到 **Promotions / 推广** 分类。✅ 把 `stripe.com` 加入 Gmail 通讯录，强制进 Primary。
+
+### 坑 2：以为"Stripe 帮我交"
+
+❌ Atlas 套餐**只包第一年**的 Franchise Tax。从第二年开始你必须自己登录 corp.delaware.gov 缴。
+
+### 坑 3：Registered Agent 没续费
+
+Atlas 的注册代理 ZenBusiness 第二年起 **$199/年**，邮件提醒和 Franchise Tax 是分开的。漏续费 → DE 30 天后把公司转入 Forfeited。
+
+### 坑 4：Mercury 卡的对账名跟 DE 公司名拼写不一致
+
+Stripe Atlas 注册时如果你公司名带 `,` 或 `Inc.` 等标点，Mercury 创建账户时可能省略 → 用 Mercury 走 ACH 缴 Franchise Tax 时，DE 后台核名失败、款被退回，**$300 + $200 罚款双计**。✅ 缴费前先在 ICIS 公开查询确认拼写。
+
+### 坑 5：以为关闭 Stripe Atlas 账户 = 关闭 LLC
+
+❌ 完全不是。关 Stripe Atlas 只是关掉 Stripe 的代管服务，**Delaware 那家 LLC 依然存在**，仍然每年欠 $300。要彻底关掉公司必须走第 5.4 节的 Cancellation 流程。
+
+---
+
+## 八、常见问题 FAQ
+
+**Q1：我是 NRA、没 SSN，能直接在 corp.delaware.gov 用境外信用卡缴吗？**
+✅ 可以。Delaware 在线门户不验证 SSN，只验证卡能跑通。但部分中国大陆发卡的 Visa/Master 会被 Delaware 拒（境外商户风控），最稳的是 Mercury / Relay 的美国借记卡。
+
+**Q2：我用 Wise USD 账户能走 ACH Debit 吗？**
+✅ 技术上可以，Wise USD 有 routing/account；但 Wise 在 ACH 回退场景下处理慢（4–7 工作日），不推荐用于赶 deadline。建议用 Mercury。
+
+**Q3：我已经过了 6/1，现在补缴，今年的 Good Standing 还能拿到吗？**
+✅ 能。补缴 + 罚款 + 利息全付清后 24–48 小时，状态会从 `Tax Due` 变回 `Good Standing`，CGS 可以正常申请。
+
+**Q4：公司是 2026/3 才注册的，第一年也要交 $300 吗？**
+✅ 要。Delaware 的 Franchise Tax 不按月分摊——只要在某个税年内**存在过一天**，就欠那一年的 $300。最佳做法：12 月之后的注册等到 1 月 1 日再办，可以省一年。
+
+**Q5：注销公司能退回当年的 $300 吗？**
+❌ 不能。$300 是一旦进入财年就锁定。
+
+---
+
+## 相关阅读
+
+- [NRA 美国 LLC 注册州横评：DE / WY / NM 怎么选](/blog/nra-us-llc-state-comparison)
+- [外资单一成员 LLC Form 5472 报税完全指南](/blog/foreign-owned-llc-form-5472-filing-guide)
+- [Mercury / Relay / Wise 美国对公账户横评](/blog/us-business-banking-mercury-relay-wise)
+- [EIN 申请 Form SS-4 NRA 指南](/blog/ein-application-form-ss4-nra-guide-2026)
+
+---
+
+*本文信息基于 2026 年 6 月 Delaware Division of Corporations 官方说明。本文不构成法律或税务建议，复杂情形请咨询持牌 CPA 或注册代理。*
