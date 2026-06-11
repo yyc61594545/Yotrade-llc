@@ -1,0 +1,224 @@
+---
+title: Cursor 2026 海外订阅完整指南：Pro / Pro+ / Ultra 全档对比 + NRA 6 大付款路径横评
+description: Cursor 2026 全套定价（Hobby / Pro $20 / Pro+ $60 / Ultra $200 / Teams $40）拆解、年付 20% 折扣计算、学生 1 年免费门槛，再讲清国内 / NRA 用户用美卡 / 港卡 / 虚拟卡 / 代刷的合规付款路径与中国大陆 IP 模型限制规避方案。
+image: /images/blog/cursor-pro-overseas-subscription-2026-guide-cover.png
+date: "2026-06-11"
+published: true
+categories: [payments, guide]
+author: 极客杰尼
+---
+
+
+> 本文整理自 Cursor 官方 docs（cursor.com/docs）、cursor.com/pricing 当前展示、cursor.com/students 学生计划页面 + 多家英文测评站（NxCode、Vantage、Felloai、UI Bakery）+ YoTrade 代订实操记录交叉核对。所有价格以 cursor.com/dashboard 当下显示为准，本文截稿于 2026 年 6 月。预计阅读时长 11 分钟。
+
+## 谁需要看这篇？
+
+- 国内开发者 / 独立开发者，想合规订 **Cursor Pro**，但纠结到底用美卡、港卡、虚拟卡还是代付
+- 已经在用 Cursor Pro $20，但每月 $20 credit pool 不够烧，纠结升 **Pro+ $60 还是 Ultra $200**
+- 创业团队 5-10 人想集中开 **Teams $40/seat**，需要 SSO / 集中开票 / 权限管控
+- NRA（非美居民）想拿美卡或 LLC 名下卡订阅、抵公司账、开发票
+- 7 月 2025 之后被 Cursor "中国大陆 IP 模型受限"踩坑，想知道**怎么避免账号被降级**
+
+如果你属于以上任意一类，这篇都能给你直接可执行的答案。
+
+---
+
+## 一句话选型表
+
+| 你是谁 | 推荐套餐 | 月费 |
+|---|---|---|
+| 学生（有 .edu 邮箱 或 学生证）| **Pro 学生 1 年免费** | $0 |
+| 个人开发者 / 偶尔写脚本 | **Hobby（免费）** | $0 |
+| 独立开发者 / 主力日常使用 | **Pro** | $20 |
+| 每月 credit pool 不够烧 / 重度使用 Claude / GPT | **Pro+** | $60 |
+| 全职 AI 编程 / 接外包 / 不想算 token | **Ultra** | $200 |
+| 5-50 人团队，要 SSO 和集中开票 | **Teams** | $40/seat |
+
+💡 一句话：**绝大多数人 Pro $20 就够了**——Tab 补全无限 + Auto mode 无限是真无限，$20 credit pool 用来调用 Claude / GPT-5.4 这种付费模型，每月烧不完。**Pro+ 是写代码强度大的全职开发者的甜区**，Ultra 适合一天 8 小时挂着写代码且无脑用 Sonnet 的高强度选手。
+
+---
+
+## Cursor 2026 全套套餐拆解
+
+Cursor 自 2025 年 6 月调整计费模型以来，定价架构稳定下来了：**所有付费档位都包含一个等额的"月度 credit pool"**，用于调用付费模型（Claude Sonnet 4.6、GPT-5.4、Gemini 3.1 等）。Tab 补全和 Auto mode 本身是无限的，credit pool 只对调用"premium model"扣费。先看官方价格。
+
+### 月付价格 + Credit Pool + 模型权限
+
+| 套餐 | 月付 | 年付（月均）| Credit Pool / 月 | Premium 模型使用 | SSO / 团队管理 |
+|---|---|---|---|---|---|
+| **Hobby** | $0 | — | $0 | 限量试用 | ❌ |
+| **Pro** | $20 | **$16**（$192/年）| **$20** | 标准额度 | ❌ |
+| **Pro+** | $60 | $48 | $60 | **3× 标准额度** | ❌ |
+| **Ultra** | $200 | $160 | $200 | **20× 标准额度** + 新功能优先体验 | ❌ |
+| **Teams / Business** | $40/seat | $32/seat | $40/seat | Pro 同款额度 | ✅ |
+| **Enterprise** | 自定价 | 自定价 | 池化 | 池化 + 自定义模型 | ✅ + SCIM |
+
+📌 **年付折扣固定 20%**，全档统一，没有黑五大促销，也没有"先订半年再续"这种花活儿。年付按全年一次性扣，所以 YoTrade 实战推荐路径是：**先订 1 个月 Pro $20 试用 → 确认每天都在用 → 升年付 $192 锁定 20% 折扣**。
+
+### Credit Pool 到底能跑多少次？
+
+很多人卡在这个换算上。下面是 2026 年 6 月当前 Cursor 公开的费率（取主流模型实测均价，含输入 + 输出 + 思考 token）：
+
+| 模型 | 单次平均成本（含上下文）| Pro $20 池可调用 | Pro+ $60 池可调用 |
+|---|---|---|---|
+| Claude Sonnet 4.6（推荐主力）| ~$0.04 / 次对话 | ~500 次 | ~1,500 次 |
+| Claude Opus 4.7（重度思考）| ~$0.12 / 次 | ~165 次 | ~500 次 |
+| GPT-5.4（OpenAI 主力）| ~$0.05 / 次 | ~400 次 | ~1,200 次 |
+| Gemini 3.1 Pro | ~$0.03 / 次 | ~670 次 | ~2,000 次 |
+| **Tab 补全 + Auto mode** | **$0** | **无限** | **无限** |
+
+⚠️ **注意**：这是"完整一次代码生成对话"的均价，不是单次 API 请求。日常 Tab 补全和 Auto mode 本身完全免费，所以**绝大多数人 Pro $20 永远烧不完 credit pool**——只有重度用 Opus 4.7 跑长上下文重构的才会触顶。
+
+✅ **推荐判断**：连续 3 个月都把 Pro 的 $20 池烧光？升 Pro+。连续 3 个月把 Pro+ 也烧光？再考虑 Ultra。**别盲目上 Ultra，绝大多数人这是浪费。**
+
+---
+
+## NRA / 国内开发者：6 大付款路径横评
+
+这是这篇的核心。Cursor **不支持支付宝、微信支付、银联**，只收 Visa / Mastercard / AmEx 国际信用卡。国内开发者想合规订阅，下面 6 条路径，按 YoTrade 1 年实战观察排序：
+
+| 路径 | 月成本溢价 | 风控风险 | 可否开发票 | 模型完整可用 | 推荐指数 |
+|---|---|---|---|---|---|
+| ① **美卡（LLC 名下）** | 0% | 🟢 极低 | ✅ | ✅ | 🎯🎯🎯🎯🎯 |
+| ② **港卡（个人）** | 0% | 🟢 低 | ⚠️ 部分 | ✅ | 🎯🎯🎯🎯 |
+| ③ **WildCard 虚拟卡** | 3-5% | 🟡 中 | ❌ | ✅ | 🎯🎯🎯 |
+| ④ **野卡 / 银联虚拟卡** | 5-8% | 🔴 高 | ❌ | ⚠️ 受限 | 🎯🎯 |
+| ⑤ **第三方代订（共享号）** | -50% 看起来便宜 | 🔴 极高（封号）| ❌ | ⚠️ 不稳定 | ❌ 不推荐 |
+| ⑥ **YoTrade 代刷（实名独立号）** | 8-12% | 🟢 极低 | ✅ | ✅ | 🎯🎯🎯🎯🎯 |
+
+### ① 美卡（LLC 名下）——最推荐路径
+
+如果你已经有 Wyoming / Delaware LLC + Mercury / Relay + 美卡（Amex Blue Business Plus 或 Chase Ink），**这是零溢价、风控最低、能抵公司账的最优解**。
+
+- ✅ 走美国账单地址 + 美国 IP → Cursor 识别为美国账户，模型完全开放
+- ✅ Pro / Pro+ / Ultra 直接月付，AmEx 5% 返点等于打 95 折
+- ✅ 年终开 W-9 / 1099 直接报美国 LLC 抵税
+- ✅ 团队版可开 Stripe Invoice → LLC 入账
+
+YoTrade 实战观察：**Mercury 借记卡也能直接订**，不需要信用卡——但 Mercury 不返点。如果只是个人用，Mercury 借记卡反而比 AmEx 更省心。
+
+📌 没有 LLC + 美卡？看这两篇：[NRA 美国 LLC 注册州横评](/blog/nra-us-llc-state-comparison) → [NRA 美卡 12 个月路线图](/blog/nra-us-credit-card-12-month-roadmap)。
+
+### ② 港卡（个人）——次优路径
+
+港卡（汇丰 One、众安 ZA、渣打 Mox、Mox Bank）走 Visa / Mastercard 国际通道，Cursor 完全识别为合规。
+
+- ✅ 港币 / 美元自动换汇，溢价约 0.3-0.5%（远低于支付宝跨境）
+- ✅ 不需要美国地址，香港地址即可通过
+- ⚠️ 港卡名下用 Cursor 注册的账户，建议**配合稳定的香港 / 新加坡 / 日本 IP** 使用，避免 7 月 2025 后的"中国大陆 IP 限制"踩坑
+
+详细港卡办理路径看 [香港银行卡办理完全指南](/blog/香港银行卡办理完全指南)。
+
+### ③ WildCard 虚拟卡——临时可用
+
+WildCard 是国内开发者常用的虚拟 Visa 卡服务，开卡费约 $11.99 一次性 + 每次充值 3-5% 手续费。
+
+- ✅ 注册 + 充值 5 分钟内完成
+- ✅ Cursor 识别为美国账户（带美国账单地址）
+- ⚠️ 长期使用月成本不如港卡 / 美卡划算
+- ⚠️ 同一张 WildCard 同时绑 ChatGPT + Cursor + Claude 容易触发风控
+
+### ④ 野卡 / 银联虚拟卡——不推荐
+
+这类卡走的是国内代付通道，Cursor 识别为"亚洲 IP + 亚洲卡"，**自 2025 年 7 月起容易被限制为"仅可用 Cursor 自研 Tab 模型"**，访问不到 Claude / GPT-5.4 / Gemini 3.1。
+
+⚠️ **风险点**：Cursor 检测到异常组合时会**直接冻结账户**，且不退款。如果你已经踩坑，看下面"账号被降级怎么办"。
+
+### ⑤ 第三方代订（共享号）——拉黑名单
+
+某宝 / 某 QQ 群 ¥80-200 卖的"共享 Cursor Pro 账号"，实际是教育/批量注册号或盗刷信用卡开的号。**95% 在 30 天内会被 Cursor 检测封号**，无任何售后。⚠️ 直接拉黑。
+
+### ⑥ YoTrade 代刷（实名独立号）——团队最优
+
+YoTrade 提供**实名独立 Cursor 账号 + 美国 IP 隧道 + 开发票**的全流程代刷服务，适合：
+
+- 🎯 国内创业团队 5 人内想统一管理但又不想自己折腾 LLC + 美卡的
+- 🎯 自由职业者一个人订 Pro+ / Ultra 想要"开机即用、不操心风控"
+- 🎯 已经有 Cursor 账户但被降级 / 被锁，需要救回或迁移
+
+👉 [咨询 Cursor 代刷服务](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=cursor-pro-overseas-subscription-2026-guide) | [浏览全套代付方案](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=cursor-pro-overseas-subscription-2026-guide)
+
+---
+
+## 学生 1 年免费 Pro：怎么薅
+
+Cursor 从 2025 年 5 月开始的学生计划至今仍在跑（2026 年 6 月实测仍可申请）：
+
+- 📌 **要求**：在读大学生 / 研究生 / 博士生
+- 📌 **验证**：通过 SheerID 第三方验证，最快 .edu 邮箱直接过；也接受学生证、在读证明、缴费单
+- 📌 **额度**：**Pro 全功能 1 年免费**（等同 $240 价值），含完整 credit pool
+- ⚠️ **限制**：同一邮箱只能申请一次，第二年不能用同一邮箱续薅
+- ⚠️ **限制**：不能与年付 20% 折扣叠加（本来就免费）
+
+✅ **推荐做法**：有 .edu 邮箱的同学**立刻去 cursor.com/students 申请**，不申请就是白白扔 $240。验证通过后 Cursor 会自动激活 1 年 Pro，无需绑卡。
+
+---
+
+## 中国大陆 IP 限制：怎么避坑
+
+2025 年 7 月起，Cursor 在反爬虫和滥用治理收紧之后，**对来自中国大陆 IP 的账户，会限制访问 Claude / GPT-5.4 / Gemini 3.1 等核心模型**，只允许使用 Cursor 自研的 Tab 模型。
+
+⚠️ **触发条件**（YoTrade 实战观察）：
+
+- ❌ 用大陆 IP 注册账户
+- ❌ 注册时用的卡是国内虚拟卡 / 银联通道
+- ❌ 同一账户 30 天内频繁切换"大陆 ↔ 海外"IP
+
+✅ **避坑组合（强烈推荐）**：
+
+1. **注册 IP**：稳定的香港 / 日本 / 新加坡 / 美国节点
+2. **付款卡**：美卡（最优）/ 港卡（次优）/ WildCard 虚拟卡（应急）
+3. **日常使用 IP**：与注册 IP 一致，至少同地区
+4. **不要**同一个账户家里 / 公司 / 咖啡店 IP 来回切
+
+📌 **已经被降级了怎么办**：联系 Cursor support 通常无用。最稳的路径是**新邮箱 + 新付款卡 + 稳定海外 IP** 重新注册——旧账户可以继续用 Tab 模型直到订阅到期。这也是为什么 YoTrade 代刷会标配 IP 隧道。
+
+---
+
+## 年付 vs 月付决策矩阵
+
+```
+                    试用期 → 长期路径
+
+  刚装 Cursor，没试过 ──→ Hobby 免费版试 7 天
+        │
+        ├─ 一周内每天用 ──→ 月付 Pro $20 试 1 个月
+        │                       │
+        │                       ├─ 月底 credit 没烧完 ──→ 续月付 Pro
+        │                       │
+        │                       └─ 月底 credit 烧光 ──→ 升 Pro+ $60 月付
+        │                                                  │
+        │                                                  ├─ 用了 2 个月稳定 ──→ Pro+ 年付 $48/月
+        │                                                  │
+        │                                                  └─ Pro+ 还烧光 ──→ Ultra $200 月付试
+        │
+        └─ 一周内用了 2-3 次 ──→ 继续 Hobby，先别花钱
+```
+
+✅ **黄金准则**：**永远先月付，连续用满 2 个月再切年付**。Cursor 不像 Netflix 那种"日常刚需"，很多人买完 3 个月后发现自己没那么频繁用，年付直接亏 $192。
+
+---
+
+## YoTrade 相关服务
+
+我们提供：
+
+- 🎯 **Cursor Pro / Pro+ / Ultra 独立号代刷**：实名账户 + 美国 IP 隧道 + 月付 / 年付都支持
+- 🎯 **Cursor Teams $40/seat 团队版集中代订**：5-50 人团队一站式，含 SSO 配置 + 集中开票
+- 🎯 **降级账户救回**：已经被中国大陆 IP 限制的账户，迁移到新身份恢复全模型权限
+- 🎯 **配套美卡 / 港卡 / LLC 代办**：从源头解决跨境支付，一次性铺好"长期付海外 SaaS"基础设施
+
+👉 [咨询 Cursor 代刷服务](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=cursor-pro-overseas-subscription-2026-guide) | [浏览全套代办方案](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=cursor-pro-overseas-subscription-2026-guide)
+
+---
+
+## 相关阅读
+
+- [AI 编程工具订阅横评 2026：Cursor / Copilot / Windsurf / Claude Code](/blog/ai-coding-tools-subscription-comparison-2026)
+- [AI 订阅跨境支付完整路径：ChatGPT / Claude / Cursor / Midjourney](/blog/ai-subscription-payment-paths)
+- [Midjourney 2026 订阅完整指南：Basic / Standard / Pro / Mega 全维度对比](/blog/midjourney-2026-subscription-guide)
+- [NRA 美卡 12 个月路线图：从 0 到 Chase Ink + AmEx Platinum](/blog/nra-us-credit-card-12-month-roadmap)
+
+---
+
+*本文信息基于 2026 年 6 月最新数据，Cursor 定价可能随时调整，订阅前请以 cursor.com/pricing 当下显示为准。本文不构成投资或税务建议。*
