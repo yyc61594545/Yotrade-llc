@@ -1,0 +1,291 @@
+---
+title: Wyoming LLC 年报与续费完全指南 2026：$60 起步、错过 60 天自动注销
+description: Wyoming LLC 每年要交 License Tax + Annual Report，最低 $60、在线另收 $2 手续费。截止日是公司成立月份的第 1 天，60 天宽限期后自动 administratively dissolved。本文给 NRA 拆解 Wyoming 的资产口径、在线申报、错过续费的补救路径与 Reinstatement 流程。
+image: /images/blog/wyoming-llc-annual-report-2026-renewal-guide-cover.png
+date: "2026-06-12"
+published: true
+categories: [us-business, guide]
+author: 极客杰尼
+---
+
+> 本文整理自 YoTrade 实操经验 + Wyoming Secretary of State 官方页面（wyobiz.wyo.gov / sos.wyo.gov）+ Northwest Registered Agent、LLC University、Harbor Compliance 等代理机构 2026 年最新公告。预计阅读时长 11 分钟。
+
+## 谁需要看这篇？
+
+- ✅ 名下持有 Wyoming LLC、第一次面对 Annual Report 截止日的 NRA
+- ✅ 通过 Northwest / Wyoming Agents 注册了 LLC、但还没搞清楚每年到底要交多少
+- ✅ Wyoming LLC 已经"过期"或被 Wyoming Secretary of State 注销，想做 Reinstatement
+- ✅ 在 Delaware / Wyoming / Florida 之间纠结、想算清三年总持有成本的人
+- ✅ 资产规模快要超过 $300k、担心 License Tax 跳档的运营者
+
+---
+
+## 一、先把概念厘清：License Tax = Annual Report，不是两笔钱
+
+Wyoming 的设计跟 Delaware 不太一样。很多人第一次办 Wyoming LLC，会以为 Annual Report 和 License Tax 是两件事，结果交两次或者漏掉一项。
+
+| 项目 | 谁收 | Wyoming 怎么处理 | 跟 Delaware 对比 |
+|---|---|---|---|
+| **Annual Report** | Wyoming Secretary of State | 合并在 License Tax 里，**一张表交完事** | DE LLC 不交 Annual Report |
+| **License Tax** | Wyoming Secretary of State | 按 Wyoming 境内资产计算，**最低 $60** | DE LLC Franchise Tax 固定 $300 |
+| **联邦税** | IRS | LLC 默认穿透到所有者（NRA 还要交 5472 + 1120 pro forma） | 跟 DE / WY 选州没关系 |
+| **注册代理（RA）费** | 你雇的代理公司 | 必须有 Wyoming 实地地址的代理；自己不能当 RA（除非在 WY 有住址） | 同 DE |
+
+📌 **核心结论**：在 Wyoming，"年报"和"州税"是同一笔。提交 Annual Report 时，系统会同时算出你这年应缴的 License Tax，一次付清。
+
+💡 **YoTrade 实战观察**：超过一半的 NRA 客户把 Wyoming 当成"什么都不用交"的避风港，其实最低 $60 + 在线 $2 手续费每年还是要付的，加上注册代理费 $50–$125，年持有成本大致在 $110–$190 区间。比 Delaware 便宜，但绝不是"零成本"。
+
+---
+
+## 二、License Tax 怎么算：$60 起步、超 $300k 资产开始跳档
+
+Wyoming 的算法很简单，但容易在"什么算 Wyoming 资产"这一步翻车。
+
+### 2.1 公式
+
+```
+License Tax = MAX($60, Wyoming 境内资产 × 0.0002)
+```
+
+也就是说，资产在 $300,000 以下时，永远是 $60 最低档；超过 $300,000 之后，每 $5,000 资产多交 $1。
+
+| Wyoming 境内资产 | 应缴 License Tax | 在线手续费 | 合计 |
+|---|---|---|---|
+| $0 – $300,000 | $60 | $2 | **$62** |
+| $500,000 | $100 | $2 | $102 |
+| $1,000,000 | $200 | $2 | $202 |
+| $5,000,000 | $1,000 | $2 | $1,002 |
+| $10,000,000 | $2,000 | $2 | $2,002 |
+
+### 2.2 "Wyoming 境内资产"到底指什么
+
+⚠️ **这是 NRA 最容易踩坑的地方**：
+
+✅ **算作 Wyoming 资产的**：
+- 公司开在 Wyoming 银行的存款（极少数 NRA 真的开成 WY 本地账户）
+- Wyoming 实地的设备、库存、不动产
+- 在 Wyoming 注册的车辆
+
+❌ **不算 Wyoming 资产的**：
+- Mercury / Relay / Wise 账户里的钱（这些银行的法律落户在 Tennessee / Utah / Delaware / 加州等，不在 Wyoming 境内）
+- Stripe 余额（Stripe 美国账户实际由 Stripe Payments Company 在 Delaware / 加州运营）
+- 你在境外（中国、香港、欧洲）的资产
+- 国内房产、加密货币、海外股票
+
+📌 **实操结论**：99% 的 NRA 单层 Wyoming LLC 都是 $60 最低档。哪怕你 Mercury 里躺着 50 万美金，Wyoming 也算不到。
+
+⚠️ **何时会跳档**：
+- 你买了 Wyoming 本地的不动产或商业地产
+- 你在 Wyoming 开了实体仓库做 FBA 备货
+- 你跑了 Wyoming 本地的实业（农场、矿业、旅游运营）
+
+---
+
+## 三、截止日：成立月份的"第 1 天"——一个反直觉的设计
+
+Delaware 是统一 6/1 截止，Wyoming 不是。每家 LLC 的截止日**绑定在自己的成立月份**。
+
+### 3.1 截止日公式
+
+```
+你的 Annual Report 截止日 = LLC 成立月份的 1 号
+```
+
+举几个例子：
+
+| 你的 LLC 成立日 | 每年 Annual Report 截止日 | 60 天宽限期到 |
+|---|---|---|
+| 2024-03-15 成立 | 每年 **3/1** | 4/30 自动注销 |
+| 2024-08-20 成立 | 每年 **8/1** | 9/30 自动注销 |
+| 2024-12-28 成立 | 每年 **12/1** | 次年 1/30 自动注销 |
+| 2025-01-05 成立 | 2026 年起每年 **1/1** | 3/2 自动注销 |
+
+⚠️ **注意**：是成立月份的"1 号"，不是"周年那一天"。这意味着如果你 3/15 注册的，3/1 那天就要交——比成立日还早两周。
+
+### 3.2 Wyoming 的提醒机制
+
+Secretary of State 会通过 RA（注册代理）登记的邮箱发送提醒，时间点是 **60 天前、30 天前、10 天前**。但这些邮件经常被识别成垃圾邮件，所以：
+
+✅ **YoTrade 建议**：
+1. 在手机日历里手动加 3 个提醒：成立月份前 60 天、30 天、当月 1 号前 7 天
+2. 检查 RA 提供的邮箱是否真的能收到 Wyoming 政府邮件（很多人 RA 邮箱过期没续，邮件全黑洞）
+3. 把 LLC 成立月份记在密码管理器的备注里
+
+---
+
+## 四、在线申报 7 步流程（实操截图位）
+
+⚠️ **2026 年最新**：Wyoming 的官方申报网址是 [wyobiz.wyo.gov/Business/AnnualReport.aspx](https://wyobiz.wyo.gov/Business/AnnualReport.aspx)，不要被第三方代办网站（每年加价收 $99–$150）骗到。
+
+### 4.1 流程概览
+
+| 步骤 | 操作 | 关键字段 / 注意点 |
+|---|---|---|
+| 1 | 进入 wyobiz.wyo.gov 选择 "File Annual Report" | 不需要登录，靠 Filing ID 进入 |
+| 2 | 输入 **Filing ID**（7 位数字） | 在你的 Certificate of Organization 上有；丢了在 sos.wyo.gov 用公司名搜 |
+| 3 | 确认 LLC 名称、RA、Principal Office 地址 | RA 信息有变更必须先单独提交 Statement of Change |
+| 4 | 填写 **Wyoming 资产**金额 | 99% NRA 填 $0 或者少量；不诚信申报有伪证风险 |
+| 5 | 系统自动算 License Tax | $60 起步；填了高资产就按 0.0002 算 |
+| 6 | 选择支付方式：信用卡 / ACH | 加 $2 在线手续费 |
+| 7 | 收 PDF 收据（含本年度 Certificate） | 这是你下一年 Mercury / Stripe 验证还活着的关键文件 |
+
+### 4.2 邮寄申报（不推荐，但写一下）
+
+- 表格：从 sos.wyo.gov/forms 下载 LLC Annual Report
+- 收件人：Wyoming Secretary of State, Herschler Building East, 122 W 25th St, Suite 101, Cheyenne, WY 82002
+- 付款：支票或汇票，只接受 USD
+- 处理时间：**7–10 个工作日**（在线申报当天就出收据）
+
+📌 **YoTrade 提醒**：邮寄方式只在你完全没有美卡 / ACH 支付能力时才考虑。NRA 想搞美卡的，先看 [NRA 美卡 12 个月路线图](nra-us-credit-card-12-month-roadmap)，年报和报税都靠它了。
+
+---
+
+## 五、错过截止日：60 天宽限期 + 注销 + Reinstatement 流程
+
+Wyoming 不像 Delaware 那样收高额罚款，它的处理是"温柔但致命"：直接给你注销。
+
+### 5.1 时间线
+
+```
+截止日（成立月 1 号）
+   │
+   │ → 第 1 天：标记 Delinquent（仍可正常补交）
+   │ → 第 30 天：邮件再次提醒
+   │ → 第 60 天：Administratively Dissolved（自动注销）
+   │
+   ↓
+   注销后 2 年内可申请 Reinstatement
+   ↓
+   超过 2 年 → 公司彻底死亡，名称释放
+```
+
+### 5.2 三种状态下的处理
+
+| 状态 | 还能做什么 | 要付多少钱 |
+|---|---|---|
+| **Delinquent**（第 1–60 天） | 直接补交 Annual Report | License Tax + $2，无罚款 |
+| **Administratively Dissolved**（60 天后–2 年内） | 提交 Application for Reinstatement | $100 重新激活费 + 所有欠缴年报 License Tax + $2 |
+| **超过 2 年** | LLC 名称释放、彻底消失 | 重新注册，原 EIN 大概率作废 |
+
+⚠️ **被注销期间发生的事**：
+- Mercury / Relay 触发风控（他们会定期查 Good Standing）
+- Stripe 收款被冻结（KYC 拉到 Wyoming 数据，发现公司已死）
+- 你用这个 LLC 持有的 EIN 在 IRS 系统里**仍然有效**，但银行不认了
+- 美卡商业卡（Chase Ink、AmEx Business）触发账户审查
+
+### 5.3 Reinstatement 操作步骤
+
+| 步骤 | 操作 | 费用 |
+|---|---|---|
+| 1 | 在 sos.wyo.gov 下载 LLC Application for Reinstatement | 免费 |
+| 2 | 补缴所有漏交年份的 License Tax | 每年 $60 起步 |
+| 3 | 缴 Reinstatement Fee | $100 |
+| 4 | 在线付款 | +$2 |
+| 5 | 等 Wyoming 处理（通常 5–7 个工作日） | — |
+| 6 | 收到 Certificate of Reinstatement | 用这个去解锁 Mercury / Stripe |
+
+📌 **实战提示**：被注销后再激活的 LLC 在 Mercury 那边大概率要补提交 BOI（Beneficial Ownership Information）和最新 Certificate of Good Standing，做好心理准备。
+
+---
+
+## 六、Wyoming vs Delaware vs Florida：3 年总持有成本对比
+
+很多 NRA 在选州之后第二年才发现持有成本算错。这里把三个最热门的州拉平比一下。
+
+| 项目 | Wyoming | Delaware | Florida |
+|---|---|---|---|
+| 注册费 | $100 | $90 | $125 |
+| Annual Report 费 | $60 + $2 | LLC 不需要 | $138.75 |
+| Franchise Tax / License Tax | 含在 $60 里 | $300 | 无 |
+| 截止日 | 成立月份 1 号 | 6/1 | 5/1 |
+| RA 年费（市场价） | $50–$125 | $50–$150 | $50–$125 |
+| **3 年合计（最低档）** | **$386–$611** | **$1,080–$1,380** | **$641–$916** |
+| 错过续费的处罚 | 60 天后自动注销 | $200 罚款 + 1.5%/月 | $400 罚款 |
+| 是否要求披露成员 | ❌ 不要求 | ❌ 不要求 | ✅ 要求 |
+
+✅ **结论**：
+
+- 想要最低成本 + 不披露成员 → **Wyoming**
+- 要 Stripe Atlas 默认支持、注册便捷 → **Delaware**（多付 $700–$1,000）
+- 要 ITIN 落地业务（如美国本地房产、Amazon FBA 仓库） → **Florida**
+
+想看完整州对比，可以直接读 [NRA 美国 LLC 5 州横评](nra-us-llc-state-comparison)。
+
+---
+
+## 七、Wyoming LLC 续费 5 个常见误区
+
+### 误区 1：以为 Wyoming 完全免税
+
+❌ **错**：Wyoming 没有州所得税，但 LLC 必须每年交 License Tax（最低 $60）+ 联邦层面 Form 5472 + 1120 pro forma 报税。
+
+✅ **真相**：年持有成本 ≈ $110–$190（含 RA），加上联邦报税成本 ≈ $200–$500（找 CPA 代报）。
+
+### 误区 2：以为不交也没人管
+
+❌ **错**：Wyoming 不发催债律师函，但 60 天后**默默注销**。等你 Mercury 被冻、Stripe 拒付时才反应过来。
+
+✅ **真相**：设手机日历提醒，每年定时申报。
+
+### 误区 3：填高 Wyoming 资产以"显得正规"
+
+❌ **错**：你填了 $500,000 Wyoming 资产，License Tax 立刻变 $100，还要解释这钱怎么来的。
+
+✅ **真相**：诚实填实际境内资产即可。Mercury / Wise / Stripe 的钱**不算 Wyoming 资产**。
+
+### 误区 4：以为 RA 代理会自动帮你交
+
+❌ **错**：低价 RA（$50/年）通常**不包含**代报年报，只发提醒邮件。
+
+✅ **真相**：付费版 RA（Northwest 的 Premium 包、Harbor Compliance 等）才包年报代报。看清楚合同。
+
+### 误区 5：注销后再激活无所谓
+
+❌ **错**：被注销期间签的合同**可能无效**；银行账户、商业卡都会被风控。
+
+✅ **真相**：哪怕你只是漏交 1 年，重新激活成本（$100 + 补缴 + 给 Mercury 解释）通常远超主动续费。
+
+---
+
+## 八、决策矩阵：什么人适合 Wyoming LLC
+
+```
+┌─────────────────────────────────────────────────────┐
+│ 你的画像                       │ 适合 Wyoming?      │
+├─────────────────────────────────────────────────────┤
+│ NRA + 跨境电商 + 主用 Mercury  │ ✅ 强推荐           │
+│ NRA + AI / SaaS / 内容创作     │ ✅ 推荐             │
+│ NRA + 不打算用 Stripe Atlas    │ ✅ 推荐             │
+│ NRA + 打算用 Stripe Atlas      │ ⚠️ 选 Delaware 更顺 │
+│ 美国本地房产 / 仓库 / 实业     │ ❌ 选物业所在州     │
+│ 资产 > $500k 在境内            │ ⚠️ 算清 License Tax │
+│ 要求快速 Reinstatement         │ ✅ Wyoming 流程最简 │
+└─────────────────────────────────────────────────────┘
+```
+
+---
+
+## YoTrade 相关服务
+
+我们提供 NRA 视角的 Wyoming LLC 全流程代办：
+
+- 🎯 **Wyoming LLC 注册 + RA**：含第一年 RA、EIN 申请、Operating Agreement 起草
+- 🎯 **每年 Annual Report 代报**：截止日前 30 天主动提醒 + 帮你填 License Tax + 同步 Mercury 做 BOI 更新
+- 🎯 **错过截止日 Reinstatement 救援**：72 小时内完成补缴 + 跟 Mercury / Stripe 重新沟通解冻
+- 🎯 **Delaware vs Wyoming vs Florida 选州咨询**：根据你的业务类型（电商 / AI / 内容）给出 3 年总成本测算
+
+👉 [咨询 Wyoming LLC 代办](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=wyoming-llc-annual-report-2026-renewal-guide) | [浏览美国身份代办完整方案](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=wyoming-llc-annual-report-2026-renewal-guide)
+
+---
+
+## 相关阅读
+
+- [NRA 美国 LLC 5 州横评](nra-us-llc-state-comparison)
+- [Delaware LLC Franchise Tax 实操指南 2026](delaware-llc-franchise-tax-2026-filing-guide)
+- [Foreign-Owned LLC Form 5472 报税完全指南](foreign-owned-llc-form-5472-filing-guide)
+- [EIN 申请：Form SS-4 NRA 指南](ein-application-form-ss4-nra-guide-2026)
+- [Mercury / Relay / Wise 三大商业银行横评](us-business-banking-mercury-relay-wise)
+
+---
+
+*本文信息基于 2026 年 6 月 Wyoming Secretary of State 公开费率与 60 天自动注销规则。本文不构成金融或法律建议，最终请以 Wyoming Secretary of State 官网公告为准。*
