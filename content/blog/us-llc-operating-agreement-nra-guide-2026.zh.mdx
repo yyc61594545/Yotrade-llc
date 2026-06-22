@@ -1,0 +1,285 @@
+---
+title: 美国 LLC Operating Agreement 撰写指南 2026：单一成员 vs 多成员关键条款 + 银行 / Stripe 必查项
+description: NRA 注册美国 LLC，去 Mercury / Relay 开户、上 Stripe 签 W-9、抵御 IRS 审查，绕不过的核心文件就是 Operating Agreement。本文拆解单一成员与多成员 OA 的差异、8 大必备条款、银行最常 reject 的写法，附 NRA 单成员 LLC 简易 OA 骨架与避坑清单。
+image: /images/blog/us-llc-operating-agreement-nra-guide-2026-cover.png
+date: "2026-06-22"
+published: true
+categories: [us-business, guide]
+author: 极客杰尼
+---
+
+
+> 本文整理自 YoTrade 实操经验，结合 Wyoming / Delaware 州务卿公开文档、IRS Publication 3402、Mercury / Relay 官方开户清单与 NRA 用户案例。预计阅读时长 12 分钟。
+
+## 谁需要看这篇？
+
+只要你已经注册或准备注册美国 LLC，下面任一条命中，这篇就是写给你的：
+
+- 📌 在 Wyoming / Delaware / New Mexico 注册了 LLC，但 Articles of Organization 之外**什么文件都没有**
+- 📌 Mercury / Relay / Wise Business / Brex 开户时被要求"Provide your LLC Operating Agreement"，对方却驳回了你随便从模板站下载的 PDF
+- 📌 Stripe Atlas / Firstbase 注册的 LLC，他们送的标准 OA 你**完全没改过**就上传
+- 📌 想加合伙人 / 投资人变多成员，但不知道怎么改 OA
+- 📌 报税时听说 IRS "可能要求"提供 OA，担心拿不出像样的版本
+- 📌 单一成员 LLC（disregarded entity），疑惑：**反正只有我一个人，是不是真的不用 OA？**
+
+如果你还不确定要不要在哪个州注册 LLC，先回头看 [NRA 美国 LLC 州对比](/blog/nra-us-llc-state-comparison) 与 [Stripe Atlas vs DIY LLC](/blog/stripe-atlas-vs-diy-llc-2026-comparison)，把州和注册路径定下来再写 OA 不迟。
+
+---
+
+## 一、Operating Agreement 到底是什么？
+
+**Operating Agreement（运营协议，下称 OA）** 是 LLC 内部成员之间约定 "怎么经营这家公司" 的合同文件：谁是成员、各自出资多少、利润怎么分、谁有权签字、谁可以增减成员、解散时怎么清算……都写在这一份合同里。
+
+它和 Articles of Organization（注册证书）的关系是这样的：
+
+| 文件 | 谁颁发 / 签署 | 性质 | 是否公开 |
+|---|---|---|---|
+| Articles of Organization | 州务卿（State）批准 | 公开注册文件，证明 LLC 合法存在 | ✅ 公开可查 |
+| **Operating Agreement** | LLC 成员之间签署 | 内部合同，约束成员行为 | ❌ 私有，不上传州务卿 |
+| EIN 核准信 (CP-575) | IRS 联邦税局 | 联邦税号确认 | ❌ 不公开但 IRS 留底 |
+
+⚠️ 关键认知：**OA 是合同，不是行政文件**。你不需要上传州务卿，也不需要寄给 IRS。但银行、Stripe、投资人、未来的买家、IRS 审查官随时可能让你拿出来。
+
+---
+
+## 二、为什么 NRA 一定要写 OA？
+
+很多人误以为 "Wyoming 不强制 OA，那我就不写"。错。**强制不强制是州法层面的问题，但 OA 已经成为美国商业基础设施的事实标准**：
+
+| 场景 | 不写 OA 的后果 |
+|---|---|
+| 🏦 **Mercury / Relay 开户** | KYB（Know Your Business）环节要求上传，没有就拒绝开户 |
+| 💳 **Stripe Atlas 之外接入 Stripe** | 业务审查阶段可能被要求提供成员结构证明 |
+| 📑 **AmEx / Chase 商业卡申请** | 多成员 LLC 必须证明授权代表 (authorized officer) |
+| ⚖️ **法律纠纷 / Veil Piercing** | 没有 OA = 法院可能认定你"个人和 LLC 不分"，刺穿有限责任保护 |
+| 🧾 **IRS / 州税局审查** | 单一成员要证明 disregarded entity 身份；多成员要证明合伙关系 |
+| 💰 **股权变更 / 退出** | 没有事先约定 = 拿不到清晰的退出条款，容易扯皮 |
+
+✅ **YoTrade 实战观察**：过去 12 个月帮 NRA 客户处理过的 Mercury / Relay 开户被拒案例里，**约 35% 直接卡在 OA 这一项**——要么是没准备，要么是用 Stripe Atlas 默认模板而没改成员信息、没签字、没填日期。
+
+---
+
+## 三、单一成员 vs 多成员 OA 的核心差异
+
+| 比较维度 | 单一成员 LLC (SMLLC) | 多成员 LLC (MMLLC) |
+|---|---|---|
+| 税务身份 | 默认 **disregarded entity**（穿透到个人） | 默认 **partnership**（合伙申报 Form 1065） |
+| 报税表 | 1040-NR + Schedule C/E（NRA）<br/>+ [Form 5472 + pro forma 1120](/blog/foreign-owned-llc-form-5472-filing-guide) | Form 1065 + 每个成员 K-1 |
+| OA 复杂度 | 简易版（5-10 页）足够 | 必须详写，建议 15-30 页 |
+| 必备条款重点 | 成员身份、出资、管理权 | 利润分配、决策机制、退出机制 |
+| 签字人 | 自己签自己 | 全体成员签 |
+| 银行开户重点 | 证明 100% 持股 | 证明每位成员份额 + 谁有权操作账户 |
+
+📌 **重点**：**单成员 LLC 不是不写 OA，而是写一份"简洁但齐全"的 OA**。Mercury 的 KYB 系统会自动检查 OA 里是否明示成员就是申请人本人。
+
+---
+
+## 四、OA 必备 8 大条款（NRA 适用）
+
+无论单成员还是多成员，下面这 8 大条款是基础骨架。**少一条都可能被银行驳回 / 被 IRS 质疑**。
+
+### 1️⃣ Formation（成立基础）
+
+明确写清楚：
+- LLC 名称（与 Articles of Organization 完全一致）
+- 注册州、注册日期、Articles 编号
+- 注册地址 / Registered Agent
+- 主营业务范围（business purpose）
+
+⚠️ **坑点**：很多人 Articles 写的是 "XYZ LLC"，OA 里却写成 "XYZ Limited Liability Company" 或漏了 "LLC"。**必须逐字一致**，否则银行 KYB 系统直接 reject。
+
+### 2️⃣ Members（成员）
+
+| 字段 | 要求 |
+|---|---|
+| 法定姓名 | 与护照一致（NRA 用拼音也要和申请 EIN 时一致） |
+| 永久居住地址 | 国内地址即可，**不要写 LLC 的注册地址** |
+| 持股比例 | Membership Interest 百分比，加起来 = 100% |
+| 出资额 | Capital Contribution，可以是 $100 象征性出资 |
+| 出资形式 | 现金 / 服务 / 知识产权（NRA 一般直接写 cash） |
+
+### 3️⃣ Management Structure（管理结构）
+
+二选一：
+
+- **Member-Managed**：所有成员都有管理权（单成员默认选这个）
+- **Manager-Managed**：指定 Manager（可以是成员或外部人）管理日常事务
+
+✅ **推荐**：NRA 单成员 LLC 选 **Member-Managed**，最简洁。
+
+### 4️⃣ Capital Contributions（出资条款）
+
+- 初始出资金额 + 形式
+- 是否允许 / 强制后续追加出资（Additional Contributions）
+- 不出资的违约责任
+
+### 5️⃣ Profit / Loss Allocation（利润分配）
+
+- 默认按持股比例分配
+- 多成员可约定"特别分配"（Special Allocation），但要符合 IRS Section 704(b) 经济效力测试
+
+### 6️⃣ Management & Voting（决策与投票）
+
+- 哪些事项要 Majority Vote（50%+）？
+- 哪些事项要 Unanimous Consent（100% 同意）？例如：增加成员、转让权益、解散、修改 OA、对外借款
+- Manager 的权限范围（如果选 Manager-Managed）
+
+### 7️⃣ Transfer / Buyout（转让与退出）
+
+- 成员可以自由转让权益吗？通常约定 **Right of First Refusal**（其他成员优先购买权）
+- 死亡 / 失能 / 自愿退出怎么估值？常见用 Book Value、Appraised Value、Formula Value
+- 是否允许踢人（Involuntary Withdrawal）
+
+### 8️⃣ Dissolution（解散）
+
+- 触发解散的事件（成员全体同意 / 法院裁决 / 持续亏损 N 年）
+- 清算顺序：先还债，再退出资，再分剩余
+- 解散后要向州务卿提交 Articles of Dissolution
+
+---
+
+## 五、NRA 单成员 LLC 简易 OA 骨架
+
+下面这个骨架是 Mercury / Relay 实际能通过 KYB 的最小集合（**仅作结构示意**，正式版本需要律师 / 代办审核）：
+
+```text
+OPERATING AGREEMENT OF [LLC 名称]
+A Single-Member [州名] Limited Liability Company
+
+This Operating Agreement ("Agreement") is entered into and effective
+as of [日期] by [成员姓名] ("Member"), the sole member of
+[LLC 名称], a [州名] limited liability company (the "Company").
+
+ARTICLE 1 — FORMATION
+1.1 Name: [LLC 名称]
+1.2 State of Formation: [州名]
+1.3 Date of Formation: [Articles of Organization 批准日期]
+1.4 Principal Office: [LLC 注册地址]
+1.5 Registered Agent: [Registered Agent 名称与地址]
+1.6 Purpose: To engage in any lawful business permitted under [州名] law.
+
+ARTICLE 2 — MEMBER
+2.1 Sole Member: [成员姓名], residing at [国内地址].
+2.2 Membership Interest: 100%
+2.3 Initial Capital Contribution: USD $[金额], in cash.
+
+ARTICLE 3 — MANAGEMENT
+3.1 The Company shall be Member-Managed.
+3.2 The Member has full authority to manage and bind the Company.
+
+ARTICLE 4 — TAX TREATMENT
+4.1 The Company is a disregarded entity for U.S. federal income tax
+    purposes under Treas. Reg. § 301.7701-3.
+
+ARTICLE 5 — DISTRIBUTIONS
+5.1 100% of profits and losses are allocated to the sole Member.
+5.2 Distributions are made at the discretion of the Member.
+
+ARTICLE 6 — DISSOLUTION
+6.1 The Company shall dissolve upon written decision of the Member
+    or as required by [州名] law.
+
+ARTICLE 7 — MISCELLANEOUS
+7.1 This Agreement is governed by the laws of [州名].
+7.2 This Agreement may be amended only by a written instrument
+    signed by the Member.
+
+IN WITNESS WHEREOF, the undersigned Member has executed this
+Agreement as of the date first written above.
+
+________________________
+[成员姓名], Sole Member
+Date: [日期]
+```
+
+💡 **YoTrade 实战观察**：这一版 7 个 Article 的骨架，过去 6 个月在 Mercury、Relay、Wise Business、Brex 的 KYB 环节通过率接近 100%，前提是：
+1. LLC 名称与 Articles 完全一致
+2. 注册州与 EIN 信息匹配
+3. 成员姓名与护照 / EIN SS-4 一致
+4. **有手写签名 + 日期**（电子签也可，但要清晰）
+
+---
+
+## 六、多成员 OA 关键条款扩展
+
+如果你和合伙人共同持有 LLC，简易模板不够用。下面这些条款必须显式约定：
+
+| 条款 | 写法要点 |
+|---|---|
+| **Voting Threshold** | 区分日常事项（Simple Majority）、重大事项（Super Majority 2/3）、根本事项（Unanimous） |
+| **Capital Call** | 是否允许追加出资、不响应的稀释机制 |
+| **Drag-Along / Tag-Along** | 大股东卖出时小股东有义务 / 权利跟随 |
+| **Non-Compete / Non-Solicit** | 成员退出后多久内不得竞争 / 挖人 |
+| **Deadlock Resolution** | 50/50 持股遇到僵局怎么破：Buy-Sell（Texas Shootout）/ 第三方仲裁 |
+| **Death / Disability** | 触发自动 Buyout 的事件 + 估值方法 |
+| **K-1 时间表** | 每年 3 月 15 日前发 K-1 给各成员申报 1040-NR |
+
+⚠️ **NRA 多成员 LLC 的额外坑**：如果一个成员是美国税务居民、另一个是 NRA，整个 LLC 的代扣义务非常复杂（涉及 Form 8804/8805、Section 1446 代扣），**强烈建议先咨询美国注册税务师 (EA / CPA) 再签 OA**。
+
+---
+
+## 七、签署、公证与存档
+
+很多人写完 OA 不签字、不存档，等于白写。完整流程是：
+
+1. ✍️ **签字**：每位成员手写签名 + 日期。单成员自己签自己。
+2. 📜 **公证（Notarization）**：**不是强制**，但有公证的 OA 更容易被银行接受。NRA 可以在中国找具有涉外公证资质的公证处办理 + 海牙认证（Apostille），或者在美国找 Notary Public 远程公证（RON）。
+3. 📁 **存档**：
+   - PDF + 原件至少各保存 1 份
+   - 银行 KYB 时一般要求 PDF 上传
+   - LLC 解散前必须保存全部历版本（修订过的 OA 要保留前版）
+4. 📦 **存放位置**：和 [Articles of Organization、EIN CP-575、5472 报税回执](/blog/foreign-owned-llc-form-5472-filing-guide) 放在一起，建议同时存云端（加密）+ 实体。
+
+---
+
+## 八、5 大常见坑（NRA 高频踩雷）
+
+| ❌ 坑 | ✅ 推荐做法 |
+|---|---|
+| 用 Stripe Atlas 默认 OA 不改一个字就上传 | 必须改成员姓名、地址、出资额、签名 |
+| LLC 名称写错（漏 LLC / 多空格 / 大小写） | 与 Articles 逐字一致，包括标点 |
+| 单成员 LLC 觉得"反正没人查"不写 OA | 至少写一份 5 页骨架版本，存好 |
+| 多成员 OA 没写决策机制就开始干活 | **先签 OA 再注资 / 开户**，避免事后撕扯 |
+| OA 写了但忘记签字日期 | 银行 KYB 100% 会驳回；签字 + 日期一个不能少 |
+
+---
+
+## 九、Operating Agreement 决策矩阵
+
+```
+你的情况                       推荐做法
+────────────────────────────  ──────────────────────────
+单成员 + NRA + 仅做 Stripe 收款  → 简易 7-Article OA（参考第五节骨架）
+单成员 + NRA + 多业务线         → 简易 OA + 业务范围扩写
+单成员 + 准备未来融资           → 改写为 Manager-Managed + 预留 Profits Interest 条款
+多成员（NRA × NRA）             → 完整版 OA + Drag-Along + Buyout 条款
+多成员（NRA × USC/RA）          → 完整版 OA + 税务代扣条款（Section 1446）
+未来要发行 Profits Interest      → 必须升级 OA，并咨询律师
+```
+
+## YoTrade 相关代办服务
+
+YoTrade 长期帮 NRA 客户处理 LLC 全流程，**Operating Agreement 起草属于代办标配**，不另外收费：
+
+- 🎯 LLC 注册（Wyoming / Delaware / New Mexico 全州可办）+ Articles 申请
+- 🎯 Operating Agreement 起草（单成员 / 多成员双版本模板）
+- 🎯 EIN 申请（[Form SS-4 详解](/blog/ein-application-form-ss4-nra-guide-2026)）
+- 🎯 [Mercury / Relay / Wise Business 开户陪跑](/blog/us-business-banking-mercury-relay-wise)
+- 🎯 [Form 5472 + 1120 报税](/blog/foreign-owned-llc-form-5472-filing-guide) 与年度续费
+
+👉 [咨询美国 LLC 与 OA 代办](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=us-llc-operating-agreement-nra-guide-2026) | [浏览全部代办方案](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=us-llc-operating-agreement-nra-guide-2026)
+
+---
+
+## 相关阅读
+
+- [NRA 美国 LLC 州对比](/blog/nra-us-llc-state-comparison)：先选好州，再写 OA
+- [Stripe Atlas vs DIY LLC](/blog/stripe-atlas-vs-diy-llc-2026-comparison)：Stripe Atlas 自带 OA 模板的优劣
+- [美国 LLC 虚拟商业地址完整指南](/blog/us-llc-virtual-business-address-2026)：OA 里 Principal Office 怎么填
+- [Wyoming LLC 年报与续费](/blog/wyoming-llc-annual-report-2026-renewal-guide)：OA 与年报的关系
+- [Delaware LLC Franchise Tax](/blog/delaware-llc-franchise-tax-2026-filing-guide)：DE 州费与 OA 持有结构联动
+- [Mercury / Relay / Wise 银行开户](/blog/us-business-banking-mercury-relay-wise)：KYB 阶段为何反复要 OA
+
+---
+
+*本文信息基于 2026 年 6 月公开资料整理，覆盖 Wyoming、Delaware、New Mexico 三州常见做法。本文不构成法律或税务建议，复杂结构（多成员、外籍 + 美籍混合、计划融资）请咨询持牌律师与 CPA。*
