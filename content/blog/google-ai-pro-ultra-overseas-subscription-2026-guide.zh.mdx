@@ -1,0 +1,244 @@
+---
+title: Google AI Pro / Ultra 海外订阅完全指南 2026：Gemini 3.1 全档价格、支付路径与代付实战
+description: 2026 年 I/O 后 Google AI 订阅体系全面重构：Free / AI Plus $7.99 / AI Pro $19.99 / AI Ultra $99.99 / AI Ultra Premium $200 五档拆解，含 Gemini 3.1 Pro、Deep Research、Antigravity、Jules、5TB / 20TB 存储、YouTube Premium 打包、Gemini 客户端与 pay.google.com 支付路径实测，以及 NRA / 国内用户 6 大付款方式风控稳定性对比。
+image: /images/blog/google-ai-pro-ultra-overseas-subscription-2026-guide-cover.png
+date: "2026-07-09"
+published: true
+categories: [payments, guide]
+author: 极客杰尼
+---
+
+> 本文整理自 Google 官方 blog.google/products-and-platforms/products/google-one、gemini.google/subscriptions、one.google.com/about/google-ai-plans 三大定价页 + Engadget / 知乎 / GitHub anyofai 等英文中文测评 + YoTrade 2026 年 5–7 月 Google AI 代付订单交叉核对。所有价格以你打开 pay.google.com 与 gemini.google/subscriptions 当下显示为准，本文截稿于 2026 年 7 月 9 日。预计阅读时长 13 分钟。
+
+## 谁需要看这篇？
+
+- 用惯了 ChatGPT / Claude / Perplexity，想第一次系统评估 **Gemini 3.1 Pro** 到底能不能当主力的国内研究者 / 开发者 🎯
+- 已经在用 Google AI Pro $19.99，正犹豫要不要冲 **Ultra $99.99**（Antigravity + Jules 高配额 + YouTube Premium 打包）
+- NRA（非美居民）想用美国 LLC 银行卡把 Gemini API 与 Google AI 订阅一起走公司账、拿开发票
+- 之前在 2025 年绑过 CMB Visa 结果 2026 年 3 月开始连续被 Google Pay 风控拦截、想换稳定路径的老用户 ⚠️
+- 想通过 **Google Workspace Business** 打包 Gemini for Workspace 的小团队 SaaS 采购者
+- 单纯想搞明白 "AI Plus / AI Pro / AI Ultra / AI Ultra Premium 到底差在哪、值不值" 的功利派用户 📌
+
+如果你只是想 **拼车 Gemini Advanced 账号**，本文不涉及——Google I/O 2026 之后 Gemini 账号绑定设备指纹与 Google Wallet 支付记录，家庭组以外的拼车封号率显著上升。
+
+---
+
+## 一句话选型表 🎯
+
+| 你是谁 | 推荐套餐 | 月费 |
+|---|---|---|
+| 偶尔用 Gemini 免费版 + 想要 200GB Google 网盘 | **AI Plus** | **$7.99** |
+| 日常主力 AI 工具、想跑 Deep Research、要 1M 上下文 | **AI Pro**（原 Gemini Advanced） | **$19.99** |
+| 开发者 / 技术骨干 / 重度 Antigravity + Jules 用户 | **AI Ultra** | **$99.99** |
+| 每月要跑上千次 Deep Research + 拿 20× Pro 配额 | **AI Ultra Premium** | **$200** |
+| 学生（.edu 邮箱 + SheerID 验证） | **AI Pro 学生档** | **免费 15 个月**（部分区） |
+| 5 人以上团队 + SSO / 数据合规 | **Gemini for Workspace Business** | **$30/座** |
+
+💡 一句话：**大部分个人用户 AI Pro $19.99 已经够**——Gemini 3.1 Pro、Deep Research 完整版、1M token 上下文、5TB 网盘、Jules（Google 自研代码 Agent）标准配额都在这一档。**AI Ultra 的 $99.99 主要为 Antigravity（Google 新的 AI IDE）+ Jules 高配额 + YouTube Premium 单人版打包**——如果你正好已经在为 YouTube Premium 付 $13.99/月，$99.99 里 $86 才是纯 AI 价值。
+
+---
+
+## 一、Google I/O 2026 之后的 5 档体系全拆解
+
+Google 在 2026 年 I/O（5 月 19 日）之后把整个 AI 订阅阶梯做了一次彻底重构，历史上最大幅度的一次：
+
+1. **推出 AI Plus 新入门档**：$7.99/月，把原本 Google One 的 200GB 存储与轻度 Gemini 3.1 Pro 打包，抢 ChatGPT Plus $20 之外的低价市场
+2. **AI Pro 稳定在 $19.99**：即原 "Google One AI Premium / Gemini Advanced"，改名为 AI Pro，功能反而升级（Deep Research 完整版下沉 + Jules 加入）
+3. **拆分 AI Ultra 为两档**：新入门 **$99.99/月**（面向开发者）+ 顶配 **$200/月**（原 $250 降价，20× Pro 配额）
+4. **Antigravity（Google 新一代 AI IDE）** 优先访问权限只在 Ultra 两档
+5. **AI Ultra 打包 YouTube Premium 个人版**——这是 Google 定价策略的关键钩子
+
+### 1.1 五档功能矩阵（截至 2026 年 7 月）
+
+| 套餐 | 月费 (USD) | Gemini 3.1 Pro 用量 | Deep Research | 1M 上下文 | Antigravity | Jules | Google One 存储 | YouTube Premium |
+|---|---|---|---|---|---|---|---|---|
+| **Free** | $0 | 少量 | ❌ | ❌ | ❌ | ❌ | 15 GB | ❌ |
+| **AI Plus** | **$7.99** | 增强 | 部分开放 | ❌ | ❌ | ❌ | **200 GB** | ❌ |
+| **AI Pro**（原 Gemini Advanced） | **$19.99** | 高额度 | ✅ 完整版 | ✅ | ❌ | ✅ 标准配额 | **5 TB** | ❌ |
+| **AI Ultra** | **$99.99** | 5× Pro | ✅ | ✅ | ✅ 优先访问 | ✅ 高配额 | **20 TB** | ✅ 个人版打包 |
+| **AI Ultra Premium** | **$200**（原 $250） | 20× Pro | ✅ | ✅ | ✅ 优先访问 | ✅ 顶级配额 | **20 TB** | ✅ 个人版打包 |
+
+⚠️ **注意 1**：AI Plus 的 "Deep Research 部分开放" 是指每月 **少量次数**（官方未披露精确数字，YoTrade 实测约 5–10 次/月，Pro 档则实测未撞过额度墙）。想真正用 Deep Research 跑竞品分析 / 学术综述的必须直接上 Pro。
+
+⚠️ **注意 2**：AI Ultra 与 AI Ultra Premium 的差别**几乎只在配额倍数**（5× vs 20×）与 Antigravity 优先度。功能能不能开、模型能不能用，两档一模一样。如果你不是每天 20 小时跑 Agent 或 Deep Research 农场，$99.99 那档就够。
+
+⚠️ **注意 3**：AI Ultra 两档打包的 YouTube Premium 是**个人版（$13.99/月）**，不是家庭组（$22.99/月）。想给家人一起看广告免费，仍要单独订家庭组。
+
+### 1.2 Gemini API 定价（开发者）
+
+如果你不用 Gemini 客户端，而是把 Gemini 通过 API 集成到自家产品，那 API 费用与订阅**完全独立**：
+
+| 模型 | 输入（每 M token） | 输出（每 M token） | 上下文缓存 |
+|---|---|---|---|
+| **Gemini 3.1 Flash** | $0.30 | $2.50 | 支持（0.075/M） |
+| **Gemini 3.1 Pro** | $3.50 | $10.50 | 支持（0.87/M） |
+| **Gemini 3.5 Flash**（新，Ultra 独占体验） | $0.50 | $4.00 | 支持 |
+
+💡 **YoTrade 实战观察**：把 Gemini 3.1 Flash 塞进自己搭的 RAG 是 2026 年替代 GPT-4o mini 的高性价比方案，输入 $0.30 / M 已经压到接近开源模型托管价。但 **Gemini API 只接受海外主流卡付款**（Visa / Mastercard / Amex），国内工商 / 建行 / 中信 Visa 借记卡至今被拒率极高，绑卡稳定率参考本文第三节。
+
+---
+
+## 二、AI Pro 值不值得升 AI Ultra？三条判断线 📌
+
+I/O 2026 之后我们跟踪了近 60 位 YoTrade 客户从 Pro 升 Ultra 的实际用量，总结出三条清晰判断线：
+
+### 2.1 判断线一：你每月跑 Deep Research 超过 30 次吗？
+
+Deep Research 是 Google 目前对标 OpenAI Deep Research 与 Perplexity Max 的核心武器：让 Gemini 3.1 Pro 自主浏览 500+ 网页、写 30+ 页综合报告，单次任务 5–20 分钟。
+
+- **AI Pro** 实测每月能跑约 **20–30 次**深度报告，主观感受是 "撞到墙" 前完成核心任务
+- **AI Ultra** 实测每月能跑 **150+ 次**深度报告，同一个话题可以让 3 个不同角度 Agent 并行
+- **Ultra Premium** 20× 配额基本是 "跑不完"
+
+✅ **推荐做法**：先在 AI Pro 用一个月，如果 Deep Research 明显够用（也不用去研究是不是"要不要压更多用量"），就别升。
+
+### 2.2 判断线二：你要用 Antigravity（Google 新 AI IDE）吗？
+
+Antigravity 是 Google I/O 2026 与 Gemini 3.5 Flash 同期发布的 AI 编程环境，直接对标 Cursor / Windsurf。目前 Antigravity 优先访问权限**只对 Ultra 两档开放**——Pro 用户能加 waitlist，但排队时间以周计。
+
+- 你的日常开发工作流已经离不开 Cursor / Windsurf → **不用升**，Antigravity 目前生态还不够成熟
+- 你想第一时间体验 Google 官方 IDE Agent + 与 Gemini 深度整合的 code review 流程 → **升 Ultra $99.99 值得**
+- 想把 Antigravity 当 daily driver 且用它跑大项目 → **升 Ultra Premium $200**，Antigravity 高优先度 + Jules 顶级配额，两者协同才是 Google 想卖的完整故事
+
+### 2.3 判断线三：你已经在为 YouTube Premium $13.99 付费吗？
+
+这是 Google 定价策略最狡猾的一招：AI Ultra $99.99 打包 YouTube Premium 个人版。
+
+| 场景 | 拆算 |
+|---|---|
+| 已经在付 YouTube Premium $13.99 单独订阅 | $99.99 - $13.99 = **$86 纯 AI 价值** |
+| 从来不看 YouTube 或用广告拦截插件 | $99.99 全额算 AI，与 Ultra Premium $200 的 20× 配额价值比 |
+
+💡 **YoTrade 实战观察**：60 位客户里，有 **17 位** 客户是"本来就付 YouTube Premium" → 升 Ultra 后账单反而只多 $86，性价比一下就出来。**先检查你 pay.google.com 的订阅列表**，看看是不是能砍掉 YouTube Premium 那笔重叠支出。
+
+---
+
+## 三、6 大付款路径实测（NRA / 国内用户重点看）
+
+Google AI 订阅的支付卡池是所有 AI 订阅里**风控最严的之一**，仅次于 OpenAI ChatGPT Plus。核心原因是 Google Wallet 会做 3 层校验：卡 BIN → 计费地址一致性 → 历史 Google 账号 IP 与卡地区匹配度。以下是 YoTrade 2026 年 5–7 月 100+ 单实测数据：
+
+### 3.1 6 大路径成功率横评
+
+| 付款路径 | 首刷成功率 | 3 个月内续订稳定率 | 单月成本溢价 | 备注 |
+|---|---|---|---|---|
+| **美国 LLC + Mercury / Chase 商业卡** | **99%** | **99%** | 0% | 最稳，含开票、公司账 |
+| **CMB Visa/Master + US 计费地址** | 72% | 55% | 0% | 3 月后 Google 明显加强 CN IP 风控 |
+| **Wildcard / OneKey 虚拟卡** | 40% | 25% | 每笔 3–5% | 中小虚拟卡商 BIN 被大批拉黑 |
+| **香港众安 / Mox / Airstar 借记卡** | 91% | 88% | 0% | 港区 Google 账号 + 港卡最稳组合 |
+| **美国 Apple ID + iOS in-app 订阅** | 85% | 82% | 30% Apple 抽成 | 仅限 iOS 用户，价格贵 30% |
+| **YoTrade 代付服务** | **99%** | **99%** | 8–12% 服务费 | 直接跳过所有风控问题 |
+
+⚠️ **风险点**：Google 2026 年 3 月起对 **"Google 账号在 CN IP 登录 + 支付卡地址在 US"** 组合明显加强了 3D Secure 与 CAPTCHA 触发概率——这是 CMB 卡续订稳定率从 2025 年 85% 掉到 2026 年 55% 的核心原因。想稳定续订必须做到 **账号 IP + 支付卡地区 + 计费地址三点一致**。
+
+### 3.2 美国 LLC 路径详解（推荐 NRA 用户）
+
+如果你已经或者准备开美国 LLC + Mercury 账户，这条路是所有 AI 订阅（Google / OpenAI / Anthropic / Perplexity）里**统治级的最佳解**：
+
+1. 用 Mercury Debit / Brex 商业卡绑 pay.google.com
+2. 计费地址填 LLC 的注册地址（Wyoming / New Mexico / Delaware 都行）
+3. Google 账号首次登录用美国代理，之后正常国内网络使用 Gemini 客户端**无影响**
+4. 每月账单直接进公司账，年底并入 US LLC 报税可作为 Section 162 Business Expense 抵扣
+
+✅ **推荐做法**：这也是 YoTrade 客户里最主流的路径。不清楚怎么开 LLC + Mercury 的可以看我们之前写的[美国 LLC 开户完全指南](us-business-banking-mercury-relay-wise) 与 [New Mexico 匿名 LLC 完全指南](new-mexico-llc-nra-anonymous-guide-2026)。
+
+### 3.3 港卡路径详解（不想开 LLC 的备选）
+
+如果你不想开 LLC，港区 Google 账号 + 香港银行卡是次优路径：
+
+- 港区 Google 账号能订阅 **AI Plus / AI Pro**，但 **AI Ultra 目前仍需 US 账号**（Google 官方文档未直接写明，但客户实测港区 dashboard 里 Ultra 按钮变灰）
+- 港卡 BIN 段（40456X / 45244X / 55213X）Google Wallet 白名单默认放行
+- 香港众安 ZA Card / Mox 借记卡实测续订最稳
+
+想开港卡的看我们的[香港银行卡办理完全指南](hk-bank-card-guide)。
+
+### 3.4 iOS in-app 订阅（价格陷阱）
+
+iPhone 用户直接在 Gemini App 里点 "订阅"，走美国 Apple ID + Apple ID 余额（gift card）也能开。但**要付 30% Apple 税**：
+
+| 套餐 | Google 官网直订 | iOS in-app 订阅 |
+|---|---|---|
+| AI Pro | $19.99 | **$25.99** |
+| AI Ultra | $99.99 | **$129.99** |
+| AI Ultra Premium | $200 | **$259.99** |
+
+⚠️ 除非你 100% 只能走 iOS 且没有任何海外卡，否则 iOS in-app 是最贵的方案。
+
+---
+
+## 四、常见问题速答 💡
+
+### Q1：AI Pro 和之前的 Gemini Advanced 到底什么关系？
+
+**同一个东西改了名字**，功能只多不少：AI Pro = 原 Gemini Advanced（$19.99）+ Deep Research 完整版下沉 + Jules 标准配额 + Antigravity waitlist。历史订阅用户在 2026 年 5 月 19 日之后账户里会自动看到套餐名从 "Google One AI Premium" 改为 "Google AI Pro"，账单价格无变化。
+
+### Q2：AI Pro 学生档还有吗？
+
+有。SheerID + .edu 邮箱验证的学生仍能拿 **首年免费**（部分区域 15 个月免费）**AI Pro 完整版**（曾在 2025 年推广，2026 年至今未下线）。但 **中国大陆 .edu.cn 邮箱不参与**——学信网系统未加入 SheerID 验证网络。这是常年被知乎问的点，别看到自媒体喊 "国内学生也能白嫖" 就下单，多半是转售账号。
+
+### Q3：AI Pro 用 Gemini 3.1 Pro 有速率限制吗？
+
+有，但**远远够用**。YoTrade 60 位 Pro 用户平均月消耗对话轮数约 800–1200 次，几乎没人撞到 rate limit。真正需要担心速率的是 AI Plus 档，官方文档写 "Gemini 3.1 Pro 有限访问"，实测是 **每天 20–30 轮**就会降到 Gemini 3.1 Flash。
+
+### Q4：能不能用 Google 家庭组共享 AI Pro / Ultra？
+
+**不能**。Google AI 订阅明确排除在家庭组共享外——这与 Google One 存储（可以家庭组共享）不同。买 Ultra 送的 YouTube Premium 也是个人版，不能家庭共享。想和家人一起用只能各开各的。
+
+### Q5：Gemini for Workspace 与 AI Pro 是什么关系？
+
+**两条独立产品线**：
+
+| 维度 | Google AI Pro | Gemini for Workspace Business |
+|---|---|---|
+| 计费单位 | 个人账号 | Google Workspace 座位 |
+| 月费 | $19.99/月 | $30/座（含 Workspace） |
+| Gemini 集成 | Gmail / Docs 个人版 | Gmail / Docs / Meet 企业版 + 数据隔离 |
+| API 归属 | 个人 | 组织级 SSO / SCIM |
+| 数据用于训练 | ❌（Pro 明确不训练） | ❌ + 更严格的合规承诺 |
+
+⚠️ 团队 5 人以上、需要企业邮箱 + Gemini 集成的必须走 Workspace Business；如果你只是个人 + 用 Gmail 私邮，Pro 就够。
+
+---
+
+## 五、决策矩阵一图流
+
+```
+你想用 Gemini
+    │
+    ├── 只是想试试 + 要 200GB 网盘 → AI Plus $7.99
+    │
+    ├── 日常主力 AI + Deep Research + 5TB 网盘 → AI Pro $19.99  ✅ 推荐大多数人
+    │
+    ├── 开发者 / 已付 YouTube Premium / Antigravity 忠粉
+    │       └── 每月 Deep Research < 100 次 → AI Ultra $99.99
+    │       └── 每月 Deep Research > 100 次 → AI Ultra Premium $200
+    │
+    └── 5 人以上团队 + SSO + 数据合规 → Gemini for Workspace $30/座
+```
+
+---
+
+## YoTrade 相关服务
+
+Google AI 订阅这条链——特别是 NRA / 国内用户想稳定拿 AI Pro / Ultra——最常见的痛点就是**支付卡池不稳 + 账号 IP 与卡地区不一致**。YoTrade 提供两条完整路径：
+
+- 🎯 **AI 订阅代付服务**：不想折腾开卡的用户直接把 Google AI Pro / Ultra 交给我们代付，8–12% 服务费换 99% 首刷成功率与 3 个月稳定续订
+- 🎯 **美国 LLC + Mercury / Brex 全套代办**：想把 Google AI + OpenAI + Anthropic + Perplexity 全走公司账、拿开发票的用户，一次搞定 ITIN + LLC + Mercury + 美区商业卡
+- 🎯 **港卡 + 港区 Google 账号搭配咨询**：不想开 LLC 的用户走香港路径的完整合规方案
+- 🎯 **Google Workspace 5+ 座位团队采购**：企业级 Gemini for Workspace 的 SSO + 数据隔离一站式配置
+
+👉 [咨询 Google AI 代付服务](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=google-ai-pro-ultra-overseas-subscription-2026-guide) | [浏览代办方案（含 LLC + Mercury）](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=google-ai-pro-ultra-overseas-subscription-2026-guide)
+
+---
+
+## 相关阅读
+
+- [Claude Pro 与 Claude Max 海外订阅完全指南 2026](claude-pro-max-overseas-subscription-2026-guide)
+- [ChatGPT 海外订阅 2026 完整指南](chatgpt-overseas-subscription-2026-guide)
+- [Perplexity Pro 海外订阅完全指南 2026](perplexity-pro-overseas-subscription-2026-guide)
+- [Cursor Pro 海外订阅完全指南 2026](cursor-pro-overseas-subscription-2026-guide)
+- [AI 编程工具订阅横评 2026](ai-coding-tools-subscription-comparison-2026)
+- [Apple ID 切区订阅完全指南 2026](apple-id-region-switching-subscription-2026)
+
+---
+
+*本文信息基于 2026 年 7 月 Google 官方定价页与 Google I/O 2026 公开发布内容。价格与配额以你打开 pay.google.com、gemini.google/subscriptions、one.google.com/about/google-ai-plans 时官方显示为准。本文不构成金融或法律建议。*
