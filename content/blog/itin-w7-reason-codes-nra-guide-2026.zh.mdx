@@ -1,0 +1,232 @@
+---
+title: ITIN W-7 申请理由代码 a-h 完全解读 2026：NRA 到底该勾哪个？
+description: IRS Form W-7 上的 "Reason you're submitting Form W-7" 八个方框 a–h，是 ITIN 申请最容易勾错的一步——勾错直接拒件、补件来回 6–12 周。本文按 12/2024 修订版逐条拆解，给出 NRA LLC 老板、被动收入持有人、留学生家属的对应选择，并把"无需附税表"的五大 Exception 实战场景列清楚。
+image: /images/blog/itin-w7-reason-codes-nra-guide-2026-cover.png
+date: "2026-06-24"
+published: true
+categories: [us-business, guide]
+author: 极客杰尼
+---
+
+
+> 本文基于 IRS 官方 **Instructions for Form W-7（Rev. December 2024）** 与 **Publication 1915（Understanding Your ITIN）**，结合 YoTrade 实际为 NRA 客户递交 W-7 的经验整理。预计阅读时长 12 分钟。
+
+## 谁需要看这篇？
+
+如果你属于下面任一情况，**W-7 第一步勾错代码就是返工的起点**：
+
+- 注册了美国 LLC、想用 ITIN 开 Mercury / Relay / 申请 NRA 美卡
+- 海外有美股账户，券商寄来 1042-S / 1099，需要申报 1040-NR 退税
+- 在美国有房产、做 FIRPTA 卖房预扣，需要凭 ITIN 申请退还
+- 留学生 F-1 / J-1 配偶（F-2 / J-2）需要被申报为家属
+- 想用中美税收协定（Tax Treaty）申请条约优惠，但又没有报税义务
+
+W-7 表格只有一页，但**理由代码（Reason）部分一旦勾错，IRS 会整包退回，护照原件来回再丢一次的风险**就来了。本文把 8 个代码按"NRA 是否常用"重排，配上对应的证明材料与是否需要附税表。
+
+---
+
+## W-7 表格结构速览：理由代码在哪里？
+
+W-7 一共四块：
+
+| 区块 | 内容 |
+|---|---|
+| 顶部 | **Reason you're submitting Form W-7**（a–h 方框，本文重点） |
+| 第 1 部分 | 申请人姓名、地址 |
+| 第 2 部分 | 出生信息、国籍、外国身份证号 |
+| 第 3 部分 | 美国签证信息（如有） |
+
+⚠️ 顶部的方框 **必须勾一个，且只能勾一个**——例外是 **a + h** 组合（条约优惠场景，下文详述）。勾错或多勾都会被 IRS Austin 处理中心直接退件。
+
+📌 IRS 一共认 13 种身份证明文件，**护照是唯一一种可单独使用的文件**（同时证明身份和外国身份）；其他文件必须组合两份以上。这一点不随理由代码变化。
+
+---
+
+## 8 个理由代码逐条拆解
+
+下面这张总表先速查，再逐条展开。
+
+| 代码 | 适用对象 | 是否需要附 1040 / 1040-NR | NRA 常用度 |
+|---|---|---|---|
+| **a** | NRA 仅为享受税收协定优惠 | ❌ 不附（与 h 同勾） | ⭐⭐⭐ |
+| **b** | NRA 报美国联邦税 | ✅ 必附 1040-NR | ⭐⭐⭐⭐⭐ |
+| **c** | 美国税务居民（按停留天数判定）报税 | ✅ 必附 1040 | ⭐⭐ |
+| **d** | 美国公民 / 居民的家属 | 通常附税表 | ⭐⭐ |
+| **e** | 美国公民 / 居民的配偶 | 通常附税表 | ⭐⭐ |
+| **f** | NRA 学生 / 学者 / 研究人员 | ✅ 附税表或走 Exception | ⭐⭐ |
+| **g** | 持美签 NRA 的家属 / 配偶 | 视情况 | ⭐ |
+| **h** | 其他（含 5 大 Exception） | ❌ 走 Exception 可不附 | ⭐⭐⭐⭐ |
+
+### 代码 a：NRA 索取税收协定优惠
+
+📌 **官方原文**：Nonresident alien required to get an ITIN to claim a tax treaty benefit.
+
+适用场景：你是中国税务居民，券商扣了 30% 美股股息税，但中美协定 Article 10 把上限定在 10%。你想凭 ITIN 让券商重发 W-8BEN 把税率降下来，**这种"只要号码、不报税"** 的场景就是 a。
+
+⚠️ **a 必须与 h 同时勾**，且在 h 行后面写上具体 Exception 编号（通常是 Exception 1 或 2a）。只勾 a、不勾 h 是常见拒件原因。
+
+💡 关于 W-8BEN 的填写细节，可以参阅 [W-8BEN 表格 NRA 完全指南 2026](/blog/w-8ben-form-nra-complete-guide-2026)，那篇文章把"为什么没有 ITIN 也可以先用 Foreign TIN 填 W-8BEN"讲得很细。
+
+### 代码 b：NRA 报美国联邦税 ⭐ 最常用
+
+📌 **官方原文**：Nonresident alien filing a U.S. federal tax return.
+
+**适用人群**：
+
+- 注册了美国 LLC、收到 1099-K / 1099-MISC、要报 1040-NR 退税或缴税
+- 在美国有租房收入、需要按 ECI（Effectively Connected Income）申报
+- 美股账户产生 1099-B 资本利得需要申报
+
+这是 NRA 创业者 / LLC 单一成员（Single-Member LLC, Disregarded Entity）报 1040-NR 时**最标准的选择**。Form 1040-NR 与 W-7 一起寄到 Austin，处理中心会同步分配 ITIN + 处理税表。
+
+✅ **YoTrade 实战观察**：单一成员 LLC 第一次报 1040-NR 时同步申 ITIN 是最常见路径，避免"先没有 ITIN 没法报税、报税截止又快到了"的死循环。详细报税流程见 [Form 1040-NR 完全指南 2026](/blog/form-1040-nr-nra-complete-guide-2026)。
+
+### 代码 c：美国税务居民报税
+
+📌 **官方原文**：U.S. resident alien (based on days present in the United States) filing a U.S. federal tax return.
+
+判定依据：**Substantial Presence Test（实质居留测试）**——当年 ≥ 31 天 + 三年加权 ≥ 183 天。常见人群是 H-1B、L-1、E-2 等长期工作签证持有人，**但他们一般直接申 SSN**——所以代码 c 真正使用的场景是 **"虽然有资格申 SSN，但 SSN 因故迟迟办不下来"** 的过渡期。
+
+⚠️ 国内 NRA 几乎不会勾这个代码。LLC 老板即便人在美国停留过一段时间，只要不满足 SPT，就还是 NRA，应该勾 b 而不是 c。
+
+### 代码 d / e：美国公民或居民的家属 / 配偶
+
+📌 d = Dependent of U.S. citizen/resident alien；e = Spouse of U.S. citizen/resident alien.
+
+适用：与美国公民 / 绿卡持有人结婚或被作为家属申报，但本人没有 SSN 资格。例如美国华人家庭的国内父母被申报为 Qualifying Relative。
+
+⚠️ **重要变化**：**勾 d 的家属，护照没有"美国入境章"不再能单独使用**——必须再补一份能证明 U.S. residency 的文件（学校记录、医疗记录等）。例外：美军海外驻地的家属，以及加拿大 / 墨西哥家属。这是 2018 年后延续至今的硬要求。
+
+### 代码 f：NRA 学生 / 学者 / 研究人员
+
+📌 **官方原文**：Nonresident alien student, professor, or researcher filing a U.S. federal tax return or claiming an exception.
+
+适用：F、J、M、Q 签证持有人，**典型场景**——拿了奖学金（taxable scholarship）需要申报，或申请 Exception 2（学者税收协定优惠）。需附 SEVP 学校出具的信件 + DS-2019 / I-20。
+
+### 代码 g：持美签 NRA 的家属 / 配偶
+
+适用：F-1 持有人的 F-2 配偶、J-1 的 J-2 等，需要被申报为家属时使用。**注意不是 d**——d 是给"美国公民 / 居民"的家属，g 是给"NRA 签证持有人"的家属。
+
+### 代码 h：其他（5 大 Exception 都走这里）⭐ 第二常用
+
+📌 **官方原文**：Other — describe reason in detail and attach supporting documents.
+
+代码 h 是 W-7 的"万能口袋"，下文 Exception 那节专门展开。除了 5 个 Exception，还有：
+
+- **a + h 组合**：享受条约优惠（前述）
+- 其他特殊场景：例如政府机构要求提供 TIN 但你没报税义务
+
+⚠️ 勾 h **必须**在右侧空白处写明具体理由 + Exception 编号，否则 100% 退件。
+
+---
+
+## NRA 三大典型场景对照
+
+讲完 8 个代码，把场景倒过来推回代码：
+
+| 场景 | 勾哪个 | 是否附税表 | 关键证明文件 |
+|---|---|---|---|
+| 单一成员 LLC 报 1040-NR 退税 | **b** | ✅ 1040-NR | 护照原件 / CAA 认证件 + EIN 证明（Form CP-575） |
+| 美股 / 港股账户 W-8BEN 申请条约优惠 | **a + h** | ❌ 走 Exception 1 | 券商出具的 Letter（签字、附账户号、说明利息 / 股息预扣） |
+| FIRPTA 卖房预扣退还 | **h** | ❌ 走 Exception 4 | 闭户文件（Closing Documents）+ Form 8288 副本 |
+| Stripe / PayPal 收款收到 1099-K | **b** | ✅ 1040-NR | 平台年度账单 + 1099-K 副本 |
+| 美国公民配偶 + 国内一方 | **e** | 通常附联合申报 1040 | 结婚证 + 美国配偶 SSN 证明 |
+
+✅ **决策心法**：先问"我有没有报税义务"。**有 → b / c / d / e / f / g**；**没有但需要号码 → a + h 或 h + Exception**。
+
+---
+
+## 5 大 Exception 深度解读：不附税表也能办
+
+代码 h 配 Exception 是 NRA 第二常见的路径——**核心价值是不用等到次年报税季就能拿号**。
+
+| Exception | 场景 | 核心证明 |
+|---|---|---|
+| **1（被动收入）** | 第三方扣缴美股、利息、合伙企业分配 | 券商 / 银行 / 合伙企业出具的扣缴说明信 |
+| **2a（工资条约）** | 工资 / 报酬享受条约优惠 | 雇主 letter + Form 8233 |
+| **2b（奖学金条约）** | 学者奖学金条约优惠 | 学校 letter + DS-2019 |
+| **2c（无条约奖学金）** | 应税奖学金但无条约 | 学校 letter |
+| **3（房贷利息）** | Form 1098 房贷利息申报 | 房贷机构出具 letter + 闭户文件 |
+| **4（FIRPTA）** | 外国人卖美国房产预扣 | 闭户文件 + Form 8288 / 8288-A |
+| **5（TD 9363）** | 外国公司美国代理人申报 | 公司 letter + 申报凭证 |
+
+⚠️ **Exception 文件必须是当年的、签字的、有原件邮戳的**。复印件、电邮转发件、超过 6 个月的旧 letter 都会被拒。
+
+💡 **YoTrade 实战观察**：Exception 1（被动收入）的拒件率最高——主要是券商不愿意按 IRS 要求格式出 letter。我们常做的是先帮客户和券商客服沟通格式，把 W-7 申请周期从"6-12 周失败一次再 6-12 周"压到一次过。
+
+---
+
+## 不同代码下的证明文件清单
+
+把代码与必须附的文件做一张对照表：
+
+| 代码 | 身份证明 | 其他必须文件 |
+|---|---|---|
+| a | 护照原件 / CAA 件 | 协定 Article 引用 + 收入凭证 |
+| b | 护照原件 / CAA 件 | 1040-NR 全套 |
+| c | 护照原件 / CAA 件 | 1040 全套 |
+| d | 护照（含入境章）+ 美国居住证明 | 抚养关系证明 |
+| e | 护照原件 / CAA 件 | 美国配偶 SSN + 结婚证 |
+| f | 护照原件 / CAA 件 | SEVP 学校 letter + I-20 / DS-2019 |
+| g | 护照原件 / CAA 件 | 主签证持有人证件 + 关系证明 |
+| h | 护照原件 / CAA 件 | Exception 对应的全套文件 |
+
+📌 想避免护照原件邮寄丢失风险，**走 CAA（Certified Acceptance Agent）认证代办**是最稳的方案——CAA 现场核验后只寄认证复印件给 IRS。三种路径（DIY 邮寄 / TAC 当面 / CAA 代办）的横评见 [ITIN 申请完全指南：CAA 代办 vs 邮寄 DIY 全对比](/blog/itin-application-complete-guide)。
+
+---
+
+## 5 个最常见的勾错与拒件
+
+🎯 我们经手案例里 80% 的退件，根源都是下面 5 个：
+
+1. **❌ 只勾 a，没勾 h**：条约优惠场景必须 a + h 同勾，单勾 a 直接拒。
+2. **❌ 勾 b 但没附 1040-NR**：b 代码硬性要求附税表，没税表就该走 h + Exception。
+3. **❌ 勾 h 但右侧 Exception 编号空着**：h 必须写明"Exception 1 / 2a / 3 / 4 / 5"，写"Other"会被退。
+4. **❌ Exception 1 用的券商 letter 没签字 / 没账户号**：必须人工签字（不接受电子章）+ 写明账户号 + 列出预扣金额。
+5. **❌ 勾 c 但实际不满足 SPT**：自己估算"我去年待了 100 天差不多算 resident"——错。SPT 是公式判定，不满足就老实勾 b。
+
+---
+
+## 决策矩阵：3 步选对你的代码
+
+```
+你有没有当年的美国报税义务？
+  │
+  ├─ 有 → 你是 NRA 还是 Resident？
+  │        ├─ NRA           → 勾 b
+  │        └─ Resident（SPT）→ 勾 c
+  │
+  └─ 没有 → 你为什么需要 ITIN？
+           ├─ 享受条约优惠（股息 / 利息）→ a + h（Exception 1 / 2a）
+           ├─ 卖美国房产 FIRPTA 退预扣  → h（Exception 4）
+           ├─ 美国房贷 1098 申报         → h（Exception 3）
+           ├─ 学者 / 学生奖学金          → f
+           └─ 美国配偶 / 家属             → d 或 e
+```
+
+---
+
+## YoTrade 相关服务
+
+ITIN 申请是 NRA 在美国金融体系的入场券。代码勾错 / Exception 文件不达标 / 护照原件丢失，每一项都会让你多等 6–12 周。我们提供：
+
+- 🎯 **CAA 认证代办**：上海 / 香港线下面签护照，避免原件邮寄风险
+- 🎯 **W-7 代码诊断**：根据你的实际场景（LLC 报税 / 券商 / FIRPTA / 美卡）选对代码与 Exception
+- 🎯 **Exception 文件协调**：与券商 / 房贷机构 / 学校沟通 letter 格式，一次过审
+- 🎯 **配套服务**：ITIN + EIN + 美国 LLC 注册 + Mercury 银行 + Stripe 全链路
+
+👉 [咨询 ITIN / 美国身份代办服务](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=itin-w7-reason-codes-nra-guide-2026) | [查看 LLC + 银行 + 报税一体方案](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=itin-w7-reason-codes-nra-guide-2026)
+
+---
+
+## 相关阅读
+
+- [ITIN 申请完全指南：CAA 代办 vs 邮寄 DIY 全对比（2026 最新）](/blog/itin-application-complete-guide)
+- [ITIN 续期完全指南 2026：什么时候必须续，怎么避免年初退税被卡](/blog/itin-renewal-2026-complete-guide)
+- [Form 1040-NR 完全指南 2026：NRA LLC 老板的个人报税怎么报？](/blog/form-1040-nr-nra-complete-guide-2026)
+- [W-8BEN 表格 NRA 完全指南 2026](/blog/w-8ben-form-nra-complete-guide-2026)
+- [EIN 申请完全指南：Form SS-4 NRA 实战 2026](/blog/ein-application-form-ss4-nra-guide-2026)
+
+---
+
+*本文信息基于 IRS Form W-7 Instructions（Rev. December 2024）与 Publication 1915。本文不构成税务或法律建议，复杂场景请咨询 EA / CPA 或 IRS Authorized CAA。*
