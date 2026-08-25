@@ -1,0 +1,211 @@
+---
+title: GitHub Copilot 2026 海外订阅完整指南：Pro / Pro+ / Business 全档对比 + 国内开发者付款路径
+description: GitHub Copilot 2026 全套定价（Free / Pro $10 / Pro+ $39 / Max $100 / Business $19 / Enterprise $39）拆解，讲清 6 月起切换的 AI Credits 用量计费怎么算，学生 Copilot Student 计划报名重开进度，再给国内开发者一张信用卡 / PayPal / 代刷付款路径对比表。
+image: /images/blog/github-copilot-overseas-subscription-2026-guide-cover.png
+date: "2026-08-25"
+published: true
+categories: [payments, guide]
+author: 极客杰尼
+---
+
+> 本文整理自 GitHub 官方定价页（github.com/features/copilot/plans）、GitHub 官方博客计费变更公告 + YoTrade 代订实操记录交叉核对。所有价格以 github.com/settings/billing 当下显示为准，本文截稿于 2026 年 8 月。预计阅读时长 9 分钟。
+
+## 谁需要看这篇？
+
+- 国内开发者想订 **GitHub Copilot**，但纠结 Pro / Pro+ / Max 到底怎么选
+- 已经在用 Copilot Pro，被 **2026 年 6 月起的 AI Credits 用量计费**搞懵，不知道自己的额度还够不够用
+- 创业团队想给全员开 **Copilot Business $19/座**，需要统一计费和权限管控
+- 在读学生想薅 **Copilot Student 免费计划**，但不知道 4 月停摆后现在还能不能申请
+- 手上没有能通过国际交易验证的信用卡，想知道除了硬扛信用卡之外还有哪些合规付款路径
+
+如果你属于以上任意一类，这篇给你直接能落地的答案。
+
+---
+
+## 一句话选型表
+
+| 你是谁 | 推荐套餐 | 月费 |
+|---|---|---|
+| 在读学生（能验证学籍）| **Copilot Student** | $0 |
+| 偶尔写点代码 / 只想体验 | **Copilot Free** | $0 |
+| 日常主力写代码的独立开发者 | **Copilot Pro** | $10 |
+| 高频用 agent mode / 重度调用 Claude、GPT | **Copilot Pro+** | $39 |
+| 全职 AI 编程 / 团队里的重度用户 | **Copilot Max** | $100 |
+| 5-50 人团队，要统一计费和权限 | **Copilot Business** | $19/座 |
+| 大型组织，要 SCIM / 审计 / 自定义策略 | **Copilot Enterprise** | $39/座 |
+
+💡 一句话：**大部分个人开发者 Pro $10 就够用**——代码补全在所有付费档都不限量，$10 换来的是每月一份可调用 Claude / GPT 系列模型的 AI Credits 额度。只有天天挂着 agent mode 跑长任务的重度用户才需要跳到 Pro+ 或 Max。
+
+---
+
+## 2026 年 Copilot 全套套餐拆解
+
+Copilot 目前分四档个人版（Free / Pro / Pro+ / Max）和两档团队版（Business / Enterprise）。**2026 年 6 月 1 日**是关键分水岭：GitHub 把计费单位从"数请求次数"的 Premium Request Units（PRU）**切换成按 token 实际消耗计算的 GitHub AI Credits**，agent mode、chat、代码审查都从这个每月刷新的额度池里扣。
+
+### 价格 + 额度一览
+
+| 套餐 | 月费 | 代码补全 | AI Credits / 月 | 适用场景 |
+|---|---|---|---|---|
+| **Free** | $0 | ✅ 限量 | 少量试用额度 | 体验、轻度使用 |
+| **Pro** | $10 | ✅ 不限量 | 标准额度 | 日常主力开发 |
+| **Pro+** | $39 | ✅ 不限量 | **约 3 倍标准额度** | 高频 agent mode / 大量调用付费模型 |
+| **Max** | $100 | ✅ 不限量 | **约 10 倍标准额度** + 新功能优先体验 | 全职 AI 编程重度用户 |
+| **Business** | $19/座 | ✅ 不限量 | 团队池化额度 | 5-50 人团队，统一开票 + 权限管控 |
+| **Enterprise** | $39/座 | ✅ 不限量 | 池化额度 + 自定义策略 | 大型组织，需 SCIM / 审计日志 |
+
+📌 **没有年付折扣这回事**——Copilot 目前只有月付一种周期，不像 Cursor 那样年付打 8 折，所以不用纠结"要不要锁年付"，按月订就行，用不满意随时降级或取消。
+
+⚠️ **AI Credits 计费变更要注意什么**：2026 年 6 月起，月付用户已经全部迁移到新计费方式；这意味着"同样 $10，能跑多少次对话"取决于你调用的模型和上下文长度——用 Claude Sonnet 这类主力模型做一次完整对话消耗的 credit，比只做代码补全高不少。✅ **推荐做法**：迁移后头一周留意一下自己的额度消耗速度，官方后台（github.com/settings/billing）能看到实时用量，发现经常在月中就烧光再考虑升档，不要一上来就订最贵的 Max。
+
+---
+
+## Chat / Agent Mode 里能调用哪些模型
+
+Copilot 早就不是"只会代码补全"的工具了。付费档位的 chat 和 agent mode 里，可以在多家模型间自由切换，这也是它和 Cursor、Claude Code 竞争的核心卖点：
+
+| 模型系列 | 适合场景 | 相对 Credit 消耗 |
+|---|---|---|
+| **Claude Sonnet / Opus 系列** | 复杂重构、长上下文理解 | 中 - 高 |
+| **GPT 系列（OpenAI）** | 通用问答、快速生成 | 中 |
+| **Gemini 系列（Google）** | 多模态、长文档分析 | 中 |
+| **Copilot 自研模型** | 纯代码补全（Tab） | 不计入 AI Credits |
+
+💡 **YoTrade 实战观察**：日常代码补全完全免费不计额度，只有主动唤起 chat 或 agent mode 让模型"思考"和"生成"时才会扣 AI Credits。习惯把 Tab 补全当主力、偶尔用 chat 问问题的开发者，Pro $10 的额度基本用不完；习惯让 agent mode 自动跑完整个任务（写代码 + 跑测试 + 改 bug）的重度用户，额度消耗速度会快很多，这也是 Pro+ 和 Max 存在的意义。
+
+⚠️ **风险点**：不同模型的 Credit 消耗比例官方没有公开固定汇率，且会随后台调价调整，**不要按老经验估算额度够不够用**，直接看 github.com/settings/billing 里的实时用量最准。
+
+---
+
+## Copilot Student：免费计划现在还能申请吗
+
+在读学生是薅 Copilot 最划算的路径，但 2026 年这条路走得不太平：
+
+| 时间 | 事件 |
+|---|---|
+| 2026 年 3 月 12 日 | GitHub 把学生福利从"直接送 Copilot Pro 席位"改成独立的 **Copilot Student 计划**，功能介于 Free 和 Pro 之间 |
+| 2026 年 4 月 | 因 agent 类工作负载算力紧张，GitHub **暂停了 Student / Pro / Pro+ / Max 的新用户注册** |
+| 2026 年 6 月 17 日 | 官方宣布**分批逐步重新开放**注册，新用户名额陆续放出 |
+
+💡 **YoTrade 实战观察**：截至 8 月，Student 计划注册已经基本恢复，但仍可能出现"审核通过却看到额度不对"的情况（社区讨论里不少人反馈过），遇到这种建议直接去 GitHub Support 提工单，而不是等它自己恢复。
+
+✅ **申请方式**：走 GitHub Education 的 Student Developer Pack，最快路径是用学校邮箱（`.edu` 或学校域名）直接验证；没有教育邮箱的，上传带日期的学生证或在读证明也能过审。验证通过后进 github.com/education 开通即可，不需要绑卡。
+
+---
+
+## 国内开发者：付款路径怎么选
+
+Copilot **不支持支付宝、微信支付、银联**，官方只收 Visa / Mastercard / AmEx / Discover 国际信用卡，另外也支持绑定 PayPal 账户代扣。**预付卡（prepaid card）明确不接受**，这是很多人踩坑的第一步。
+
+| 路径 | 月成本溢价 | 稳定性 | 可否团队集中开票 | 推荐指数 |
+|---|---|---|---|---|
+| ① **美卡（LLC 名下）** | 0% | 🟢 高 | ✅ | 🎯🎯🎯🎯🎯 |
+| ② **港卡（个人）** | 0-0.5% | 🟢 高 | ⚠️ 部分 | 🎯🎯🎯🎯 |
+| ③ **国内双币信用卡** | 0-1%（换汇费）| 🟡 中 | ❌ | 🎯🎯🎯 |
+| ④ **PayPal 绑卡代扣** | 视绑定卡而定 | 🟡 中（社区反馈偶发扣款失败）| ❌ | 🎯🎯 |
+| ⑤ **YoTrade 代刷（实名独立号）** | 8-12% | 🟢 高 | ✅ | 🎯🎯🎯🎯🎯 |
+
+### ① 美卡（LLC 名下）——最推荐路径
+
+如果你已经有美国 LLC + Mercury / Relay 账户 + 美卡（比如 Amex Blue Business Plus 或 Chase Ink），这是**零溢价、通过率最高**的方案：
+
+- ✅ 美国账单地址直接通过国际交易验证，几乎不会被拒
+- ✅ Business / Enterprise 团队版可以走公司发票，年底抵美国 LLC 的税
+- ✅ 同一张卡还能顺手订 Cursor、ChatGPT、Claude 等其他海外 SaaS，统一对账
+
+📌 没有 LLC + 美卡？先看这两篇：[NRA 美国 LLC 注册州横评](/blog/nra-us-llc-state-comparison) → [NRA 美卡 12 个月路线图](/blog/nra-us-credit-card-12-month-roadmap)。
+
+### ② 港卡（个人）——次优路径
+
+汇丰 One、众安 ZA、渣打 Mox 这类港卡走 Visa / Mastercard 国际通道，Copilot 结算基本没有问题：
+
+- ✅ 港币 / 美元自动换汇，溢价通常在 0.5% 以内
+- ✅ 不需要美国身份，开户门槛比美卡低
+- ⚠️ 团队版集中开票支持有限，个人订阅够用，团队场景建议还是走美卡或直接找代刷
+
+详细办卡路径看 [香港银行卡办理完全指南](/blog/香港银行卡办理完全指南)。
+
+### ③ 国内双币信用卡——能用但不稳
+
+部分国内发行的双币信用卡（需支持"国际交易"功能）也能过 Copilot 的验证，但风险点在于：
+
+⚠️ **风险点**：不少国内卡即使标注"支持境外交易"，实际扣款时仍会被发卡行风控拦截，尤其是订阅类扣款容易被误判为异常交易，导致**扣款失败或卡片被临时冻结**。遇到这种情况建议先联系发卡行开通"境外网络消费"权限。
+
+### ④ PayPal 绑卡代扣——因人而异
+
+Copilot Pro 支持直接绑定 PayPal 支付，但社区里能看到不少"续订失败""地区限制"的反馈，本质上还是 PayPal 背后绑定的卡在起作用，稳定性取决于你 PayPal 里挂的是哪张卡，不是一个独立可靠的通道。
+
+### ⑤ YoTrade 代刷（实名独立号）——团队 / 无卡首选
+
+YoTrade 提供**实名独立 GitHub 账号 + 稳定支付通道 + 开发票**的全流程代刷服务，适合：
+
+- 🎯 没有美卡 / 港卡，又不想折腾发卡行风控的个人开发者
+- 🎯 国内创业团队想统一订阅 Copilot Business，需要集中管理和对账
+- 🎯 已经订阅但遇到扣款失败 / 额度异常，需要排查或迁移账户
+
+👉 [咨询 Copilot 代刷服务](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=github-copilot-overseas-subscription-2026-guide) | [浏览全套代付方案](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=github-copilot-overseas-subscription-2026-guide)
+
+---
+
+## 个人版 vs 团队版怎么选：决策矩阵
+
+```
+                  你打算怎么用 Copilot？
+
+  只有我一个人用 ──→ 学生身份？──→ 是 ──→ Copilot Student（免费）
+        │                │
+        │                └─ 否 ──→ 日常主力开发 ──→ Copilot Pro $10
+        │                              │
+        │                              └─ agent mode 重度用户 ──→ Pro+ $39 / Max $100
+        │
+        └─ 团队一起用 ──→ 5-50 人 ──→ Business $19/座
+                              │
+                              └─ 需要 SCIM / 审计合规 ──→ Enterprise $39/座
+```
+
+✅ **黄金准则**：先订 Pro $10 跑满一个月，用后台看实际 AI Credits 消耗速度，再决定要不要升档——**不要一上来就订 Max**，绝大多数人用不到那么多额度。
+
+---
+
+## ❓ 常见问题
+
+**Q：我现在用的是 Free 档，什么时候该升级到 Pro？**
+
+A：当你发现自己每天都在主动打开 chat 窗口问问题、或者频繁被提示"本月额度已用完"，就是升级信号。如果只是偶尔用用代码补全，Free 完全够用，不用着急花钱。
+
+**Q：Business 和 Enterprise 到底怎么选？**
+
+A：核心区别在合规和管控深度。团队规模不大、只需要统一计费和基本权限管理，Business $19/座 够用；如果公司有 SSO/SCIM 强制要求、需要审计日志和自定义使用策略，才需要上 Enterprise $39/座。大多数 5-50 人的创业团队订 Business 就足够。
+
+**Q：没有信用卡，只能用代刷吗？**
+
+A：不是唯一选项，但确实是最省心的一条。前提是你能拿到一张能通过国际交易验证的卡（美卡、港卡、或开通了境外消费权限的国内双币卡）都可以自己订；如果暂时都没有，找实名独立号代刷是最快落地的路径，不用先花时间办卡再订阅。
+
+**Q：AI Credits 用完了会怎样？**
+
+A：官方设计是超额后可以选择按量付费购买额外 Credits，或者等下个月额度刷新前先降级使用免费的代码补全功能。不会直接停用账户，但 chat / agent mode 会被限制，直到额度恢复或手动加购。
+
+---
+
+## YoTrade 相关服务
+
+我们提供：
+
+- 🎯 **GitHub Copilot Pro / Pro+ / Business 代订**：实名独立账号，稳定支付通道，月付随时可停
+- 🎯 **团队版集中代订**：5-50 人团队一站式开通 Copilot Business，统一开票对账
+- 🎯 **配套美卡 / 港卡 / LLC 代办**：从源头解决跨境支付问题，一次性铺好长期订阅海外 SaaS 的基础设施
+- 🎯 **扣款失败 / 账户异常排查**：已经订阅但遇到支付问题，帮你诊断并迁移到稳定方案
+
+👉 [咨询 Copilot 代刷服务](/services/daishua?utm_source=blog&utm_medium=cta&utm_campaign=github-copilot-overseas-subscription-2026-guide) | [查看美国身份链路代办](/services/daiban?utm_source=blog&utm_medium=cta&utm_campaign=github-copilot-overseas-subscription-2026-guide)
+
+---
+
+## 相关阅读
+
+- [AI 编程工具订阅怎么选？Cursor / Copilot / Claude Code / Windsurf 2026 横评](/blog/ai-coding-tools-subscription-comparison-2026)
+- [Cursor 2026 海外订阅完整指南：Pro / Pro+ / Ultra 全档对比](/blog/cursor-pro-overseas-subscription-2026-guide)
+- [AI 订阅跨境支付完整路径：ChatGPT / Claude / Cursor / Midjourney](/blog/ai-subscription-payment-paths)
+- [NRA 美卡 12 个月路线图：从 0 到 Chase Ink + AmEx Platinum](/blog/nra-us-credit-card-12-month-roadmap)
+
+---
+
+*本文信息基于 2026 年 8 月最新数据，Copilot 定价和额度规则可能随时调整，订阅前请以 github.com/features/copilot/plans 当下显示为准。本文不构成投资或税务建议。*
