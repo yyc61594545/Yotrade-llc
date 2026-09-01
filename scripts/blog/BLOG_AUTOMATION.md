@@ -153,6 +153,28 @@ author: 极客杰尼
 
 每篇文章**必须**在"相关阅读"或正文中链接 ≥ 2 篇现有文章，强化内链矩阵。
 
+### 3.5 跨站外链（仅代刷板块，最多 1 条）
+
+本文若属**代刷板块**（AI 订阅、海外 SaaS），可在正文或相关阅读末尾加一条指向姊妹站 `blog.yotradeapi.com` 的链接。两站同属一人运营、内容互补：本站讲订阅代充与海外支付，姊妹站讲 API 调用与技术接入。互链利于双方 SEO，也能把想自己接 API 的技术读者导到对的地方。
+
+可链目标（slug 已核实存在，URL 形如 `https://blog.yotradeapi.com/blog/<slug>/`，**结尾必须带 `/`**）：
+
+| 话题 | slug |
+|---|---|
+| 无海外手机号注册 ChatGPT | `cn-chatgpt-register-without-foreign-phone` |
+| ChatGPT Plus 付款 | `cn-chatgpt-plus-payment-2026` |
+| ChatGPT Pro $200 付款 | `cn-chatgpt-pro-200-dollar-payment` |
+| ChatGPT 扣款失败修复 | `cn-chatgpt-recurring-failed-fix` |
+| 国内直连 Claude | `cn-claude-cn-direct-access-2026` |
+| Claude Max 5x/20x 定价 | `cn-claude-max-5x-20x-pricing` |
+| Claude Max vs Pro 值不值 | `cn-claude-max-vs-pro-roi` |
+| Claude vs ChatGPT 价格对比 | `cn-claude-vs-chatgpt-price-2026` |
+| Claude Code 国内使用 | `cn-claude-code-cn-using-2026` |
+| 虚拟信用卡开通 ChatGPT | `cn-virtual-card-for-chatgpt-2026` |
+| Cursor 国内可用性 | `cn-cursor-cn-available-2026` |
+
+⚠️ 硬性约束：**不相关就不加**（代办/代购/代买板块一律不加）；一篇最多 1 条；只能用上表 slug，不得凭记忆编造其他 URL。
+
 ## 4. 封面图
 
 ### 4.1 生成命令
