@@ -147,9 +147,21 @@ publish() {
     return 1
   fi
 
+  # 合并前先记下新文章 slug（合并后分支会被删掉）
+  local slugs
+  slugs=$(git diff --name-only --diff-filter=A origin/main..."$BRANCH" -- content/blog/ \
+          | sed -n 's|.*/||; s|\.zh\.mdx$||p' | tr '\n' ' ')
+
   log "typecheck 绿，squash 合并"
   gh pr merge "$BRANCH" --squash --delete-branch || { log "合并失败"; return 1; }
   log "已合并到 main，Vercel 接管部署"
+
+  # IndexNow：本站 Bing 流量为 0（2026-09 数据），新文章上线后主动推给 Bing。
+  # 失败只记日志，不影响本次日更结果。
+  if [ -n "$slugs" ]; then
+    log "等 Vercel 部署后通知 IndexNow：$slugs"
+    python3 "$REPO/scripts/indexnow.py" --wait $slugs 2>&1 | while read -r l; do log "$l"; done
+  fi
   return 0
 }
 
