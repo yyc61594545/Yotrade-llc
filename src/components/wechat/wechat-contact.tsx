@@ -1,7 +1,8 @@
 import { cn } from '@/lib/utils';
 import { Clock, Compass, QrCode, ShieldCheck, Users } from 'lucide-react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { QrTrack } from './qr-track';
 
 /**
  * WechatContact — 三渠道 QR 模块,跨页面统一视觉契约。
@@ -11,11 +12,12 @@ import { useTranslations } from 'next-intl';
  * - compact: 服务页底部 中等 (120px QR + 文案 + 4 perks,无 perksTitle 分隔条)
  * - inline:  Footer 紧凑 (64px QR × 3 横排 + 小 label,无文案)
  *
- * 全 Server Component (无 useState / event handler / 复制按钮)。
+ * Server Component；码图外层的 QrTrack 是唯一的 client 岛，只负责埋点。
  */
 
 const WECHAT_QR_SRC = '/images/wechat-qr.jpg';
-const WECHAT_QR_ALT = '加微信 Easloyip — YoTrade 跨境支付/代办/代购/代付一站式服务';
+const WECHAT_QR_ALT =
+  '加微信 Easloyip — YoTrade 跨境支付/代办/代购/代付一站式服务';
 const WHATSAPP_QR_SRC = '/images/whatsapp-qr.png';
 const WHATSAPP_QR_ALT = 'YoTrade WhatsApp 二维码';
 const TELEGRAM_QR_SRC = '/images/telegram-qr.png';
@@ -25,6 +27,7 @@ const CHANNELS = [
   {
     src: WECHAT_QR_SRC,
     alt: WECHAT_QR_ALT,
+    id: 'wechat',
     label: '微信 WeChat',
     sub: '国内首选 · 成交主渠道',
     dotClass: 'bg-wx-600',
@@ -33,6 +36,7 @@ const CHANNELS = [
   {
     src: WHATSAPP_QR_SRC,
     alt: WHATSAPP_QR_ALT,
+    id: 'whatsapp',
     label: 'WhatsApp',
     sub: '海外用户首选',
     dotClass: 'bg-[#25D366]',
@@ -41,6 +45,7 @@ const CHANNELS = [
   {
     src: TELEGRAM_QR_SRC,
     alt: TELEGRAM_QR_ALT,
+    id: 'telegram',
     label: 'Telegram',
     sub: '隐私 / 频道动态',
     dotClass: 'bg-[#229ED9]',
@@ -78,7 +83,11 @@ export function WechatContact({
       <div className={cn('flex items-start gap-3', className)}>
         {CHANNELS.map((ch) => (
           <div key={ch.label} className="flex flex-col items-center gap-1">
-            <div className="border-border-soft relative size-16 overflow-hidden rounded-lg border bg-white p-0.5">
+            <QrTrack
+              channel={ch.id}
+              variant="inline"
+              className="border-border-soft relative size-16 overflow-hidden rounded-lg border bg-white p-0.5"
+            >
               <Image
                 src={ch.src}
                 alt={ch.alt}
@@ -86,7 +95,7 @@ export function WechatContact({
                 className="object-cover"
                 sizes="64px"
               />
-            </div>
+            </QrTrack>
             <span className="text-muted-foreground text-[10px] font-medium">
               {ch.label}
             </span>
@@ -135,7 +144,9 @@ export function WechatContact({
                   : 'border-border-soft'
               )}
             >
-              <div
+              <QrTrack
+                channel={ch.id}
+                variant="compact"
                 className={cn(
                   'relative size-[120px] overflow-hidden rounded-lg bg-white',
                   ch.primary && 'wx-qr-float'
@@ -148,12 +159,14 @@ export function WechatContact({
                   className="object-cover"
                   sizes="120px"
                 />
-              </div>
+              </QrTrack>
               <div className="flex items-center gap-1.5 text-xs font-extrabold">
                 <span className={cn('size-2 rounded-full', ch.dotClass)} />
                 {ch.label}
               </div>
-              <span className="text-muted-foreground text-[10px]">{ch.sub}</span>
+              <span className="text-muted-foreground text-[10px]">
+                {ch.sub}
+              </span>
             </div>
           ))}
         </div>
@@ -223,7 +236,9 @@ export function WechatContact({
                 : 'border-border-soft'
             )}
           >
-            <div
+            <QrTrack
+              channel={ch.id}
+              variant="primary"
               className={cn(
                 'relative size-[150px] overflow-hidden rounded-xl bg-white',
                 ch.primary && 'wx-qr-float'
@@ -237,12 +252,14 @@ export function WechatContact({
                 sizes="150px"
                 priority={ch.primary}
               />
-            </div>
+            </QrTrack>
             <div className="flex items-center gap-1.5 text-sm font-extrabold">
               <span className={cn('size-2.5 rounded-full', ch.dotClass)} />
               {ch.label}
             </div>
-            <span className="text-muted-foreground -mt-2 text-xs">{ch.sub}</span>
+            <span className="text-muted-foreground -mt-2 text-xs">
+              {ch.sub}
+            </span>
           </div>
         ))}
       </div>
