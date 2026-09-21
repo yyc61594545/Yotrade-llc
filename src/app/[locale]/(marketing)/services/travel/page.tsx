@@ -12,9 +12,12 @@ import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl, getUrlWithLocale } from '@/lib/urls/urls';
 import {
   BedDouble,
+  Calculator,
   CheckCircle2,
+  Mail,
   MessageCircle,
   Plane,
+  Send,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -28,7 +31,7 @@ export async function generateMetadata({
   return constructMetadata({
     title: 'IHG 酒店积分代订 / 航班里程票代订 | 酒店机票代订 | YoTrade',
     description:
-      '用 IHG 优悦会积分与会员权益代订洲际、皇冠假日、假日酒店等全球门店，航班里程票与官网直订代付。真实客人姓名入住,行程确认单可查,未出行前按规则可退。',
+      'IHG 优悦会积分代订参考单价 ¥400 / 万分（$57），洲际、皇冠假日、假日酒店等全球门店，报价时同步给官网现金价，比官网 85 折贵的单不接。航班里程票与官网直订代付,真实姓名入住,官方确认单可查。',
     canonicalUrl: getUrlWithLocale('/services/travel', locale),
   });
 }
@@ -47,6 +50,54 @@ const PROCESS = [
   { step: '04', title: '入住 / 出行', desc: '凭证件办理入住或值机。行前有变动按酒店 / 航司当期退改规则处理。' },
 ];
 
+const PRICE_CNY = '400';
+const PRICE_USD = '57';
+
+const PRICE_RULES = [
+  {
+    title: '报价 = 积分价 × 单价',
+    desc: '例：一晚 70,000 分 → ¥2,800。报价时一并给你 IHG 官网同日现金价，两个数字自己比。',
+  },
+  {
+    title: '比官网 85 折贵的单不接',
+    desc: '积分价折算后高于官网现金价 85 折，我们直接劝你付现金或走官网直订代付，不硬卖。',
+  },
+  {
+    title: '大单 ¥380 / 万分',
+    desc: '单次行程 ≥ 100,000 分（多晚度假村、连住）按 ¥380 计，报价时自动按大单算。',
+  },
+] as const;
+
+const PRICE_EXAMPLES = [
+  { scene: '海外度假村旺季（如 Kimpton 度假村）', points: '70,000', quote: '¥2,800', cash: '≈ ¥7,000', verdict: '接，省 60%' },
+  { scene: '亚洲一线城市洲际周末', points: '55,000', quote: '¥2,200', cash: '≈ ¥2,700', verdict: '接，省 18%' },
+  { scene: '国内中端店淡季', points: '25,000', quote: '¥1,000', cash: '¥700–900', verdict: '不接，劝付现金' },
+] as const;
+
+const CONTACTS = [
+  {
+    icon: MessageCircle,
+    label: '微信',
+    value: 'Easloyip',
+    note: '国内首选 · 扫下方码，备注「IHG」',
+    href: null,
+  },
+  {
+    icon: Send,
+    label: 'Telegram',
+    value: '@Easlo',
+    note: '海外用户优先 · 异步工单',
+    href: 'https://t.me/Easlo',
+  },
+  {
+    icon: Mail,
+    label: '邮件',
+    value: 'service@yotradellc.com',
+    note: '商务 / 发票 / 售后',
+    href: 'mailto:service@yotradellc.com',
+  },
+] as const;
+
 const FAQS = [
   {
     q: '积分代订的房间和自己在官网订有区别吗?',
@@ -58,7 +109,7 @@ const FAQS = [
   },
   {
     q: '价格怎么算?',
-    a: '按酒店 / 航线当期积分价折算,一次报到手总价。报价前会把官网现金价一起给你看,不划算我们会直说。本站不放公开价目表,微信报价。',
+    a: 'IHG 积分代订参考单价 ¥400 / 万分（约 $57），单次行程 ≥ 100,000 分按 ¥380。报价 = 酒店当期积分价 × 单价，一次报到手总价，同时把官网同日现金价发你对比；比官网 85 折贵的单我们不接。航班按航线与舱位单独报价。最终以微信客服确认为准,确认后再付款。',
   },
   {
     q: '能取消吗?',
@@ -86,6 +137,14 @@ export default async function TravelPage({
     description:
       '用 IHG 优悦会积分与会员权益代订全球门店,航班里程票与官网直订代付,真实姓名入住,官方确认单可查。',
     url: pageUrl,
+    offers: {
+      '@type': 'Offer',
+      name: 'IHG 积分代订',
+      price: PRICE_CNY,
+      priceCurrency: 'CNY',
+      description: '每 10,000 IHG 积分参考单价，报价 = 酒店当期积分价 × 单价',
+      availability: 'https://schema.org/InStock',
+    },
   };
 
   return (
@@ -138,6 +197,104 @@ export default async function TravelPage({
             </div>
           ))}
         </div>
+      </section>
+
+      {/* 参考单价 + 联系方式（口径参考 yotradeapi.com：明码单价、微信确认后付款） */}
+      <section id="pricing" className="max-w-5xl mx-auto w-full">
+        <h2 className="text-3xl font-bold text-center mb-3">参考单价</h2>
+        <p className="text-muted-foreground text-center mb-10">
+          明码单价，报价以微信客服确认为准，确认后再付款。
+        </p>
+        <div className="grid gap-5 lg:grid-cols-5">
+          <div className="lg:col-span-2 rounded-2xl border bg-ink-900 text-white p-8 flex flex-col">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-200 mb-5">
+              <Calculator className="size-3.5" /> IHG 积分代订
+            </div>
+            <div className="flex items-end gap-2">
+              <span className="text-5xl font-extrabold tracking-tight">¥{PRICE_CNY}</span>
+              <span className="text-white/70 mb-2">/ 万分</span>
+            </div>
+            <div className="mt-1 text-white/70">
+              或 <span className="font-bold text-white">${PRICE_USD}</span> / 10,000 分（按当期汇率对齐）
+            </div>
+            <ul className="mt-6 space-y-2 text-sm text-white/80">
+              <li>· 洲际 / Kimpton / 皇冠假日 / 假日 / 英迪格 全品牌</li>
+              <li>· 真实姓名入住，IHG 官方确认号可查</li>
+              <li>· 微信 / 支付宝 / USDT 付款，报价确认后付款，付款后下单出确认单</li>
+            </ul>
+            <div className="mt-auto pt-6 text-xs text-white/50">
+              航班里程票与官网直订代付按航线单独报价。单价随 IHG 买分促销价浮动，以报价当日为准。
+            </div>
+          </div>
+          <div className="lg:col-span-3 grid gap-4">
+            {PRICE_RULES.map((r) => (
+              <div key={r.title} className="rounded-2xl border bg-card p-5">
+                <div className="font-bold mb-1">{r.title}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{r.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 overflow-x-auto rounded-2xl border">
+          <table className="w-full text-sm">
+            <thead className="bg-muted/50 text-left">
+              <tr>
+                <th className="px-4 py-3 font-semibold">场景</th>
+                <th className="px-4 py-3 font-semibold">积分价 / 晚</th>
+                <th className="px-4 py-3 font-semibold">我们的报价</th>
+                <th className="px-4 py-3 font-semibold">官网现金价</th>
+                <th className="px-4 py-3 font-semibold">结论</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PRICE_EXAMPLES.map((e) => (
+                <tr key={e.scene} className="border-t">
+                  <td className="px-4 py-3">{e.scene}</td>
+                  <td className="px-4 py-3">{e.points}</td>
+                  <td className="px-4 py-3 font-semibold">{e.quote}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{e.cash}</td>
+                  <td className="px-4 py-3">{e.verdict}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          示例为常见区间演示，实际以酒店当期积分价与官网现金价为准。IHG 为动态定价，同一酒店同一房型不同日期积分价可相差一倍。
+        </p>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {CONTACTS.map(({ icon: Icon, label, value, note, href }) => {
+            const body = (
+              <>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Icon className="size-4" /> {label}
+                </div>
+                <div className="mt-1 font-bold break-all">{value}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{note}</div>
+              </>
+            );
+            return href ? (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border bg-card p-5 transition-colors hover:bg-muted/40"
+              >
+                {body}
+              </a>
+            ) : (
+              <div key={label} className="rounded-2xl border bg-card p-5">
+                {body}
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          流程：发酒店 / 航线 + 日期 + 入住人 → 30 分钟内收到积分价折算报价与官网现金价 → 微信确认后付款 → 收 IHG / 航司官方确认单。
+        </p>
       </section>
 
       {/* WeChat — primary conversion */}
