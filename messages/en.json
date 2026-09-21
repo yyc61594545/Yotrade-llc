@@ -958,7 +958,9 @@
         "daifu": {
           "title": "Subscriptions + recharges",
           "desc": "ChatGPT / Claude / Cursor / Netflix / Spotify / Apple ID / Steam — overseas card payment, instant activation or top-up.",
-          "highlight": "Dedicated accounts · instant delivery · full refund if cancelled"
+          "highlight": "Dedicated accounts · instant delivery · full refund if cancelled",
+          "ctaExternal": "Order on yotradeapi.com",
+          "detailExternal": "See plans & pricing"
         },
         "daigou": {
           "title": "Proxy buying",

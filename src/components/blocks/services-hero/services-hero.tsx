@@ -27,10 +27,14 @@ import { useTranslations } from 'next-intl';
  *   酒店机票 → /services/travel（IHG 积分代订 / 航班里程票，2026-09 新上线，横幅位）
  */
 
+// 代付卡整体跳姊妹站 yotradeapi.com（自助下单 + 明码价格），2026-09-21 用户要求。
+const YOTRADEAPI_HREF =
+  'https://yotradeapi.com/?utm_source=yotradellc&utm_medium=services-card&utm_campaign=daifu';
+
 const MAIN_SERVICES = [
-  { slug: 'daifu',  icon: CreditCard,  dark: true,  hot: true,  detailHref: '/services/daifu' },
-  { slug: 'daigou', icon: ShoppingBag, dark: false, hot: false, detailHref: '/services/daigou' },
-  { slug: 'daimai', icon: Gem,         dark: false, hot: false, detailHref: '/services/daimai' },
+  { slug: 'daifu',  icon: CreditCard,  dark: true,  hot: true,  detailHref: YOTRADEAPI_HREF, external: true },
+  { slug: 'daigou', icon: ShoppingBag, dark: false, hot: false, detailHref: '/services/daigou', external: false },
+  { slug: 'daimai', icon: Gem,         dark: false, hot: false, detailHref: '/services/daimai', external: false },
 ] as const;
 
 const CONTACT_HREF = (campaign: string) =>
@@ -64,7 +68,7 @@ export default function ServicesHero() {
 
         {/* 主业三件套 */}
         <div className="grid gap-5 lg:grid-cols-3">
-          {MAIN_SERVICES.map(({ slug, icon: Icon, dark, hot, detailHref }) => (
+          {MAIN_SERVICES.map(({ slug, icon: Icon, dark, hot, detailHref, external }) => (
             <div
               key={slug}
               className={cn(
@@ -123,24 +127,48 @@ export default function ServicesHero() {
                 asChild
                 className="bg-wx-500 hover:bg-wx-600 active:bg-wx-700 mt-5 h-12 w-full rounded-xl text-base font-bold text-white shadow-[0_10px_24px_-8px_rgba(16,194,91,0.55)] transition-all hover:-translate-y-0.5"
               >
-                <LocaleLink href={CONTACT_HREF(slug)}>
-                  <MessageCircle className="size-5" />
-                  {t('cta')}
-                </LocaleLink>
+                {external ? (
+                  <a href={detailHref} target="_blank" rel="noopener noreferrer">
+                    <ArrowRight className="size-5" />
+                    {t(`items.${slug}.ctaExternal`)}
+                  </a>
+                ) : (
+                  <LocaleLink href={CONTACT_HREF(slug)}>
+                    <MessageCircle className="size-5" />
+                    {t('cta')}
+                  </LocaleLink>
+                )}
               </Button>
 
-              <LocaleLink
-                href={detailHref}
-                className={cn(
-                  'relative mt-3 inline-flex items-center justify-center gap-1 text-sm font-semibold transition-colors',
-                  dark
-                    ? 'text-white/70 hover:text-white'
-                    : 'text-brand-600 hover:text-brand-700'
-                )}
-              >
-                {t('detail')}
-                <ArrowRight className="size-3.5" />
-              </LocaleLink>
+              {external ? (
+                <a
+                  href={detailHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    'relative mt-3 inline-flex items-center justify-center gap-1 text-sm font-semibold transition-colors',
+                    dark
+                      ? 'text-white/70 hover:text-white'
+                      : 'text-brand-600 hover:text-brand-700'
+                  )}
+                >
+                  {t(`items.${slug}.detailExternal`)}
+                  <ArrowRight className="size-3.5" />
+                </a>
+              ) : (
+                <LocaleLink
+                  href={detailHref}
+                  className={cn(
+                    'relative mt-3 inline-flex items-center justify-center gap-1 text-sm font-semibold transition-colors',
+                    dark
+                      ? 'text-white/70 hover:text-white'
+                      : 'text-brand-600 hover:text-brand-700'
+                  )}
+                >
+                  {t('detail')}
+                  <ArrowRight className="size-3.5" />
+                </LocaleLink>
+              )}
             </div>
           ))}
         </div>

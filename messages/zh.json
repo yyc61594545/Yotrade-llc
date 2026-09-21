@@ -957,7 +957,9 @@
         "daifu": {
           "title": "代付 · 海外订阅 + 会员充值",
           "desc": "ChatGPT / Claude / Cursor / Netflix / Spotify / Apple ID / Steam — 海外卡支付,即时开通或充值。",
-          "highlight": "不共享号池 · 即时到账 · 被砍单全退"
+          "highlight": "不共享号池 · 即时到账 · 被砍单全退",
+          "ctaExternal": "去 yotradeapi.com 下单",
+          "detailExternal": "查看套餐与价格"
         },
         "daigou": {
           "title": "代购 · 全球好物",
