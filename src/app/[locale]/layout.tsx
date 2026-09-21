@@ -45,6 +45,11 @@ export default async function LocaleLayout({
   return (
     <html suppressHydrationWarning lang={locale}>
       <head>
+        {/* Bing Webmaster Tools site verification */}
+        <meta
+          name="msvalidate.01"
+          content="BEB7EA2C2907DE17A5A889A4186CC6F3"
+        />
         {/* Google AdSense */}
         <script
           async
