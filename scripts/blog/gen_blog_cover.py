@@ -4,7 +4,7 @@ Usage:
     python3 scripts/blog/gen_blog_cover.py SLUG "TITLE_LINE_1" "TITLE_LINE_2" "SUBTITLE"
 
 Output:
-    public/images/blog/{SLUG}-cover.png  (2560x1440, ~250-500 KB)
+    public/images/blog/{SLUG}-cover.webp  (2560x1440, ~250-500 KB)
 
 Style: black background + red/cyan fluid motion-blur blobs + heartbeat
 waveform top-center + bold white title + red subtitle + gradient underline.
@@ -124,8 +124,9 @@ def render(slug, title1, title2, subtitle):
 
     out_dir = Path("public/images/blog")
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{slug}-cover.png"
-    img.convert("RGB").save(out_path, optimize=True)
+    # 2026-09-21 起输出 WebP：Vercel Hobby 部署存储 10 GB 上限，PNG 封面单张 2-3 MB 是主因
+    out_path = out_dir / f"{slug}-cover.webp"
+    img.convert("RGB").save(out_path, "WEBP", quality=80, method=6)
     return out_path
 
 
