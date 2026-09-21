@@ -22,6 +22,7 @@ Claude 通过 `/daily-post` 进入，Codex 直接读本文件。两者规范完�
 | `[us-business, guide]` | LLC / EIN / ITIN / 报税 / 美卡 / 银行开户 | `/services/daiban` |
 | `[payments, guide]` | 海外订阅、会员充值、支付路径 | `/services/daifu` |
 | `[payments, guide]` | 海淘代购、球鞋抽签、限量好物 | `/services/daigou` 或 `/services/daimai` |
+| `[travel, guide]` | IHG 等酒店集团会员体系 / 积分订房 / 买分促销、航班里程票、跨境订票支付、酒店航司退改新规（2026-09-21 起新板块，IHG 优先） | `/services/travel` |
 
 近 4 天发过的板块不要再发。选题必须有**当期由头**（新规生效、涨价、发售、政策变更），不写"万年常青"泛论。
 

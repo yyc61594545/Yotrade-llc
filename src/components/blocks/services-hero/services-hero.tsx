@@ -8,6 +8,7 @@ import {
   Gem,
   Landmark,
   MessageCircle,
+  Plane,
   ShoppingBag,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -23,6 +24,7 @@ import { useTranslations } from 'next-intl';
  *   代购 → /services/daigou （全球海淘:美亚/日亚）
  *   代买 → /services/daimai （限量好物:球鞋/演唱会票/区域限购）
  *   （代刷已并入代付 — daishua 路由 301 → daifu，见 next.config.ts）
+ *   酒店机票 → /services/travel（IHG 积分代订 / 航班里程票，2026-09 新上线，横幅位）
  */
 
 const MAIN_SERVICES = [
@@ -36,6 +38,9 @@ const CONTACT_HREF = (campaign: string) =>
 
 const DAIBAN_HREF =
   '/services/daiban?utm_source=home&utm_medium=services-banner&utm_campaign=daiban';
+
+const TRAVEL_HREF =
+  '/services/travel?utm_source=home&utm_medium=services-banner&utm_campaign=travel';
 
 export default function ServicesHero() {
   const t = useTranslations('HomePage.servicesHero');
@@ -166,6 +171,37 @@ export default function ServicesHero() {
           >
             <LocaleLink href={DAIBAN_HREF}>
               {t('daiban.cta')}
+              <ArrowRight className="size-4" />
+            </LocaleLink>
+          </Button>
+        </div>
+
+        {/* 酒店机票横幅（新业务） */}
+        <div className="border-border-soft mt-5 flex flex-wrap items-center gap-5 rounded-2xl border bg-white px-7 py-6 shadow-sm">
+          <div className="bg-ink-900 grid size-14 shrink-0 place-items-center rounded-2xl text-white">
+            <Plane className="size-7" />
+          </div>
+          <div className="min-w-[240px] flex-1">
+            <h4 className="flex flex-wrap items-center gap-2.5 text-lg font-extrabold">
+              {t('travel.title')}
+              <span className="bg-wx-500 rounded-full px-2.5 py-0.5 text-[11px] font-bold text-white">
+                {t('travel.badge')}
+              </span>
+            </h4>
+            <p className="text-muted-foreground mt-1 text-sm">
+              {t('travel.desc')}
+            </p>
+          </div>
+          <div className="flex items-center gap-1.5 text-sm font-extrabold">
+            <Banknote className="text-brand-600 size-4" />
+            {t('travel.price')}
+          </div>
+          <Button
+            asChild
+            className="bg-ink-900 hover:bg-ink-800 h-11 shrink-0 rounded-xl px-5 font-bold text-white"
+          >
+            <LocaleLink href={TRAVEL_HREF}>
+              {t('travel.cta')}
               <ArrowRight className="size-4" />
             </LocaleLink>
           </Button>
