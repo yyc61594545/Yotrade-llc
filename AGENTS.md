@@ -60,7 +60,7 @@ Claude 通过 `/daily-post` 进入，Codex 直接读本文件。两者规范完�
 ---
 title: <主标题：核心结论 + 年份 + 关键数字>
 description: <2 句。第 1 句给结论，第 2 句给本文覆盖范围。>
-image: /images/blog/<slug>-cover.png
+image: /images/blog/<slug>-cover.webp
 date: "YYYY-MM-DD"
 published: true
 categories: [us-business, guide]
@@ -97,8 +97,13 @@ author: 极客杰尼
 
 ## 六、封面
 
-`public/images/blog/<slug>-cover.png`，**2560×1440 PNG**。仓库里没有生成脚本。
-出不了图就**不要瞎填 `image:` 指向不存在的文件** —— 沿用同板块一张既有封面，或留待人工补，并在 PR body 里注明。
+`public/images/blog/<slug>-cover.webp`，**2560×1440 WebP（≤ 300 KB）**。用仓库脚本生成：
+
+```bash
+/usr/bin/python3 scripts/blog/gen_blog_cover.py <slug> "标题行1(≤8字)" "标题行2(≤8字)" "副标题(≤14字)"
+```
+
+（系统 `/usr/bin/python3` 自带 Pillow；homebrew 的 python3 没有。）**禁止再提交 PNG 封面**——Vercel Hobby 部署存储只有 10 GB，之前 2–3 MB 的 PNG 封面把它吃到了 88%。出不了图就**不要瞎填 `image:` 指向不存在的文件** —— 沿用同板块一张既有封面，或留待人工补，并在 PR body 里注明。
 
 ## 七、门禁
 

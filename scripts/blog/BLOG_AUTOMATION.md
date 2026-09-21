@@ -15,7 +15,7 @@
 | 博客目录 | `content/blog/` |
 | 文章命名 | `{english-slug}.zh.mdx`（locale = zh） |
 | 封面目录 | `public/images/blog/` |
-| 封面命名 | `{english-slug}-cover.png` |
+| 封面命名 | `{english-slug}-cover.webp`（2026-09-21 起，禁止 PNG） |
 | 分类目录 | `content/category/`（现有：`us-business`、`hk-bank`、`company`、`payments`、`guide`、`travel`） |
 | 作者目录 | `content/author/`（现有：`mksaas`、`jikejieni`、`hezhiyan7`） |
 | 部署平台 | Vercel（push 到 main 自动部署） |
@@ -68,7 +68,7 @@ YoTrade 四大业务板块（按导流优先级）：
 ---
 title: 标题（含主关键词 + 年份）
 description: 1-2 句话总结，含 SEO 关键词，控制 80-160 字
-image: /images/blog/{slug}-cover.png
+image: /images/blog/{slug}-cover.webp
 date: "YYYY-MM-DD"
 published: true
 categories: [primary-category, guide]
@@ -185,7 +185,7 @@ python3 scripts/blog/gen_blog_cover.py "{slug}" "{title-line-1}" "{title-line-2}
 
 - `title-line-1` 和 `title-line-2`：标题分两行写，每行 4-6 个汉字最佳
 - `subtitle`：副标题，10-15 个汉字
-- 输出：`public/images/blog/{slug}-cover.png`
+- 输出：`public/images/blog/{slug}-cover.webp`
 
 ### 4.2 依赖
 
@@ -221,7 +221,7 @@ git checkout -b "blog/daily-$(date +%Y%m%d)-${SLUG}"
 python3 scripts/blog/gen_blog_cover.py "${SLUG}" "标题1" "标题2" "副标题"
 
 # 3. 提交
-git add content/blog/${SLUG}.zh.mdx public/images/blog/${SLUG}-cover.png
+git add content/blog/${SLUG}.zh.mdx public/images/blog/${SLUG}-cover.webp
 git commit -m "docs(blog): ${TITLE}
 
 Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
