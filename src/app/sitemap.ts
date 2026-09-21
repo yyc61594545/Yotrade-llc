@@ -9,27 +9,39 @@ import { getBaseUrl } from '../lib/urls/urls';
 type Href = Parameters<typeof getLocalePathname>[0]['href'];
 
 /**
- * static routes for sitemap, you may change the routes for your own
+ * Fixed lastModified for pages that have no content date of their own.
+ * Bump this when a static page is actually changed — never use `new Date()`
+ * here, otherwise every URL claims to have changed on every crawl and search
+ * engines learn to ignore the sitemap's dates entirely.
  */
-const staticRoutes = [
-  '/',
-  '/pricing',
-  '/about',
-  '/contact',
-  '/waitlist',
-  '/changelog',
-  '/privacy',
-  '/terms',
-  '/cookie',
-  '/services/daifu',
-  '/services/daigou',
-  '/services/daimai',
-  '/services/daiban',
-  '/services/travel',
-  '/auth/login',
-  '/auth/register',
-  ...(websiteConfig.blog.enable ? ['/blog'] : []),
-  ...(websiteConfig.docs.enable ? ['/docs'] : []),
+const STATIC_LAST_MODIFIED = new Date('2026-09-21');
+
+/**
+ * static routes for sitemap, you may change the routes for your own
+ *
+ * Auth / waitlist pages are intentionally excluded: they carry no search value
+ * and are marked noindex on the page itself.
+ */
+const staticRoutes: { href: Href; priority: number }[] = [
+  { href: '/', priority: 1 },
+  { href: '/services/daifu', priority: 0.9 },
+  { href: '/services/daigou', priority: 0.9 },
+  { href: '/services/daimai', priority: 0.9 },
+  { href: '/services/daiban', priority: 0.9 },
+  { href: '/services/travel', priority: 0.9 },
+  { href: '/pricing', priority: 0.7 },
+  { href: '/about', priority: 0.5 },
+  { href: '/contact', priority: 0.6 },
+  { href: '/changelog', priority: 0.3 },
+  { href: '/privacy', priority: 0.2 },
+  { href: '/terms', priority: 0.2 },
+  { href: '/cookie', priority: 0.2 },
+  ...(websiteConfig.blog.enable
+    ? [{ href: '/blog' as Href, priority: 0.8 }]
+    : []),
+  ...(websiteConfig.docs.enable
+    ? [{ href: '/docs' as Href, priority: 0.7 }]
+    : []),
 ];
 
 /**
@@ -43,99 +55,57 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // add static routes
   sitemapList.push(
-    ...staticRoutes.flatMap((route) => {
-      return routing.locales.map((locale) => ({
-        url: getUrl(route, locale),
-        lastModified: new Date(),
-        priority: 1,
+    ...staticRoutes.flatMap(({ href, priority }) =>
+      routing.locales.map((locale) => ({
+        url: getUrl(href, locale),
+        lastModified: STATIC_LAST_MODIFIED,
+        priority,
         changeFrequency: 'weekly' as const,
-      }));
-    })
+      }))
+    )
   );
 
   // add blog related routes if enabled
   if (websiteConfig.blog.enable) {
-    // add categories
-    sitemapList.push(
-      ...categorySource.getPages().flatMap((category) =>
-        routing.locales.map((locale) => ({
-          url: getUrl(`/blog/category/${category.slugs[0]}`, locale),
-          lastModified: new Date(),
-          priority: 0.8,
-          changeFrequency: 'weekly' as const,
-        }))
-      )
-    );
-
-    // add paginated blog list pages
+    // add categories (first page only; paginated list pages are thin and
+    // reachable through in-site links, so they stay out of the sitemap)
     routing.locales.forEach((locale) => {
       const posts = blogSource
         .getPages(locale)
         .filter((post) => post.data.published);
-      const totalPages = Math.max(
-        1,
-        Math.ceil(posts.length / websiteConfig.blog.paginationSize)
-      );
-      // /blog/page/[page] (from 2)
-      for (let page = 2; page <= totalPages; page++) {
-        sitemapList.push({
-          url: getUrl(`/blog/page/${page}`, locale),
-          lastModified: new Date(),
-          priority: 0.8,
-          changeFrequency: 'weekly' as const,
-        });
-      }
-    });
 
-    // add paginated category pages
-    routing.locales.forEach((locale) => {
-      const localeCategories = categorySource.getPages(locale);
-      localeCategories.forEach((category) => {
-        // posts in this category and locale
-        const postsInCategory = blogSource
-          .getPages(locale)
-          .filter((post) => post.data.published)
-          .filter((post) =>
-            post.data.categories.some((cat) => cat === category.slugs[0])
-          );
-        const totalPages = Math.max(
-          1,
-          Math.ceil(postsInCategory.length / websiteConfig.blog.paginationSize)
+      categorySource.getPages(locale).forEach((category) => {
+        const postsInCategory = posts.filter((post) =>
+          post.data.categories.some((cat) => cat === category.slugs[0])
         );
-        // /blog/category/[slug] (first page)
+        // a category is only worth listing once it has content
+        if (postsInCategory.length === 0) {
+          return;
+        }
         sitemapList.push({
           url: getUrl(`/blog/category/${category.slugs[0]}`, locale),
-          lastModified: new Date(),
-          priority: 0.8,
+          lastModified: latestDate(postsInCategory.map((p) => p.data.date)),
+          priority: 0.5,
           changeFrequency: 'weekly' as const,
         });
-        // /blog/category/[slug]/page/[page] (from 2)
-        for (let page = 2; page <= totalPages; page++) {
-          sitemapList.push({
-            url: getUrl(
-              `/blog/category/${category.slugs[0]}/page/${page}`,
-              locale
-            ),
-            lastModified: new Date(),
-            priority: 0.8,
-            changeFrequency: 'weekly' as const,
-          });
-        }
       });
     });
 
-    // add posts (single post pages)
+    // add posts (single post pages), dated by their frontmatter
     sitemapList.push(
-      ...blogSource.getPages().flatMap((post) =>
-        routing.locales
-          .filter((locale) => post.locale === locale)
-          .map((locale) => ({
-            url: getUrl(`/blog/${post.slugs.join('/')}`, locale),
-            lastModified: new Date(),
-            priority: 0.8,
-            changeFrequency: 'weekly' as const,
-          }))
-      )
+      ...blogSource
+        .getPages()
+        .filter((post) => post.data.published)
+        .flatMap((post) =>
+          routing.locales
+            .filter((locale) => post.locale === locale)
+            .map((locale) => ({
+              url: getUrl(`/blog/${post.slugs.join('/')}`, locale),
+              lastModified: new Date(post.data.date),
+              priority: 0.8,
+              changeFrequency: 'monthly' as const,
+            }))
+        )
     );
   }
 
@@ -143,36 +113,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (websiteConfig.docs.enable) {
     const docsParams = source.generateParams();
     sitemapList.push(
-      ...docsParams.flatMap((param) =>
-        routing.locales.map((locale) => ({
-          url: getUrl(`/docs/${param.slug.join('/')}`, locale),
-          lastModified: new Date(),
-          priority: 0.8,
-          changeFrequency: 'weekly' as const,
-        }))
-      )
+      ...docsParams
+        // the docs root is already listed as a static route
+        .filter((param) => param.slug.length > 0)
+        .flatMap((param) =>
+          routing.locales.map((locale) => ({
+            url: getUrl(`/docs/${param.slug.join('/')}`, locale),
+            lastModified: STATIC_LAST_MODIFIED,
+            priority: 0.7,
+            changeFrequency: 'monthly' as const,
+          }))
+        )
     );
   }
 
-  return sitemapList;
+  // dedupe by URL — keep the first entry (static routes win over generated ones)
+  const seen = new Set<string>();
+  return sitemapList.filter((entry) => {
+    if (seen.has(entry.url)) {
+      return false;
+    }
+    seen.add(entry.url);
+    return true;
+  });
+}
+
+function latestDate(dates: string[]): Date {
+  return new Date(
+    dates.reduce((max, d) => (d > max ? d : max), dates[0] ?? '1970-01-01')
+  );
 }
 
 function getUrl(href: Href, locale: Locale) {
   const pathname = getLocalePathname({ locale, href });
   return getBaseUrl() + pathname;
-}
-
-/**
- * https://next-intl.dev/docs/environments/actions-metadata-route-handlers#sitemap
- * https://github.com/amannn/next-intl/blob/main/examples/example-app-router/src/app/sitemap.ts
- */
-function getEntries(href: Href) {
-  return routing.locales.map((locale) => ({
-    url: getUrl(href, locale),
-    alternates: {
-      languages: Object.fromEntries(
-        routing.locales.map((cur) => [cur, getUrl(href, cur)])
-      ),
-    },
-  }));
 }

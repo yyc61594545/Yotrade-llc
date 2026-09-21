@@ -2,7 +2,7 @@
   "Metadata": {
     "name": "YoTrade",
     "title": "YoTrade - 世界那么大 支付不该那么难",
-    "description": "YoTrade 提供代购、代买、代刷、代办等一站式服务，帮你绕过支付限制，畅享全球好物。"
+    "description": "YoTrade 面向国内与 NRA 用户提供海外订阅代付（ChatGPT / Claude / Netflix / Spotify）、美区日区代购、香港银行开户与美国 LLC 代办、酒店机票代订等一站式跨境服务，自有美卡港卡链路，报价透明、砍单全额退款。"
   },
   "Common": {
     "premium": "付费文章",
@@ -47,7 +47,7 @@
   },
   "PricingPage": {
     "title": "价格",
-    "description": "选择最适合您的付费计划",
+    "description": "YoTrade 代付、代购、代办、酒店机票代订各项服务的价格与手续费说明：按单报价、微信客服确认后再付款，被砍单全额退款，无隐藏费用。",
     "subtitle": "选择最适合您的付费计划",
     "monthly": "月付",
     "yearly": "年付",
@@ -170,7 +170,7 @@
   },
   "ChangelogPage": {
     "title": "更新日志",
-    "description": "查看我们产品的最新动态",
+    "description": "YoTrade 服务更新记录：新增的代付平台、代购站点、代办项目、支付渠道与价格调整，按时间倒序整理，方便老客户了解最新支持范围。",
     "subtitle": "查看我们产品的最新动态"
   },
   "ContactPage": {
@@ -215,7 +215,7 @@
   },
   "WaitlistPage": {
     "title": "等待队列",
-    "description": "加入等待队列，及时获取最新消息和更新",
+    "description": "留下邮箱加入 YoTrade 候补名单，新服务上线、支付渠道变化与限时优惠会第一时间通知你，不发无关邮件。",
     "subtitle": "加入等待队列，及时获取最新消息和更新",
     "form": {
       "title": "加入等待队列",
@@ -309,7 +309,7 @@
   },
   "BlogPage": {
     "title": "博客",
-    "description": "来自我们的团队最新新闻和更新",
+    "description": "YoTrade 博客：海外订阅代付、美区日区代购、香港银行开户、美国 LLC 与税务、酒店积分订房等跨境支付实操指南，每篇都基于真实代付经验与官方最新规则整理。",
     "subtitle": "来自我们的团队最新新闻和更新",
     "author": "作者",
     "categories": "分类",
