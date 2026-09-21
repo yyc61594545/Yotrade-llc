@@ -16,10 +16,10 @@
 | 文章命名 | `{english-slug}.zh.mdx`（locale = zh） |
 | 封面目录 | `public/images/blog/` |
 | 封面命名 | `{english-slug}-cover.png` |
-| 分类目录 | `content/category/`（现有：`us-business`、`hk-bank`、`company`、`payments`、`guide`） |
+| 分类目录 | `content/category/`（现有：`us-business`、`hk-bank`、`company`、`payments`、`guide`、`travel`） |
 | 作者目录 | `content/author/`（现有：`mksaas`、`jikejieni`、`hezhiyan7`） |
 | 部署平台 | Vercel（push 到 main 自动部署） |
-| 服务页路由 | `/services/{daiban,daishua,daigou,daimai}` — 真实存在的转化页，CTA 放心引用，不会 404 |
+| 服务页路由 | `/services/{daiban,daifu,daigou,daimai,travel}`（daishua 已 301 → daifu） — 真实存在的转化页，CTA 放心引用，不会 404 |
 
 ## 2. 选题策略
 
