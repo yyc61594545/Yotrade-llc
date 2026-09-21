@@ -977,6 +977,13 @@
         "desc": "ITIN + US LLC + bank + Stripe + US cards — the full stack for serious cross-border sellers.",
         "price": "On request",
         "cta": "Explore"
+      },
+      "travel": {
+        "title": "Hotels & flights · IHG points booking",
+        "badge": "New",
+        "desc": "IHG hotels at points rates plus award-flight and direct-booking assistance — stay under your own name with an official confirmation.",
+        "price": "Quote on WeChat",
+        "cta": "Explore"
       }
     },
     "daifu": {
