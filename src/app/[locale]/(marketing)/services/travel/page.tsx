@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -28,6 +29,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   return constructMetadata({
     title: 'IHG 酒店积分代订 / 航班里程票代订 | 酒店机票代订 | YoTrade',
     description:
@@ -127,6 +129,7 @@ export default async function TravelPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const pageUrl = getUrlWithLocale('/services/travel', locale);
   const jsonLd = {
     '@context': 'https://schema.org',

@@ -18,10 +18,16 @@ import { Toaster } from 'sonner';
 import { Providers } from './providers';
 
 import '@/styles/globals.css';
+import { setRequestLocale } from 'next-intl/server';
 
 interface LocaleLayoutProps {
   children: ReactNode;
   params: Promise<{ locale: Locale }>;
+}
+
+// 让 [locale] 段在构建时枚举，配合 setRequestLocale 实现 SSG
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 /**
@@ -41,6 +47,10 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // 静态渲染：next-intl 要求每个 layout/page 都调用一次，否则整站退化为动态渲染
+  // （2026-09-21：Vercel Hobby Active CPU 用到 90% 的根因）
+  setRequestLocale(locale);
 
   return (
     <html suppressHydrationWarning lang={locale}>

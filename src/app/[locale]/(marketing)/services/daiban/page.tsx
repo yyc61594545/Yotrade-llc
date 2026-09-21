@@ -32,6 +32,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -39,6 +40,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   return constructMetadata({
     title: '美国身份代办 | ITIN / 美国公司 / 银行账户 / Stripe 收款 | YoTrade',
     description:
@@ -130,6 +132,7 @@ export default async function DaibanPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const pageUrl = getUrlWithLocale('/services/daiban', locale);
   const jsonLd = {
     '@context': 'https://schema.org',

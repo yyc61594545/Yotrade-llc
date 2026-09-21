@@ -21,7 +21,7 @@ import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import { CalendarIcon, FileTextIcon } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -58,6 +58,7 @@ export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata | undefined> {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const post = blogSource.getPage(slug, locale);
   if (!post) {
     notFound();
@@ -82,6 +83,7 @@ interface BlogPostPageProps {
 
 export default async function BlogPostPage(props: BlogPostPageProps) {
   const { locale, slug } = await props.params;
+  setRequestLocale(locale);
   const post = blogSource.getPage(slug, locale);
   if (!post) {
     notFound();
@@ -98,7 +100,8 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
     .filter((category) => categories.includes(category.slugs[0] ?? ''));
 
   // Check premium access for premium posts
-  const session = await getSession();
+  // 只有付费文章才读 session（headers() 会让页面退化为动态渲染）
+  const session = premium ? await getSession() : null;
   const hasPremiumAccess =
     premium && session?.user?.id
       ? await checkPremiumAccess(session.user.id)

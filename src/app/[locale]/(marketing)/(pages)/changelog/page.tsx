@@ -6,7 +6,7 @@ import { getUrlWithLocale } from '@/lib/urls/urls';
 import type { NextPageProps } from '@/types/next-page-props';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import '@/styles/mdx.css';
@@ -17,6 +17,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Metadata' });
   const pt = await getTranslations({ locale, namespace: 'ChangelogPage' });
 
