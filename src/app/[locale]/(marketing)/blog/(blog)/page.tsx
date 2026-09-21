@@ -5,7 +5,7 @@ import { constructMetadata } from '@/lib/metadata';
 import { blogSource } from '@/lib/source';
 import { getUrlWithLocale } from '@/lib/urls/urls';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -13,6 +13,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Metadata' });
   const pt = await getTranslations({ locale, namespace: 'BlogPage' });
 
@@ -31,6 +32,7 @@ interface BlogPageProps {
 
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const localePosts = blogSource.getPages(locale);
   const publishedPosts = localePosts.filter((post) => {
     const isPublished = post.data.published;

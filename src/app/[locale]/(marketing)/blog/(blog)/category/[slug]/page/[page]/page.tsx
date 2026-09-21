@@ -5,7 +5,7 @@ import { constructMetadata } from '@/lib/metadata';
 import { blogSource, categorySource } from '@/lib/source';
 import { getUrlWithLocale } from '@/lib/urls/urls';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 // Generate all static params for SSG (locale + category + pagination)
@@ -34,6 +34,7 @@ export function generateStaticParams() {
 // Generate metadata for each static category page (locale + category + pagination)
 export async function generateMetadata({ params }: BlogCategoryPageProps) {
   const { locale, slug, page } = await params;
+  setRequestLocale(locale);
   const category = categorySource.getPage([slug], locale);
   if (!category) {
     notFound();
@@ -60,6 +61,7 @@ export default async function BlogCategoryPage({
   params,
 }: BlogCategoryPageProps) {
   const { locale, slug, page } = await params;
+  setRequestLocale(locale);
   const localePosts = blogSource.getPages(locale);
   const publishedPosts = localePosts.filter((post) => post.data.published);
   const filteredPosts = publishedPosts.filter((post) =>

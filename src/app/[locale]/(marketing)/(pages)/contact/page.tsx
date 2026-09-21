@@ -6,7 +6,7 @@ import { getUrlWithLocale } from '@/lib/urls/urls';
 import { Mail, MessageSquare, Twitter } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -14,6 +14,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return constructMetadata({
@@ -25,7 +26,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('ContactPage');
 
   const channels = [

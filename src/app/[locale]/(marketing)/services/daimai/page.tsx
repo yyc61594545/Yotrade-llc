@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -26,6 +27,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   return constructMetadata({
     title: '海外限定款代买 | 球鞋 / 演唱会 / 限购品 | YoTrade',
     description:
@@ -79,6 +81,7 @@ export default async function DaimaiPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const pageUrl = getUrlWithLocale('/services/daimai', locale);
   const jsonLd = {
     '@context': 'https://schema.org',

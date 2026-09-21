@@ -3,7 +3,7 @@ import { constructMetadata } from '@/lib/metadata';
 import { getUrlWithLocale } from '@/lib/urls/urls';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 // ── Pass 5 首页 blocks（按确认节奏排列）──────────────────────────────
 import HeroSection from '@/components/blocks/hero/hero';                       // 墨夜
@@ -22,6 +22,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return constructMetadata({
@@ -35,7 +36,9 @@ interface HomePageProps {
   params: Promise<{ locale: Locale }>;
 }
 
-export default async function HomePage(_props: HomePageProps) {
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <div className="flex flex-col">
       {/* 1 · 墨夜 */}

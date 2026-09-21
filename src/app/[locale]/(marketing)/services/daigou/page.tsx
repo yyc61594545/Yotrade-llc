@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -26,6 +27,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   return constructMetadata({
     title: '海外商品代购 | 美亚 / 日亚 / 欧美直邮 | YoTrade',
     description:
@@ -77,6 +79,7 @@ export default async function DaigouPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const pageUrl = getUrlWithLocale('/services/daigou', locale);
   const jsonLd = {
     '@context': 'https://schema.org',
