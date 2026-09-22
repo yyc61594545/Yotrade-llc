@@ -60,12 +60,6 @@ export default async function LocaleLayout({
           name="msvalidate.01"
           content="BEB7EA2C2907DE17A5A889A4186CC6F3"
         />
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263501146797386"
-          crossOrigin="anonymous"
-        />
         <AffonsoScript />
         <PromotekitScript />
       </head>
