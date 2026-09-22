@@ -21,7 +21,7 @@ import {
   DocsTitle,
 } from 'fumadocs-ui/page';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 
@@ -39,6 +39,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: DocPageProps) {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
   const language = locale as string;
   const page = source.getPage(slug, language);
   if (!page) {
@@ -81,6 +82,7 @@ interface DocPageProps {
  */
 export default async function DocPage({ params }: DocPageProps) {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
   const language = locale as string;
   const page = source.getPage(slug, language);
 
@@ -93,7 +95,8 @@ export default async function DocPage({ params }: DocPageProps) {
   const { premium } = page.data;
 
   // Check premium access for premium docs
-  const session = await getSession();
+  // 只有付费文档才读 session：headers() 会让整页退化为动态渲染
+  const session = premium ? await getSession() : null;
   const hasPremiumAccess =
     premium && session?.user?.id
       ? await checkPremiumAccess(session.user.id)
