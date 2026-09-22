@@ -2,7 +2,7 @@ import { constructMetadata } from '@/lib/metadata';
 import { getUrlWithLocale } from '@/lib/urls/urls';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -10,6 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Metadata' });
   const pt = await getTranslations({ locale, namespace: 'PricingPage' });
   return constructMetadata({
@@ -21,9 +22,13 @@ export async function generateMetadata({
 
 export default async function PricingPageLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('PricingPage');
   return (
     <div className="mb-16">
