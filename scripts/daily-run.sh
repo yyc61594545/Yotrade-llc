@@ -30,7 +30,7 @@ NOTIFY="/Users/ethan/wuyun-shenghuo/happy-hellman-f65c59/scripts/notify-telegram
 
 # launchd 不继承登录 shell 的环境。这台机器直连 DNS 不通，
 # gh 出网全靠 Surge 的本地代理，丢了就报 "Resolving timed out"。
-export PATH="/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/Users/ethan/.npm-global/bin:/Users/ethan/.local/bin:$PATH"
+export PATH="/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/Users/ethan/.npm-global/bin:/Users/ethan/.local/bin:/Users/ethan/Library/pnpm:$PATH"
 export HOME="/Users/ethan"
 export HTTP_PROXY="http://127.0.0.1:6152"
 export HTTPS_PROXY="http://127.0.0.1:6152"
@@ -141,6 +141,13 @@ publish() {
     return 0
   fi
 
+  # main 上的 ruleset 是 strict：分支落后于 base 就不给合（2026-09-22 日更因此失败过一次）。
+  # update-branch 会 no-op 或推一个 merge commit，两种情况都不该中断日更。
+  if gh pr update-branch "$BRANCH" >/dev/null 2>&1; then
+    log "分支已更新到最新 main"
+    sleep 5
+  fi
+
   log "等 typecheck（最多 $((CHECK_TIMEOUT/60)) 分钟）"
   if ! timeout "$CHECK_TIMEOUT" gh pr checks "$BRANCH" --watch --fail-fast; then
     log "typecheck 未通过或超时，PR 保留待人工处理"
@@ -153,7 +160,15 @@ publish() {
           | sed -n 's|.*/||; s|\.zh\.mdx$||p' | tr '\n' ' ')
 
   log "typecheck 绿，squash 合并"
-  gh pr merge "$BRANCH" --squash --delete-branch || { log "合并失败"; return 1; }
+  if ! gh pr merge "$BRANCH" --squash --delete-branch; then
+    log "合并被拒，更新分支后再试一次"
+    gh pr update-branch "$BRANCH" >/dev/null 2>&1 || true
+    if ! timeout "$CHECK_TIMEOUT" gh pr checks "$BRANCH" --watch --fail-fast; then
+      log "重跑的 typecheck 未通过，PR 保留待人工处理"
+      return 1
+    fi
+    gh pr merge "$BRANCH" --squash --delete-branch || { log "合并失败"; return 1; }
+  fi
   log "已合并到 main，Vercel 接管部署"
 
   # IndexNow：本站 Bing 流量为 0（2026-09 数据），新文章上线后主动推给 Bing。
@@ -162,6 +177,14 @@ publish() {
     log "等 Vercel 部署后通知 IndexNow：$slugs"
     python3 "$REPO/scripts/indexnow.py" --wait $slugs 2>&1 | while read -r l; do log "$l"; done
   fi
+
+  # 清旧部署：Vercel Hobby 的 10 GB Deployment Storage 没有自动保留策略，
+  # 一天两个部署（preview + production）一个月就吃到 88%（2026-09-21 实测）。
+  # 失败只记日志：token 过期或没装 CLI 都不该影响日更结果。
+  log "清理 Vercel 旧部署，只留最新 3 个 production"
+  python3 "$REPO/scripts/vercel-prune-deployments.py" --keep 3 --yes 2>&1 \
+    | while read -r l; do log "$l"; done
+
   return 0
 }
 
