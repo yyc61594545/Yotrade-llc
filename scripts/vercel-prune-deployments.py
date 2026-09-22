@@ -65,6 +65,11 @@ def list_deployments(tok: str) -> list[dict]:
 
 def main(argv: list[str]) -> int:
     keep_n = int(argv[argv.index("--keep") + 1]) if "--keep" in argv else 3
+    # 同时保护最近 N 小时内的部署：开着的 PR 还挂着自己的 Preview，
+    # 日更合并后立刻清理会把别人正在审的预览一起删掉。
+    keep_hours = (
+        float(argv[argv.index("--keep-hours") + 1]) if "--keep-hours" in argv else 24.0
+    )
     do_it = "--yes" in argv
     tok = token()
 
@@ -79,9 +84,15 @@ def main(argv: list[str]) -> int:
         raise
     prod = sorted((d for d in deps if d.get("target") == "production"), key=lambda d: -d["created"])
     keep = {d["uid"] for d in prod[:keep_n]}
+    cutoff = (time.time() - keep_hours * 3600) * 1000
+    recent = {d["uid"] for d in deps if d["created"] > cutoff} - keep
+    keep |= recent
     todel = [d for d in deps if d["uid"] not in keep]
 
-    print(f"共 {len(deps)} 个部署：保留最新 {len(keep)} 个 Production，删除 {len(todel)} 个")
+    print(
+        f"共 {len(deps)} 个部署：保留最新 {keep_n} 个 Production"
+        f" + {len(recent)} 个 {keep_hours:g} 小时内的，删除 {len(todel)} 个"
+    )
     for d in prod[:keep_n]:
         print("  保留", d["url"])
     if not do_it:
