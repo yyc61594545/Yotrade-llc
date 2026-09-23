@@ -16,6 +16,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'Metadata' });
   const pt = await getTranslations({ locale, namespace: 'WaitlistPage' });
   return constructMetadata({
+    noIndex: true,
     title: pt('title') + ' | ' + t('title'),
     description: pt('description'),
     canonicalUrl: getUrlWithLocale('/waitlist', locale),

@@ -18,6 +18,7 @@ export async function generateMetadata({
   });
 
   return constructMetadata({
+    noIndex: true,
     title: pt('title') + ' | ' + t('title'),
     description: t('description'),
     canonicalUrl: getUrlWithLocale('/auth/forgot-password', locale),
