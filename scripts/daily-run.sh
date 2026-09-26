@@ -60,7 +60,7 @@ log "===== 日更开始 $DATE ====="
 
 if ! git fetch origin --prune --quiet; then
   log "FATAL: git fetch 失败，网络或代理有问题"
-  notify "❌ yotradellc 日更 $DATE：git fetch 失败，没开跑"
+  notify "❌ yotradellc 日更 ${DATE}：git fetch 失败，没开跑"
   exit 1
 fi
 
@@ -81,7 +81,7 @@ fi
 
 git checkout --quiet main && git pull --quiet --ff-only || {
   log "FATAL: 切回 main / pull 失败"
-  notify "❌ yotradellc 日更 $DATE：本地 main 同步失败"
+  notify "❌ yotradellc 日更 ${DATE}：本地 main 同步失败"
   exit 1
 }
 
@@ -130,7 +130,7 @@ publish() {
       --title "$title" \
       --body "Daily auto-published post.
 
-由 scripts/daily-run.sh 自动生成（$DATE）。详见 .claude/commands/daily-post.md。" \
+由 scripts/daily-run.sh 自动生成（${DATE}）。详见 .claude/commands/daily-post.md。" \
       || { log "gh pr create 失败"; return 1; }
   else
     log "PR 已存在（agent 自己开的），直接用"
@@ -221,17 +221,17 @@ for agent in claude codex; do
     0)
       if publish; then
         log "===== 完成：$agent 写了 1 篇，已合并上线 ====="
-        notify "✅ yotradellc 日更 $DATE：$agent 写了 1 篇，已合并，Vercel 部署中"
+        notify "✅ yotradellc 日更 ${DATE}：$agent 写了 1 篇，已合并，Vercel 部署中"
         exit 0
       fi
       log "===== 中止：稿子已合入 PR 但未合并 ====="
-      notify "⚠️ yotradellc 日更 $DATE：$agent 写完并开了 PR，但门禁未过/合并失败，需人工处理。日志 $LOG"
+      notify "⚠️ yotradellc 日更 ${DATE}：$agent 写完并开了 PR，但门禁未过/合并失败，需人工处理。日志 $LOG"
       exit 1
       ;;
     2)
       # 稿子在本地但推不上去。保留现场，不要换 agent 重写一遍。
       log "===== 中止：稿子已写好但推送失败，现场保留在本地分支 ====="
-      notify "⚠️ yotradellc 日更 $DATE：$agent 写完了但 push 失败，稿子留在本地。日志 $LOG"
+      notify "⚠️ yotradellc 日更 ${DATE}：$agent 写完了但 push 失败，稿子留在本地。日志 $LOG"
       exit 1
       ;;
     *)
@@ -243,5 +243,5 @@ for agent in claude codex; do
 done
 
 log "===== 失败：Claude 和 Codex 都没产出 ====="
-notify "❌ yotradellc 日更 $DATE：Claude 和 Codex 都失败，0 篇。日志 $LOG"
+notify "❌ yotradellc 日更 ${DATE}：Claude 和 Codex 都失败，0 篇。日志 $LOG"
 exit 1
